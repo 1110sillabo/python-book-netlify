@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Getting Started with Python: Anaconda, Jupyter Notebooks, Google CoLabs and Virtual Environments | Programming Digital Humanities. Python (and More) for Academia</title>
+  <meta name="description" content="This book introduces the ABC theory, and …" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Getting Started with Python: Anaconda, Jupyter Notebooks, Google CoLabs and Virtual Environments | Programming Digital Humanities. Python (and More) for Academia" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/john/awesome/" />
+  
+  <meta property="og:description" content="This book introduces the ABC theory, and …" />
+  <meta name="github-repo" content="john/awesome" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Getting Started with Python: Anaconda, Jupyter Notebooks, Google CoLabs and Virtual Environments | Programming Digital Humanities. Python (and More) for Academia" />
+  
+  <meta name="twitter:description" content="This book introduces the ABC theory, and …" />
+  
+
+<meta name="author" content="Guglielmo Feis v. 0.1" />
+
+
+<meta name="date" content="2021-03-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch3.html"/>
+<link rel="next" href="ch5.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="prologue.html"><a href="prologue.html"><i class="fa fa-check"></i><b>1</b> Prologue</a><ul>
+<li class="chapter" data-level="1.1" data-path="prologue.html"><a href="prologue.html#the-journey-welcome-to-humandemia"><i class="fa fa-check"></i><b>1.1</b> The Journey: Welcome to <em>HumanDemia</em></a></li>
+<li class="chapter" data-level="1.2" data-path="prologue.html"><a href="prologue.html#a-difficult-trade-off-including-book-summary"><i class="fa fa-check"></i><b>1.2</b> A Difficult Trade-Off (including Book Summary)</a></li>
+<li class="chapter" data-level="1.3" data-path="prologue.html"><a href="prologue.html#whos-this-book-for"><i class="fa fa-check"></i><b>1.3</b> Who’s this Book for</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="prologue.html"><a href="prologue.html#how-coding-helps-in-the-humanities"><i class="fa fa-check"></i><b>1.3.1</b> How Coding Helps in the Humanities</a></li>
+<li class="chapter" data-level="1.3.2" data-path="prologue.html"><a href="prologue.html#what-coding-cant-do-for-you"><i class="fa fa-check"></i><b>1.3.2</b> What Coding Can’t Do for You</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="prologue.html"><a href="prologue.html#getting-the-most-out-of-this-book"><i class="fa fa-check"></i><b>1.4</b> Getting the Most Out of this Book</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="prologue.html"><a href="prologue.html#assumptions"><i class="fa fa-check"></i><b>1.4.1</b> Assumptions</a></li>
+<li class="chapter" data-level="1.4.2" data-path="prologue.html"><a href="prologue.html#type-these-commands-in-and-use-ipython"><i class="fa fa-check"></i><b>1.4.2</b> Type these Commands In (and Use IPython)</a></li>
+<li class="chapter" data-level="1.4.3" data-path="prologue.html"><a href="prologue.html#make-it-your-own-and-grow-it"><i class="fa fa-check"></i><b>1.4.3</b> Make it Your Own (and Grow it)</a></li>
+<li class="chapter" data-level="1.4.4" data-path="prologue.html"><a href="prologue.html#make-deliberate-mistakes"><i class="fa fa-check"></i><b>1.4.4</b> Make (Deliberate) Mistakes</a></li>
+<li class="chapter" data-level="1.4.5" data-path="prologue.html"><a href="prologue.html#read-the-docs"><i class="fa fa-check"></i><b>1.4.5</b> Read the Docs</a></li>
+<li class="chapter" data-level="1.4.6" data-path="prologue.html"><a href="prologue.html#learn-from-the-computer-feedback"><i class="fa fa-check"></i><b>1.4.6</b> Learn From the Computer Feedback</a></li>
+<li class="chapter" data-level="1.4.7" data-path="prologue.html"><a href="prologue.html#ask-for-help"><i class="fa fa-check"></i><b>1.4.7</b> Ask for Help</a></li>
+<li class="chapter" data-level="1.4.8" data-path="prologue.html"><a href="prologue.html#the-importance-of-keyboard-shortcuts"><i class="fa fa-check"></i><b>1.4.8</b> The Importance of (Keyboard) Shortcuts</a></li>
+<li class="chapter" data-level="1.4.9" data-path="prologue.html"><a href="prologue.html#book-organization-and-extra-resources"><i class="fa fa-check"></i><b>1.4.9</b> Book Organization and Extra Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="prologue.html"><a href="prologue.html#summary"><i class="fa fa-check"></i><b>1.5</b> Summary</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="prologue.html"><a href="prologue.html#more-resources"><i class="fa fa-check"></i><b>1.5.1</b> More Resources</a></li>
+<li class="chapter" data-level="1.5.2" data-path="prologue.html"><a href="prologue.html#further-work"><i class="fa fa-check"></i><b>1.5.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Setting up the Environment</b></span></li>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> The Universal Typing Machine: Markdown and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#the-boring-side-of-academia"><i class="fa fa-check"></i><b>2.1</b> The Boring Side of Academia</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="ch2.html"><a href="ch2.html#sidenote-survey-on-academically-boring-things"><i class="fa fa-check"></i><b>2.1.1</b> Sidenote: Survey on Academically Boring Things</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#installing-rstudio"><i class="fa fa-check"></i><b>2.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#rstudio-settings-darkmode-and-packages"><i class="fa fa-check"></i><b>2.3</b> RStudio Settings: Darkmode and Packages</a></li>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#rstudio-automation-for-humanities-tocs-and-bibliographies"><i class="fa fa-check"></i><b>2.4</b> RStudio Automation for Humanities: TOCs and Bibliographies</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="ch2.html"><a href="ch2.html#managing-bibliography"><i class="fa fa-check"></i><b>2.4.1</b> Managing Bibliography</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch2.html"><a href="ch2.html#bibliography-template-example"><i class="fa fa-check"></i><b>2.4.2</b> Bibliography Template Example</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="ch2.html"><a href="ch2.html#markdown-basics"><i class="fa fa-check"></i><b>2.5</b> Markdown Basics</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="ch2.html"><a href="ch2.html#newlines-pagebreaks-cross-references-and-further-text-divisions"><i class="fa fa-check"></i><b>2.5.1</b> Newlines, Pagebreaks, Cross-references, and further Text Divisions</a></li>
+<li class="chapter" data-level="2.5.2" data-path="ch2.html"><a href="ch2.html#creation-of-tables"><i class="fa fa-check"></i><b>2.5.2</b> Creation of Tables</a></li>
+<li class="chapter" data-level="2.5.3" data-path="ch2.html"><a href="ch2.html#adding-images"><i class="fa fa-check"></i><b>2.5.3</b> Adding Images</a></li>
+<li class="chapter" data-level="2.5.4" data-path="ch2.html"><a href="ch2.html#cross-referencing"><i class="fa fa-check"></i><b>2.5.4</b> Cross Referencing</a></li>
+<li class="chapter" data-level="2.5.5" data-path="ch2.html"><a href="ch2.html#adding-codes"><i class="fa fa-check"></i><b>2.5.5</b> Adding Code(s)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="ch2.html"><a href="ch2.html#comparing-this-setup-with-more-traditional-ones-the-benefits-for-academics"><i class="fa fa-check"></i><b>2.6</b> Comparing this Setup with more Traditional Ones: The Benefits for Academics</a></li>
+<li class="chapter" data-level="2.7" data-path="ch2.html"><a href="ch2.html#whats-more-in-rstudio"><i class="fa fa-check"></i><b>2.7</b> What’s More in RStudio</a></li>
+<li class="chapter" data-level="2.8" data-path="ch2.html"><a href="ch2.html#rstudio-workflow-learn-write-get-it"><i class="fa fa-check"></i><b>2.8</b> RStudio Workflow: Learn, Write, Get It!</a></li>
+<li class="chapter" data-level="2.9" data-path="ch2.html"><a href="ch2.html#books-with-markdown-the-bookdown-package"><i class="fa fa-check"></i><b>2.9</b> Books with Markdown: the Bookdown Package</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="ch2.html"><a href="ch2.html#installing-bookdown"><i class="fa fa-check"></i><b>2.9.1</b> Installing Bookdown</a></li>
+<li class="chapter" data-level="2.9.2" data-path="ch2.html"><a href="ch2.html#setting-up-a-bookdown-book"><i class="fa fa-check"></i><b>2.9.2</b> Setting Up a Bookdown-book</a></li>
+<li class="chapter" data-level="2.9.3" data-path="ch2.html"><a href="ch2.html#bookdown-mechanics"><i class="fa fa-check"></i><b>2.9.3</b> Bookdown Mechanics</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="ch2.html"><a href="ch2.html#summary-1"><i class="fa fa-check"></i><b>2.10</b> Summary</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="ch2.html"><a href="ch2.html#list-of-rstudio-shortcuts"><i class="fa fa-check"></i><b>2.10.1</b> List of RStudio Shortcuts</a></li>
+<li class="chapter" data-level="2.10.2" data-path="ch2.html"><a href="ch2.html#more-resources-1"><i class="fa fa-check"></i><b>2.10.2</b> More Resources</a></li>
+<li class="chapter" data-level="2.10.3" data-path="ch2.html"><a href="ch2.html#further-work-1"><i class="fa fa-check"></i><b>2.10.3</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Command Line Interface and Git(Hub): Get Ready for Machine Talk and Cooperating with the World</a><ul>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#command-line-essentials"><i class="fa fa-check"></i><b>3.1</b> Command Line Essentials</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ch3.html"><a href="ch3.html#navigating-file-system-with-the-command-line"><i class="fa fa-check"></i><b>3.1.1</b> Navigating File System with the Command-Line</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#version-control-with-git"><i class="fa fa-check"></i><b>3.2</b> Version Control with Git</a></li>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#installing-git-on-windows"><i class="fa fa-check"></i><b>3.3</b> Installing Git (on Windows)</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#git-and-github"><i class="fa fa-check"></i><b>3.3.1</b> Git and GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#git-operations-and-mechanics"><i class="fa fa-check"></i><b>3.4</b> Git Operations and Mechanics</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="ch3.html"><a href="ch3.html#creating-a-new-repository-and-add-contents"><i class="fa fa-check"></i><b>3.4.1</b> Creating a New Repository and Add Contents</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch3.html"><a href="ch3.html#copies-on-git-the-git-clone-command"><i class="fa fa-check"></i><b>3.4.2</b> Copies on Git: the ‘<em>git clone</em>’ Command</a></li>
+<li class="chapter" data-level="3.4.3" data-path="ch3.html"><a href="ch3.html#a-practical-cloning-example"><i class="fa fa-check"></i><b>3.4.3</b> A Practical Cloning Example</a></li>
+<li class="chapter" data-level="3.4.4" data-path="ch3.html"><a href="ch3.html#git-pushing-new-contents-into-your-projects-with-git-push"><i class="fa fa-check"></i><b>3.4.4</b> Git: Pushing New Contents into your Projects with ‘<em>git push</em>’</a></li>
+<li class="chapter" data-level="3.4.5" data-path="ch3.html"><a href="ch3.html#adding-files-matching-certain-conditions"><i class="fa fa-check"></i><b>3.4.5</b> Adding Files Matching Certain Conditions</a></li>
+<li class="chapter" data-level="3.4.6" data-path="ch3.html"><a href="ch3.html#git-ignore"><i class="fa fa-check"></i><b>3.4.6</b> Git Ignore</a></li>
+<li class="chapter" data-level="3.4.7" data-path="ch3.html"><a href="ch3.html#git-readme"><i class="fa fa-check"></i><b>3.4.7</b> Git Readme</a></li>
+<li class="chapter" data-level="3.4.8" data-path="ch3.html"><a href="ch3.html#forking-and-contributing-to-a-project-pull-requests"><i class="fa fa-check"></i><b>3.4.8</b> Forking and Contributing to a Project: Pull Requests</a></li>
+<li class="chapter" data-level="3.4.9" data-path="ch3.html"><a href="ch3.html#merging-and-conflict-resolution"><i class="fa fa-check"></i><b>3.4.9</b> Merging and Conflict Resolution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ch3.html"><a href="ch3.html#github-for-the-humanities"><i class="fa fa-check"></i><b>3.5</b> GitHub for the Humanities</a></li>
+<li class="chapter" data-level="3.6" data-path="ch3.html"><a href="ch3.html#summary-2"><i class="fa fa-check"></i><b>3.6</b> Summary</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="ch3.html"><a href="ch3.html#list-of-git-commands-and-cli-commands"><i class="fa fa-check"></i><b>3.6.1</b> List of Git Commands and CLI Commands</a></li>
+<li class="chapter" data-level="3.6.2" data-path="ch3.html"><a href="ch3.html#shortcuts"><i class="fa fa-check"></i><b>3.6.2</b> Shortcuts</a></li>
+<li class="chapter" data-level="3.6.3" data-path="ch3.html"><a href="ch3.html#more-resources-2"><i class="fa fa-check"></i><b>3.6.3</b> More Resources</a></li>
+<li class="chapter" data-level="3.6.4" data-path="ch3.html"><a href="ch3.html#further-work-2"><i class="fa fa-check"></i><b>3.6.4</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Getting Started with Python: Anaconda, Jupyter Notebooks, Google CoLabs and Virtual Environments</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#installing-python-by-installing-anaconda-a-game-of-snakes"><i class="fa fa-check"></i><b>4.1</b> Installing Python by Installing Anaconda: A Game of Snakes</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#using-and-integrated-development-editor-ide-the-benefits-of-spyder"><i class="fa fa-check"></i><b>4.2</b> Using and Integrated Development Editor (IDE): The Benefits of Spyder</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="ch4.html"><a href="ch4.html#running-your-code-in-spyder"><i class="fa fa-check"></i><b>4.2.1</b> Running your Code in Spyder</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ch4.html"><a href="ch4.html#other-popular-python-ides"><i class="fa fa-check"></i><b>4.2.2</b> Other Popular (Python) IDEs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ipython"><i class="fa fa-check"></i><b>4.3</b> IPython</a></li>
+<li class="chapter" data-level="4.4" data-path="ch4.html"><a href="ch4.html#jupyter-notebooks"><i class="fa fa-check"></i><b>4.4</b> Jupyter Notebooks</a></li>
+<li class="chapter" data-level="4.5" data-path="ch4.html"><a href="ch4.html#command-line-in-action-the-anaconda-prompt"><i class="fa fa-check"></i><b>4.5</b> Command Line in Action: the Anaconda Prompt</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="ch4.html"><a href="ch4.html#basic-anaconda-prompt-commands"><i class="fa fa-check"></i><b>4.5.1</b> Basic Anaconda Prompt Commands</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="ch4.html"><a href="ch4.html#google-colab-or-python-on-the-web"><i class="fa fa-check"></i><b>4.6</b> Google CoLab or Python on the web</a></li>
+<li class="chapter" data-level="4.7" data-path="ch4.html"><a href="ch4.html#virtual-environments-preview-into-coding-best-practices"><i class="fa fa-check"></i><b>4.7</b> Virtual Environments: Preview into Coding Best Practices</a></li>
+<li class="chapter" data-level="4.8" data-path="ch4.html"><a href="ch4.html#summary-3"><i class="fa fa-check"></i><b>4.8</b> Summary</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="ch4.html"><a href="ch4.html#conda-prompt-commands"><i class="fa fa-check"></i><b>4.8.1</b> Conda Prompt Commands</a></li>
+<li class="chapter" data-level="4.8.2" data-path="ch4.html"><a href="ch4.html#more-resources-3"><i class="fa fa-check"></i><b>4.8.2</b> More Resources</a></li>
+<li class="chapter" data-level="4.8.3" data-path="ch4.html"><a href="ch4.html#further-work-3"><i class="fa fa-check"></i><b>4.8.3</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Conquering Python</b></span></li>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Python Crash Courses</a><ul>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#look-how-easy-it-is-to-write-python"><i class="fa fa-check"></i><b>5.1</b> Look How Easy it Is to Write Python</a></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#python-in-general-a-readable-design"><i class="fa fa-check"></i><b>5.2</b> Python in General: A Readable Design</a></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#general-structure-of-a-python-program"><i class="fa fa-check"></i><b>5.3</b> General Structure of a Python Program</a></li>
+<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#import-load-all-the-tools-you-need"><i class="fa fa-check"></i><b>5.4</b> Import: Load all the Tools you Need</a></li>
+<li class="chapter" data-level="5.5" data-path="ch5.html"><a href="ch5.html#functions-let-your-program-do-something-for-you"><i class="fa fa-check"></i><b>5.5</b> Functions: Let your Program Do Something for You</a></li>
+<li class="chapter" data-level="5.6" data-path="ch5.html"><a href="ch5.html#data-structure-everything-has-its-natural-place"><i class="fa fa-check"></i><b>5.6</b> Data Structure: Everything Has its Natural Place</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="ch5.html"><a href="ch5.html#string-literals"><i class="fa fa-check"></i><b>5.6.1</b> String Literals</a></li>
+<li class="chapter" data-level="5.6.2" data-path="ch5.html"><a href="ch5.html#lists"><i class="fa fa-check"></i><b>5.6.2</b> Lists</a></li>
+<li class="chapter" data-level="5.6.3" data-path="ch5.html"><a href="ch5.html#dictionaries"><i class="fa fa-check"></i><b>5.6.3</b> Dictionaries</a></li>
+<li class="chapter" data-level="5.6.4" data-path="ch5.html"><a href="ch5.html#other-data-types-and-data-structures-integer-and-float-boolean-tuples-sets"><i class="fa fa-check"></i><b>5.6.4</b> Other Data Types and Data Structures: Integer and Float; Boolean, Tuples, Sets</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="ch5.html"><a href="ch5.html#flow-control"><i class="fa fa-check"></i><b>5.7</b> Flow Control</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="ch5.html"><a href="ch5.html#for-loops-iteration-and-unpacking"><i class="fa fa-check"></i><b>5.7.1</b> For Loops: Iteration and Unpacking</a></li>
+<li class="chapter" data-level="5.7.2" data-path="ch5.html"><a href="ch5.html#if-you-want-to-evaluate-conditionals-add-if"><i class="fa fa-check"></i><b>5.7.2</b> If you Want to Evaluate Conditionals, Add If</a></li>
+<li class="chapter" data-level="5.7.3" data-path="ch5.html"><a href="ch5.html#make-things-last-for-a-while-with-while-and-remember-to-break-them"><i class="fa fa-check"></i><b>5.7.3</b> Make Things Last for a While with While (and Remember to Break them)</a></li>
+<li class="chapter" data-level="5.7.4" data-path="ch5.html"><a href="ch5.html#prevent-crashes-with-tryexcept"><i class="fa fa-check"></i><b>5.7.4</b> Prevent Crashes with Try/Except</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="ch5.html"><a href="ch5.html#classes-and-comprehensions-more-pythonic-things"><i class="fa fa-check"></i><b>5.8</b> Classes and Comprehensions: More Pythonic Things</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="ch5.html"><a href="ch5.html#classes-blueprints-for-more"><i class="fa fa-check"></i><b>5.8.1</b> Classes: BluePrints for More</a></li>
+<li class="chapter" data-level="5.8.2" data-path="ch5.html"><a href="ch5.html#comprehension"><i class="fa fa-check"></i><b>5.8.2</b> Comprehension</a></li>
+<li class="chapter" data-level="5.8.3" data-path="ch5.html"><a href="ch5.html#more-comprehensions"><i class="fa fa-check"></i><b>5.8.3</b> More Comprehensions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="ch5.html"><a href="ch5.html#functions-revisited-args-times"><i class="fa fa-check"></i><b>5.9</b> Functions Revisited: *Args Times!</a></li>
+<li class="chapter" data-level="5.10" data-path="ch5.html"><a href="ch5.html#whats-in-a-name-naming-conventions-and-styles"><i class="fa fa-check"></i><b>5.10</b> What’s In a Name: Naming Conventions and Styles</a></li>
+<li class="chapter" data-level="5.11" data-path="ch5.html"><a href="ch5.html#saving-and-running-a-python-program-.py-and-.pyw"><i class="fa fa-check"></i><b>5.11</b> Saving and Running a Python Program: .py and .pyw</a></li>
+<li class="chapter" data-level="5.12" data-path="ch5.html"><a href="ch5.html#working-with-files"><i class="fa fa-check"></i><b>5.12</b> Working with Files</a><ul>
+<li class="chapter" data-level="5.12.1" data-path="ch5.html"><a href="ch5.html#file-types-text-and-data"><i class="fa fa-check"></i><b>5.12.1</b> File Types: Text and Data</a></li>
+<li class="chapter" data-level="5.12.2" data-path="ch5.html"><a href="ch5.html#file-modes-what-do-you-want-to-do-with-files"><i class="fa fa-check"></i><b>5.12.2</b> File Modes: What Do you Want to Do with Files?</a></li>
+<li class="chapter" data-level="5.12.3" data-path="ch5.html"><a href="ch5.html#opening-and-writing-to-file"><i class="fa fa-check"></i><b>5.12.3</b> Opening and Writing to File</a></li>
+<li class="chapter" data-level="5.12.4" data-path="ch5.html"><a href="ch5.html#matching-files-with-a-certain-ending-system-paths-and-working-directory"><i class="fa fa-check"></i><b>5.12.4</b> Matching Files with a Certain Ending, System Paths, and Working Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="5.13" data-path="ch5.html"><a href="ch5.html#regular-expressions"><i class="fa fa-check"></i><b>5.13</b> Regular Expressions</a><ul>
+<li class="chapter" data-level="5.13.1" data-path="ch5.html"><a href="ch5.html#regex-notable-features"><i class="fa fa-check"></i><b>5.13.1</b> Regex Notable Features</a></li>
+<li class="chapter" data-level="5.13.2" data-path="ch5.html"><a href="ch5.html#matching-expressions"><i class="fa fa-check"></i><b>5.13.2</b> Matching Expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.14" data-path="ch5.html"><a href="ch5.html#learn-by-doing-for-the-humanities-matching-bibliographical-patterns"><i class="fa fa-check"></i><b>5.14</b> Learn by Doing for the Humanities: Matching Bibliographical Patterns</a><ul>
+<li class="chapter" data-level="5.14.1" data-path="ch5.html"><a href="ch5.html#capturing-groups"><i class="fa fa-check"></i><b>5.14.1</b> Capturing Groups</a></li>
+<li class="chapter" data-level="5.14.2" data-path="ch5.html"><a href="ch5.html#matching-author-date"><i class="fa fa-check"></i><b>5.14.2</b> Matching Author (date)</a></li>
+<li class="chapter" data-level="5.14.3" data-path="ch5.html"><a href="ch5.html#matching-author-date-and-author-date"><i class="fa fa-check"></i><b>5.14.3</b> Matching (Author date) and (Author, date)</a></li>
+<li class="chapter" data-level="5.14.4" data-path="ch5.html"><a href="ch5.html#fulldata"><i class="fa fa-check"></i><b>5.14.4</b> Fulldata</a></li>
+<li class="chapter" data-level="5.14.5" data-path="ch5.html"><a href="ch5.html#limitations-open-issues-and-regex-building-tips"><i class="fa fa-check"></i><b>5.14.5</b> Limitations, Open Issues and Regex Building Tips</a></li>
+</ul></li>
+<li class="chapter" data-level="5.15" data-path="ch5.html"><a href="ch5.html#summary-4"><i class="fa fa-check"></i><b>5.15</b> Summary</a><ul>
+<li class="chapter" data-level="5.15.1" data-path="ch5.html"><a href="ch5.html#programming-concepts-methods-and-functions-recap"><i class="fa fa-check"></i><b>5.15.1</b> Programming Concepts, Methods and Functions Recap</a></li>
+<li class="chapter" data-level="5.15.2" data-path="ch5.html"><a href="ch5.html#re-module-useful-regex-commands"><i class="fa fa-check"></i><b>5.15.2</b> Re module (useful regex Commands)</a></li>
+<li class="chapter" data-level="5.15.3" data-path="ch5.html"><a href="ch5.html#more-resources-4"><i class="fa fa-check"></i><b>5.15.3</b> More Resources</a></li>
+<li class="chapter" data-level="5.15.4" data-path="ch5.html"><a href="ch5.html#further-work-4"><i class="fa fa-check"></i><b>5.15.4</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Moving Forward: From Beginner to Pythonista</a><ul>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-five-sources-of-mystery"><i class="fa fa-check"></i><b>6.1</b> Introduction: Five Sources of Mystery</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="ch6.html"><a href="ch6.html#vocabulary"><i class="fa fa-check"></i><b>6.1.1</b> Vocabulary</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ch6.html"><a href="ch6.html#coding-for-others"><i class="fa fa-check"></i><b>6.1.2</b> Coding for Others</a></li>
+<li class="chapter" data-level="6.1.3" data-path="ch6.html"><a href="ch6.html#python-specifics-and-internals"><i class="fa fa-check"></i><b>6.1.3</b> Python Specifics and Internals</a></li>
+<li class="chapter" data-level="6.1.4" data-path="ch6.html"><a href="ch6.html#being-pythonic"><i class="fa fa-check"></i><b>6.1.4</b> Being Pythonic</a></li>
+<li class="chapter" data-level="6.1.5" data-path="ch6.html"><a href="ch6.html#black-boxes"><i class="fa fa-check"></i><b>6.1.5</b> Black boxes</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#approaching-the-tutorials-in-a-good-way"><i class="fa fa-check"></i><b>6.2</b> Approaching the Tutorials in a Good Way</a></li>
+<li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#reading-the-docs"><i class="fa fa-check"></i><b>6.3</b> Reading the Docs</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="ch6.html"><a href="ch6.html#why-read-the-docs-a-real-life-case-with-bookdown-and-ebooks"><i class="fa fa-check"></i><b>6.3.1</b> Why Read the Docs? (A Real-life Case with Bookdown and Ebooks)</a></li>
+<li class="chapter" data-level="6.3.2" data-path="ch6.html"><a href="ch6.html#what-to-look-for-in-the-docs"><i class="fa fa-check"></i><b>6.3.2</b> What to Look for in the Docs</a></li>
+<li class="chapter" data-level="6.3.3" data-path="ch6.html"><a href="ch6.html#know-your-error-messages-and-exceptions"><i class="fa fa-check"></i><b>6.3.3</b> Know your Error Messages and Exceptions</a></li>
+<li class="chapter" data-level="6.3.4" data-path="ch6.html"><a href="ch6.html#patterns-and-examples"><i class="fa fa-check"></i><b>6.3.4</b> Patterns and Examples</a></li>
+<li class="chapter" data-level="6.3.5" data-path="ch6.html"><a href="ch6.html#docs-creation-the-impact-of-automation"><i class="fa fa-check"></i><b>6.3.5</b> Docs Creation: The Impact of Automation</a></li>
+<li class="chapter" data-level="6.3.6" data-path="ch6.html"><a href="ch6.html#special-kinds-of-docs"><i class="fa fa-check"></i><b>6.3.6</b> Special Kinds of Docs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ch6.html"><a href="ch6.html#summary-5"><i class="fa fa-check"></i><b>6.4</b> Summary</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="ch6.html"><a href="ch6.html#more-resources-5"><i class="fa fa-check"></i><b>6.4.1</b> More Resources</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ch6.html"><a href="ch6.html#further-work-5"><i class="fa fa-check"></i><b>6.4.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Programming for Fun and the Academia</b></span></li>
+<li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> StartUp Optimization, Corpora Builder and Corpora Opener</a><ul>
+<li class="chapter" data-level="7.1" data-path="ch7.html"><a href="ch7.html#startup-optimization-the-challenge"><i class="fa fa-check"></i><b>7.1</b> Startup Optimization: The Challenge</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="ch7.html"><a href="ch7.html#automation-script-a-description"><i class="fa fa-check"></i><b>7.1.1</b> Automation Script: A Description</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch7.html"><a href="ch7.html#scheduling-the-task"><i class="fa fa-check"></i><b>7.1.2</b> Scheduling the Task</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ch7.html"><a href="ch7.html#extend-it"><i class="fa fa-check"></i><b>7.1.3</b> Extend It</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ch7.html"><a href="ch7.html#corpora-builder-program-overview"><i class="fa fa-check"></i><b>7.2</b> Corpora Builder: Program Overview</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="ch7.html"><a href="ch7.html#connecting-to-the-search-engine-and-performing-the-search"><i class="fa fa-check"></i><b>7.2.1</b> Connecting to the Search Engine and Performing the Search</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ch7.html"><a href="ch7.html#corpora-builder-adding-safe-tests-and-ensuring-our-connection-works"><i class="fa fa-check"></i><b>7.2.2</b> Corpora Builder: Adding Safe Tests and Ensuring our Connection Works</a></li>
+<li class="chapter" data-level="7.2.3" data-path="ch7.html"><a href="ch7.html#from-search-results-to-links"><i class="fa fa-check"></i><b>7.2.3</b> From Search Results to Links?</a></li>
+<li class="chapter" data-level="7.2.4" data-path="ch7.html"><a href="ch7.html#bad-outcomes"><i class="fa fa-check"></i><b>7.2.4</b> [] Bad Outcomes</a></li>
+<li class="chapter" data-level="7.2.5" data-path="ch7.html"><a href="ch7.html#extracting-more-specific-links"><i class="fa fa-check"></i><b>7.2.5</b> Extracting more Specific Links</a></li>
+<li class="chapter" data-level="7.2.6" data-path="ch7.html"><a href="ch7.html#filter-through-keywords"><i class="fa fa-check"></i><b>7.2.6</b> Filter Through Keywords</a></li>
+<li class="chapter" data-level="7.2.7" data-path="ch7.html"><a href="ch7.html#filter-removing-common-noise"><i class="fa fa-check"></i><b>7.2.7</b> Filter Removing Common Noise</a></li>
+<li class="chapter" data-level="7.2.8" data-path="ch7.html"><a href="ch7.html#saving-our-queries"><i class="fa fa-check"></i><b>7.2.8</b> Saving Our Queries</a></li>
+<li class="chapter" data-level="7.2.9" data-path="ch7.html"><a href="ch7.html#iteration-moving-to-the-next-page"><i class="fa fa-check"></i><b>7.2.9</b> Iteration: Moving to the Next Page</a></li>
+<li class="chapter" data-level="7.2.10" data-path="ch7.html"><a href="ch7.html#helper-functions"><i class="fa fa-check"></i><b>7.2.10</b> Helper Functions</a></li>
+<li class="chapter" data-level="7.2.11" data-path="ch7.html"><a href="ch7.html#adding-progress-bars-tqdm"><i class="fa fa-check"></i><b>7.2.11</b> Adding Progress Bars: Tqdm</a></li>
+<li class="chapter" data-level="7.2.12" data-path="ch7.html"><a href="ch7.html#corpora-builder-limitations"><i class="fa fa-check"></i><b>7.2.12</b> Corpora Builder Limitations</a></li>
+<li class="chapter" data-level="7.2.13" data-path="ch7.html"><a href="ch7.html#iterating-further"><i class="fa fa-check"></i><b>7.2.13</b> Iterating Further</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ch7.html"><a href="ch7.html#corpora-opener-program-overview"><i class="fa fa-check"></i><b>7.3</b> Corpora Opener: Program Overview</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="ch7.html"><a href="ch7.html#opening-only-a-specific-amount-of-files"><i class="fa fa-check"></i><b>7.3.1</b> Opening Only a Specific Amount of Files</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch7.html"><a href="ch7.html#issue-opening-links"><i class="fa fa-check"></i><b>7.3.2</b> Issue Opening Links</a></li>
+<li class="chapter" data-level="7.3.3" data-path="ch7.html"><a href="ch7.html#new-iteration"><i class="fa fa-check"></i><b>7.3.3</b> New Iteration</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="ch7.html"><a href="ch7.html#summary-6"><i class="fa fa-check"></i><b>7.4</b> Summary</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="ch7.html"><a href="ch7.html#more-resources-6"><i class="fa fa-check"></i><b>7.4.1</b> More Resources</a></li>
+<li class="chapter" data-level="7.4.2" data-path="ch7.html"><a href="ch7.html#further-work-6"><i class="fa fa-check"></i><b>7.4.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>8</b> Scraping Bibliographies with Bibliographer</a><ul>
+<li class="chapter" data-level="8.1" data-path="ch8.html"><a href="ch8.html#bibliographer-program-overview"><i class="fa fa-check"></i><b>8.1</b> Bibliographer: Program Overview</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="ch8.html"><a href="ch8.html#general-settings-and-imports"><i class="fa fa-check"></i><b>8.1.1</b> General Settings and Imports</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ch8.html"><a href="ch8.html#from-pdf-to-txt"><i class="fa fa-check"></i><b>8.1.2</b> From Pdf to Txt</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ch8.html"><a href="ch8.html#cleaning-the-txt"><i class="fa fa-check"></i><b>8.1.3</b> Cleaning the Txt</a></li>
+<li class="chapter" data-level="8.1.4" data-path="ch8.html"><a href="ch8.html#regex-processing"><i class="fa fa-check"></i><b>8.1.4</b> Regex Processing</a></li>
+<li class="chapter" data-level="8.1.5" data-path="ch8.html"><a href="ch8.html#getting-data-with-regexes"><i class="fa fa-check"></i><b>8.1.5</b> Getting Data with Regexes</a></li>
+<li class="chapter" data-level="8.1.6" data-path="ch8.html"><a href="ch8.html#exporting-to-csv"><i class="fa fa-check"></i><b>8.1.6</b> Exporting to CSV</a></li>
+<li class="chapter" data-level="8.1.7" data-path="ch8.html"><a href="ch8.html#helper-functions-1"><i class="fa fa-check"></i><b>8.1.7</b> Helper Functions</a></li>
+<li class="chapter" data-level="8.1.8" data-path="ch8.html"><a href="ch8.html#tips-for-graphing-a-debate"><i class="fa fa-check"></i><b>8.1.8</b> Tips for Graphing a Debate</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch8.html"><a href="ch8.html#summary-7"><i class="fa fa-check"></i><b>8.2</b> Summary</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="ch8.html"><a href="ch8.html#more-resources-7"><i class="fa fa-check"></i><b>8.2.1</b> More Resources</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ch8.html"><a href="ch8.html#further-work-7"><i class="fa fa-check"></i><b>8.2.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programming Digital Humanities. Python (and More) for Academia</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch4" class="section level1">
+<h1><span class="header-section-number">4</span> Getting Started with Python: Anaconda, Jupyter Notebooks, Google CoLabs and Virtual Environments</h1>
+<p>This is the last module in your <em>HumanDemia</em> on board. After that, most of the boring stuff will be completed. The environment will be set and you’ll be ready to use these new tools to build something and make your life easier.</p>
+<p>In this chapter we are summing up what we did in the two chapters before. We need to install our Python development environment (in chapter <a href="ch2.html#ch2">2</a> we used RStudio as an IDE for Markdown). Here we are going to play a game of snakes, and install Python by using the Anaconda distribution.</p>
+<p>Through Anaconda we are going to get the following:</p>
+<ul>
+<li>access to the <strong>Python</strong> programming language;</li>
+<li>and IDE for Python: <strong>Spyder</strong>;</li>
+<li>a packet manager for Python: the Anaconda installer (<em>conda install</em>);</li>
+<li>another command line interface tool: the Anaconda Prompt;</li>
+<li>the full stack of Python scientific libraries and data analysis libraries (this is going to save us some installation pain): <em>Numpy</em>, <em>Pandas</em>, <em>matplotlib</em> and more;</li>
+<li><strong>IPython</strong>: a nice interactive shell to program in real time that we’ve already mentioned;</li>
+<li><strong>Jupyter Notebooks</strong>: shared work books of Python code - think of them as a git hubbed version of IPython sessions.</li>
+</ul>
+<p>As you see, IDE tools (chapter <a href="ch2.html#ch2">2</a>) and command line tools (chapter <a href="ch3.html#ch3">3</a>) sum up here nicely, to give us Python.</p>
+<p>The path for this chapter features installing Anaconda, explaining its benefits and then provide details about Google Colab, another tool to perform Python based operations, this time without the need to install any code. There are no excuses not to code.</p>
+<p><em>HumanDemia</em> has another curved ball waiting you at the end of the chapter: <em>virtual environments</em>. Virtual Environments are isolated containers in which you install all the tools you need to run your program in a safe way, i.e. without interacting with the rest of your system. You don’t want an update to Steam to mess up your project, right?</p>
+<p>Virtual environments are there to ensure this. That’s one of the coding best practices that the sooner you learn, the better it is.</p>
+<p>Also, it is something you are going to perform in the Anaconda Prompt. So it is a nice way to sum part I up. “Command line operations of an IDE for something Python related,” you mormor “these <em>HumanDemia</em> instructional designer have their idea of balance!”</p>
+<div id="installing-python-by-installing-anaconda-a-game-of-snakes" class="section level2">
+<h2><span class="header-section-number">4.1</span> Installing Python by Installing Anaconda: A Game of Snakes</h2>
+<p>Back in the days if you wanted to start Python you had to to a lot of researches. There were two main running versions of the language: Python 2 and Python 3. Some of the syntax was different (i.e. how to print on the screen), some of the main tools were only running on one Python version, etc.</p>
+<p>Today you can save all this struggles. <strong>Go and install Python 3</strong> (unless you have a reason to still use Python 2, which should not be the case if you are starting out).
+Despite the Python versions struggle being over, getting started with Python still has a counterintuitive issue. The best way to get started with Python is <strong>not</strong> installing Python.</p>
+<p>Rather, <strong>to install Python you have to search ‘<em>Anaconda</em>’</strong>. As the snake-based name suggests, Anaconda is related to Python. With Anaconda you are going to install Python and more (which is good, as it saves us installation pains).</p>
+<p>Installing Anaconda is as easy as to go to <a href="https://www.anaconda.com/distribution/" class="uri">https://www.anaconda.com/distribution/</a> and download the relevant distribution for your computer.<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a></p>
+<p>Basically while installing Anaconda you will be asked:</p>
+<ol style="list-style-type: decimal">
+<li>where to install it;</li>
+<li>if you want Anaconda to be the default program to run Python files;</li>
+<li>how to interact with PATH variables.</li>
+</ol>
+<p>If there’s something confusing, the answer is in the <a href="https://docs.anaconda.com/anaconda/install/">installation documentation</a>.<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a></p>
+<p>Ok, now you should have Anaconda installed which means you have Python! <em>Programming is close</em>.</p>
+<p>If you are impatient and want to start having a look at your IDE for Python, search for “<strong>spyder</strong>” in your system search box. You will then run the Spyder. (Oh, Spyder is another acronym for ‘<strong>S</strong>cientific <strong>PY</strong>thon <strong>D</strong>evelopment <strong>E</strong>nvi<strong>R</strong>onment’).</p>
+<p>If you are <em>not</em> that impatient, we’ll first have a brief tour of:</p>
+<ul>
+<li>the benefits of using an IDE (like Spyder) and the other tools provided by Anaconda, namely:</li>
+<li>IPython;</li>
+<li>Jupyter Notebooks;</li>
+<li>the Anaconda system (package manager and command line interface)</li>
+</ul>
+</div>
+<div id="using-and-integrated-development-editor-ide-the-benefits-of-spyder" class="section level2">
+<h2><span class="header-section-number">4.2</span> Using and Integrated Development Editor (IDE): The Benefits of Spyder</h2>
+<p>Spyder offers a lot of benefits. The one I’ve found the most useful is that <strong>you can divide your workspace in different cells</strong>. Each cell allows you to run Python code.</p>
+<p>The importance of running more Python code cells is that you can have a main cell where most of the program lives and as many cells as you need to experiment. If you need to add a new feature to the main program you can test it in the cell, and then include it.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a></p>
+<p>Plus, <em>Spyder supports you when you are typing</em> the commands. Press ‘TAB’ and it will offer you suggestions about what you can do with certain objects. This also <strong>helps you learning</strong>. Spyder knows your object is a string and will show you the available methods.</p>
+<p>As you move your first steps into programming it is likely that make various syntax errors and helps you indent your code properly. Spyder <strong>checks your syntax</strong> and it can check it also against some formatting rules and styles (most notably, PEP 8 style).<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a></p>
+<p>This can be a double-edged sword. As you are about to know, <strong>indentation matters a lot</strong> in Python. <em>Tabs and spaces are different</em> and you have to be consistent. Spyder handles this for you, which is cool. You can focus on learning the syntax and approach your problems. But then sometimes you have to start coding in notepad or something else and formatting errors come in from everywhere.</p>
+<p>I guess this tells us that we need to be aware and grateful for the amenities an IDE can do, but not to get enslaved by them.</p>
+<p>Another great feature of Spyder is the variable explorer. This window tells you a lot about the entities you have in your projects: are they numbers or strings? Are they filled or empty? What’s their state? Etc. The more your program gets complex, the more you are going to appreciate that tool. (Again, <em>having</em> such a tool is no excuse not to plan on the design of your program. You should be in control of what happens.)</p>
+<div id="running-your-code-in-spyder" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Running your Code in Spyder</h3>
+<p>Ok, it’s too early to have a session on Python and produce a decent program. Still, given we are talking about Spyder it is good to know how you can run programs from there.</p>
+<p>Assuming you wrote some code in Spyder there are two ways to run it:</p>
+<ol style="list-style-type: decimal">
+<li><em>run the program</em>: press F5. You will be asked to save your file and then your code will be run, showing an outcome (if the code has no error);</li>
+<li><em>run the code inside a Spyder cell</em>: you can delimit Spyder cells using the following delimiter line: <strong># %%</strong>. If you are inside a cell, you need to press CTRL + ENTER.</li>
+</ol>
+<p><em>Example of Spyder’s Cell – ch. 4.1</em></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># %% </span></a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="co">#cell starts above this line ----</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="co">#code of the cell</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="kw">def</span> main():</a>
+<a class="sourceLine" id="cb6-6" title="6">    <span class="bu">print</span>(<span class="st">&#39;Hello world&#39;</span>)</a>
+<a class="sourceLine" id="cb6-7" title="7">    </a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="co">#cell finishes below this line ---</span></a>
+<a class="sourceLine" id="cb6-9" title="9"></a>
+<a class="sourceLine" id="cb6-10" title="10"><span class="co"># %%</span></a></code></pre></div>
+</div>
+<div id="other-popular-python-ides" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Other Popular (Python) IDEs</h3>
+<p>Spyder is by no means the only IDE for Python. There are a lot of tools about there: free, paid, Python-specific, etc. The recommandation is to explore some of the options, good comparisons are just a search engine search away.</p>
+<p>What I like about Spyder is the opportunity to divide and conquer problems by working with cells as well as having an IPython session to work in, all in the same window. This may not work for you.</p>
+<p>An option worth considering if you want to expand your coding abilities is Visual Studio Code (<a href="https://code.visualstudio.com/" class="uri">https://code.visualstudio.com/</a>). Besides being free and easy to install its main benefit is that <strong>it allows us to code in a huge variety of languages</strong> (different programs requires you to add some plugins and learn to compile, if needed).</p>
+<p>In a few clicks you are going to have access to the possibility of running code in Python and other tech-tools you may be interested in like: HTML, JavaScript or Ruby. If you want to go into app development with Java, you can. And all the flavours of C-languages are supported.<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a></p>
+</div>
+</div>
+<div id="ipython" class="section level2">
+<h2><span class="header-section-number">4.3</span> IPython</h2>
+<p>IPython is an <em>interactive shell</em> to run Python commands. Contrary to the Python code you write in Spyder or Python editor, if you press ‘enter’ inside an (I)Python shell that code is immediately executed. No need to run it.</p>
+<p>Working in the shell allows you to have faster responses. You type the commands and see if they are doing what you want. Prototyping in the shell is fast and it is also useful to stay in the shell after running a program to see what happened.
+IPython is perfectly suited for this and much more.</p>
+<p>In fact, the ‘I’ in IPython stands for <em>interactive</em>. Interactivity is gained by tab completion of commands (as in Spyder) and by putting you close to your code. If you don’t know what’s the type of a certain object you simply ask the shell and it will tell you. Just write <strong>type(object)</strong>.</p>
+<p>Further, you can use a question mark ‘<strong>?</strong>’ to figure out what the various functions do if you don’t remember them or if you are simply curious. In that way you prototype code <em>and</em> interact with the documentation of the module you are using.</p>
+<p>Besides that, IPython offers you special methods (sometimes called “magic methods”) that you can use to measure how long does it take to run your code and much more.</p>
+</div>
+<div id="jupyter-notebooks" class="section level2">
+<h2><span class="header-section-number">4.4</span> Jupyter Notebooks</h2>
+<p>Jupyter notebooks are a nice interaction of <em>code</em> and <em>text.</em> You run your code in cells or chunks, as in Spyder. Nonetheless, in a Jupyter notebook a cell can also be a text chunk (written in <em>Markdown</em>).</p>
+<p>This allows to write tutorials in which you discuss a problem and then present the code. The code, then, can be run in the browser. So when you are following the tutorial and run the code, you see the results of code execution.</p>
+<p>Jupyter Notebooks are perfect for portability. Still, you need to have the dependencies and modules installed on <em>your</em> machine. (With Google CoLabs, see below, this is no longer an issue.)</p>
+<p>Jupyter Notebooks are nicely integrated in the Anaconda/Spyder workflow presented here. All you have to do to open a Jupyter Notebook with Anaconda is:</p>
+<ul>
+<li>open the <strong>Anaconda Prompt</strong>;</li>
+<li>go to the folder you want to create a notebook into (i.e. use <strong>cd</strong> to change directory and <strong>mkdir</strong> to create a new one, if needed);</li>
+<li>type ‘<strong>jupyter notebook</strong>’.</li>
+</ul>
+<p>The notebook will be created and you’ll browser will open in the notebook. (To close the notebook get back to the conda shell and press ‘CTRL + C’.)</p>
+<p>Oh, there are controversies on whether Notebooks are as super good as they look like. Search ‘notebook skeptics’.</p>
+</div>
+<div id="command-line-in-action-the-anaconda-prompt" class="section level2">
+<h2><span class="header-section-number">4.5</span> Command Line in Action: the Anaconda Prompt</h2>
+<p>Git was a reason to see the importance of command line interfaces. Anaconda is a further proof. While coding you’ll need to install new libraries and modules (we do that for laziness: we go through installation pain to have access to functions and commands that were programmed and optimized already - there’s no need to reinvent the wheel).</p>
+<p>Anaconda comes with its own command line interface called “<strong>Anaconda Prompt</strong>”. Just search for it in the Windows search bar and start it. You have a command line tool. As it was the case with Git, the Anaconda Prompt has a reserved word to specify you are going to use specific Anaconda commands. In this case the magic word is <strong>conda</strong> (all the ‘common’ command line commands like ‘cd’ or ‘mkdir’ are stilll valid).</p>
+<p>Typing ‘<strong>conda</strong>’ plus something allows you to run the commands and interact with your Anaconda version. The name of the tools (‘jupyter notebook’, ‘spyder’) open the corresponding tools.</p>
+<p>The commands we need to learn allow us to: <em>install new Python components</em>, <em>update the Anaconda system</em>, activate <em>virtual environments</em> and <em>operate Jupyter Notebooks</em>. Try to guess these commands before moving on.</p>
+<div id="basic-anaconda-prompt-commands" class="section level3">
+<h3><span class="header-section-number">4.5.1</span> Basic Anaconda Prompt Commands</h3>
+<p>Anaconda Prompt Commands are pretty straightforward:</p>
+<ul>
+<li>‘<strong>conda install</strong>’ is used to install packages, e.g. <strong>conda install pdfminer</strong> (sometimes there are specific flags to be added or different channels to download your packages from. Just search ‘conda install [package]’ and you’ll find detailed instructions, e.g. <a href="https://anaconda.org/conda-forge/pdfminer" class="uri">https://anaconda.org/conda-forge/pdfminer</a>);</li>
+<li>‘<strong>conda update</strong>’ is your choice to update the whole system;</li>
+<li>‘<strong>jupyter notebook</strong>’ creates a Jupyter Notebook the folder you are into (as you have already seen);</li>
+<li>if you want, you can type ‘<strong>spyder</strong>’ in the conda shell. This will open the IDE;</li>
+<li>to configure virtual environments the things are a bit more complex. Here’s an anticipation of the first step:
+<strong>conda create –name [environment name]</strong> (see later to have the full picture).</li>
+</ul>
+</div>
+</div>
+<div id="google-colab-or-python-on-the-web" class="section level2">
+<h2><span class="header-section-number">4.6</span> Google CoLab or Python on the web</h2>
+<p>The last option to consider to get started with Python is <strong>Google CoLab</strong>.
+If you want to try out Python and don’t want to mess up with installations just go over to <a href="https://colab.research.google.com/" class="uri">https://colab.research.google.com/</a> and try out Google CoLab.</p>
+<p>Here’s their explanation of the platform:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>What is Colaboratory?
+Colaboratory, or “Colab” for short, allows you to write and execute Python in your browser, with
+Zero configuration required
+Free access to GPUs
+Easy sharing.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Nice, isn’t?</p>
+<p>Basically you will have the architecture of Jupyter Notebooks that you can run on Google’s machines. Notebooks allows you to mix Markdown language and Python code.</p>
+<p>If this doesn’t look exciting enough, the platform has many built in tutorials on data analysis and machine learning (see in the resource section).</p>
+<p>Beware that there’s a price for our installation lazyness and for accessing their computational resources: Google/Alphabet gets access to <em>your</em> code.</p>
+</div>
+<div id="virtual-environments-preview-into-coding-best-practices" class="section level2">
+<h2><span class="header-section-number">4.7</span> Virtual Environments: Preview into Coding Best Practices</h2>
+<p>When you program, it is good to keep what you are developing in isolated compartments. You don’t want a system update to crush your program, neither you want some new module you download to interact and conflict with what you have.</p>
+<p>Given that, wouldn’t it be nice to keep different programs in different places that do not interact with each other? The answer is <strong>building virtual environments</strong>.</p>
+<p>Working in controlled environments is a <em>universal coding best practice</em>. No matter what language you are working in, you want software development to work in its own isolated compartment. There’s a lot on coding practice (both Python specific and general) and it is good to start as soon as possible with that.</p>
+<p>To build a virtual environment in the present Spyder/Anaconda setup we need to:</p>
+<ol style="list-style-type: decimal">
+<li>call the <strong>Anaconda Prompt</strong>;</li>
+<li>type ‘<strong>conda create –name [environment name]</strong>’ (you can specify what packages do you want and which versions, e.g. <em>conda create -n myenv python=3.6 scipy=0.15.0 howdoi, arcade</em>);</li>
+<li>now the environment is created, but it is not active. To active the environment, type: ‘<strong>conda activate [environment name]</strong>’;</li>
+<li>once you have finished working in the environment, you have to deactivate it. To deactivate the environment, type: ‘<strong>conda deactivate [environment name]</strong>’;</li>
+<li>as you start creating environment, you may be confused as far as what environments you have created. To print a list of all you created environment type: ‘<strong>conda info –envs</strong>’ or ‘<strong>conda env list</strong>’;</li>
+<li>to remove the created env, type ‘<strong>conda remove –name [environment name] –all</strong>’.</li>
+</ol>
+<p>Ok, we now have Python installed with Anaconda and are acquainted with Spyder. We also managed to create a virtual environment for your development.
+All you we need to do to start coding is running Spyder inside our virtual environment.</p>
+<p>This requires some further tricks. First, read this <a href="https://github.com/spyder-ide/spyder/wiki/Working-with-packages-and-environments-in-Spyder" class="uri">https://github.com/spyder-ide/spyder/wiki/Working-with-packages-and-environments-in-Spyder</a>
+(especially under the heading of “the modular approach”).</p>
+<p>Summing up, this is how it worked for me:</p>
+<ol style="list-style-type: decimal">
+<li><p>Activate the environment in which you’d like to work (e.g. with ‘<strong>source activate myenv</strong>’ on macOS/Linux or ‘<strong>activate myenv on Windows</strong>’). Suppose you installed the arcade library into an environment call arcade. To activate it type: ‘<strong>conda activate arcade</strong>’;</p></li>
+<li><p>Install the <em>spyder-kernels package</em> there, with the command: ’**conda install spyder-kernels=0.*; **’</p></li>
+<li><p>Once you have everything up and running (i.e. you created the env and installed all you need there). <strong>Run spyder from conda prompt with the environment activated</strong>. To do that, type ‘spyder3’ or cmd /c spyder3.exe and you’ll have the dependencies loaded in your environment.</p></li>
+</ol>
+</div>
+<div id="summary-3" class="section level2">
+<h2><span class="header-section-number">4.8</span> Summary</h2>
+<p>We are ready to go. Python is there on our machine, installed through Anaconda. We have access to the Spyder IDE and we are ready to start programming.</p>
+<p>We know how to install packages, develop in safe virtual environments and how to make our learning experience interactive (IPython, tab completion). Many of these operations provide us with opportunities to enhance our CLI-Fu.</p>
+<p>We are ready to move to part II and actually learn programming.</p>
+<div id="conda-prompt-commands" class="section level3">
+<h3><span class="header-section-number">4.8.1</span> Conda Prompt Commands</h3>
+<p>Here’s a summary of our new learnt conda command line commands:</p>
+<ul>
+<li><strong>conda update</strong></li>
+<li><strong>conda install [package]</strong></li>
+<li><strong>jupyter notebook</strong></li>
+<li><strong>conda create –name [environment name]</strong></li>
+<li><strong>conda activate [environment name]</strong></li>
+<li><strong>conda deactivate [environment name]</strong></li>
+<li><strong>conda info –envs or conda env list</strong></li>
+<li><strong>conda remove –name [environment name] –all</strong></li>
+</ul>
+<p>Shorcuts of the chapters are Spyder based and are two ways to run code:</p>
+<ul>
+<li><strong>F5</strong>: run the whole script;</li>
+<li><strong>CTRL + ENTER</strong>: run code inside a cell (in Spyder).</li>
+</ul>
+</div>
+<div id="more-resources-3" class="section level3">
+<h3><span class="header-section-number">4.8.2</span> More Resources</h3>
+<p>Let’s start with some resources on interactive tools:</p>
+<ul>
+<li>Here’s the IPython intro tutorial: <a href="https://ipython.readthedocs.io/en/stable/interactive/" class="uri">https://ipython.readthedocs.io/en/stable/interactive/</a>.</li>
+<li>Here’s a tutorial on running a Jupyter notebooks with Anaconda on Windows with step by step instructions and pictures. (<a href="https://pythonforundergradengineers.com/opening-a-jupyter-notebook-on-windows.html" class="uri">https://pythonforundergradengineers.com/opening-a-jupyter-notebook-on-windows.html</a>)</li>
+</ul>
+<p>Let’s now move to Colab tutorials, i.e. a great way to explore the Colab tool and Python notebooks in general.</p>
+<ul>
+<li>Intro to pandas: <a href="https://colab.research.google.com/notebooks/mlcc/intro_to_pandas.ipynb" class="uri">https://colab.research.google.com/notebooks/mlcc/intro_to_pandas.ipynb</a></li>
+<li>tensorflow programming concepts: <a href="https://colab.research.google.com/notebooks/mlcc/tensorflow_programming_concepts.ipynb" class="uri">https://colab.research.google.com/notebooks/mlcc/tensorflow_programming_concepts.ipynb</a></li>
+<li>charting data: <a href="https://colab.research.google.com/notebooks/charts.ipynb" class="uri">https://colab.research.google.com/notebooks/charts.ipynb</a></li>
+</ul>
+<p>There’s something more you want to check about code editor: <strong>LightTable</strong>. Open-source, real-time feedback. And more: <a href="http://lighttable.com/" class="uri">http://lighttable.com/</a>.</p>
+<p>We have just scratched the surface of virtual environments, read more on the docs: <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html" class="uri">https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a></p>
+<p>Book-wise:</p>
+<ul>
+<li>IPython and its use for data exploration and programming being aware of performances is presented in Jake VanderPlas <em>Python Data Science Handbook</em>, ch. 1.</li>
+<li>IPython is presented in ch. 3 of Wes McKinney <em>Python for Data Analysis</em>.</li>
+</ul>
+</div>
+<div id="further-work-3" class="section level3">
+<h3><span class="header-section-number">4.8.3</span> Further Work</h3>
+<p>Installing Anaconda was the main task of this chapter. Still, there’s something more you can do:</p>
+<ul>
+<li>Go on GitHub and find a couple of Jupyter Notebooks you like;</li>
+<li>make a notebook explaining how nice is GitHub for humanities;</li>
+<li>R has notebooks as well. Have a look at how they work in RStudio. (Yes, by now you know ‘have a look’ means ‘read the docs’);</li>
+<li>you can have virtual environments <em>without</em> Anaconda. Anaconda is there to simplify things with its shell. Find out how to work with virtual environments and packages installation outside the Anaconda environment. (<em>Hint</em>: you have to learn what the ‘<strong>pip</strong>’ acronym is in the Python world and how it works).</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+</div>
+<div class="footnotes">
+<hr />
+<ol start="26">
+<li id="fn26"><p>If you come from Windows as I do, you need to find out if your system is 32 or 64 bit. Right click on This Pc, select ‘properties’ and you’ll find the answer. - If this quick fix doesn’t work, here is more on the issue of determining if you are running 32 or 64 bit OS, for all main platforms: <a href="https://www.computerhope.com/issues/ch001121.htm" class="uri">https://www.computerhope.com/issues/ch001121.htm</a>.<a href="ch4.html#fnref26" class="footnote-back">↩</a></p></li>
+<li id="fn27"><p>For bonus points on Windows and path variables see <a href="https://en.wikipedia.org/wiki/PATH_(variable)">here</a>.<a href="ch4.html#fnref27" class="footnote-back">↩</a></p></li>
+<li id="fn28"><p>With the default Python IDE (called IDLE, from the Monthy Python show) you either have to open more windows or comment out what you do not want to execute when you run your program.<a href="ch4.html#fnref28" class="footnote-back">↩</a></p></li>
+<li id="fn29"><p>Code is meant to be read, hence the existence of formatting conventions. ‘PEP’ is another piece of Python-jargon which means ‘Python Enhancement Proposal’. This is basically how Python evolves.<a href="ch4.html#fnref29" class="footnote-back">↩</a></p></li>
+<li id="fn30"><p>Also, if you are working with a large number of files maybe you’ll find it easier to manage them with VS Code.<a href="ch4.html#fnref30" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Moving Forward: From Beginner to Pythonista | Programming Digital Humanities. Python (and More) for Academia</title>
+  <meta name="description" content="This book introduces the ABC theory, and …" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Moving Forward: From Beginner to Pythonista | Programming Digital Humanities. Python (and More) for Academia" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/john/awesome/" />
+  
+  <meta property="og:description" content="This book introduces the ABC theory, and …" />
+  <meta name="github-repo" content="john/awesome" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Moving Forward: From Beginner to Pythonista | Programming Digital Humanities. Python (and More) for Academia" />
+  
+  <meta name="twitter:description" content="This book introduces the ABC theory, and …" />
+  
+
+<meta name="author" content="Guglielmo Feis v. 0.1" />
+
+
+<meta name="date" content="2021-03-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch5.html"/>
+<link rel="next" href="ch7.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="prologue.html"><a href="prologue.html"><i class="fa fa-check"></i><b>1</b> Prologue</a><ul>
+<li class="chapter" data-level="1.1" data-path="prologue.html"><a href="prologue.html#the-journey-welcome-to-humandemia"><i class="fa fa-check"></i><b>1.1</b> The Journey: Welcome to <em>HumanDemia</em></a></li>
+<li class="chapter" data-level="1.2" data-path="prologue.html"><a href="prologue.html#a-difficult-trade-off-including-book-summary"><i class="fa fa-check"></i><b>1.2</b> A Difficult Trade-Off (including Book Summary)</a></li>
+<li class="chapter" data-level="1.3" data-path="prologue.html"><a href="prologue.html#whos-this-book-for"><i class="fa fa-check"></i><b>1.3</b> Who’s this Book for</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="prologue.html"><a href="prologue.html#how-coding-helps-in-the-humanities"><i class="fa fa-check"></i><b>1.3.1</b> How Coding Helps in the Humanities</a></li>
+<li class="chapter" data-level="1.3.2" data-path="prologue.html"><a href="prologue.html#what-coding-cant-do-for-you"><i class="fa fa-check"></i><b>1.3.2</b> What Coding Can’t Do for You</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="prologue.html"><a href="prologue.html#getting-the-most-out-of-this-book"><i class="fa fa-check"></i><b>1.4</b> Getting the Most Out of this Book</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="prologue.html"><a href="prologue.html#assumptions"><i class="fa fa-check"></i><b>1.4.1</b> Assumptions</a></li>
+<li class="chapter" data-level="1.4.2" data-path="prologue.html"><a href="prologue.html#type-these-commands-in-and-use-ipython"><i class="fa fa-check"></i><b>1.4.2</b> Type these Commands In (and Use IPython)</a></li>
+<li class="chapter" data-level="1.4.3" data-path="prologue.html"><a href="prologue.html#make-it-your-own-and-grow-it"><i class="fa fa-check"></i><b>1.4.3</b> Make it Your Own (and Grow it)</a></li>
+<li class="chapter" data-level="1.4.4" data-path="prologue.html"><a href="prologue.html#make-deliberate-mistakes"><i class="fa fa-check"></i><b>1.4.4</b> Make (Deliberate) Mistakes</a></li>
+<li class="chapter" data-level="1.4.5" data-path="prologue.html"><a href="prologue.html#read-the-docs"><i class="fa fa-check"></i><b>1.4.5</b> Read the Docs</a></li>
+<li class="chapter" data-level="1.4.6" data-path="prologue.html"><a href="prologue.html#learn-from-the-computer-feedback"><i class="fa fa-check"></i><b>1.4.6</b> Learn From the Computer Feedback</a></li>
+<li class="chapter" data-level="1.4.7" data-path="prologue.html"><a href="prologue.html#ask-for-help"><i class="fa fa-check"></i><b>1.4.7</b> Ask for Help</a></li>
+<li class="chapter" data-level="1.4.8" data-path="prologue.html"><a href="prologue.html#the-importance-of-keyboard-shortcuts"><i class="fa fa-check"></i><b>1.4.8</b> The Importance of (Keyboard) Shortcuts</a></li>
+<li class="chapter" data-level="1.4.9" data-path="prologue.html"><a href="prologue.html#book-organization-and-extra-resources"><i class="fa fa-check"></i><b>1.4.9</b> Book Organization and Extra Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="prologue.html"><a href="prologue.html#summary"><i class="fa fa-check"></i><b>1.5</b> Summary</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="prologue.html"><a href="prologue.html#more-resources"><i class="fa fa-check"></i><b>1.5.1</b> More Resources</a></li>
+<li class="chapter" data-level="1.5.2" data-path="prologue.html"><a href="prologue.html#further-work"><i class="fa fa-check"></i><b>1.5.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Setting up the Environment</b></span></li>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> The Universal Typing Machine: Markdown and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#the-boring-side-of-academia"><i class="fa fa-check"></i><b>2.1</b> The Boring Side of Academia</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="ch2.html"><a href="ch2.html#sidenote-survey-on-academically-boring-things"><i class="fa fa-check"></i><b>2.1.1</b> Sidenote: Survey on Academically Boring Things</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#installing-rstudio"><i class="fa fa-check"></i><b>2.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#rstudio-settings-darkmode-and-packages"><i class="fa fa-check"></i><b>2.3</b> RStudio Settings: Darkmode and Packages</a></li>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#rstudio-automation-for-humanities-tocs-and-bibliographies"><i class="fa fa-check"></i><b>2.4</b> RStudio Automation for Humanities: TOCs and Bibliographies</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="ch2.html"><a href="ch2.html#managing-bibliography"><i class="fa fa-check"></i><b>2.4.1</b> Managing Bibliography</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch2.html"><a href="ch2.html#bibliography-template-example"><i class="fa fa-check"></i><b>2.4.2</b> Bibliography Template Example</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="ch2.html"><a href="ch2.html#markdown-basics"><i class="fa fa-check"></i><b>2.5</b> Markdown Basics</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="ch2.html"><a href="ch2.html#newlines-pagebreaks-cross-references-and-further-text-divisions"><i class="fa fa-check"></i><b>2.5.1</b> Newlines, Pagebreaks, Cross-references, and further Text Divisions</a></li>
+<li class="chapter" data-level="2.5.2" data-path="ch2.html"><a href="ch2.html#creation-of-tables"><i class="fa fa-check"></i><b>2.5.2</b> Creation of Tables</a></li>
+<li class="chapter" data-level="2.5.3" data-path="ch2.html"><a href="ch2.html#adding-images"><i class="fa fa-check"></i><b>2.5.3</b> Adding Images</a></li>
+<li class="chapter" data-level="2.5.4" data-path="ch2.html"><a href="ch2.html#cross-referencing"><i class="fa fa-check"></i><b>2.5.4</b> Cross Referencing</a></li>
+<li class="chapter" data-level="2.5.5" data-path="ch2.html"><a href="ch2.html#adding-codes"><i class="fa fa-check"></i><b>2.5.5</b> Adding Code(s)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="ch2.html"><a href="ch2.html#comparing-this-setup-with-more-traditional-ones-the-benefits-for-academics"><i class="fa fa-check"></i><b>2.6</b> Comparing this Setup with more Traditional Ones: The Benefits for Academics</a></li>
+<li class="chapter" data-level="2.7" data-path="ch2.html"><a href="ch2.html#whats-more-in-rstudio"><i class="fa fa-check"></i><b>2.7</b> What’s More in RStudio</a></li>
+<li class="chapter" data-level="2.8" data-path="ch2.html"><a href="ch2.html#rstudio-workflow-learn-write-get-it"><i class="fa fa-check"></i><b>2.8</b> RStudio Workflow: Learn, Write, Get It!</a></li>
+<li class="chapter" data-level="2.9" data-path="ch2.html"><a href="ch2.html#books-with-markdown-the-bookdown-package"><i class="fa fa-check"></i><b>2.9</b> Books with Markdown: the Bookdown Package</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="ch2.html"><a href="ch2.html#installing-bookdown"><i class="fa fa-check"></i><b>2.9.1</b> Installing Bookdown</a></li>
+<li class="chapter" data-level="2.9.2" data-path="ch2.html"><a href="ch2.html#setting-up-a-bookdown-book"><i class="fa fa-check"></i><b>2.9.2</b> Setting Up a Bookdown-book</a></li>
+<li class="chapter" data-level="2.9.3" data-path="ch2.html"><a href="ch2.html#bookdown-mechanics"><i class="fa fa-check"></i><b>2.9.3</b> Bookdown Mechanics</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="ch2.html"><a href="ch2.html#summary-1"><i class="fa fa-check"></i><b>2.10</b> Summary</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="ch2.html"><a href="ch2.html#list-of-rstudio-shortcuts"><i class="fa fa-check"></i><b>2.10.1</b> List of RStudio Shortcuts</a></li>
+<li class="chapter" data-level="2.10.2" data-path="ch2.html"><a href="ch2.html#more-resources-1"><i class="fa fa-check"></i><b>2.10.2</b> More Resources</a></li>
+<li class="chapter" data-level="2.10.3" data-path="ch2.html"><a href="ch2.html#further-work-1"><i class="fa fa-check"></i><b>2.10.3</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Command Line Interface and Git(Hub): Get Ready for Machine Talk and Cooperating with the World</a><ul>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#command-line-essentials"><i class="fa fa-check"></i><b>3.1</b> Command Line Essentials</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ch3.html"><a href="ch3.html#navigating-file-system-with-the-command-line"><i class="fa fa-check"></i><b>3.1.1</b> Navigating File System with the Command-Line</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#version-control-with-git"><i class="fa fa-check"></i><b>3.2</b> Version Control with Git</a></li>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#installing-git-on-windows"><i class="fa fa-check"></i><b>3.3</b> Installing Git (on Windows)</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#git-and-github"><i class="fa fa-check"></i><b>3.3.1</b> Git and GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#git-operations-and-mechanics"><i class="fa fa-check"></i><b>3.4</b> Git Operations and Mechanics</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="ch3.html"><a href="ch3.html#creating-a-new-repository-and-add-contents"><i class="fa fa-check"></i><b>3.4.1</b> Creating a New Repository and Add Contents</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch3.html"><a href="ch3.html#copies-on-git-the-git-clone-command"><i class="fa fa-check"></i><b>3.4.2</b> Copies on Git: the ‘<em>git clone</em>’ Command</a></li>
+<li class="chapter" data-level="3.4.3" data-path="ch3.html"><a href="ch3.html#a-practical-cloning-example"><i class="fa fa-check"></i><b>3.4.3</b> A Practical Cloning Example</a></li>
+<li class="chapter" data-level="3.4.4" data-path="ch3.html"><a href="ch3.html#git-pushing-new-contents-into-your-projects-with-git-push"><i class="fa fa-check"></i><b>3.4.4</b> Git: Pushing New Contents into your Projects with ‘<em>git push</em>’</a></li>
+<li class="chapter" data-level="3.4.5" data-path="ch3.html"><a href="ch3.html#adding-files-matching-certain-conditions"><i class="fa fa-check"></i><b>3.4.5</b> Adding Files Matching Certain Conditions</a></li>
+<li class="chapter" data-level="3.4.6" data-path="ch3.html"><a href="ch3.html#git-ignore"><i class="fa fa-check"></i><b>3.4.6</b> Git Ignore</a></li>
+<li class="chapter" data-level="3.4.7" data-path="ch3.html"><a href="ch3.html#git-readme"><i class="fa fa-check"></i><b>3.4.7</b> Git Readme</a></li>
+<li class="chapter" data-level="3.4.8" data-path="ch3.html"><a href="ch3.html#forking-and-contributing-to-a-project-pull-requests"><i class="fa fa-check"></i><b>3.4.8</b> Forking and Contributing to a Project: Pull Requests</a></li>
+<li class="chapter" data-level="3.4.9" data-path="ch3.html"><a href="ch3.html#merging-and-conflict-resolution"><i class="fa fa-check"></i><b>3.4.9</b> Merging and Conflict Resolution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ch3.html"><a href="ch3.html#github-for-the-humanities"><i class="fa fa-check"></i><b>3.5</b> GitHub for the Humanities</a></li>
+<li class="chapter" data-level="3.6" data-path="ch3.html"><a href="ch3.html#summary-2"><i class="fa fa-check"></i><b>3.6</b> Summary</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="ch3.html"><a href="ch3.html#list-of-git-commands-and-cli-commands"><i class="fa fa-check"></i><b>3.6.1</b> List of Git Commands and CLI Commands</a></li>
+<li class="chapter" data-level="3.6.2" data-path="ch3.html"><a href="ch3.html#shortcuts"><i class="fa fa-check"></i><b>3.6.2</b> Shortcuts</a></li>
+<li class="chapter" data-level="3.6.3" data-path="ch3.html"><a href="ch3.html#more-resources-2"><i class="fa fa-check"></i><b>3.6.3</b> More Resources</a></li>
+<li class="chapter" data-level="3.6.4" data-path="ch3.html"><a href="ch3.html#further-work-2"><i class="fa fa-check"></i><b>3.6.4</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Getting Started with Python: Anaconda, Jupyter Notebooks, Google CoLabs and Virtual Environments</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#installing-python-by-installing-anaconda-a-game-of-snakes"><i class="fa fa-check"></i><b>4.1</b> Installing Python by Installing Anaconda: A Game of Snakes</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#using-and-integrated-development-editor-ide-the-benefits-of-spyder"><i class="fa fa-check"></i><b>4.2</b> Using and Integrated Development Editor (IDE): The Benefits of Spyder</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="ch4.html"><a href="ch4.html#running-your-code-in-spyder"><i class="fa fa-check"></i><b>4.2.1</b> Running your Code in Spyder</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ch4.html"><a href="ch4.html#other-popular-python-ides"><i class="fa fa-check"></i><b>4.2.2</b> Other Popular (Python) IDEs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ipython"><i class="fa fa-check"></i><b>4.3</b> IPython</a></li>
+<li class="chapter" data-level="4.4" data-path="ch4.html"><a href="ch4.html#jupyter-notebooks"><i class="fa fa-check"></i><b>4.4</b> Jupyter Notebooks</a></li>
+<li class="chapter" data-level="4.5" data-path="ch4.html"><a href="ch4.html#command-line-in-action-the-anaconda-prompt"><i class="fa fa-check"></i><b>4.5</b> Command Line in Action: the Anaconda Prompt</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="ch4.html"><a href="ch4.html#basic-anaconda-prompt-commands"><i class="fa fa-check"></i><b>4.5.1</b> Basic Anaconda Prompt Commands</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="ch4.html"><a href="ch4.html#google-colab-or-python-on-the-web"><i class="fa fa-check"></i><b>4.6</b> Google CoLab or Python on the web</a></li>
+<li class="chapter" data-level="4.7" data-path="ch4.html"><a href="ch4.html#virtual-environments-preview-into-coding-best-practices"><i class="fa fa-check"></i><b>4.7</b> Virtual Environments: Preview into Coding Best Practices</a></li>
+<li class="chapter" data-level="4.8" data-path="ch4.html"><a href="ch4.html#summary-3"><i class="fa fa-check"></i><b>4.8</b> Summary</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="ch4.html"><a href="ch4.html#conda-prompt-commands"><i class="fa fa-check"></i><b>4.8.1</b> Conda Prompt Commands</a></li>
+<li class="chapter" data-level="4.8.2" data-path="ch4.html"><a href="ch4.html#more-resources-3"><i class="fa fa-check"></i><b>4.8.2</b> More Resources</a></li>
+<li class="chapter" data-level="4.8.3" data-path="ch4.html"><a href="ch4.html#further-work-3"><i class="fa fa-check"></i><b>4.8.3</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Conquering Python</b></span></li>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Python Crash Courses</a><ul>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#look-how-easy-it-is-to-write-python"><i class="fa fa-check"></i><b>5.1</b> Look How Easy it Is to Write Python</a></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#python-in-general-a-readable-design"><i class="fa fa-check"></i><b>5.2</b> Python in General: A Readable Design</a></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#general-structure-of-a-python-program"><i class="fa fa-check"></i><b>5.3</b> General Structure of a Python Program</a></li>
+<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#import-load-all-the-tools-you-need"><i class="fa fa-check"></i><b>5.4</b> Import: Load all the Tools you Need</a></li>
+<li class="chapter" data-level="5.5" data-path="ch5.html"><a href="ch5.html#functions-let-your-program-do-something-for-you"><i class="fa fa-check"></i><b>5.5</b> Functions: Let your Program Do Something for You</a></li>
+<li class="chapter" data-level="5.6" data-path="ch5.html"><a href="ch5.html#data-structure-everything-has-its-natural-place"><i class="fa fa-check"></i><b>5.6</b> Data Structure: Everything Has its Natural Place</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="ch5.html"><a href="ch5.html#string-literals"><i class="fa fa-check"></i><b>5.6.1</b> String Literals</a></li>
+<li class="chapter" data-level="5.6.2" data-path="ch5.html"><a href="ch5.html#lists"><i class="fa fa-check"></i><b>5.6.2</b> Lists</a></li>
+<li class="chapter" data-level="5.6.3" data-path="ch5.html"><a href="ch5.html#dictionaries"><i class="fa fa-check"></i><b>5.6.3</b> Dictionaries</a></li>
+<li class="chapter" data-level="5.6.4" data-path="ch5.html"><a href="ch5.html#other-data-types-and-data-structures-integer-and-float-boolean-tuples-sets"><i class="fa fa-check"></i><b>5.6.4</b> Other Data Types and Data Structures: Integer and Float; Boolean, Tuples, Sets</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="ch5.html"><a href="ch5.html#flow-control"><i class="fa fa-check"></i><b>5.7</b> Flow Control</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="ch5.html"><a href="ch5.html#for-loops-iteration-and-unpacking"><i class="fa fa-check"></i><b>5.7.1</b> For Loops: Iteration and Unpacking</a></li>
+<li class="chapter" data-level="5.7.2" data-path="ch5.html"><a href="ch5.html#if-you-want-to-evaluate-conditionals-add-if"><i class="fa fa-check"></i><b>5.7.2</b> If you Want to Evaluate Conditionals, Add If</a></li>
+<li class="chapter" data-level="5.7.3" data-path="ch5.html"><a href="ch5.html#make-things-last-for-a-while-with-while-and-remember-to-break-them"><i class="fa fa-check"></i><b>5.7.3</b> Make Things Last for a While with While (and Remember to Break them)</a></li>
+<li class="chapter" data-level="5.7.4" data-path="ch5.html"><a href="ch5.html#prevent-crashes-with-tryexcept"><i class="fa fa-check"></i><b>5.7.4</b> Prevent Crashes with Try/Except</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="ch5.html"><a href="ch5.html#classes-and-comprehensions-more-pythonic-things"><i class="fa fa-check"></i><b>5.8</b> Classes and Comprehensions: More Pythonic Things</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="ch5.html"><a href="ch5.html#classes-blueprints-for-more"><i class="fa fa-check"></i><b>5.8.1</b> Classes: BluePrints for More</a></li>
+<li class="chapter" data-level="5.8.2" data-path="ch5.html"><a href="ch5.html#comprehension"><i class="fa fa-check"></i><b>5.8.2</b> Comprehension</a></li>
+<li class="chapter" data-level="5.8.3" data-path="ch5.html"><a href="ch5.html#more-comprehensions"><i class="fa fa-check"></i><b>5.8.3</b> More Comprehensions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="ch5.html"><a href="ch5.html#functions-revisited-args-times"><i class="fa fa-check"></i><b>5.9</b> Functions Revisited: *Args Times!</a></li>
+<li class="chapter" data-level="5.10" data-path="ch5.html"><a href="ch5.html#whats-in-a-name-naming-conventions-and-styles"><i class="fa fa-check"></i><b>5.10</b> What’s In a Name: Naming Conventions and Styles</a></li>
+<li class="chapter" data-level="5.11" data-path="ch5.html"><a href="ch5.html#saving-and-running-a-python-program-.py-and-.pyw"><i class="fa fa-check"></i><b>5.11</b> Saving and Running a Python Program: .py and .pyw</a></li>
+<li class="chapter" data-level="5.12" data-path="ch5.html"><a href="ch5.html#working-with-files"><i class="fa fa-check"></i><b>5.12</b> Working with Files</a><ul>
+<li class="chapter" data-level="5.12.1" data-path="ch5.html"><a href="ch5.html#file-types-text-and-data"><i class="fa fa-check"></i><b>5.12.1</b> File Types: Text and Data</a></li>
+<li class="chapter" data-level="5.12.2" data-path="ch5.html"><a href="ch5.html#file-modes-what-do-you-want-to-do-with-files"><i class="fa fa-check"></i><b>5.12.2</b> File Modes: What Do you Want to Do with Files?</a></li>
+<li class="chapter" data-level="5.12.3" data-path="ch5.html"><a href="ch5.html#opening-and-writing-to-file"><i class="fa fa-check"></i><b>5.12.3</b> Opening and Writing to File</a></li>
+<li class="chapter" data-level="5.12.4" data-path="ch5.html"><a href="ch5.html#matching-files-with-a-certain-ending-system-paths-and-working-directory"><i class="fa fa-check"></i><b>5.12.4</b> Matching Files with a Certain Ending, System Paths, and Working Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="5.13" data-path="ch5.html"><a href="ch5.html#regular-expressions"><i class="fa fa-check"></i><b>5.13</b> Regular Expressions</a><ul>
+<li class="chapter" data-level="5.13.1" data-path="ch5.html"><a href="ch5.html#regex-notable-features"><i class="fa fa-check"></i><b>5.13.1</b> Regex Notable Features</a></li>
+<li class="chapter" data-level="5.13.2" data-path="ch5.html"><a href="ch5.html#matching-expressions"><i class="fa fa-check"></i><b>5.13.2</b> Matching Expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.14" data-path="ch5.html"><a href="ch5.html#learn-by-doing-for-the-humanities-matching-bibliographical-patterns"><i class="fa fa-check"></i><b>5.14</b> Learn by Doing for the Humanities: Matching Bibliographical Patterns</a><ul>
+<li class="chapter" data-level="5.14.1" data-path="ch5.html"><a href="ch5.html#capturing-groups"><i class="fa fa-check"></i><b>5.14.1</b> Capturing Groups</a></li>
+<li class="chapter" data-level="5.14.2" data-path="ch5.html"><a href="ch5.html#matching-author-date"><i class="fa fa-check"></i><b>5.14.2</b> Matching Author (date)</a></li>
+<li class="chapter" data-level="5.14.3" data-path="ch5.html"><a href="ch5.html#matching-author-date-and-author-date"><i class="fa fa-check"></i><b>5.14.3</b> Matching (Author date) and (Author, date)</a></li>
+<li class="chapter" data-level="5.14.4" data-path="ch5.html"><a href="ch5.html#fulldata"><i class="fa fa-check"></i><b>5.14.4</b> Fulldata</a></li>
+<li class="chapter" data-level="5.14.5" data-path="ch5.html"><a href="ch5.html#limitations-open-issues-and-regex-building-tips"><i class="fa fa-check"></i><b>5.14.5</b> Limitations, Open Issues and Regex Building Tips</a></li>
+</ul></li>
+<li class="chapter" data-level="5.15" data-path="ch5.html"><a href="ch5.html#summary-4"><i class="fa fa-check"></i><b>5.15</b> Summary</a><ul>
+<li class="chapter" data-level="5.15.1" data-path="ch5.html"><a href="ch5.html#programming-concepts-methods-and-functions-recap"><i class="fa fa-check"></i><b>5.15.1</b> Programming Concepts, Methods and Functions Recap</a></li>
+<li class="chapter" data-level="5.15.2" data-path="ch5.html"><a href="ch5.html#re-module-useful-regex-commands"><i class="fa fa-check"></i><b>5.15.2</b> Re module (useful regex Commands)</a></li>
+<li class="chapter" data-level="5.15.3" data-path="ch5.html"><a href="ch5.html#more-resources-4"><i class="fa fa-check"></i><b>5.15.3</b> More Resources</a></li>
+<li class="chapter" data-level="5.15.4" data-path="ch5.html"><a href="ch5.html#further-work-4"><i class="fa fa-check"></i><b>5.15.4</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Moving Forward: From Beginner to Pythonista</a><ul>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-five-sources-of-mystery"><i class="fa fa-check"></i><b>6.1</b> Introduction: Five Sources of Mystery</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="ch6.html"><a href="ch6.html#vocabulary"><i class="fa fa-check"></i><b>6.1.1</b> Vocabulary</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ch6.html"><a href="ch6.html#coding-for-others"><i class="fa fa-check"></i><b>6.1.2</b> Coding for Others</a></li>
+<li class="chapter" data-level="6.1.3" data-path="ch6.html"><a href="ch6.html#python-specifics-and-internals"><i class="fa fa-check"></i><b>6.1.3</b> Python Specifics and Internals</a></li>
+<li class="chapter" data-level="6.1.4" data-path="ch6.html"><a href="ch6.html#being-pythonic"><i class="fa fa-check"></i><b>6.1.4</b> Being Pythonic</a></li>
+<li class="chapter" data-level="6.1.5" data-path="ch6.html"><a href="ch6.html#black-boxes"><i class="fa fa-check"></i><b>6.1.5</b> Black boxes</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#approaching-the-tutorials-in-a-good-way"><i class="fa fa-check"></i><b>6.2</b> Approaching the Tutorials in a Good Way</a></li>
+<li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#reading-the-docs"><i class="fa fa-check"></i><b>6.3</b> Reading the Docs</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="ch6.html"><a href="ch6.html#why-read-the-docs-a-real-life-case-with-bookdown-and-ebooks"><i class="fa fa-check"></i><b>6.3.1</b> Why Read the Docs? (A Real-life Case with Bookdown and Ebooks)</a></li>
+<li class="chapter" data-level="6.3.2" data-path="ch6.html"><a href="ch6.html#what-to-look-for-in-the-docs"><i class="fa fa-check"></i><b>6.3.2</b> What to Look for in the Docs</a></li>
+<li class="chapter" data-level="6.3.3" data-path="ch6.html"><a href="ch6.html#know-your-error-messages-and-exceptions"><i class="fa fa-check"></i><b>6.3.3</b> Know your Error Messages and Exceptions</a></li>
+<li class="chapter" data-level="6.3.4" data-path="ch6.html"><a href="ch6.html#patterns-and-examples"><i class="fa fa-check"></i><b>6.3.4</b> Patterns and Examples</a></li>
+<li class="chapter" data-level="6.3.5" data-path="ch6.html"><a href="ch6.html#docs-creation-the-impact-of-automation"><i class="fa fa-check"></i><b>6.3.5</b> Docs Creation: The Impact of Automation</a></li>
+<li class="chapter" data-level="6.3.6" data-path="ch6.html"><a href="ch6.html#special-kinds-of-docs"><i class="fa fa-check"></i><b>6.3.6</b> Special Kinds of Docs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ch6.html"><a href="ch6.html#summary-5"><i class="fa fa-check"></i><b>6.4</b> Summary</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="ch6.html"><a href="ch6.html#more-resources-5"><i class="fa fa-check"></i><b>6.4.1</b> More Resources</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ch6.html"><a href="ch6.html#further-work-5"><i class="fa fa-check"></i><b>6.4.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Programming for Fun and the Academia</b></span></li>
+<li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> StartUp Optimization, Corpora Builder and Corpora Opener</a><ul>
+<li class="chapter" data-level="7.1" data-path="ch7.html"><a href="ch7.html#startup-optimization-the-challenge"><i class="fa fa-check"></i><b>7.1</b> Startup Optimization: The Challenge</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="ch7.html"><a href="ch7.html#automation-script-a-description"><i class="fa fa-check"></i><b>7.1.1</b> Automation Script: A Description</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch7.html"><a href="ch7.html#scheduling-the-task"><i class="fa fa-check"></i><b>7.1.2</b> Scheduling the Task</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ch7.html"><a href="ch7.html#extend-it"><i class="fa fa-check"></i><b>7.1.3</b> Extend It</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ch7.html"><a href="ch7.html#corpora-builder-program-overview"><i class="fa fa-check"></i><b>7.2</b> Corpora Builder: Program Overview</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="ch7.html"><a href="ch7.html#connecting-to-the-search-engine-and-performing-the-search"><i class="fa fa-check"></i><b>7.2.1</b> Connecting to the Search Engine and Performing the Search</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ch7.html"><a href="ch7.html#corpora-builder-adding-safe-tests-and-ensuring-our-connection-works"><i class="fa fa-check"></i><b>7.2.2</b> Corpora Builder: Adding Safe Tests and Ensuring our Connection Works</a></li>
+<li class="chapter" data-level="7.2.3" data-path="ch7.html"><a href="ch7.html#from-search-results-to-links"><i class="fa fa-check"></i><b>7.2.3</b> From Search Results to Links?</a></li>
+<li class="chapter" data-level="7.2.4" data-path="ch7.html"><a href="ch7.html#bad-outcomes"><i class="fa fa-check"></i><b>7.2.4</b> [] Bad Outcomes</a></li>
+<li class="chapter" data-level="7.2.5" data-path="ch7.html"><a href="ch7.html#extracting-more-specific-links"><i class="fa fa-check"></i><b>7.2.5</b> Extracting more Specific Links</a></li>
+<li class="chapter" data-level="7.2.6" data-path="ch7.html"><a href="ch7.html#filter-through-keywords"><i class="fa fa-check"></i><b>7.2.6</b> Filter Through Keywords</a></li>
+<li class="chapter" data-level="7.2.7" data-path="ch7.html"><a href="ch7.html#filter-removing-common-noise"><i class="fa fa-check"></i><b>7.2.7</b> Filter Removing Common Noise</a></li>
+<li class="chapter" data-level="7.2.8" data-path="ch7.html"><a href="ch7.html#saving-our-queries"><i class="fa fa-check"></i><b>7.2.8</b> Saving Our Queries</a></li>
+<li class="chapter" data-level="7.2.9" data-path="ch7.html"><a href="ch7.html#iteration-moving-to-the-next-page"><i class="fa fa-check"></i><b>7.2.9</b> Iteration: Moving to the Next Page</a></li>
+<li class="chapter" data-level="7.2.10" data-path="ch7.html"><a href="ch7.html#helper-functions"><i class="fa fa-check"></i><b>7.2.10</b> Helper Functions</a></li>
+<li class="chapter" data-level="7.2.11" data-path="ch7.html"><a href="ch7.html#adding-progress-bars-tqdm"><i class="fa fa-check"></i><b>7.2.11</b> Adding Progress Bars: Tqdm</a></li>
+<li class="chapter" data-level="7.2.12" data-path="ch7.html"><a href="ch7.html#corpora-builder-limitations"><i class="fa fa-check"></i><b>7.2.12</b> Corpora Builder Limitations</a></li>
+<li class="chapter" data-level="7.2.13" data-path="ch7.html"><a href="ch7.html#iterating-further"><i class="fa fa-check"></i><b>7.2.13</b> Iterating Further</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ch7.html"><a href="ch7.html#corpora-opener-program-overview"><i class="fa fa-check"></i><b>7.3</b> Corpora Opener: Program Overview</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="ch7.html"><a href="ch7.html#opening-only-a-specific-amount-of-files"><i class="fa fa-check"></i><b>7.3.1</b> Opening Only a Specific Amount of Files</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch7.html"><a href="ch7.html#issue-opening-links"><i class="fa fa-check"></i><b>7.3.2</b> Issue Opening Links</a></li>
+<li class="chapter" data-level="7.3.3" data-path="ch7.html"><a href="ch7.html#new-iteration"><i class="fa fa-check"></i><b>7.3.3</b> New Iteration</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="ch7.html"><a href="ch7.html#summary-6"><i class="fa fa-check"></i><b>7.4</b> Summary</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="ch7.html"><a href="ch7.html#more-resources-6"><i class="fa fa-check"></i><b>7.4.1</b> More Resources</a></li>
+<li class="chapter" data-level="7.4.2" data-path="ch7.html"><a href="ch7.html#further-work-6"><i class="fa fa-check"></i><b>7.4.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>8</b> Scraping Bibliographies with Bibliographer</a><ul>
+<li class="chapter" data-level="8.1" data-path="ch8.html"><a href="ch8.html#bibliographer-program-overview"><i class="fa fa-check"></i><b>8.1</b> Bibliographer: Program Overview</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="ch8.html"><a href="ch8.html#general-settings-and-imports"><i class="fa fa-check"></i><b>8.1.1</b> General Settings and Imports</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ch8.html"><a href="ch8.html#from-pdf-to-txt"><i class="fa fa-check"></i><b>8.1.2</b> From Pdf to Txt</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ch8.html"><a href="ch8.html#cleaning-the-txt"><i class="fa fa-check"></i><b>8.1.3</b> Cleaning the Txt</a></li>
+<li class="chapter" data-level="8.1.4" data-path="ch8.html"><a href="ch8.html#regex-processing"><i class="fa fa-check"></i><b>8.1.4</b> Regex Processing</a></li>
+<li class="chapter" data-level="8.1.5" data-path="ch8.html"><a href="ch8.html#getting-data-with-regexes"><i class="fa fa-check"></i><b>8.1.5</b> Getting Data with Regexes</a></li>
+<li class="chapter" data-level="8.1.6" data-path="ch8.html"><a href="ch8.html#exporting-to-csv"><i class="fa fa-check"></i><b>8.1.6</b> Exporting to CSV</a></li>
+<li class="chapter" data-level="8.1.7" data-path="ch8.html"><a href="ch8.html#helper-functions-1"><i class="fa fa-check"></i><b>8.1.7</b> Helper Functions</a></li>
+<li class="chapter" data-level="8.1.8" data-path="ch8.html"><a href="ch8.html#tips-for-graphing-a-debate"><i class="fa fa-check"></i><b>8.1.8</b> Tips for Graphing a Debate</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch8.html"><a href="ch8.html#summary-7"><i class="fa fa-check"></i><b>8.2</b> Summary</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="ch8.html"><a href="ch8.html#more-resources-7"><i class="fa fa-check"></i><b>8.2.1</b> More Resources</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ch8.html"><a href="ch8.html#further-work-7"><i class="fa fa-check"></i><b>8.2.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programming Digital Humanities. Python (and More) for Academia</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch6" class="section level1">
+<h1><span class="header-section-number">6</span> Moving Forward: From Beginner to Pythonista</h1>
+<p>‘Congrats for mastering Python syntax,’ says the <em>HumanDemia</em> welcome screen. ‘You are probably already playing out with your newly hardly-acquired knowledge. Enjoy this phase.’</p>
+<p>You think they are kinda joking. But what you read next is interesting.<a href="#fn42" class="footnote-ref" id="fnref42"><sup>42</sup></a> “Chances are that you’ll move from euphoria and god-mode to depression as the most complex things you’d like to build returns errors or foolish stuff. Or as you figure out that something that should be so conceptually simple to achieve is a pain to be implemented. Fear not, this chapter is there to mitigate this.”</p>
+<p>Ok, the table of content has something about sources of perplexities in Python, something mysterious about reading the documents and then tips to take tutorials. It looks like a piece of cake.</p>
+<p>“I wonder where I’ll be thrown the curved balls, here” you think a bit too loud.</p>
+<div id="introduction-five-sources-of-mystery" class="section level2">
+<h2><span class="header-section-number">6.1</span> Introduction: Five Sources of Mystery</h2>
+<p>It’s (relatively) easy to get started with Python (as you’ve seen already).
+Still, after setting up your environment and learn the syntax, there are some hurdles and mysterious mechanics of Python that are hard to face as a beginner and that pro-coders can’t recognize as such. The more you investigate and talk with people, the more it seems that either you are a programmer or a beginner: there’s no in between. Further, once you level up your skills it is difficult to go back to when you failed to grasp basic concepts. (Remember when you tried to add things to a list <em>without</em> having the list initialized? And now it’s <em>obvious</em> you can’t do that? It’s more or less that feeling.)</p>
+<p>It seems once you enter a new mindset you can’t go back to when you used to struggle.
+The difficulty in bridging the gap from “I know Syntax” to actually be able to code might be compared to knowing grammar and actually speaking or knowing that the Lydian mode has a #4 degree and actually perform a moving Lydian improvisation.</p>
+<p>Such skills are difficult to acquire and, once you have them, it is hard to help others reach a similar fluency. Once something that took you a long time to learn, something that you practiced on a daily base until you finally have it, it’s hard to remember what ignorance was like.</p>
+<p>(I can’t go back to a single monitor setup, my guitar teacher is surely aware of how the world changes the more you know where scales and arpeggios are on the guitar and how they sound, but it’s not easy to guess how much it will take me to get there and feel comfortable about something).</p>
+<p>Corey Doctorow has a nice quote to explain that with references to regular expressions, or regex or regexp:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>“Knowing regexp can mean the difference between solving a problem in three steps and solving it in 3,000 steps. When you’re a nerd, you forget that the problems you solve with a couple keystrokes can take other people days of tedious, error-prone work to slog through.” (<a href="https://www.theguardian.com/technology/2012/dec/04/ict-teach-kids-regular-expressions" class="uri">https://www.theguardian.com/technology/2012/dec/04/ict-teach-kids-regular-expressions</a>)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>(I guess we don’t have to blame our teachers. I guess for them we are asking questions that are as hard as “how was it when you couldn’t read English?” or “how did you learn the multiplication table of 5?”.)</p>
+<p>The more you spend time coding and learning the more it seems that Yoda strikes back:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>Aspiring or great programmers. There is no in-between.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>So let’s explore this feeling and this “<strong>ok, I know my syntax, I did some project, where do I go next?</strong>”.</p>
+<p>We can identify the following sources of mysteries.</p>
+<div id="vocabulary" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Vocabulary</h3>
+<p>Python has its specific jargon, this can be mysterious when we first start studying it. This can be easily fixed by developing a vocabulary or looking for one. That’s the reason books have indexes, recaps, and lists of definitions or key terms.</p>
+<p>It is way too easy to use acronyms (PEP, pip install, API) or other Python jargon (the most intimidating is probably the <em>dunder</em> to mean double underscore). It makes us sound proficient, it is cool, it lets us save time. But before we get into this puts us off. ‘Cloning’ and ‘forking’ might be intimidating for new git users.
+We can solve this issue by <strong>building a reference dictionary or vocabulary</strong>.</p>
+<p>There are some already packed ones, but it can be good to develop your own specific one (or to re-arrange preexisting resources in a way that makes sense to you).</p>
+</div>
+<div id="coding-for-others" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Coding for Others</h3>
+<p>Sharing code with others is a complex process but it’s part of the business.
+As they say “code is most often read than run”.</p>
+<p>Entering into the mindset of coding for others (or with others in mind) is complex.
+First, it requires us some confidence in what we are doing. Then it forces us to explore many other issues like:</p>
+<ul>
+<li>how to properly code for readability;</li>
+<li>how to follow code standards.</li>
+</ul>
+<p>Isn’t this all too complex? I mean, <em>we are already trying to learn how to code</em>.
+Further, as soon as you develop something you feel is useful to others and you have to pass it to your non-techy friends (how can they be our friends, then?), we have to face the issues of freezing code or building apps.</p>
+<p>(My first technical presentation suffered a lot from that. That’s how I met Go and Ruby. If distribution is your main concern consider moving to JavaScript - everybody has a browser in their pcs, or something app-related).</p>
+<p>The more you get into readability concerns, the more things we need to care about. Here are some sources of mystery related to readability and sharing code:</p>
+<ul>
+<li><em>coding styles</em>: things like PEP 8 (<a href="https://www.python.org/dev/peps/pep-0008/" class="uri">https://www.python.org/dev/peps/pep-0008/</a>) and other formatting recommendations. What and how we indent, how to prompt readability, CamelCase vs. snake_case, etc. There are standards out and a good Integrated Development Environment (IDE in jargon, i.e. PyCharm or Spyder) may help;</li>
+<li>writing <strong>comments</strong> or <em>type annotations</em> or assert statements to <em>check the sanity of our code</em>: those things require some time to sink in. You learn the book and would think "hey, it’s obvious I can read my program. I know the syntax and I know what I’m doing. <strong>It was such an effort to get to this print(‘Hello world!’)</strong>. Then you see your code in two days and… what was that?</li>
+</ul>
+<p>Flash forward. This happens the more you learn: from procedures to functions, from functions to classes, from a framework to another to “hey, this trick works way better”. That’s why you need comments and some sort of tests.</p>
+<p>The good part: type annotations will teach you more about data structures and writing tests can open a tester career to you.</p>
+<ul>
+<li><em>testing in generals</em>: testing is a beast on its own. Automation and testing, code coverage, continuous development are all things you are going to learn. The first Python step is getting some grasp of the unittest module.<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a>;</li>
+<li><em>Pythonic ways of doing things</em>: this is when coding styles and conventions start having consequences not only on the eyes of the reader but also on the runtime of our program.
+Previous versions of this paragraph had some examples. Reviewing the book and exploring Python I realized that there are two videos by Raymond Hettinger that are actually there to make us appreciate writing great code. Here they are: <a href="https://www.youtube.com/watch?v=wf-BqAjZb8M" class="uri">https://www.youtube.com/watch?v=wf-BqAjZb8M</a> (Beyond PEP 8 – Best practices for beautiful intelligible code - PyCon 2015) and <a href="https://www.youtube.com/watch?v=OSGv2VnC0go" class="uri">https://www.youtube.com/watch?v=OSGv2VnC0go</a> (Transforming Codde into Beautiful, Idiomatic Python – PyCon Us 2013).</li>
+</ul>
+<p>Those are hard to figure out because ‘Being Pythonic’ is something you can achieve once you sort out some of the mysteries. It means you:</p>
+<ol style="list-style-type: decimal">
+<li>have an understanding of how things work;</li>
+<li>can solve the task in different ways;</li>
+<li>know what is it like to be Pythonic (a mystery in itself);</li>
+<li>are able to evaluate which of the implementations in 2 is the most Pythonic.</li>
+</ol>
+<p>This leads us to another big topic.</p>
+</div>
+<div id="python-specifics-and-internals" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> Python Specifics and Internals</h3>
+<p>These things are hard to learn. Ok, probably all books tell us about <strong>import this</strong> and the Zen of Python. That’s for sure part of the essence of Python and its “spirit”, as are some other things that are beginner-friendly like the fact that whitespace is important.</p>
+<p>The specific and internals we are talking about are those that will have an impact on performances. Or maybe we are talking about what makes the language you are studying (Python here) different from another language. The point is that, if you are moving your first steps into a language from the humanities chances are you have no idea about another language.</p>
+<p>Assuming we have some grasps of different languages, we need to be aware and detect “code smells” (another piece of jargon). “Code smells” are pieces of code that work but are not written following the style and best practices of the language. You see that the code works, but there’s something about it. If you have seen the video of Hettinger linked in the previous section, you already have an idea. That’s tricky to develop the ability to detect code smells. Memes might help (<em>stop using i += 1 in for loops!</em>), but the task is still a big one.</p>
+<p>I mean, we are already studying the features and the language. Maybe, depending on your book and sources, part of these are not presented to you as they might mess around with a more user-friendly learning curve.</p>
+<p>Nonetheless, this work in a safe environment of an introduction or a book. Then we go out into the wild and some of these things really start to have an impact. And we have no guidance.</p>
+<p>Here are some of the possible sources of concerns: namespace, python design (GIL, threading), class operations and design patterns, MRO. Other things like shebangs line or main calls. One way to approach these topics is to find the relevant documentation, read it, and try digesting it with small ad hoc pieces of code.</p>
+</div>
+<div id="being-pythonic" class="section level3">
+<h3><span class="header-section-number">6.1.4</span> Being Pythonic</h3>
+<p>We have seen this already but it probably deserves an entry on its own.</p>
+<p>Pythonistas use their own language, their code is cool and, well, <em>Pythonic</em>. Still, getting what it means for code to be ‘Pythonic’ is hard if we are starting out with Python and if you have no exposure to other programming languages.</p>
+<p>In fact, a perfectly good explanation like: “<em>This is so Java, you see, you initialize the counter of the loop and then go into it updating. This smells Java. Python has a built-in enumerate() function to do that. Not to mention comprehensions…</em>” is quite hard for us to get if we have not enough experience with the compared language.</p>
+<p>We can try to fix this learning something from other languages. And, when you are there, trying to implement something in your new language (say Java) into your old one (Python).</p>
+<p>That’s a good way to start comparing things, get a feel for Pythonic ways as well as alternative solutions and implementations. And that’s a reason to have Visual Studio Code installed, you’ll have access to many different languages with just a tool (through plugins).</p>
+<p>Still, it’s hard to learn many different things at the same time and achieving depth. Be aware of that. Maybe you can use features a language is famous for to better understand the features of your main language.</p>
+<p>Here’s an example of how this may work. We know Python is dynamically typed. We’ve read a bit about type annotations. What happens if we move into a statically typed language and write our hello world program in Java or C? What happens to programs that are a bit more complex?</p>
+<p>Another experiment you may want to do has the goal of demystifying Python classes. Someone says to you Java is the best language for object-oriented programming (there are dissidents at <em>HumanDemia</em>?). Java is all about classes and object blueprints.</p>
+<p>You read a few tutorials about object-oriented programming <em>in Java</em>, build a deck of playing cards or a set of formatting standards for the class PeerReviewedJournal and then you re-build you Evang… sorry, you try to re-implement them in Python.</p>
+</div>
+<div id="black-boxes" class="section level3">
+<h3><span class="header-section-number">6.1.5</span> Black boxes</h3>
+<p>Black boxes are another issue. Python is so good with all its modules and functions. This leads to another problem: we trust Python modules or internals to do the work for us (after all, that’s what we do with machines, right? We don’t question the internals of a washing machine…). We trust some code on StackOverflow or something similar.</p>
+<p>We are doing something we know it works, but can’t explain why. This is harder to solve. It requires reading the docs and having a look at the internals. But when we succeed, knowledge is built.</p>
+<p>Nonetheless, there is something positive about Python and also about the fact that there are a lot of modules, packagings, and libraries around: most of them are built in Python. And many are open source.</p>
+<p>Long story short: most of the black boxes you are using are black boxes only in theory. The code is out there, and you can inspect that. We know about GitHub to explore the code.<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a></p>
+<p>Relying on Python codes in the module, especially those of the standard library, will expose you to a clear written code that complies with Python style guides. You are readying the backbone of the language, after all. The same holds for “industry standard” libraries.</p>
+<p>Official documentation is another tremendous learning opportunities. Python PEPs always talk to you as a complete developer, showing you a broader picture than a tutorial or even a book. They can also have some nice short programs, like the space trimming algorithm in PEP 257 on docstrings, see here <a href="https://www.python.org/dev/peps/pep-0257/" class="uri">https://www.python.org/dev/peps/pep-0257/</a>.</p>
+<p>These will give you moments of (Python) Zen. Enjoy.</p>
+</div>
+</div>
+<div id="approaching-the-tutorials-in-a-good-way" class="section level2">
+<h2><span class="header-section-number">6.2</span> Approaching the Tutorials in a Good Way</h2>
+<p>I spent some time learning things by reading tutorials and there are a few words to be said about that. Tutorials are great but there are programming phases know as “tutorial hell” (or “infinite syntax loop”) in which you feel you are trapped into learning syntax all over again, you are able to do things by way of following instructions but can’t program on your own.<a href="#fn45" class="footnote-ref" id="fnref45"><sup>45</sup></a></p>
+<p>So, as for the main book, there are some instructions in dealing with tutorials that highlight the importance of awareness and interactivity. Here we go.</p>
+<p>Tutorials are there to get your feet wet and get you started. By no means they are everything you need to know (they are tutorial, right?) and by no means they are there to be the only way.</p>
+<p>Here’s a list of four pieces of advice to work your way through tutorials to get the most out of them:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Tutorials Are Not The Only Right Way</strong>: There are other ways to do the things in the tutorials. Maybe there are more Pythonic ways or more efficient approaches. Tutorials are there to get you started and, therefore, they should be easy (or, at least, not necessarily over complicated).</li>
+<li><strong>Tutorials Are No Sacred Text</strong>: Sometimes I was working on a tutorial and thought about “what if I do Y instead of X?”. But then I gave up because I wanted to finish the tutorial first. That’s not how it is supposed to work.</li>
+<li><strong>Your Work with a Tutorial Doesn’t End when you Finish it</strong>: Tutorials are there to get you started. The rest is up to you. Add a feature. Rework the tutorial with different constraints (different languages, only standard library tools, etc.).
+A good tutorial should have ways to tell you that it is not finished and you have an opportunity to do your part. If you feel that’s a good time to re-read Eric Steven Raymond’s piece on hacking and the incremental-hacking cycle, I’ll spare you the time to look for your bookmark: <a href="http://www.catb.org/~esr/faqs/hacking-howto.html" class="uri">http://www.catb.org/~esr/faqs/hacking-howto.html</a></li>
+<li><strong>Make the Tutorial Your Own</strong>: Don’t follow a tutorial passively, engage with it. At least rename the variables. Write tests, add docstrings if there are not. Add comments.</li>
+</ol>
+<p>Given the things above, I’ve tried to modify the way I approach tutorials. (At least the tutorial that range on something we already have some grasps of, like programming).</p>
+<p>This is a condensed list from <em>HumanDemia</em>:</p>
+<ol style="list-style-type: decimal">
+<li><strong>If You Know Something, Take Guesses</strong>: Think of a tutorial like a guided and heavily hinted problem solving session. Before reading the solution (that is, the tutorial) at least take guesses and sketch your own solution.</li>
+<li><strong>Use your Universal Typing Machine and IDE</strong>: When you are working your way through a tutorial instead of having just a file opened where you follow the tutorial (remember point 4 above, try to make it your own) have two.
+The first one is your main tutorial window. There you follow the tutorial and know that at the end the project will work (assuming the tutorial has reproducible code). The second file is your experiment based on the tutorial. There you add functions or try alternative ways. You have no fear of screwing things up because that’s the point of this file. You have the first safe file to achieve the goal of the tutorial. (What’s the Third File? If you go heavy on notes, you may need a third files to take notes, e.g. in RMarkdown).</li>
+<li><strong>Extend It</strong>: Congrats, you’ve finished the project. Now build more on it! Can you add a saving function? What if you have two players instead of one? What if the program works on more than one search engine? Can you make it faster? Can you move instructions to functions? And functions to class?</li>
+</ol>
+</div>
+<div id="reading-the-docs" class="section level2">
+<h2><span class="header-section-number">6.3</span> Reading the Docs</h2>
+<p>Tutorials, as said, are just the beginning. Where to go next, often, includes documentation. You want to extend your tutorial, you know that the module you are using has the function you need to add features to your code… but you need to learn more about it. That’s where you <strong>read the docs!</strong></p>
+<p>(The web is wide, but there’s not a tutorial for every function you may end up using. Or, if there is, it is not as accessible as the docs.)</p>
+<p>Further, tutorials often may point you towards to docs to explore things a bit more, try other ways, etc. So here we go with the Docs.</p>
+<p><em>Reading the Docs</em> is a skill we need to learn. We successfully mastered reading papers in our fields, academic writing, proofreading, and much more. Some were able to accept academic and intellectual slavery, and maybe received adequate compensation.</p>
+<p>Be as it may, to become proficient at coding there’s an extra skill to acquire: <strong>reading the documentation</strong>.</p>
+<p>The first thing we need to clarify is <em>what are the docs we are talking about</em>?</p>
+<p>The first answer is the <em>official</em> documentation of the module or library we are using. Here ‘official’ means: the one produced by those that created the code we are using. You already get what that means: these <em>docs</em> all do the same thing: <em>they (try to) explain someone else what the code and its functions and methods do</em>, but there are no standards.</p>
+<p>If you want to know more about the <em>webbrowser</em> module or the <em>os</em> module or something else that is inside Python standard library, you can expect some sort of standardization in terms of layout and way in which contents are organized.</p>
+<p>Documentation is consistent and good also in case of “major” packs: requests, pandas, BeautifulSoup, Flask. Still, expect different choices. (We can conventionally establish something like the following: a package is “major” if it has at least a relevant part of a book dedicated to it. Feel free to tweet me the failures of this definition.)</p>
+<p>Some docs will include a tutorial or a quickstart. Some may have both. If the library is specific to something, chances are the docs start with a minimal implementation of an app that does exactly that. (That’s the case with Flask).</p>
+<p>Coming from an academic background, there are a few things that may happen.</p>
+<p>The documentation of the standard library might look a bit <em>too terse</em>. It is basically a list of the methods and functions. It details the options and parameters available and the kind of data passed. But those are all the important things you need to know.</p>
+<p>Also, the documentation - beyond its terseness - provides links to other modules, reasons for specific choices, and updates on what has changed over time. The documentation of the standard library is also a document in a historical sense. You also get minimal working examples. It’s ok to read through the documentation of a module from start to finish, multiple times. But it’s also ok to just go there to refresh a specific point, like the order of parameters of a method.</p>
+<p>On the other hand, some kinds of documentation are <em>huge</em>. For example, if you download pandas references in pdf you may easily get more than 3.000 (thousands, yep, no typo) of pages. That’s quite a lot. If you approach reading things top-down, that would be an issue. Be sure to have a purpose and try to come up with a plan about what you want to grasp and improve by way of reading the (huge) docs.</p>
+<div id="why-read-the-docs-a-real-life-case-with-bookdown-and-ebooks" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Why Read the Docs? (A Real-life Case with Bookdown and Ebooks)</h3>
+<p>Suppose you are writing a book with bookdown. You are excited to read your book on your e-reader. For historical reasons you have a Kindle. So you build your book to an epub (<strong>bookdown::render_book(“index.Rmd”, “bookdown::epub_book”)</strong>) and you already know that you have to perform some epub to mobi conversion magic, for example using Amazon’s Kindlegen.</p>
+<p>You head over to kindlegen and run it through the command line Powershell (it saves clicks over calibre, you think) and get the mobi. In mixed feelings of anxiety and reverence you open the book - your book. And you realize that there’s no table of content.</p>
+<p>Of course, you go out and do your research - imagining a long struggle with LaTeX parameters. Here’s what you find:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>3.3.1 EPUB
+To create an EPUB book, you can use the epub_book() format. It has some options in common with rmarkdown::html_document():</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1"><span class="kw">epub_book</span>(<span class="dt">fig_width =</span> <span class="dv">5</span>, <span class="dt">fig_height =</span> <span class="dv">4</span>, <span class="dt">dev =</span> <span class="st">&quot;png&quot;</span>, </a>
+<a class="sourceLine" id="cb57-2" title="2">  <span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, <span class="dt">toc =</span> <span class="ot">FALSE</span>, </a>
+<a class="sourceLine" id="cb57-3" title="3">  <span class="dt">toc_depth =</span> <span class="dv">3</span>, <span class="dt">stylesheet =</span> <span class="ot">NULL</span>, <span class="dt">cover_image =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb57-4" title="4">  <span class="dt">metadata =</span> <span class="ot">NULL</span>, <span class="dt">chapter_level =</span> <span class="dv">1</span>, <span class="dt">epub_version =</span> <span class="kw">c</span>(<span class="st">&quot;epub3&quot;</span>, </a>
+<a class="sourceLine" id="cb57-5" title="5">    <span class="st">&quot;epub&quot;</span>), <span class="dt">md_extensions =</span> <span class="ot">NULL</span>, <span class="dt">pandoc_args =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb57-6" title="6">  <span class="dt">template =</span> <span class="st">&quot;default&quot;</span>)</a></code></pre></div>
+<p>Here you have all you need to know about the building options for epub. There’s a toc option set to false. What if you turn this to TRUE? No struggles, it is just an option you need to find out.</p>
+<p>The docs are even more explicit and continue like that in case you are wondering “[?!?!] they are not including a toc as a default?”. Again, read the docs. When docs are good, they have reasons:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>The option toc is turned off because the e-book reader can often figure out a TOC automatically from the book, so it is not necessary to add a few pages for the TOC.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>(As you go through, you’ll also find that there’s a wrapper around Kindlegen to produce mobi <em>directly from RStudio</em>, assuming you can manage your path variable.)</p>
+</div>
+<div id="what-to-look-for-in-the-docs" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> What to Look for in the Docs</h3>
+<p>The example above was easy both conceptually and practically. Here is a more general list about <em>what to read in the docs</em>.</p>
+<p>One of the first things to be aware of our inputs and outputs of a specific piece of code. Sometimes you know that there’s a nice piece of code that does exactly what you want. You use this piece of code and pass data to it, and nothing happens.</p>
+<p>That probably because we are feeding the wrong kind of input to it. We can’t pass text to a function doing some fancy computation. (That’s why in NLP we struggle to represent text as numbers.)</p>
+<p>We can’t pass tuples when lists are expected. As we can’t modify tuple elements (tuples are immutable), if we need to update some values and we store them in a tuple, that’s not going to work.</p>
+<p>This instructs us on another important issue: if we are getting our values from some other piece of code or function, it is important to know what we get as an output: are we getting lists or dictionaries? What’s the return value, if any? How do we access that?</p>
+<p>Let’s think about a practical example. Suppose you have to assign students to specific desks in a room, to give them a test. Further, you have to give them a different shuffled version of the test, depending on where they seat. How would you represent this situation?</p>
+<p>Another important issue is to figure out what kind of object we are getting when we are using a specific module. Say we draw something with the turtle module.<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a> The turtles we use to draw our figures are the result of instantiating objects of the class Turtle. This helps us in figuring out what’s going on in our code and what kinds of objects populate our projects.</p>
+<p>Remember to <em>be active</em> while reading the docs. Types of object can be checked using the variable tracker in your IDE or using IPython type() command. You can also start doing things interactive and run your small documents-related experiments and then include the results in the main code.</p>
+<p>When we are provided with complex classes or functions we have a list of all the arguments and options available. It is good to know that we can’t pass two arguments to a function that requires one nor to call something with no values when one is expected.</p>
+<p>There’s a whole series of error messages that goes like “you called X with some values, but I was expected a different number of values”. That’s a different kind of error message compared to the previous “you called X and gave X an object of type T, but X wants a different type of object”.</p>
+</div>
+<div id="know-your-error-messages-and-exceptions" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Know your Error Messages and Exceptions</h3>
+<p>Documentation is also useful when it explains the error messages that it can return to you. Looking at the error messages you receive is the first step to identify a problem and work at a solution.</p>
+<p>It is good to know the specific messages you can receive as well as the exceptions. We raise exceptions to prevent our program from crashing. Think about checking exceptions as control failures. Sometimes packages offer you specific classes for errors or exceptions so that we don’t have to rebuild them.</p>
+</div>
+<div id="patterns-and-examples" class="section level3">
+<h3><span class="header-section-number">6.3.4</span> Patterns and Examples</h3>
+<p>Big packages and libraries may have a list of code recipes. These are interesting to learn if approached right.</p>
+<p>On the one hand, they can offer us some solutions or blueprints for a solution. Beware that they are not to be trusted as black boxes. We have to figure out what the recipe does and why.</p>
+<p>These recipes, patterns, and examples are also good as minimal working structures to expand.</p>
+<p>On the other hand, a list of patterns and examples is a way for us to get an idea of what can be done with a certain tool as well as what kind of code it produces (remember code smells?). So suppose you read somewhere that “X is more Pythonic than Y”. You can grab examples of both X and Y doing the same tasks and try to figure out if that’s true.</p>
+</div>
+<div id="docs-creation-the-impact-of-automation" class="section level3">
+<h3><span class="header-section-number">6.3.5</span> Docs Creation: The Impact of Automation</h3>
+<p>Big projects provide you with some automatically realized documentation. They are not cheating. Imagine we are developing a project as a team. Folk at <em>HumanDemia</em> asks some of those further away in the onboarding procedure - as you are - to start working on the code.</p>
+<p>They want you to focus on code because you like it. You think that coding is more fun than writing about code and documenting it. They think it is more productive to have you working on code rather than documenting it.
+Documentation is handled by someone with better writing skills who also has some abilities in reading code and understanding what it does.</p>
+<p>We are not questioning this idea of labor division, for now. Imagine how this development can proceed. You are all pushing and pulling work from GitHub, and the programming team has different branches and versions. Those documenting are following the work, but the <em>official</em> version keeps changing.</p>
+<p>After a code refactoring some of the names of the main functions are <em>changed</em> (alas!) and this causes a lot of frustration between docs-team and programming-team.</p>
+<p>Then someone from neurobiology and psychology come to visit both team and say the words: ‘docstring’ and ‘Sphinx’. After doing the relevant checks you remember some of the fundamentals.</p>
+<p><strong>Docstrings</strong> are used to insert documentation <em>inside</em> the code. Docstrings are a tool to mitigate the issue of writing documentation for code staying too far away from the code itself.</p>
+<p>Given that docstrings are a pretty powerful tool, wouldn’t it be nice to build the documentation of the functions and classes of the code directly from them? Enter Sphinx (<a href="https://www.sphinx-doc.org/en/master/" class="uri">https://www.sphinx-doc.org/en/master/</a>). Sphinx is one of many services to automate the generation of documents.</p>
+<p>If you want to document your code, you are free to explore it (as well as other related software). What is important <em>for this chapter</em> is that we learn to recognize how this automatically generated documentation looks.</p>
+<p>This explains some of the terseness of some documentation and also provides us with clues on where to find the relevant code. Don’t forget that more often than not, you can move from the documentation of the code to the actual and real code of the modules.</p>
+<p>You are advised to read the modules you used (if they are written in Python). In that way you are going to explore the internals of your modules and you’ll also start to figure out which parts of Python are written in Python and which relies on something else.</p>
+</div>
+<div id="special-kinds-of-docs" class="section level3">
+<h3><span class="header-section-number">6.3.6</span> Special Kinds of Docs</h3>
+<p>Software documentation interacts with the whole standards and rules of a language. For Python, this means that some of the Python Enhancement Proposals (PEPs) can be considered part of documentation or docs we need to know.</p>
+<p>For example, the first Python formatting standards are on PEP 8. That’s a doc we have to learn. The Zen of Python is itself a PEP (20).</p>
+<p>Sometimes new language features, e.g. docstrings or decorators, were introduced inside peps. This makes PEP 257 (<a href="https://www.python.org/dev/peps/pep-0257/" class="uri">https://www.python.org/dev/peps/pep-0257/</a>) on docstrings convention kind of “the doc for docstrings” and PEP 318 (<a href="https://www.python.org/dev/peps/pep-0318/" class="uri">https://www.python.org/dev/peps/pep-0318/</a>) the one for decorators of functions and methods.</p>
+<p>Beware that PEPs have their rules and different statuses. In fact, not all proposals get passed and actually implemented.</p>
+</div>
+</div>
+<div id="summary-5" class="section level2">
+<h2><span class="header-section-number">6.4</span> Summary</h2>
+<p>This chapter provided you with the information to go out alone and use your programming skills to do what you feel you need to. Fluency in every language comes with practice and this chapter (and the one before it) is far from giving you all the exercises and practice contexts.</p>
+<p>Nonetheless, you were given guidance on how to explore more about the Python world. You are aware of some of the main issues that may block you down your road to Pythonista: you have a first scheme with roadblocks and boxes to fill your Python knowledge. Go and fill them!</p>
+<p>And you now that a lot of your learning time will be spent trying to figure out things from the doc.</p>
+<div id="more-resources-5" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> More Resources</h3>
+<p>Free-stuff:</p>
+<ul>
+<li><p>The best way to know what’s in the Python standard library is to have a look at the table of contents of the docs for the standard library: <a href="https://docs.python.org/3/library/" class="uri">https://docs.python.org/3/library/</a> which is pretty huge. Before trying to reinvent the wheel, have a look there.</p></li>
+<li><p>Vocabulary-wise, here’s a nice learners’ glossary on GitHub: <a href="https://github.com/catherinedevlin/python_learners_glossary" class="uri">https://github.com/catherinedevlin/python_learners_glossary</a> (try to contribute with more, if you want);</p></li>
+<li><p>This is my attempt to come up with a Python glossary. A more extended list is still growing: <a href="https://medium.com/analytics-vidhya/python-acronyms-and-vocabulary-bd2cd0c53bb6" class="uri">https://medium.com/analytics-vidhya/python-acronyms-and-vocabulary-bd2cd0c53bb6</a></p></li>
+<li><p>Norvig’s Infrequently Answered Python questions: <a href="https://norvig.com/python-iaq.html" class="uri">https://norvig.com/python-iaq.html</a> will show you a lot of Python internals;</p></li>
+<li><p><em>Hitchhiker’s Guide to Python Python Best Practices Guidebook</em> (free at <a href="https://github.com/realpython/python-guide" class="uri">https://github.com/realpython/python-guide</a>). This was one of my first teach-yourself Python books.</p></li>
+<li><p>If you want to learn about web development and shape your software building abilities by learning about testing, <em>Test-Driven Development with Python</em> (Obey the testing goat!) by Harry Percival is a real banger. There are no excuses not to read it because we also have a free version: <a href="http://www.obeythetestinggoat.com/pages/book.html" class="uri">http://www.obeythetestinggoat.com/pages/book.html</a></p></li>
+</ul>
+<p>Bookwise there’s quite a lot you can read:</p>
+<ul>
+<li><p>Dan Bader’s <em>Python Tricks</em> is an excellent book that digs deeper on a variety of Python issues, from internals to data structure to best practises while coding with others. It has a lot of code snippets, but it is not a cookbook. Every piece of code is there to make you think. (I have a longer review here: )</p></li>
+<li><p>Julien Danjou’s <em>Serious Python: Black-Belt Advice on Deployment, Scalability, Testing, and More</em> is not your intro to Python book. The book is there to bring you to another level and let you see something different from hello world.</p></li>
+<li><p>The book <em>Seven Languages in Seven Weeks</em> teaches you more than one language in a pragmatic way. For the curious, languages are Ruby, Io, Prolog, Scala, Erlang, Clojure, and Haskell. The languages follow different kinds of programming methods.</p></li>
+<li><p>Do you remember Norvig’s spell-correct program from the previous chapter? If you scroll down the page with the code you can find links to the same program being written in different programming languages. Have a look: <a href="https://norvig.com/spell-correct.html" class="uri">https://norvig.com/spell-correct.html</a>.</p></li>
+<li><p>You already know you can even try some of this code on Visual Studio Code, don’t you?</p></li>
+<li><p><em>Think Python</em>. Probably that’s an introduction to Python. Still, the exercises are above the average and the book fear not exposing you to Markovian chains and other machine-learning oriented stuff.</p></li>
+</ul>
+<p>On clean code and sharing code with others we stumble on two classics:</p>
+<ul>
+<li>Robert Cecil Martin’s <em>Clean Code: A Handbook of Agile Software Craftsmanship</em></li>
+<li>Andy Hunt &amp; Dave Thomas’s <em>The Pragmatic Programmer</em>. They use different languages (Java, mainly) but the concepts transcend the programming language. Further, you’ll get exposed to a different language and use it as a tool to learn fundamental principles. The advice you get applies to Python, but you’ll have to work on it to get its Pythonic application. Cool! (<em>Clean Code</em> has exercises that <em>The Pragmatic Programmer</em> hasn’t.)</li>
+</ul>
+</div>
+<div id="further-work-5" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Further Work</h3>
+<p>Take a look at libraries doing similar or overlapping things. Try to highlight the differences relying on the docs and what’s the more Pythonic option by looking at some examples. If you lack ideas try: PyTorch and TensorFlow, Matplotlib and Seaborn, Selenium and webbrowser, Flask and Django.</p>
+<p>You can explore some python tricks (or contribute yours) here: <a href="https://github.com/sahands/python-by-example" class="uri">https://github.com/sahands/python-by-example</a>.</p>
+<p>If you want to start doing some work and projects try this out: <a href="http://pythonpracticeprojects.com/" class="uri">http://pythonpracticeprojects.com/</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+<div class="footnotes">
+<hr />
+<ol start="42">
+<li id="fn42"><p>Bonus points for reading this in GeoHot’s accent. If the note makes no sense, use your search engine and happy learning.<a href="ch6.html#fnref42" class="footnote-back">↩</a></p></li>
+<li id="fn43"><p>Docs are here: <a href="https://docs.python.org/3/library/unittest.html?highlight=unittest#module-unittest" class="uri">https://docs.python.org/3/library/unittest.html?highlight=unittest#module-unittest</a> .<a href="ch6.html#fnref43" class="footnote-back">↩</a></p></li>
+<li id="fn44"><p>If you spot typos please commit corrections.<a href="ch6.html#fnref44" class="footnote-back">↩</a></p></li>
+<li id="fn45"><p>The former philosophers at <em>HumanDemia</em> often go back to the Chinese room after reading this, a footnote says.<a href="ch6.html#fnref45" class="footnote-back">↩</a></p></li>
+<li id="fn46"><p>You know what’s coming in this footnote. Doc. <a href="https://docs.python.org/3/library/turtle.html?highlight=turtle#module-turtle" class="uri">https://docs.python.org/3/library/turtle.html?highlight=turtle#module-turtle</a> <a href="ch6.html#fnref46" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch5.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch7.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

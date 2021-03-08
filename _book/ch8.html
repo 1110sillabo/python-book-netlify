@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Scraping Bibliographies with Bibliographer | Programming Digital Humanities. Python (and More) for Academia</title>
+  <meta name="description" content="This book introduces the ABC theory, and …" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Scraping Bibliographies with Bibliographer | Programming Digital Humanities. Python (and More) for Academia" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/john/awesome/" />
+  
+  <meta property="og:description" content="This book introduces the ABC theory, and …" />
+  <meta name="github-repo" content="john/awesome" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Scraping Bibliographies with Bibliographer | Programming Digital Humanities. Python (and More) for Academia" />
+  
+  <meta name="twitter:description" content="This book introduces the ABC theory, and …" />
+  
+
+<meta name="author" content="Guglielmo Feis v. 0.1" />
+
+
+<meta name="date" content="2021-03-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch7.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="prologue.html"><a href="prologue.html"><i class="fa fa-check"></i><b>1</b> Prologue</a><ul>
+<li class="chapter" data-level="1.1" data-path="prologue.html"><a href="prologue.html#the-journey-welcome-to-humandemia"><i class="fa fa-check"></i><b>1.1</b> The Journey: Welcome to <em>HumanDemia</em></a></li>
+<li class="chapter" data-level="1.2" data-path="prologue.html"><a href="prologue.html#a-difficult-trade-off-including-book-summary"><i class="fa fa-check"></i><b>1.2</b> A Difficult Trade-Off (including Book Summary)</a></li>
+<li class="chapter" data-level="1.3" data-path="prologue.html"><a href="prologue.html#whos-this-book-for"><i class="fa fa-check"></i><b>1.3</b> Who’s this Book for</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="prologue.html"><a href="prologue.html#how-coding-helps-in-the-humanities"><i class="fa fa-check"></i><b>1.3.1</b> How Coding Helps in the Humanities</a></li>
+<li class="chapter" data-level="1.3.2" data-path="prologue.html"><a href="prologue.html#what-coding-cant-do-for-you"><i class="fa fa-check"></i><b>1.3.2</b> What Coding Can’t Do for You</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="prologue.html"><a href="prologue.html#getting-the-most-out-of-this-book"><i class="fa fa-check"></i><b>1.4</b> Getting the Most Out of this Book</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="prologue.html"><a href="prologue.html#assumptions"><i class="fa fa-check"></i><b>1.4.1</b> Assumptions</a></li>
+<li class="chapter" data-level="1.4.2" data-path="prologue.html"><a href="prologue.html#type-these-commands-in-and-use-ipython"><i class="fa fa-check"></i><b>1.4.2</b> Type these Commands In (and Use IPython)</a></li>
+<li class="chapter" data-level="1.4.3" data-path="prologue.html"><a href="prologue.html#make-it-your-own-and-grow-it"><i class="fa fa-check"></i><b>1.4.3</b> Make it Your Own (and Grow it)</a></li>
+<li class="chapter" data-level="1.4.4" data-path="prologue.html"><a href="prologue.html#make-deliberate-mistakes"><i class="fa fa-check"></i><b>1.4.4</b> Make (Deliberate) Mistakes</a></li>
+<li class="chapter" data-level="1.4.5" data-path="prologue.html"><a href="prologue.html#read-the-docs"><i class="fa fa-check"></i><b>1.4.5</b> Read the Docs</a></li>
+<li class="chapter" data-level="1.4.6" data-path="prologue.html"><a href="prologue.html#learn-from-the-computer-feedback"><i class="fa fa-check"></i><b>1.4.6</b> Learn From the Computer Feedback</a></li>
+<li class="chapter" data-level="1.4.7" data-path="prologue.html"><a href="prologue.html#ask-for-help"><i class="fa fa-check"></i><b>1.4.7</b> Ask for Help</a></li>
+<li class="chapter" data-level="1.4.8" data-path="prologue.html"><a href="prologue.html#the-importance-of-keyboard-shortcuts"><i class="fa fa-check"></i><b>1.4.8</b> The Importance of (Keyboard) Shortcuts</a></li>
+<li class="chapter" data-level="1.4.9" data-path="prologue.html"><a href="prologue.html#book-organization-and-extra-resources"><i class="fa fa-check"></i><b>1.4.9</b> Book Organization and Extra Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="prologue.html"><a href="prologue.html#summary"><i class="fa fa-check"></i><b>1.5</b> Summary</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="prologue.html"><a href="prologue.html#more-resources"><i class="fa fa-check"></i><b>1.5.1</b> More Resources</a></li>
+<li class="chapter" data-level="1.5.2" data-path="prologue.html"><a href="prologue.html#further-work"><i class="fa fa-check"></i><b>1.5.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Setting up the Environment</b></span></li>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> The Universal Typing Machine: Markdown and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#the-boring-side-of-academia"><i class="fa fa-check"></i><b>2.1</b> The Boring Side of Academia</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="ch2.html"><a href="ch2.html#sidenote-survey-on-academically-boring-things"><i class="fa fa-check"></i><b>2.1.1</b> Sidenote: Survey on Academically Boring Things</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#installing-rstudio"><i class="fa fa-check"></i><b>2.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#rstudio-settings-darkmode-and-packages"><i class="fa fa-check"></i><b>2.3</b> RStudio Settings: Darkmode and Packages</a></li>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#rstudio-automation-for-humanities-tocs-and-bibliographies"><i class="fa fa-check"></i><b>2.4</b> RStudio Automation for Humanities: TOCs and Bibliographies</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="ch2.html"><a href="ch2.html#managing-bibliography"><i class="fa fa-check"></i><b>2.4.1</b> Managing Bibliography</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch2.html"><a href="ch2.html#bibliography-template-example"><i class="fa fa-check"></i><b>2.4.2</b> Bibliography Template Example</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="ch2.html"><a href="ch2.html#markdown-basics"><i class="fa fa-check"></i><b>2.5</b> Markdown Basics</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="ch2.html"><a href="ch2.html#newlines-pagebreaks-cross-references-and-further-text-divisions"><i class="fa fa-check"></i><b>2.5.1</b> Newlines, Pagebreaks, Cross-references, and further Text Divisions</a></li>
+<li class="chapter" data-level="2.5.2" data-path="ch2.html"><a href="ch2.html#creation-of-tables"><i class="fa fa-check"></i><b>2.5.2</b> Creation of Tables</a></li>
+<li class="chapter" data-level="2.5.3" data-path="ch2.html"><a href="ch2.html#adding-images"><i class="fa fa-check"></i><b>2.5.3</b> Adding Images</a></li>
+<li class="chapter" data-level="2.5.4" data-path="ch2.html"><a href="ch2.html#cross-referencing"><i class="fa fa-check"></i><b>2.5.4</b> Cross Referencing</a></li>
+<li class="chapter" data-level="2.5.5" data-path="ch2.html"><a href="ch2.html#adding-codes"><i class="fa fa-check"></i><b>2.5.5</b> Adding Code(s)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="ch2.html"><a href="ch2.html#comparing-this-setup-with-more-traditional-ones-the-benefits-for-academics"><i class="fa fa-check"></i><b>2.6</b> Comparing this Setup with more Traditional Ones: The Benefits for Academics</a></li>
+<li class="chapter" data-level="2.7" data-path="ch2.html"><a href="ch2.html#whats-more-in-rstudio"><i class="fa fa-check"></i><b>2.7</b> What’s More in RStudio</a></li>
+<li class="chapter" data-level="2.8" data-path="ch2.html"><a href="ch2.html#rstudio-workflow-learn-write-get-it"><i class="fa fa-check"></i><b>2.8</b> RStudio Workflow: Learn, Write, Get It!</a></li>
+<li class="chapter" data-level="2.9" data-path="ch2.html"><a href="ch2.html#books-with-markdown-the-bookdown-package"><i class="fa fa-check"></i><b>2.9</b> Books with Markdown: the Bookdown Package</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="ch2.html"><a href="ch2.html#installing-bookdown"><i class="fa fa-check"></i><b>2.9.1</b> Installing Bookdown</a></li>
+<li class="chapter" data-level="2.9.2" data-path="ch2.html"><a href="ch2.html#setting-up-a-bookdown-book"><i class="fa fa-check"></i><b>2.9.2</b> Setting Up a Bookdown-book</a></li>
+<li class="chapter" data-level="2.9.3" data-path="ch2.html"><a href="ch2.html#bookdown-mechanics"><i class="fa fa-check"></i><b>2.9.3</b> Bookdown Mechanics</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="ch2.html"><a href="ch2.html#summary-1"><i class="fa fa-check"></i><b>2.10</b> Summary</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="ch2.html"><a href="ch2.html#list-of-rstudio-shortcuts"><i class="fa fa-check"></i><b>2.10.1</b> List of RStudio Shortcuts</a></li>
+<li class="chapter" data-level="2.10.2" data-path="ch2.html"><a href="ch2.html#more-resources-1"><i class="fa fa-check"></i><b>2.10.2</b> More Resources</a></li>
+<li class="chapter" data-level="2.10.3" data-path="ch2.html"><a href="ch2.html#further-work-1"><i class="fa fa-check"></i><b>2.10.3</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Command Line Interface and Git(Hub): Get Ready for Machine Talk and Cooperating with the World</a><ul>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#command-line-essentials"><i class="fa fa-check"></i><b>3.1</b> Command Line Essentials</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ch3.html"><a href="ch3.html#navigating-file-system-with-the-command-line"><i class="fa fa-check"></i><b>3.1.1</b> Navigating File System with the Command-Line</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#version-control-with-git"><i class="fa fa-check"></i><b>3.2</b> Version Control with Git</a></li>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#installing-git-on-windows"><i class="fa fa-check"></i><b>3.3</b> Installing Git (on Windows)</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#git-and-github"><i class="fa fa-check"></i><b>3.3.1</b> Git and GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#git-operations-and-mechanics"><i class="fa fa-check"></i><b>3.4</b> Git Operations and Mechanics</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="ch3.html"><a href="ch3.html#creating-a-new-repository-and-add-contents"><i class="fa fa-check"></i><b>3.4.1</b> Creating a New Repository and Add Contents</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch3.html"><a href="ch3.html#copies-on-git-the-git-clone-command"><i class="fa fa-check"></i><b>3.4.2</b> Copies on Git: the ‘<em>git clone</em>’ Command</a></li>
+<li class="chapter" data-level="3.4.3" data-path="ch3.html"><a href="ch3.html#a-practical-cloning-example"><i class="fa fa-check"></i><b>3.4.3</b> A Practical Cloning Example</a></li>
+<li class="chapter" data-level="3.4.4" data-path="ch3.html"><a href="ch3.html#git-pushing-new-contents-into-your-projects-with-git-push"><i class="fa fa-check"></i><b>3.4.4</b> Git: Pushing New Contents into your Projects with ‘<em>git push</em>’</a></li>
+<li class="chapter" data-level="3.4.5" data-path="ch3.html"><a href="ch3.html#adding-files-matching-certain-conditions"><i class="fa fa-check"></i><b>3.4.5</b> Adding Files Matching Certain Conditions</a></li>
+<li class="chapter" data-level="3.4.6" data-path="ch3.html"><a href="ch3.html#git-ignore"><i class="fa fa-check"></i><b>3.4.6</b> Git Ignore</a></li>
+<li class="chapter" data-level="3.4.7" data-path="ch3.html"><a href="ch3.html#git-readme"><i class="fa fa-check"></i><b>3.4.7</b> Git Readme</a></li>
+<li class="chapter" data-level="3.4.8" data-path="ch3.html"><a href="ch3.html#forking-and-contributing-to-a-project-pull-requests"><i class="fa fa-check"></i><b>3.4.8</b> Forking and Contributing to a Project: Pull Requests</a></li>
+<li class="chapter" data-level="3.4.9" data-path="ch3.html"><a href="ch3.html#merging-and-conflict-resolution"><i class="fa fa-check"></i><b>3.4.9</b> Merging and Conflict Resolution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ch3.html"><a href="ch3.html#github-for-the-humanities"><i class="fa fa-check"></i><b>3.5</b> GitHub for the Humanities</a></li>
+<li class="chapter" data-level="3.6" data-path="ch3.html"><a href="ch3.html#summary-2"><i class="fa fa-check"></i><b>3.6</b> Summary</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="ch3.html"><a href="ch3.html#list-of-git-commands-and-cli-commands"><i class="fa fa-check"></i><b>3.6.1</b> List of Git Commands and CLI Commands</a></li>
+<li class="chapter" data-level="3.6.2" data-path="ch3.html"><a href="ch3.html#shortcuts"><i class="fa fa-check"></i><b>3.6.2</b> Shortcuts</a></li>
+<li class="chapter" data-level="3.6.3" data-path="ch3.html"><a href="ch3.html#more-resources-2"><i class="fa fa-check"></i><b>3.6.3</b> More Resources</a></li>
+<li class="chapter" data-level="3.6.4" data-path="ch3.html"><a href="ch3.html#further-work-2"><i class="fa fa-check"></i><b>3.6.4</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Getting Started with Python: Anaconda, Jupyter Notebooks, Google CoLabs and Virtual Environments</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#installing-python-by-installing-anaconda-a-game-of-snakes"><i class="fa fa-check"></i><b>4.1</b> Installing Python by Installing Anaconda: A Game of Snakes</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#using-and-integrated-development-editor-ide-the-benefits-of-spyder"><i class="fa fa-check"></i><b>4.2</b> Using and Integrated Development Editor (IDE): The Benefits of Spyder</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="ch4.html"><a href="ch4.html#running-your-code-in-spyder"><i class="fa fa-check"></i><b>4.2.1</b> Running your Code in Spyder</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ch4.html"><a href="ch4.html#other-popular-python-ides"><i class="fa fa-check"></i><b>4.2.2</b> Other Popular (Python) IDEs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ipython"><i class="fa fa-check"></i><b>4.3</b> IPython</a></li>
+<li class="chapter" data-level="4.4" data-path="ch4.html"><a href="ch4.html#jupyter-notebooks"><i class="fa fa-check"></i><b>4.4</b> Jupyter Notebooks</a></li>
+<li class="chapter" data-level="4.5" data-path="ch4.html"><a href="ch4.html#command-line-in-action-the-anaconda-prompt"><i class="fa fa-check"></i><b>4.5</b> Command Line in Action: the Anaconda Prompt</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="ch4.html"><a href="ch4.html#basic-anaconda-prompt-commands"><i class="fa fa-check"></i><b>4.5.1</b> Basic Anaconda Prompt Commands</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="ch4.html"><a href="ch4.html#google-colab-or-python-on-the-web"><i class="fa fa-check"></i><b>4.6</b> Google CoLab or Python on the web</a></li>
+<li class="chapter" data-level="4.7" data-path="ch4.html"><a href="ch4.html#virtual-environments-preview-into-coding-best-practices"><i class="fa fa-check"></i><b>4.7</b> Virtual Environments: Preview into Coding Best Practices</a></li>
+<li class="chapter" data-level="4.8" data-path="ch4.html"><a href="ch4.html#summary-3"><i class="fa fa-check"></i><b>4.8</b> Summary</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="ch4.html"><a href="ch4.html#conda-prompt-commands"><i class="fa fa-check"></i><b>4.8.1</b> Conda Prompt Commands</a></li>
+<li class="chapter" data-level="4.8.2" data-path="ch4.html"><a href="ch4.html#more-resources-3"><i class="fa fa-check"></i><b>4.8.2</b> More Resources</a></li>
+<li class="chapter" data-level="4.8.3" data-path="ch4.html"><a href="ch4.html#further-work-3"><i class="fa fa-check"></i><b>4.8.3</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Conquering Python</b></span></li>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Python Crash Courses</a><ul>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#look-how-easy-it-is-to-write-python"><i class="fa fa-check"></i><b>5.1</b> Look How Easy it Is to Write Python</a></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#python-in-general-a-readable-design"><i class="fa fa-check"></i><b>5.2</b> Python in General: A Readable Design</a></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#general-structure-of-a-python-program"><i class="fa fa-check"></i><b>5.3</b> General Structure of a Python Program</a></li>
+<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#import-load-all-the-tools-you-need"><i class="fa fa-check"></i><b>5.4</b> Import: Load all the Tools you Need</a></li>
+<li class="chapter" data-level="5.5" data-path="ch5.html"><a href="ch5.html#functions-let-your-program-do-something-for-you"><i class="fa fa-check"></i><b>5.5</b> Functions: Let your Program Do Something for You</a></li>
+<li class="chapter" data-level="5.6" data-path="ch5.html"><a href="ch5.html#data-structure-everything-has-its-natural-place"><i class="fa fa-check"></i><b>5.6</b> Data Structure: Everything Has its Natural Place</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="ch5.html"><a href="ch5.html#string-literals"><i class="fa fa-check"></i><b>5.6.1</b> String Literals</a></li>
+<li class="chapter" data-level="5.6.2" data-path="ch5.html"><a href="ch5.html#lists"><i class="fa fa-check"></i><b>5.6.2</b> Lists</a></li>
+<li class="chapter" data-level="5.6.3" data-path="ch5.html"><a href="ch5.html#dictionaries"><i class="fa fa-check"></i><b>5.6.3</b> Dictionaries</a></li>
+<li class="chapter" data-level="5.6.4" data-path="ch5.html"><a href="ch5.html#other-data-types-and-data-structures-integer-and-float-boolean-tuples-sets"><i class="fa fa-check"></i><b>5.6.4</b> Other Data Types and Data Structures: Integer and Float; Boolean, Tuples, Sets</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="ch5.html"><a href="ch5.html#flow-control"><i class="fa fa-check"></i><b>5.7</b> Flow Control</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="ch5.html"><a href="ch5.html#for-loops-iteration-and-unpacking"><i class="fa fa-check"></i><b>5.7.1</b> For Loops: Iteration and Unpacking</a></li>
+<li class="chapter" data-level="5.7.2" data-path="ch5.html"><a href="ch5.html#if-you-want-to-evaluate-conditionals-add-if"><i class="fa fa-check"></i><b>5.7.2</b> If you Want to Evaluate Conditionals, Add If</a></li>
+<li class="chapter" data-level="5.7.3" data-path="ch5.html"><a href="ch5.html#make-things-last-for-a-while-with-while-and-remember-to-break-them"><i class="fa fa-check"></i><b>5.7.3</b> Make Things Last for a While with While (and Remember to Break them)</a></li>
+<li class="chapter" data-level="5.7.4" data-path="ch5.html"><a href="ch5.html#prevent-crashes-with-tryexcept"><i class="fa fa-check"></i><b>5.7.4</b> Prevent Crashes with Try/Except</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="ch5.html"><a href="ch5.html#classes-and-comprehensions-more-pythonic-things"><i class="fa fa-check"></i><b>5.8</b> Classes and Comprehensions: More Pythonic Things</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="ch5.html"><a href="ch5.html#classes-blueprints-for-more"><i class="fa fa-check"></i><b>5.8.1</b> Classes: BluePrints for More</a></li>
+<li class="chapter" data-level="5.8.2" data-path="ch5.html"><a href="ch5.html#comprehension"><i class="fa fa-check"></i><b>5.8.2</b> Comprehension</a></li>
+<li class="chapter" data-level="5.8.3" data-path="ch5.html"><a href="ch5.html#more-comprehensions"><i class="fa fa-check"></i><b>5.8.3</b> More Comprehensions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="ch5.html"><a href="ch5.html#functions-revisited-args-times"><i class="fa fa-check"></i><b>5.9</b> Functions Revisited: *Args Times!</a></li>
+<li class="chapter" data-level="5.10" data-path="ch5.html"><a href="ch5.html#whats-in-a-name-naming-conventions-and-styles"><i class="fa fa-check"></i><b>5.10</b> What’s In a Name: Naming Conventions and Styles</a></li>
+<li class="chapter" data-level="5.11" data-path="ch5.html"><a href="ch5.html#saving-and-running-a-python-program-.py-and-.pyw"><i class="fa fa-check"></i><b>5.11</b> Saving and Running a Python Program: .py and .pyw</a></li>
+<li class="chapter" data-level="5.12" data-path="ch5.html"><a href="ch5.html#working-with-files"><i class="fa fa-check"></i><b>5.12</b> Working with Files</a><ul>
+<li class="chapter" data-level="5.12.1" data-path="ch5.html"><a href="ch5.html#file-types-text-and-data"><i class="fa fa-check"></i><b>5.12.1</b> File Types: Text and Data</a></li>
+<li class="chapter" data-level="5.12.2" data-path="ch5.html"><a href="ch5.html#file-modes-what-do-you-want-to-do-with-files"><i class="fa fa-check"></i><b>5.12.2</b> File Modes: What Do you Want to Do with Files?</a></li>
+<li class="chapter" data-level="5.12.3" data-path="ch5.html"><a href="ch5.html#opening-and-writing-to-file"><i class="fa fa-check"></i><b>5.12.3</b> Opening and Writing to File</a></li>
+<li class="chapter" data-level="5.12.4" data-path="ch5.html"><a href="ch5.html#matching-files-with-a-certain-ending-system-paths-and-working-directory"><i class="fa fa-check"></i><b>5.12.4</b> Matching Files with a Certain Ending, System Paths, and Working Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="5.13" data-path="ch5.html"><a href="ch5.html#regular-expressions"><i class="fa fa-check"></i><b>5.13</b> Regular Expressions</a><ul>
+<li class="chapter" data-level="5.13.1" data-path="ch5.html"><a href="ch5.html#regex-notable-features"><i class="fa fa-check"></i><b>5.13.1</b> Regex Notable Features</a></li>
+<li class="chapter" data-level="5.13.2" data-path="ch5.html"><a href="ch5.html#matching-expressions"><i class="fa fa-check"></i><b>5.13.2</b> Matching Expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.14" data-path="ch5.html"><a href="ch5.html#learn-by-doing-for-the-humanities-matching-bibliographical-patterns"><i class="fa fa-check"></i><b>5.14</b> Learn by Doing for the Humanities: Matching Bibliographical Patterns</a><ul>
+<li class="chapter" data-level="5.14.1" data-path="ch5.html"><a href="ch5.html#capturing-groups"><i class="fa fa-check"></i><b>5.14.1</b> Capturing Groups</a></li>
+<li class="chapter" data-level="5.14.2" data-path="ch5.html"><a href="ch5.html#matching-author-date"><i class="fa fa-check"></i><b>5.14.2</b> Matching Author (date)</a></li>
+<li class="chapter" data-level="5.14.3" data-path="ch5.html"><a href="ch5.html#matching-author-date-and-author-date"><i class="fa fa-check"></i><b>5.14.3</b> Matching (Author date) and (Author, date)</a></li>
+<li class="chapter" data-level="5.14.4" data-path="ch5.html"><a href="ch5.html#fulldata"><i class="fa fa-check"></i><b>5.14.4</b> Fulldata</a></li>
+<li class="chapter" data-level="5.14.5" data-path="ch5.html"><a href="ch5.html#limitations-open-issues-and-regex-building-tips"><i class="fa fa-check"></i><b>5.14.5</b> Limitations, Open Issues and Regex Building Tips</a></li>
+</ul></li>
+<li class="chapter" data-level="5.15" data-path="ch5.html"><a href="ch5.html#summary-4"><i class="fa fa-check"></i><b>5.15</b> Summary</a><ul>
+<li class="chapter" data-level="5.15.1" data-path="ch5.html"><a href="ch5.html#programming-concepts-methods-and-functions-recap"><i class="fa fa-check"></i><b>5.15.1</b> Programming Concepts, Methods and Functions Recap</a></li>
+<li class="chapter" data-level="5.15.2" data-path="ch5.html"><a href="ch5.html#re-module-useful-regex-commands"><i class="fa fa-check"></i><b>5.15.2</b> Re module (useful regex Commands)</a></li>
+<li class="chapter" data-level="5.15.3" data-path="ch5.html"><a href="ch5.html#more-resources-4"><i class="fa fa-check"></i><b>5.15.3</b> More Resources</a></li>
+<li class="chapter" data-level="5.15.4" data-path="ch5.html"><a href="ch5.html#further-work-4"><i class="fa fa-check"></i><b>5.15.4</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Moving Forward: From Beginner to Pythonista</a><ul>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-five-sources-of-mystery"><i class="fa fa-check"></i><b>6.1</b> Introduction: Five Sources of Mystery</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="ch6.html"><a href="ch6.html#vocabulary"><i class="fa fa-check"></i><b>6.1.1</b> Vocabulary</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ch6.html"><a href="ch6.html#coding-for-others"><i class="fa fa-check"></i><b>6.1.2</b> Coding for Others</a></li>
+<li class="chapter" data-level="6.1.3" data-path="ch6.html"><a href="ch6.html#python-specifics-and-internals"><i class="fa fa-check"></i><b>6.1.3</b> Python Specifics and Internals</a></li>
+<li class="chapter" data-level="6.1.4" data-path="ch6.html"><a href="ch6.html#being-pythonic"><i class="fa fa-check"></i><b>6.1.4</b> Being Pythonic</a></li>
+<li class="chapter" data-level="6.1.5" data-path="ch6.html"><a href="ch6.html#black-boxes"><i class="fa fa-check"></i><b>6.1.5</b> Black boxes</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#approaching-the-tutorials-in-a-good-way"><i class="fa fa-check"></i><b>6.2</b> Approaching the Tutorials in a Good Way</a></li>
+<li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#reading-the-docs"><i class="fa fa-check"></i><b>6.3</b> Reading the Docs</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="ch6.html"><a href="ch6.html#why-read-the-docs-a-real-life-case-with-bookdown-and-ebooks"><i class="fa fa-check"></i><b>6.3.1</b> Why Read the Docs? (A Real-life Case with Bookdown and Ebooks)</a></li>
+<li class="chapter" data-level="6.3.2" data-path="ch6.html"><a href="ch6.html#what-to-look-for-in-the-docs"><i class="fa fa-check"></i><b>6.3.2</b> What to Look for in the Docs</a></li>
+<li class="chapter" data-level="6.3.3" data-path="ch6.html"><a href="ch6.html#know-your-error-messages-and-exceptions"><i class="fa fa-check"></i><b>6.3.3</b> Know your Error Messages and Exceptions</a></li>
+<li class="chapter" data-level="6.3.4" data-path="ch6.html"><a href="ch6.html#patterns-and-examples"><i class="fa fa-check"></i><b>6.3.4</b> Patterns and Examples</a></li>
+<li class="chapter" data-level="6.3.5" data-path="ch6.html"><a href="ch6.html#docs-creation-the-impact-of-automation"><i class="fa fa-check"></i><b>6.3.5</b> Docs Creation: The Impact of Automation</a></li>
+<li class="chapter" data-level="6.3.6" data-path="ch6.html"><a href="ch6.html#special-kinds-of-docs"><i class="fa fa-check"></i><b>6.3.6</b> Special Kinds of Docs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ch6.html"><a href="ch6.html#summary-5"><i class="fa fa-check"></i><b>6.4</b> Summary</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="ch6.html"><a href="ch6.html#more-resources-5"><i class="fa fa-check"></i><b>6.4.1</b> More Resources</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ch6.html"><a href="ch6.html#further-work-5"><i class="fa fa-check"></i><b>6.4.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Programming for Fun and the Academia</b></span></li>
+<li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> StartUp Optimization, Corpora Builder and Corpora Opener</a><ul>
+<li class="chapter" data-level="7.1" data-path="ch7.html"><a href="ch7.html#startup-optimization-the-challenge"><i class="fa fa-check"></i><b>7.1</b> Startup Optimization: The Challenge</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="ch7.html"><a href="ch7.html#automation-script-a-description"><i class="fa fa-check"></i><b>7.1.1</b> Automation Script: A Description</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch7.html"><a href="ch7.html#scheduling-the-task"><i class="fa fa-check"></i><b>7.1.2</b> Scheduling the Task</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ch7.html"><a href="ch7.html#extend-it"><i class="fa fa-check"></i><b>7.1.3</b> Extend It</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ch7.html"><a href="ch7.html#corpora-builder-program-overview"><i class="fa fa-check"></i><b>7.2</b> Corpora Builder: Program Overview</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="ch7.html"><a href="ch7.html#connecting-to-the-search-engine-and-performing-the-search"><i class="fa fa-check"></i><b>7.2.1</b> Connecting to the Search Engine and Performing the Search</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ch7.html"><a href="ch7.html#corpora-builder-adding-safe-tests-and-ensuring-our-connection-works"><i class="fa fa-check"></i><b>7.2.2</b> Corpora Builder: Adding Safe Tests and Ensuring our Connection Works</a></li>
+<li class="chapter" data-level="7.2.3" data-path="ch7.html"><a href="ch7.html#from-search-results-to-links"><i class="fa fa-check"></i><b>7.2.3</b> From Search Results to Links?</a></li>
+<li class="chapter" data-level="7.2.4" data-path="ch7.html"><a href="ch7.html#bad-outcomes"><i class="fa fa-check"></i><b>7.2.4</b> [] Bad Outcomes</a></li>
+<li class="chapter" data-level="7.2.5" data-path="ch7.html"><a href="ch7.html#extracting-more-specific-links"><i class="fa fa-check"></i><b>7.2.5</b> Extracting more Specific Links</a></li>
+<li class="chapter" data-level="7.2.6" data-path="ch7.html"><a href="ch7.html#filter-through-keywords"><i class="fa fa-check"></i><b>7.2.6</b> Filter Through Keywords</a></li>
+<li class="chapter" data-level="7.2.7" data-path="ch7.html"><a href="ch7.html#filter-removing-common-noise"><i class="fa fa-check"></i><b>7.2.7</b> Filter Removing Common Noise</a></li>
+<li class="chapter" data-level="7.2.8" data-path="ch7.html"><a href="ch7.html#saving-our-queries"><i class="fa fa-check"></i><b>7.2.8</b> Saving Our Queries</a></li>
+<li class="chapter" data-level="7.2.9" data-path="ch7.html"><a href="ch7.html#iteration-moving-to-the-next-page"><i class="fa fa-check"></i><b>7.2.9</b> Iteration: Moving to the Next Page</a></li>
+<li class="chapter" data-level="7.2.10" data-path="ch7.html"><a href="ch7.html#helper-functions"><i class="fa fa-check"></i><b>7.2.10</b> Helper Functions</a></li>
+<li class="chapter" data-level="7.2.11" data-path="ch7.html"><a href="ch7.html#adding-progress-bars-tqdm"><i class="fa fa-check"></i><b>7.2.11</b> Adding Progress Bars: Tqdm</a></li>
+<li class="chapter" data-level="7.2.12" data-path="ch7.html"><a href="ch7.html#corpora-builder-limitations"><i class="fa fa-check"></i><b>7.2.12</b> Corpora Builder Limitations</a></li>
+<li class="chapter" data-level="7.2.13" data-path="ch7.html"><a href="ch7.html#iterating-further"><i class="fa fa-check"></i><b>7.2.13</b> Iterating Further</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ch7.html"><a href="ch7.html#corpora-opener-program-overview"><i class="fa fa-check"></i><b>7.3</b> Corpora Opener: Program Overview</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="ch7.html"><a href="ch7.html#opening-only-a-specific-amount-of-files"><i class="fa fa-check"></i><b>7.3.1</b> Opening Only a Specific Amount of Files</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch7.html"><a href="ch7.html#issue-opening-links"><i class="fa fa-check"></i><b>7.3.2</b> Issue Opening Links</a></li>
+<li class="chapter" data-level="7.3.3" data-path="ch7.html"><a href="ch7.html#new-iteration"><i class="fa fa-check"></i><b>7.3.3</b> New Iteration</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="ch7.html"><a href="ch7.html#summary-6"><i class="fa fa-check"></i><b>7.4</b> Summary</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="ch7.html"><a href="ch7.html#more-resources-6"><i class="fa fa-check"></i><b>7.4.1</b> More Resources</a></li>
+<li class="chapter" data-level="7.4.2" data-path="ch7.html"><a href="ch7.html#further-work-6"><i class="fa fa-check"></i><b>7.4.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>8</b> Scraping Bibliographies with Bibliographer</a><ul>
+<li class="chapter" data-level="8.1" data-path="ch8.html"><a href="ch8.html#bibliographer-program-overview"><i class="fa fa-check"></i><b>8.1</b> Bibliographer: Program Overview</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="ch8.html"><a href="ch8.html#general-settings-and-imports"><i class="fa fa-check"></i><b>8.1.1</b> General Settings and Imports</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ch8.html"><a href="ch8.html#from-pdf-to-txt"><i class="fa fa-check"></i><b>8.1.2</b> From Pdf to Txt</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ch8.html"><a href="ch8.html#cleaning-the-txt"><i class="fa fa-check"></i><b>8.1.3</b> Cleaning the Txt</a></li>
+<li class="chapter" data-level="8.1.4" data-path="ch8.html"><a href="ch8.html#regex-processing"><i class="fa fa-check"></i><b>8.1.4</b> Regex Processing</a></li>
+<li class="chapter" data-level="8.1.5" data-path="ch8.html"><a href="ch8.html#getting-data-with-regexes"><i class="fa fa-check"></i><b>8.1.5</b> Getting Data with Regexes</a></li>
+<li class="chapter" data-level="8.1.6" data-path="ch8.html"><a href="ch8.html#exporting-to-csv"><i class="fa fa-check"></i><b>8.1.6</b> Exporting to CSV</a></li>
+<li class="chapter" data-level="8.1.7" data-path="ch8.html"><a href="ch8.html#helper-functions-1"><i class="fa fa-check"></i><b>8.1.7</b> Helper Functions</a></li>
+<li class="chapter" data-level="8.1.8" data-path="ch8.html"><a href="ch8.html#tips-for-graphing-a-debate"><i class="fa fa-check"></i><b>8.1.8</b> Tips for Graphing a Debate</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch8.html"><a href="ch8.html#summary-7"><i class="fa fa-check"></i><b>8.2</b> Summary</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="ch8.html"><a href="ch8.html#more-resources-7"><i class="fa fa-check"></i><b>8.2.1</b> More Resources</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ch8.html"><a href="ch8.html#further-work-7"><i class="fa fa-check"></i><b>8.2.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programming Digital Humanities. Python (and More) for Academia</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch8" class="section level1">
+<h1><span class="header-section-number">8</span> Scraping Bibliographies with Bibliographer</h1>
+<p>The program for this section is a more systematic implementation of the practice session of regex we had in chapter <a href="ch5.html#ch5">5</a> - Cory Doctorow was right after all, regex matters. This time we are going through the whole process: we start with a pdf paper, read it, extract the references, and end up with a .csv file with the needed references.</p>
+<p>From there, you can go into whatever program you like and represent the references in a graph. Welcome data visualization!</p>
+<p>Here we are going to work on:</p>
+<ul>
+<li>data extraction (references from papers);</li>
+<li>data conversion (from pdf to txt, from txt to csv);</li>
+<li>data cleaning (there will be a lot to fix from the pdf);</li>
+<li>regular expressions (many of them).</li>
+</ul>
+<p>We are going to extract more data than we are going to use (for now), like <em>how many times a certain reference appears</em> in a paper.</p>
+<div id="bibliographer-program-overview" class="section level2">
+<h2><span class="header-section-number">8.1</span> Bibliographer: Program Overview</h2>
+<p><em>HumanDemia</em> wants you again. This time they need a program that reads a file (pdf files, you learn) and tries to extract bibliographic references from them. <em>Scopus</em> or other platforms are not enough: you cannot find everything there.</p>
+<p>Humanities is full of standards or supposed standards for bibliographies.
+Further, a lot of publications are not archived. You need to work on your corpus and extract the data from there.</p>
+<p>Now that it is clear what we want our program to do, here are the main building elements we are going to cover:</p>
+<ul>
+<li><em>get the input file from pdf to txt</em>: pdf is good for humans, bad for machines. We need to turn this into a txt, then the machine can read the txt and extract data from there;</li>
+<li><em>cleaning the txt</em>: we need our txt to be cleaned such that we can process it with regexes;</li>
+<li><em>regex processing</em>: we scan our text with a series of regex to get the data and process them to a standard output format. We use this format (‘Author Year’) to visualize a citation graph;</li>
+<li><em>save the data</em>: self-explaining;</li>
+<li><em>export the data in a visualization friendly mode</em>: we are going to handle the visualization over to other software or, at least, that’s what <em>HumanDemia</em> requires us. We need to properly store our files as a CSV (comma separated values).</li>
+</ul>
+<p>The areas we highlighted offer us a first idea of the main function of our program. One of the most problematic issues is that we have no guarantee the regexes are going to match everything we need. In fact, we know something about the formatting of the references, but that’s not enough to be able to get everything: references are everywhere in the pages, titles can be arbitrarily long, etc. Still, it’s worth trying it out.</p>
+<div id="general-settings-and-imports" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> General Settings and Imports</h3>
+<p>There is quite a lot we need to import for the project, mostly to handle the pdf to txt transcription.</p>
+<p><em>Bibliographer imports</em></p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb76-1" title="1"><span class="im">import</span> re </a>
+<a class="sourceLine" id="cb76-2" title="2"><span class="im">import</span> os</a>
+<a class="sourceLine" id="cb76-3" title="3"></a>
+<a class="sourceLine" id="cb76-4" title="4"><span class="co"># Type annotations</span></a>
+<a class="sourceLine" id="cb76-5" title="5"><span class="im">from</span> typing <span class="im">import</span> IO, Text</a>
+<a class="sourceLine" id="cb76-6" title="6"></a>
+<a class="sourceLine" id="cb76-7" title="7"><span class="co"># Reading pdf</span></a>
+<a class="sourceLine" id="cb76-8" title="8"><span class="im">from</span> io <span class="im">import</span> StringIO</a>
+<a class="sourceLine" id="cb76-9" title="9"><span class="im">from</span> pdfminer.pdfinterp <span class="im">import</span> PDFResourceManager</a>
+<a class="sourceLine" id="cb76-10" title="10"><span class="im">from</span> pdfminer.pdfinterp <span class="im">import</span> PDFPageInterpreter</a>
+<a class="sourceLine" id="cb76-11" title="11"><span class="im">from</span> pdfminer.converter <span class="im">import</span> TextConverter</a>
+<a class="sourceLine" id="cb76-12" title="12"><span class="im">from</span> pdfminer.layout <span class="im">import</span> LAParams</a>
+<a class="sourceLine" id="cb76-13" title="13"><span class="im">from</span> pdfminer.pdfpage <span class="im">import</span> PDFPage</a>
+<a class="sourceLine" id="cb76-14" title="14"></a>
+<a class="sourceLine" id="cb76-15" title="15"><span class="co"># Pandas and NumPy for visualization</span></a>
+<a class="sourceLine" id="cb76-16" title="16"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb76-17" title="17"><span class="im">import</span> pandas <span class="im">as</span> pd</a></code></pre></div>
+<p>We are also using typing to insert some type annotation. Pandas is used to format the data and output them to CSV.</p>
+</div>
+<div id="from-pdf-to-txt" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> From Pdf to Txt</h3>
+<p>Here we start reading the pdf and turning it into text we can use (txt). Pdfs are great for humans to read, but terrible for machines to operate on.</p>
+<p>The code below is far from being optimal. It required me a lot of search, tries, and attempts. Most standard procedures did not work: I wasn’t able to read the pdfs. So I have to resort to <strong>pdfminer</strong> (a module no longer maintained: <a href="https://github.com/euske/pdfminer" class="uri">https://github.com/euske/pdfminer</a>) but that somehow got me where I need to.
+In the process there were black boxes to trust.</p>
+<p>Anyway, we start slicing the pdf name to keep only the file name and not the .pdf extension. We are going to save the text as Paper 2019.txt and not Paper 2019.pdf.txt.</p>
+<p>The conversion happens as follows:</p>
+<ul>
+<li>we need an interpreter object - PDFInterpreter - that takes a manager object and a converter object. We import both from pdfminer: PDFResourceManager() and TextConverter();</li>
+<li>all the conversion process revolves around these three items: the <em>interpreter</em> (1) matches a <em>manager</em> (2) and a <em>converter</em> (3). We pass all the pages of the files we want to convert to the interpreter and get our result;</li>
+<li>the output we use is StringIO(), i.e. a buffer for input/output, <a href="https://docs.python.org/3.8/library/io.html?highlight=stringio#io.StringIO" class="uri">https://docs.python.org/3.8/library/io.html?highlight=stringio#io.StringIO</a>;</li>
+<li>we set the pagenums value to the empty set (i.e. set());</li>
+<li>the conversion starts when we open the <em>infile</em> by opening the pdf in read binary mode;</li>
+<li>we then start a for loop to get all the pages with the PDFPage.get_pages and then we call the interpreter on each page;</li>
+<li>we then close both files (infile and converter);</li>
+<li>all the information is in the output as a StringIO. We get the values from there, assign this content to filetxt, and close the output;</li>
+<li>now we have all the data we need and are ready to write it to txt…;</li>
+<li>… well, we are not. Before our with-statement and a standard write to file, we need to <em>encode the stream tobyte</em>. The latin-1 encoding was the only one able to go through to pdfs I wanted to analyze, the same holds for the backslashreplace error. I had to experiment. Hopefully your corpus will be nicer than mine.</li>
+</ul>
+<p>Are you ready? Here comes the code…</p>
+<p><em>Pdf goes txt</em></p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb77-1" title="1"><span class="kw">def</span> read(pdf: IO) <span class="op">-&gt;</span> Text:</a>
+<a class="sourceLine" id="cb77-2" title="2">    <span class="co">&quot;&quot;&quot;Acquire a pdf and return a text file&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb77-3" title="3">    pdfname <span class="op">=</span> pdf [:<span class="op">-</span><span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb77-4" title="4">    <span class="co"># Setting the conversion trio</span></a>
+<a class="sourceLine" id="cb77-5" title="5">    pagenums <span class="op">=</span> <span class="bu">set</span>()</a>
+<a class="sourceLine" id="cb77-6" title="6">    output <span class="op">=</span> StringIO()</a>
+<a class="sourceLine" id="cb77-7" title="7">    manager <span class="op">=</span> PDFResourceManager()</a>
+<a class="sourceLine" id="cb77-8" title="8">    converter <span class="op">=</span> TextConverter(manager, output, laparams<span class="op">=</span>LAParams())</a>
+<a class="sourceLine" id="cb77-9" title="9">    interpreter <span class="op">=</span> PDFPageInterpreter(manager, converter)</a>
+<a class="sourceLine" id="cb77-10" title="10">    </a>
+<a class="sourceLine" id="cb77-11" title="11">    <span class="co"># Opening the pdf</span></a>
+<a class="sourceLine" id="cb77-12" title="12">    infile <span class="op">=</span> <span class="bu">open</span>(pdf, <span class="st">&#39;rb&#39;</span>)</a>
+<a class="sourceLine" id="cb77-13" title="13">    </a>
+<a class="sourceLine" id="cb77-14" title="14">    <span class="co"># Readiing loop: get the page and use the interpreter</span></a>
+<a class="sourceLine" id="cb77-15" title="15">    <span class="cf">for</span> page <span class="kw">in</span> PDFPage.get_pages(infile, pagenums):</a>
+<a class="sourceLine" id="cb77-16" title="16">        interpreter.process_page(page)</a>
+<a class="sourceLine" id="cb77-17" title="17">    infile.close()</a>
+<a class="sourceLine" id="cb77-18" title="18">    converter.close()</a>
+<a class="sourceLine" id="cb77-19" title="19">    <span class="co"># Get the values and turn them to byte</span></a>
+<a class="sourceLine" id="cb77-20" title="20">    content <span class="op">=</span> output.getvalue()</a>
+<a class="sourceLine" id="cb77-21" title="21">    output.close()</a>
+<a class="sourceLine" id="cb77-22" title="22">    <span class="co"># Specify encoding</span></a>
+<a class="sourceLine" id="cb77-23" title="23">    tobyte <span class="op">=</span> content.encode(encoding<span class="op">=</span><span class="st">&quot;latin-1&quot;</span>,<span class="op">\</span></a>
+<a class="sourceLine" id="cb77-24" title="24">        errors<span class="op">=</span><span class="st">&quot;backslashreplace&quot;</span>)</a>
+<a class="sourceLine" id="cb77-25" title="25">    <span class="co"># Coping to txt, finally!</span></a>
+<a class="sourceLine" id="cb77-26" title="26">    <span class="cf">with</span> <span class="bu">open</span>(pdfname <span class="op">+</span> <span class="st">&#39;.txt&#39;</span>, <span class="st">&#39;wb&#39;</span>) <span class="im">as</span> txt_file:</a>
+<a class="sourceLine" id="cb77-27" title="27">        txt_file.write(tobyte)</a></code></pre></div>
+<p>Ok, that was hard. I managed to retrieve the text only with Latin1 as encoding.
+Usually you would expect a suboptimal start at your first level to propagate at a further level. The bad news? Programming follows the usual. We have to take care of Latin1 encoding next.<a href="#fn49" class="footnote-ref" id="fnref49"><sup>49</sup></a></p>
+</div>
+<div id="cleaning-the-txt" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> Cleaning the Txt</h3>
+<p>Somehow we managed to have our pdf turned into a txt. We can now read it but, before we do it, we need to <em>preprocess</em> it. Depending on what you want to do with a document, there a variety of operations to perform.</p>
+<p>If you do some natural language processing, you will remove stop words (i.e. articles, propositions, etc.) that may clutter your analysis. Remember machines are dumb. If you count what is the most occurring world in a paper you don’t want it to be ‘the’ but something more significant.</p>
+<p>Of course, identifying stop-words is complex. What to do with ‘no’ and ‘not’? Their input on meaning is quite important. Anyway, head over to SpaCy (<a href="https://spacy.io/" class="uri">https://spacy.io/</a>) or NLTK (<a href="https://www.nltk.org/" class="uri">https://www.nltk.org/</a>) to explore this more. Also, as far as pre-processing is concerned, you are likely to have all your words in lower case. Python is case sensitive and you don’t want your word count to be messed by the fact that ‘This is this’ doesn’t have two ‘this’ for your machine.</p>
+<p>Here we have different concerns. Capitalization will be important to match the authors’ surnames. It’s one of the few elements we have to spot the references! Nonetheless, get ready for a lot of false-positive like June (2006), etc. Journals like to repeat the month of the current issue every other page! We do not recognize this as readers, but our machine reader spots this… further, we can’t exclude authors named that way. Suppose you work on Japan in the media and have to deal with May (2020)…</p>
+<p>To extract the references, we need to remove the newlines. You don’t want a newline to break our regex. We also need due care with items that occur in the references formatting information: dots, coma, semi-colons, etc. Nasty spaces are to be avoided. This processing is going to make our hardly converted txt file very hard to be read for us, but pretty easy to be processed for our machine.</p>
+<p>Still, even before we go there, we need to be sure that all characters of our text went through the pdf to txt journey. That is not going to be the case. Latin-1 fails with many characters. They appear as ‘u25a0’ and other strange characters. Before working on our hardly acquired data we have to check out for their integrity.
+Search these codes and figure out what they mean. Then go heavy on the replace function.</p>
+<p>Basically cleaning the txt is nothing but a with statement reading the file and then a lot of replace statements to insert back the code that was missing.</p>
+<p>That’s the (long) cleaning function I had to use. It is extra-long and super verbose, but at least it explains what it does. You may have used a dictionary with key and value pairs to specify the replacement operations. Then you have to loop on each pair.</p>
+<p>Feel free to go that way.</p>
+<p><em>Cleaning the txt</em></p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb78-1" title="1"><span class="kw">def</span> cleantxt(filetxt: Text) <span class="op">-&gt;</span> Text:</a>
+<a class="sourceLine" id="cb78-2" title="2">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb78-3" title="3"><span class="co">    Fix all the latin-1 badly imported chars.</span></a>
+<a class="sourceLine" id="cb78-4" title="4"><span class="co">    Remove extra newlines</span></a>
+<a class="sourceLine" id="cb78-5" title="5"><span class="co">    Ensure there&#39;s always a space after the dot</span></a>
+<a class="sourceLine" id="cb78-6" title="6"><span class="co">    Adjust bad inputs, such as:</span></a>
+<a class="sourceLine" id="cb78-7" title="7"><span class="co">        a. Ò is &quot;</span></a>
+<a class="sourceLine" id="cb78-8" title="8"><span class="co">        b. Ó is &quot;</span></a>
+<a class="sourceLine" id="cb78-9" title="9"><span class="co">        c. Õ is &#39;</span></a>
+<a class="sourceLine" id="cb78-10" title="10"><span class="co">        d. Ð is -</span></a>
+<a class="sourceLine" id="cb78-11" title="11"><span class="co">        e. Ñ is -- (longdash)</span></a>
+<a class="sourceLine" id="cb78-12" title="12"><span class="co">    Fix spacing the *</span></a>
+<a class="sourceLine" id="cb78-13" title="13"><span class="co">    Fix space after )</span></a>
+<a class="sourceLine" id="cb78-14" title="14"><span class="co">    Fix space after ]</span></a>
+<a class="sourceLine" id="cb78-15" title="15"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb78-16" title="16">    <span class="cf">with</span> <span class="bu">open</span>(filetxt) <span class="im">as</span> f:</a>
+<a class="sourceLine" id="cb78-17" title="17">        ftxt <span class="op">=</span> f.read()  </a>
+<a class="sourceLine" id="cb78-18" title="18">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u25a0&#39;</span>, <span class="st">&#39; * &#39;</span>) <span class="co"># Black dot </span></a>
+<a class="sourceLine" id="cb78-19" title="19">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u2013&#39;</span>, <span class="st">&#39;-&#39;</span>)</a>
+<a class="sourceLine" id="cb78-20" title="20">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u2014&#39;</span>, <span class="st">&#39;-&#39;</span>)</a>
+<a class="sourceLine" id="cb78-21" title="21">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u2019&#39;</span>, <span class="st">&#39;</span><span class="ch">\&#39;</span><span class="st">&#39;</span>)</a>
+<a class="sourceLine" id="cb78-22" title="22">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u2018&#39;</span>, <span class="st">&#39;</span><span class="ch">\&#39;</span><span class="st">&#39;</span>)</a>
+<a class="sourceLine" id="cb78-23" title="23">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u201c&#39;</span>, <span class="st">&#39;</span><span class="ch">\&#39;</span><span class="st">&#39;</span>)</a>
+<a class="sourceLine" id="cb78-24" title="24">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u201d&#39;</span>, <span class="st">&#39;</span><span class="ch">\&#39;</span><span class="st">&#39;</span>)</a>
+<a class="sourceLine" id="cb78-25" title="25">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">ufb01&#39;</span>, <span class="st">&#39;fi&#39;</span>)</a>
+<a class="sourceLine" id="cb78-26" title="26">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">ufb02&#39;</span>, <span class="st">&#39;fl&#39;</span>)</a>
+<a class="sourceLine" id="cb78-27" title="27">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u0152&#39;</span>, <span class="st">&#39;oe&#39;</span>)</a>
+<a class="sourceLine" id="cb78-28" title="28">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u0153&#39;</span>, <span class="st">&#39;oe&#39;</span>)</a>
+<a class="sourceLine" id="cb78-29" title="29">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u2022&#39;</span>, <span class="st">&#39;-&#39;</span>) <span class="co"># Point</span></a>
+<a class="sourceLine" id="cb78-30" title="30">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u27a4&#39;</span>, <span class="st">&#39;-&gt;&#39;</span>) <span class="co"># Right arrow</span></a>
+<a class="sourceLine" id="cb78-31" title="31">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u27a5&#39;</span>, <span class="st">&#39;-&gt;&#39;</span>) <span class="co"># Right curved arrow</span></a>
+<a class="sourceLine" id="cb78-32" title="32">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u2122&#39;</span>, <span class="st">&#39;&#39;</span>)  <span class="co"># TM logo</span></a>
+<a class="sourceLine" id="cb78-33" title="33">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u20ac&#39;</span>, <span class="st">&#39;euro&#39;</span>)  </a>
+<a class="sourceLine" id="cb78-34" title="34">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u221e&#39;</span>, <span class="st">&#39;infinity&#39;</span>)  <span class="co"># Infinity</span></a>
+<a class="sourceLine" id="cb78-35" title="35">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\x0c</span><span class="st">&#39;</span>, <span class="st">&#39;&#39;</span>) <span class="co"># Up arrow</span></a>
+<a class="sourceLine" id="cb78-36" title="36">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;VC &#39;</span>, <span class="st">&#39;&#39;</span>) <span class="co"># Copyright</span></a>
+<a class="sourceLine" id="cb78-37" title="37">        </a>
+<a class="sourceLine" id="cb78-38" title="38">        <span class="co"># Umlaut related</span></a>
+<a class="sourceLine" id="cb78-39" title="39">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u20aca&#39;</span>, <span class="st">&#39;a&#39;</span>)</a>
+<a class="sourceLine" id="cb78-40" title="40">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u20aco&#39;</span>, <span class="st">&#39;o&#39;</span>)</a>
+<a class="sourceLine" id="cb78-41" title="41">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u20acu&#39;</span>, <span class="st">&#39;u&#39;</span>)</a>
+<a class="sourceLine" id="cb78-42" title="42">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u2026&#39;</span>, <span class="st">&#39;...&#39;</span>)</a>
+<a class="sourceLine" id="cb78-43" title="43">        <span class="co"># Slavic</span></a>
+<a class="sourceLine" id="cb78-44" title="44">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u017&#39;</span>, <span class="st">&#39;z&#39;</span>)</a>
+<a class="sourceLine" id="cb78-45" title="45">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u0161&#39;</span>, <span class="st">&#39;s&#39;</span>)</a>
+<a class="sourceLine" id="cb78-46" title="46">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">u0106&#39;</span>, <span class="st">&#39;C&#39;</span>)</a>
+<a class="sourceLine" id="cb78-47" title="47">        </a>
+<a class="sourceLine" id="cb78-48" title="48">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot;\.&quot;</span>, <span class="st">&quot;\. &quot;</span>) </a>
+<a class="sourceLine" id="cb78-49" title="49">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot;Ò&quot;</span>, <span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>) </a>
+<a class="sourceLine" id="cb78-50" title="50">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot;Ó&quot;</span>, <span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>) </a>
+<a class="sourceLine" id="cb78-51" title="51">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot;Õ&quot;</span>, <span class="st">&quot;</span><span class="ch">\&#39;</span><span class="st">&quot;</span>) </a>
+<a class="sourceLine" id="cb78-52" title="52">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot;Ð&quot;</span>, <span class="st">&quot;-&quot;</span>)</a>
+<a class="sourceLine" id="cb78-53" title="53">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot;Ñ&quot;</span>, <span class="st">&quot;--&quot;</span>)</a>
+<a class="sourceLine" id="cb78-54" title="54">        </a>
+<a class="sourceLine" id="cb78-55" title="55">        <span class="co"># Ad hoc cleaning given my corpusx</span></a>
+<a class="sourceLine" id="cb78-56" title="56">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot; eg, &quot;</span>, <span class="st">&quot;&quot;</span>) <span class="co"># Messes up fulldata</span></a>
+<a class="sourceLine" id="cb78-57" title="57">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot; Ltd 2004&quot;</span>, <span class="st">&quot;&quot;</span>) <span class="co"># Bad input </span></a>
+<a class="sourceLine" id="cb78-58" title="58">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot; Malden 0214&quot;</span>, <span class="st">&quot;&quot;</span>) <span class="co"># Bad input </span></a>
+<a class="sourceLine" id="cb78-59" title="59">        </a>
+<a class="sourceLine" id="cb78-60" title="60">        <span class="co"># Spacing</span></a>
+<a class="sourceLine" id="cb78-61" title="61">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="st">&quot; &quot;</span>) <span class="co"># Newlines to space</span></a>
+<a class="sourceLine" id="cb78-62" title="62">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot;*&quot;</span>, <span class="st">&quot;&quot;</span>) <span class="co"># Clean *</span></a>
+<a class="sourceLine" id="cb78-63" title="63">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot;)&quot;</span>, <span class="st">&quot;) &quot;</span>) <span class="co"># Space after )</span></a>
+<a class="sourceLine" id="cb78-64" title="64">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot;]&quot;</span>, <span class="st">&quot;] &quot;</span>) <span class="co"># Space after ]</span></a>
+<a class="sourceLine" id="cb78-65" title="65">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot; ;&quot;</span>, <span class="st">&quot;;&quot;</span>) <span class="co"># No space after ;</span></a>
+<a class="sourceLine" id="cb78-66" title="66">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot; ,&quot;</span>, <span class="st">&quot;,&quot;</span>) <span class="co"># No space after ,</span></a>
+<a class="sourceLine" id="cb78-67" title="67">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot; .&quot;</span>, <span class="st">&quot;.&quot;</span>) <span class="co"># No space after .</span></a>
+<a class="sourceLine" id="cb78-68" title="68">        ftxt<span class="op">=</span>ftxt.replace(<span class="st">&quot;  &quot;</span>, <span class="st">&quot; &quot;</span>) <span class="co"># 2 spaces into 1</span></a>
+<a class="sourceLine" id="cb78-69" title="69">        <span class="cf">return</span> ftxt</a></code></pre></div>
+<p>To preprocess the txt all you need is to apply the cleaning function on the text. Note, again, that we are dividing the tasks: one function defines all the replacement, another calls the replacements to be applied.</p>
+<p>(Here we keep track of what happened to a file by adding a specific name after it is processed. A preprocessed file is saved with the ’_prep.txt’ ending. In that way we know that we can retrieve the file name by slicing -9. You are invited to achieve the same results using the <strong>endswith()</strong> string method.)</p>
+<p>Code-wise, we have what follows:</p>
+<p><em>Applying cleaning, i.e. preprocessing</em></p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb79-1" title="1"><span class="kw">def</span> preprocess(txt: Text) <span class="op">-&gt;</span> Text:</a>
+<a class="sourceLine" id="cb79-2" title="2">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb79-3" title="3"><span class="co">    Clean txt for regex processing using the</span></a>
+<a class="sourceLine" id="cb79-4" title="4"><span class="co">    cleantxt function. </span></a>
+<a class="sourceLine" id="cb79-5" title="5"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb79-6" title="6">    filename <span class="op">=</span> txt[:<span class="op">-</span><span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb79-7" title="7">    <span class="cf">with</span> <span class="bu">open</span>(filename <span class="op">+</span><span class="st">&#39;_prep.txt&#39;</span>, <span class="st">&#39;w&#39;</span>) <span class="im">as</span> preptxt:</a>
+<a class="sourceLine" id="cb79-8" title="8">        preptxt.write(cleantxt(txt))</a>
+<a class="sourceLine" id="cb79-9" title="9">    <span class="cf">return</span> cleantxt(txt)</a></code></pre></div>
+</div>
+<div id="regex-processing" class="section level3">
+<h3><span class="header-section-number">8.1.4</span> Regex Processing</h3>
+<p>Now that we have the text ready to be processed, it is regexes time.</p>
+<p>We already know how this is going to work from chapter <a href="ch5.html#ch5">5</a>. Nonetheless, here we are testing a <em>whole</em> paper on <em>different</em> regexes. If you have a small set of papers you can define further rules to optimize the regex for the different journals, but if you are working on a general purpose tool you can’t rule out cases.</p>
+<p>Different regexes are stored in the constant list REGEX_LIST. Feel free to uncomment some of them if you need to.</p>
+<p>Another major difference is due to how we retrieve the information: we want to know which regex we are using to see the one that is bringing us the best results. We can keep track of this by printing with regex is giving us the results.</p>
+<p>We further standardize all the results as Author Year, so watch out for capturing groups in the regexes. In that way, we can produce a CSV of ‘Author Year’, ‘Author Year’, which we can graph easily.</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb80-1" title="1">REGEX_LIST <span class="op">=</span> [<span class="co">#&#39;\(([A-Z][a-z]*),?\s(\d\d\d\d)\D?\)&#39;,</span></a>
+<a class="sourceLine" id="cb80-2" title="2">             <span class="co">#&#39;([A-Z]\S*),\s&quot;[A-Za-z\s?,&quot;]*\((\d\d\d\d)\)&#39;, </span></a>
+<a class="sourceLine" id="cb80-3" title="3">              <span class="co">#&#39;([A-Z]\S*),\s&quot;?[A-Za-z\s?,\(]*(\d\d\d\d)\)&#39;, </span></a>
+<a class="sourceLine" id="cb80-4" title="4">              <span class="co">#&#39;([A-Z]\S*),\s&quot;?[A-Za-z\s?,\(]*,\s(\d\d\d\d)\)&#39;,</span></a>
+<a class="sourceLine" id="cb80-5" title="5">              <span class="st">&#39;([A-Z]\S*),\s</span><span class="ch">\&#39;</span><span class="st">?&quot;?[A-Za-z\s?,:\(]*</span><span class="ch">\&#39;</span><span class="st">?\s\(?(\d\d\d\d)\)&#39;</span>,</a>
+<a class="sourceLine" id="cb80-6" title="6">              <span class="st">&#39;\(?([A-Z][a-z]*),?\s\(?(\d\d\d\d[a-f]?)&#39;</span>,</a>
+<a class="sourceLine" id="cb80-7" title="7">              <span class="st">&#39;[A-Z]\S*\s([A-Z]\S*),\s[^\(]*\s\([^\(]*(\d\d\d\d)\)&#39;</span>,</a>
+<a class="sourceLine" id="cb80-8" title="8">              <span class="st">&#39;[A-Z]\S*\s([A-Z]\S*),\s[^\(]*\s\([^\(]*\s\(?(\d\d\d\d)\)&#39;</span>,</a>
+<a class="sourceLine" id="cb80-9" title="9">              <span class="st">&#39;[A-Z]\S*\s([A-Z]\S*),\s[^\(]*\s\([^\(]*\([^\(]*(\d\d\d\d)&#39;</span>,</a>
+<a class="sourceLine" id="cb80-10" title="10">              <span class="st">&#39;[A-Z]\S*\s([A-Z]\S*),?\s[^\(]*\s\([^\(]*\([^\(]*(\d\d\d\d)&#39;</span>,</a>
+<a class="sourceLine" id="cb80-11" title="11">              ]</a>
+<a class="sourceLine" id="cb80-12" title="12">    </a>
+<a class="sourceLine" id="cb80-13" title="13"><span class="kw">def</span> extractbiblio(txt: Text) <span class="op">-&gt;</span> Text:</a>
+<a class="sourceLine" id="cb80-14" title="14">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb80-15" title="15"><span class="co">    Apply regex patterns in REGEX_LIST to a </span></a>
+<a class="sourceLine" id="cb80-16" title="16"><span class="co">    (processed) text. References are stored in </span></a>
+<a class="sourceLine" id="cb80-17" title="17"><span class="co">    &#39;Author Year&#39; format.</span></a>
+<a class="sourceLine" id="cb80-18" title="18"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb80-19" title="19">    <span class="co"># Initialize the list containing the extracted refs</span></a>
+<a class="sourceLine" id="cb80-20" title="20">    extractedlist <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb80-21" title="21">    filename <span class="op">=</span> txt[:<span class="op">-</span><span class="dv">9</span>] <span class="co"># The file passes ended with &quot;_prep.txt&quot;</span></a>
+<a class="sourceLine" id="cb80-22" title="22">    <span class="cf">for</span> regex <span class="kw">in</span> REGEX_LIST:</a>
+<a class="sourceLine" id="cb80-23" title="23">        <span class="bu">print</span>(<span class="st">&#39;Processing &#39;</span>, regex)</a>
+<a class="sourceLine" id="cb80-24" title="24">        <span class="co"># Open the paper as corpus</span></a>
+<a class="sourceLine" id="cb80-25" title="25">        corpus <span class="op">=</span> <span class="bu">open</span>(txt).read()</a>
+<a class="sourceLine" id="cb80-26" title="26">        <span class="co"># Run regexes over corpus</span></a>
+<a class="sourceLine" id="cb80-27" title="27">        matches <span class="op">=</span>  re.findall(regex, corpus)</a>
+<a class="sourceLine" id="cb80-28" title="28">        <span class="co"># Save matches in the extracted list</span></a>
+<a class="sourceLine" id="cb80-29" title="29">        <span class="cf">for</span> match <span class="kw">in</span> matches:</a>
+<a class="sourceLine" id="cb80-30" title="30">        <span class="co"># We using capturing groups for author and date</span></a>
+<a class="sourceLine" id="cb80-31" title="31">            extractedlist.append(<span class="bu">str</span>(match[<span class="dv">0</span>]) <span class="op">\</span></a>
+<a class="sourceLine" id="cb80-32" title="32">            <span class="op">+</span> <span class="st">&#39; &#39;</span> <span class="op">+</span> <span class="bu">str</span>(match[<span class="dv">1</span>]))    </a>
+<a class="sourceLine" id="cb80-33" title="33">        <span class="co"># Print statement to have an idea of the search</span></a>
+<a class="sourceLine" id="cb80-34" title="34">        <span class="co"># feel free to comment it out</span></a>
+<a class="sourceLine" id="cb80-35" title="35">        <span class="bu">print</span>(<span class="bu">sorted</span>(<span class="bu">set</span>(extractedlist)), <span class="bu">len</span>(<span class="bu">set</span>(extractedlist)))</a>
+<a class="sourceLine" id="cb80-36" title="36">    <span class="cf">return</span> extractedlist</a></code></pre></div>
+<p>If you want to save the data you need to add a save-to-file part like the following or a dedicated save_bib() function, your choice.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb81-1" title="1"><span class="co"># Saving to file   </span></a>
+<a class="sourceLine" id="cb81-2" title="2"><span class="cf">with</span> <span class="bu">open</span>(filename <span class="op">+</span> <span class="st">&#39;_biblio.txt&#39;</span>, <span class="st">&#39;w&#39;</span>) <span class="im">as</span> f:</a>
+<a class="sourceLine" id="cb81-3" title="3">    <span class="cf">for</span> item <span class="kw">in</span> <span class="bu">sorted</span>(extractedlist):</a>
+<a class="sourceLine" id="cb81-4" title="4">        f.write(item <span class="op">+</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</a></code></pre></div>
+</div>
+<div id="getting-data-with-regexes" class="section level3">
+<h3><span class="header-section-number">8.1.5</span> Getting Data with Regexes</h3>
+<p>If you are using this tool you have to build you own regexes. A lot depends on the journals you explore. It is way better to use papers from one source. Even better if they use Author-Date and if the have a reference list at the end. Having a reference section will make it easier to check we extracted all the data and evaluate the performance of our regexes.</p>
+<p>Choosing if and when to save to file is a difficult call. If you are working only on author-date you can do it as part of the extracting functions. Otherwise you may not want to save too early. Your regexes might be full of false-positive or missing cases. You may want to have a different file for each regex (you can use an identifier for the regex pattern in the file name, like “paperX_refs_regex1.txt” or similar).</p>
+<p>You probably don’t want to save data to txt if you are processing your text with 20 and more different regexes. Check the results against the reference list (if provided - join me in hating styles that don’t do that). You can try to automate such a check.
+In general: fulldata is hard, process it all and get more matches.</p>
+<p>Sometimes you discover errors by the authors and issues with the journal instructions that were not respected (nor caught by the reviewers). That is cool.</p>
+<p>Note that there’s more to the data we are extracting than what we are printing.
+We get all the <em>occurrences</em> of a reference. This means we can check how many times they occur. We can attach a weight to the references. This is something worth considering.</p>
+<p>Further, from the txt you can go further and extract named entities and create conceptual maps. These are more advanced features that require more machine time and some performance optimization. Again, NLTK and SpaCy are probably going to be your extraction tools.</p>
+</div>
+<div id="exporting-to-csv" class="section level3">
+<h3><span class="header-section-number">8.1.6</span> Exporting to CSV</h3>
+<p>Ok, we are almost there. I assume you manage to have a clean version of the data. Now it is time to export them to visualize them. We are actually buck-passing it Gephi (download and install it, you know the deal by now - actually beware of Gephi).
+We need to have them in a CSV format and we are going to use pandas to achieve this.</p>
+<p>Pandas is one of the main data analysis tool in Python. It gives us a new kind of object, dataframe (frames for short). You can think of a frame as an Excel table (on steroids).</p>
+<p>Pandas is imported as <strong>pd</strong> by convention. And, also by convention, a dataframe is created as <strong>df</strong>.</p>
+<p>We created our dataframe based on the references we extracted from the paper. To do that, we need to read our text file with the bibliography. We can do this with the <strong>read_csv()</strong> function of pandas. In fact, CSV are txt files with a specific separator.</p>
+<p>While reading the references we specify our separator using the ‘sep’ parameter and we use the newline ‘\n’. (In a standard CSV you are likely to have either, or ;). We then skip any header (if present) with ‘header=None’ and we start assigning the names to the columns of the frame.</p>
+<p>Gephi needs a list of edges (paper - reference) and a weight indicator, in that order. We start importing the references and add paper and weight. Then we add the missing data and reorder the columns.</p>
+<p>To access columns in the dataframe we use square bracket syntax. In this way we assign the weight value to 1 and the paper name takes the paperwithyear value we pass and capitalizes it.</p>
+<p>Our function has no idea about who is the author of the paper we are processing. According to the structure of the program, the naming depends on the starting pdf. There’s no one-catch-all solution to go from a file name to the author(s) of a paper. That’s why we ask the user to input it.</p>
+<p>The format we need is Author(space)year, i.e. one that matches the one we have in the references. <em>Be sure to capitalize it</em>, otherwise you risk to have a format like ‘author(space)year’ which is not going to match.</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb82-1" title="1"><span class="kw">def</span> extract_to_gephi(biblio: Text, papernamewithyear) <span class="op">-&gt;</span> Text:</a>
+<a class="sourceLine" id="cb82-2" title="2">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb82-3" title="3"><span class="co">    Format the data for usage in gephi. The gephi table has:</span></a>
+<a class="sourceLine" id="cb82-4" title="4"><span class="co">    - a &#39;paper&#39; column: the paper we exteracted references from;</span></a>
+<a class="sourceLine" id="cb82-5" title="5"><span class="co">    - a &#39;references&#39; column: the outcome of our biblio extraction;</span></a>
+<a class="sourceLine" id="cb82-6" title="6"><span class="co">    - a &#39;weight&#39; column: Gephi needs it set to 1.    </span></a>
+<a class="sourceLine" id="cb82-7" title="7"><span class="co">    </span></a>
+<a class="sourceLine" id="cb82-8" title="8"><span class="co">    The parameters are:</span></a>
+<a class="sourceLine" id="cb82-9" title="9"><span class="co">        -biblio: a txt file with the extract biblio (_biblio.txt </span></a>
+<a class="sourceLine" id="cb82-10" title="10"><span class="co">        is the output name of the extractbiblio(txt) function);</span></a>
+<a class="sourceLine" id="cb82-11" title="11"><span class="co">        - papernamewith year: the paper we are extracting the </span></a>
+<a class="sourceLine" id="cb82-12" title="12"><span class="co">        references from given the format we are using of &#39;Author </span></a>
+<a class="sourceLine" id="cb82-13" title="13"><span class="co">        year&#39; you have to insert it this way. Otherwise your Gephi</span></a>
+<a class="sourceLine" id="cb82-14" title="14"><span class="co">        network will not display there references to the paper</span></a>
+<a class="sourceLine" id="cb82-15" title="15"><span class="co">        you are processing.</span></a>
+<a class="sourceLine" id="cb82-16" title="16"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb82-17" title="17">    references <span class="op">=</span> pd.read_csv(biblio, sep<span class="op">=</span><span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>, header<span class="op">=</span><span class="va">None</span>,<span class="op">\</span></a>
+<a class="sourceLine" id="cb82-18" title="18">        names <span class="op">=</span> [<span class="st">&#39;references&#39;</span>, <span class="st">&#39;paper&#39;</span>, <span class="st">&#39;weight&#39;</span>])    </a>
+<a class="sourceLine" id="cb82-19" title="19">    df <span class="op">=</span> pd.DataFrame(references)</a>
+<a class="sourceLine" id="cb82-20" title="20">    <span class="co"># Be sure to capitalize the paper or your data won&#39;t match</span></a>
+<a class="sourceLine" id="cb82-21" title="21">    <span class="co"># author 2020 and Author 2020 are different</span></a>
+<a class="sourceLine" id="cb82-22" title="22">    df[<span class="st">&#39;paper&#39;</span>] <span class="op">=</span> papernamewithyear.capitalize()</a>
+<a class="sourceLine" id="cb82-23" title="23">    df[<span class="st">&#39;weight&#39;</span>] <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb82-24" title="24">    columns_titles <span class="op">=</span> [<span class="st">&quot;paper&quot;</span>,<span class="st">&quot;references&quot;</span>, <span class="st">&quot;weight&quot;</span>]</a>
+<a class="sourceLine" id="cb82-25" title="25">    df<span class="op">=</span>df.reindex(columns<span class="op">=</span>columns_titles)</a>
+<a class="sourceLine" id="cb82-26" title="26">    df.to_csv(papernamewithyear <span class="op">+</span> <span class="st">&#39;.csv&#39;</span>, index <span class="op">=</span> <span class="va">False</span>)</a>
+<a class="sourceLine" id="cb82-27" title="27">    <span class="bu">print</span>(<span class="st">&#39;Done&#39;</span>)</a></code></pre></div>
+</div>
+<div id="helper-functions-1" class="section level3">
+<h3><span class="header-section-number">8.1.7</span> Helper Functions</h3>
+<p>Helper functions are there to make things easier for you and the users.</p>
+<p>Suppose you want to map a debate involving 10 papers and that you successfully obtained the data for all 10. You now have to join all these 10 CSV into a single file you are going to use in your visualization process.</p>
+<p>That’s perfect for a helper function like the following.</p>
+<p><em>Helper function joining CSVs</em></p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb83-1" title="1"><span class="kw">def</span> join_csv():</a>
+<a class="sourceLine" id="cb83-2" title="2">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb83-3" title="3"><span class="co">    Helper function to join the results of various csv.</span></a>
+<a class="sourceLine" id="cb83-4" title="4"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb83-5" title="5">    <span class="co"># Initialize csv container</span></a>
+<a class="sourceLine" id="cb83-6" title="6">    csv <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb83-7" title="7">    <span class="co"># Get all csv</span></a>
+<a class="sourceLine" id="cb83-8" title="8">    <span class="cf">for</span> item <span class="kw">in</span> os.listdir():</a>
+<a class="sourceLine" id="cb83-9" title="9">        <span class="cf">if</span> item.endswith(<span class="st">&#39;.csv&#39;</span>):</a>
+<a class="sourceLine" id="cb83-10" title="10">            csv.append(item)</a>
+<a class="sourceLine" id="cb83-11" title="11">    <span class="co"># Comprehension to come</span></a>
+<a class="sourceLine" id="cb83-12" title="12">    frame <span class="op">=</span> pd.concat((pd.read_csv(item) <span class="cf">for</span> item <span class="kw">in</span> csv))</a>
+<a class="sourceLine" id="cb83-13" title="13">    <span class="co"># We skipped the index of csv after the first</span></a>
+<a class="sourceLine" id="cb83-14" title="14">    frame.to_csv(<span class="st">&#39;joinedfiles.csv&#39;</span>, index <span class="op">=</span> <span class="va">False</span>)</a>
+<a class="sourceLine" id="cb83-15" title="15">    <span class="bu">print</span>(<span class="st">&#39;Done!&#39;</span>)</a></code></pre></div>
+<p>In this helper function we are using Pandas to create a frame and then export the frame to CSV (<strong>frame.to_csv()</strong>). As we did before.</p>
+<p>The new function we called here is the <strong>pd.concat</strong> which allows us to concatenate the different CSVs of different papers into one.</p>
+<p>Also, a real-life usage of the tool calls to have a way to actually read, preprocess, and extract the bibliographic data. Like that.</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb84-1" title="1"><span class="kw">def</span> textprocess(txt):</a>
+<a class="sourceLine" id="cb84-2" title="2">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb84-3" title="3"><span class="co">    (Helper function) Read, proprocess and extract references.</span></a>
+<a class="sourceLine" id="cb84-4" title="4"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb84-5" title="5">    filename <span class="op">=</span> txt[:<span class="op">-</span><span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb84-6" title="6">    read(txt)</a>
+<a class="sourceLine" id="cb84-7" title="7">    preprocess(filename <span class="op">+</span> <span class="st">&#39;.txt&#39;</span>)</a>
+<a class="sourceLine" id="cb84-8" title="8">    extractbiblio(filename <span class="op">+</span> <span class="st">&#39;_prep.txt&#39;</span>)</a></code></pre></div>
+</div>
+<div id="tips-for-graphing-a-debate" class="section level3">
+<h3><span class="header-section-number">8.1.8</span> Tips for Graphing a Debate</h3>
+<p>I can’t stress this enough, there are a lot of things that can go wrong while extracting the references and use them to produce a graph of a debate. This is a list of some of the things to watch out:</p>
+<ul>
+<li>different editions can give you two books when there’s only one (except cases in which the different edition is quite a different book you can consider as a different one);</li>
+<li>classics being quoted as modern (Aristotle 1923);</li>
+<li>co-authored papers: they need specific regexes;</li>
+<li>a, b, c, etc. (Author 2000a, Author 2000b and the fact that they may change across different papers);</li>
+<li>authors having the same surname;</li>
+<li>tricky surnames (van Der Torre, von Fintel, etc.).</li>
+</ul>
+<p>Some can be taken into account improving the program, others are harder.</p>
+</div>
+</div>
+<div id="summary-7" class="section level2">
+<h2><span class="header-section-number">8.2</span> Summary</h2>
+<p>This chapter ends the <em>HumanDemia</em> training. We have a program and project that fits into a variety of different academic enterprises. We can (improve it and) use it to strengthen our research. Have fun!</p>
+<div id="more-resources-7" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> More Resources</h3>
+<p>Here are two projects that do similar things to the one we tried:</p>
+<ul>
+<li><a href="https://www.rletters.net/" class="uri">https://www.rletters.net/</a> (this is in Ruby);</li>
+<li><a href="https://www.bibliometrix.org/" class="uri">https://www.bibliometrix.org/</a>.</li>
+</ul>
+<p>NLTK has a free book documenting the library. Academics should feel at ease there: <a href="http://www.nltk.org/book/" class="uri">http://www.nltk.org/book/</a>. (Format is suboptimal and the printed version uses Python 2)</p>
+<p>If you are interested in Natural Language Processing, <em>Text Analytics with Python
+A Practitioner’s Guide to Natural Language Processing</em> by Dipanjan Sarkar has a lot to offer to you.</p>
+</div>
+<div id="further-work-7" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> Further Work</h3>
+<p>Pdfminer is no longer maintained but there’s pdfminer.six that is. It offers an extract text function: simplify the workflow by using it. <a href="https://pdfminersix.readthedocs.io/en/latest/api/highlevel.html#api-extract-text" class="uri">https://pdfminersix.readthedocs.io/en/latest/api/highlevel.html#api-extract-text</a></p>
+<p>Instead of Gephi we can visualize our graph with Python, for example using NetworkX (<a href="https://networkx.github.io/" class="uri">https://networkx.github.io/</a>).</p>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="49">
+<li id="fn49"><p>If you are not satisfied with this extraction routine you can try building one based on PyPDF2, here’s an overview of the module <a href="https://realpython.com/pdf-python/" class="uri">https://realpython.com/pdf-python/</a> then use the docs, and… ok, know you know it.<a href="ch8.html#fnref49" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch7.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

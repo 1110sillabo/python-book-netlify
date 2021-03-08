@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 StartUp Optimization, Corpora Builder and Corpora Opener | Programming Digital Humanities. Python (and More) for Academia</title>
+  <meta name="description" content="This book introduces the ABC theory, and …" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 StartUp Optimization, Corpora Builder and Corpora Opener | Programming Digital Humanities. Python (and More) for Academia" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/john/awesome/" />
+  
+  <meta property="og:description" content="This book introduces the ABC theory, and …" />
+  <meta name="github-repo" content="john/awesome" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 StartUp Optimization, Corpora Builder and Corpora Opener | Programming Digital Humanities. Python (and More) for Academia" />
+  
+  <meta name="twitter:description" content="This book introduces the ABC theory, and …" />
+  
+
+<meta name="author" content="Guglielmo Feis v. 0.1" />
+
+
+<meta name="date" content="2021-03-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch6.html"/>
+<link rel="next" href="ch8.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="prologue.html"><a href="prologue.html"><i class="fa fa-check"></i><b>1</b> Prologue</a><ul>
+<li class="chapter" data-level="1.1" data-path="prologue.html"><a href="prologue.html#the-journey-welcome-to-humandemia"><i class="fa fa-check"></i><b>1.1</b> The Journey: Welcome to <em>HumanDemia</em></a></li>
+<li class="chapter" data-level="1.2" data-path="prologue.html"><a href="prologue.html#a-difficult-trade-off-including-book-summary"><i class="fa fa-check"></i><b>1.2</b> A Difficult Trade-Off (including Book Summary)</a></li>
+<li class="chapter" data-level="1.3" data-path="prologue.html"><a href="prologue.html#whos-this-book-for"><i class="fa fa-check"></i><b>1.3</b> Who’s this Book for</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="prologue.html"><a href="prologue.html#how-coding-helps-in-the-humanities"><i class="fa fa-check"></i><b>1.3.1</b> How Coding Helps in the Humanities</a></li>
+<li class="chapter" data-level="1.3.2" data-path="prologue.html"><a href="prologue.html#what-coding-cant-do-for-you"><i class="fa fa-check"></i><b>1.3.2</b> What Coding Can’t Do for You</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="prologue.html"><a href="prologue.html#getting-the-most-out-of-this-book"><i class="fa fa-check"></i><b>1.4</b> Getting the Most Out of this Book</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="prologue.html"><a href="prologue.html#assumptions"><i class="fa fa-check"></i><b>1.4.1</b> Assumptions</a></li>
+<li class="chapter" data-level="1.4.2" data-path="prologue.html"><a href="prologue.html#type-these-commands-in-and-use-ipython"><i class="fa fa-check"></i><b>1.4.2</b> Type these Commands In (and Use IPython)</a></li>
+<li class="chapter" data-level="1.4.3" data-path="prologue.html"><a href="prologue.html#make-it-your-own-and-grow-it"><i class="fa fa-check"></i><b>1.4.3</b> Make it Your Own (and Grow it)</a></li>
+<li class="chapter" data-level="1.4.4" data-path="prologue.html"><a href="prologue.html#make-deliberate-mistakes"><i class="fa fa-check"></i><b>1.4.4</b> Make (Deliberate) Mistakes</a></li>
+<li class="chapter" data-level="1.4.5" data-path="prologue.html"><a href="prologue.html#read-the-docs"><i class="fa fa-check"></i><b>1.4.5</b> Read the Docs</a></li>
+<li class="chapter" data-level="1.4.6" data-path="prologue.html"><a href="prologue.html#learn-from-the-computer-feedback"><i class="fa fa-check"></i><b>1.4.6</b> Learn From the Computer Feedback</a></li>
+<li class="chapter" data-level="1.4.7" data-path="prologue.html"><a href="prologue.html#ask-for-help"><i class="fa fa-check"></i><b>1.4.7</b> Ask for Help</a></li>
+<li class="chapter" data-level="1.4.8" data-path="prologue.html"><a href="prologue.html#the-importance-of-keyboard-shortcuts"><i class="fa fa-check"></i><b>1.4.8</b> The Importance of (Keyboard) Shortcuts</a></li>
+<li class="chapter" data-level="1.4.9" data-path="prologue.html"><a href="prologue.html#book-organization-and-extra-resources"><i class="fa fa-check"></i><b>1.4.9</b> Book Organization and Extra Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="prologue.html"><a href="prologue.html#summary"><i class="fa fa-check"></i><b>1.5</b> Summary</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="prologue.html"><a href="prologue.html#more-resources"><i class="fa fa-check"></i><b>1.5.1</b> More Resources</a></li>
+<li class="chapter" data-level="1.5.2" data-path="prologue.html"><a href="prologue.html#further-work"><i class="fa fa-check"></i><b>1.5.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Setting up the Environment</b></span></li>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> The Universal Typing Machine: Markdown and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#the-boring-side-of-academia"><i class="fa fa-check"></i><b>2.1</b> The Boring Side of Academia</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="ch2.html"><a href="ch2.html#sidenote-survey-on-academically-boring-things"><i class="fa fa-check"></i><b>2.1.1</b> Sidenote: Survey on Academically Boring Things</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#installing-rstudio"><i class="fa fa-check"></i><b>2.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#rstudio-settings-darkmode-and-packages"><i class="fa fa-check"></i><b>2.3</b> RStudio Settings: Darkmode and Packages</a></li>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#rstudio-automation-for-humanities-tocs-and-bibliographies"><i class="fa fa-check"></i><b>2.4</b> RStudio Automation for Humanities: TOCs and Bibliographies</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="ch2.html"><a href="ch2.html#managing-bibliography"><i class="fa fa-check"></i><b>2.4.1</b> Managing Bibliography</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch2.html"><a href="ch2.html#bibliography-template-example"><i class="fa fa-check"></i><b>2.4.2</b> Bibliography Template Example</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="ch2.html"><a href="ch2.html#markdown-basics"><i class="fa fa-check"></i><b>2.5</b> Markdown Basics</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="ch2.html"><a href="ch2.html#newlines-pagebreaks-cross-references-and-further-text-divisions"><i class="fa fa-check"></i><b>2.5.1</b> Newlines, Pagebreaks, Cross-references, and further Text Divisions</a></li>
+<li class="chapter" data-level="2.5.2" data-path="ch2.html"><a href="ch2.html#creation-of-tables"><i class="fa fa-check"></i><b>2.5.2</b> Creation of Tables</a></li>
+<li class="chapter" data-level="2.5.3" data-path="ch2.html"><a href="ch2.html#adding-images"><i class="fa fa-check"></i><b>2.5.3</b> Adding Images</a></li>
+<li class="chapter" data-level="2.5.4" data-path="ch2.html"><a href="ch2.html#cross-referencing"><i class="fa fa-check"></i><b>2.5.4</b> Cross Referencing</a></li>
+<li class="chapter" data-level="2.5.5" data-path="ch2.html"><a href="ch2.html#adding-codes"><i class="fa fa-check"></i><b>2.5.5</b> Adding Code(s)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="ch2.html"><a href="ch2.html#comparing-this-setup-with-more-traditional-ones-the-benefits-for-academics"><i class="fa fa-check"></i><b>2.6</b> Comparing this Setup with more Traditional Ones: The Benefits for Academics</a></li>
+<li class="chapter" data-level="2.7" data-path="ch2.html"><a href="ch2.html#whats-more-in-rstudio"><i class="fa fa-check"></i><b>2.7</b> What’s More in RStudio</a></li>
+<li class="chapter" data-level="2.8" data-path="ch2.html"><a href="ch2.html#rstudio-workflow-learn-write-get-it"><i class="fa fa-check"></i><b>2.8</b> RStudio Workflow: Learn, Write, Get It!</a></li>
+<li class="chapter" data-level="2.9" data-path="ch2.html"><a href="ch2.html#books-with-markdown-the-bookdown-package"><i class="fa fa-check"></i><b>2.9</b> Books with Markdown: the Bookdown Package</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="ch2.html"><a href="ch2.html#installing-bookdown"><i class="fa fa-check"></i><b>2.9.1</b> Installing Bookdown</a></li>
+<li class="chapter" data-level="2.9.2" data-path="ch2.html"><a href="ch2.html#setting-up-a-bookdown-book"><i class="fa fa-check"></i><b>2.9.2</b> Setting Up a Bookdown-book</a></li>
+<li class="chapter" data-level="2.9.3" data-path="ch2.html"><a href="ch2.html#bookdown-mechanics"><i class="fa fa-check"></i><b>2.9.3</b> Bookdown Mechanics</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="ch2.html"><a href="ch2.html#summary-1"><i class="fa fa-check"></i><b>2.10</b> Summary</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="ch2.html"><a href="ch2.html#list-of-rstudio-shortcuts"><i class="fa fa-check"></i><b>2.10.1</b> List of RStudio Shortcuts</a></li>
+<li class="chapter" data-level="2.10.2" data-path="ch2.html"><a href="ch2.html#more-resources-1"><i class="fa fa-check"></i><b>2.10.2</b> More Resources</a></li>
+<li class="chapter" data-level="2.10.3" data-path="ch2.html"><a href="ch2.html#further-work-1"><i class="fa fa-check"></i><b>2.10.3</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Command Line Interface and Git(Hub): Get Ready for Machine Talk and Cooperating with the World</a><ul>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#command-line-essentials"><i class="fa fa-check"></i><b>3.1</b> Command Line Essentials</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ch3.html"><a href="ch3.html#navigating-file-system-with-the-command-line"><i class="fa fa-check"></i><b>3.1.1</b> Navigating File System with the Command-Line</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#version-control-with-git"><i class="fa fa-check"></i><b>3.2</b> Version Control with Git</a></li>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#installing-git-on-windows"><i class="fa fa-check"></i><b>3.3</b> Installing Git (on Windows)</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#git-and-github"><i class="fa fa-check"></i><b>3.3.1</b> Git and GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#git-operations-and-mechanics"><i class="fa fa-check"></i><b>3.4</b> Git Operations and Mechanics</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="ch3.html"><a href="ch3.html#creating-a-new-repository-and-add-contents"><i class="fa fa-check"></i><b>3.4.1</b> Creating a New Repository and Add Contents</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch3.html"><a href="ch3.html#copies-on-git-the-git-clone-command"><i class="fa fa-check"></i><b>3.4.2</b> Copies on Git: the ‘<em>git clone</em>’ Command</a></li>
+<li class="chapter" data-level="3.4.3" data-path="ch3.html"><a href="ch3.html#a-practical-cloning-example"><i class="fa fa-check"></i><b>3.4.3</b> A Practical Cloning Example</a></li>
+<li class="chapter" data-level="3.4.4" data-path="ch3.html"><a href="ch3.html#git-pushing-new-contents-into-your-projects-with-git-push"><i class="fa fa-check"></i><b>3.4.4</b> Git: Pushing New Contents into your Projects with ‘<em>git push</em>’</a></li>
+<li class="chapter" data-level="3.4.5" data-path="ch3.html"><a href="ch3.html#adding-files-matching-certain-conditions"><i class="fa fa-check"></i><b>3.4.5</b> Adding Files Matching Certain Conditions</a></li>
+<li class="chapter" data-level="3.4.6" data-path="ch3.html"><a href="ch3.html#git-ignore"><i class="fa fa-check"></i><b>3.4.6</b> Git Ignore</a></li>
+<li class="chapter" data-level="3.4.7" data-path="ch3.html"><a href="ch3.html#git-readme"><i class="fa fa-check"></i><b>3.4.7</b> Git Readme</a></li>
+<li class="chapter" data-level="3.4.8" data-path="ch3.html"><a href="ch3.html#forking-and-contributing-to-a-project-pull-requests"><i class="fa fa-check"></i><b>3.4.8</b> Forking and Contributing to a Project: Pull Requests</a></li>
+<li class="chapter" data-level="3.4.9" data-path="ch3.html"><a href="ch3.html#merging-and-conflict-resolution"><i class="fa fa-check"></i><b>3.4.9</b> Merging and Conflict Resolution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ch3.html"><a href="ch3.html#github-for-the-humanities"><i class="fa fa-check"></i><b>3.5</b> GitHub for the Humanities</a></li>
+<li class="chapter" data-level="3.6" data-path="ch3.html"><a href="ch3.html#summary-2"><i class="fa fa-check"></i><b>3.6</b> Summary</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="ch3.html"><a href="ch3.html#list-of-git-commands-and-cli-commands"><i class="fa fa-check"></i><b>3.6.1</b> List of Git Commands and CLI Commands</a></li>
+<li class="chapter" data-level="3.6.2" data-path="ch3.html"><a href="ch3.html#shortcuts"><i class="fa fa-check"></i><b>3.6.2</b> Shortcuts</a></li>
+<li class="chapter" data-level="3.6.3" data-path="ch3.html"><a href="ch3.html#more-resources-2"><i class="fa fa-check"></i><b>3.6.3</b> More Resources</a></li>
+<li class="chapter" data-level="3.6.4" data-path="ch3.html"><a href="ch3.html#further-work-2"><i class="fa fa-check"></i><b>3.6.4</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Getting Started with Python: Anaconda, Jupyter Notebooks, Google CoLabs and Virtual Environments</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#installing-python-by-installing-anaconda-a-game-of-snakes"><i class="fa fa-check"></i><b>4.1</b> Installing Python by Installing Anaconda: A Game of Snakes</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#using-and-integrated-development-editor-ide-the-benefits-of-spyder"><i class="fa fa-check"></i><b>4.2</b> Using and Integrated Development Editor (IDE): The Benefits of Spyder</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="ch4.html"><a href="ch4.html#running-your-code-in-spyder"><i class="fa fa-check"></i><b>4.2.1</b> Running your Code in Spyder</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ch4.html"><a href="ch4.html#other-popular-python-ides"><i class="fa fa-check"></i><b>4.2.2</b> Other Popular (Python) IDEs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ipython"><i class="fa fa-check"></i><b>4.3</b> IPython</a></li>
+<li class="chapter" data-level="4.4" data-path="ch4.html"><a href="ch4.html#jupyter-notebooks"><i class="fa fa-check"></i><b>4.4</b> Jupyter Notebooks</a></li>
+<li class="chapter" data-level="4.5" data-path="ch4.html"><a href="ch4.html#command-line-in-action-the-anaconda-prompt"><i class="fa fa-check"></i><b>4.5</b> Command Line in Action: the Anaconda Prompt</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="ch4.html"><a href="ch4.html#basic-anaconda-prompt-commands"><i class="fa fa-check"></i><b>4.5.1</b> Basic Anaconda Prompt Commands</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="ch4.html"><a href="ch4.html#google-colab-or-python-on-the-web"><i class="fa fa-check"></i><b>4.6</b> Google CoLab or Python on the web</a></li>
+<li class="chapter" data-level="4.7" data-path="ch4.html"><a href="ch4.html#virtual-environments-preview-into-coding-best-practices"><i class="fa fa-check"></i><b>4.7</b> Virtual Environments: Preview into Coding Best Practices</a></li>
+<li class="chapter" data-level="4.8" data-path="ch4.html"><a href="ch4.html#summary-3"><i class="fa fa-check"></i><b>4.8</b> Summary</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="ch4.html"><a href="ch4.html#conda-prompt-commands"><i class="fa fa-check"></i><b>4.8.1</b> Conda Prompt Commands</a></li>
+<li class="chapter" data-level="4.8.2" data-path="ch4.html"><a href="ch4.html#more-resources-3"><i class="fa fa-check"></i><b>4.8.2</b> More Resources</a></li>
+<li class="chapter" data-level="4.8.3" data-path="ch4.html"><a href="ch4.html#further-work-3"><i class="fa fa-check"></i><b>4.8.3</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Conquering Python</b></span></li>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Python Crash Courses</a><ul>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#look-how-easy-it-is-to-write-python"><i class="fa fa-check"></i><b>5.1</b> Look How Easy it Is to Write Python</a></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#python-in-general-a-readable-design"><i class="fa fa-check"></i><b>5.2</b> Python in General: A Readable Design</a></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#general-structure-of-a-python-program"><i class="fa fa-check"></i><b>5.3</b> General Structure of a Python Program</a></li>
+<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#import-load-all-the-tools-you-need"><i class="fa fa-check"></i><b>5.4</b> Import: Load all the Tools you Need</a></li>
+<li class="chapter" data-level="5.5" data-path="ch5.html"><a href="ch5.html#functions-let-your-program-do-something-for-you"><i class="fa fa-check"></i><b>5.5</b> Functions: Let your Program Do Something for You</a></li>
+<li class="chapter" data-level="5.6" data-path="ch5.html"><a href="ch5.html#data-structure-everything-has-its-natural-place"><i class="fa fa-check"></i><b>5.6</b> Data Structure: Everything Has its Natural Place</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="ch5.html"><a href="ch5.html#string-literals"><i class="fa fa-check"></i><b>5.6.1</b> String Literals</a></li>
+<li class="chapter" data-level="5.6.2" data-path="ch5.html"><a href="ch5.html#lists"><i class="fa fa-check"></i><b>5.6.2</b> Lists</a></li>
+<li class="chapter" data-level="5.6.3" data-path="ch5.html"><a href="ch5.html#dictionaries"><i class="fa fa-check"></i><b>5.6.3</b> Dictionaries</a></li>
+<li class="chapter" data-level="5.6.4" data-path="ch5.html"><a href="ch5.html#other-data-types-and-data-structures-integer-and-float-boolean-tuples-sets"><i class="fa fa-check"></i><b>5.6.4</b> Other Data Types and Data Structures: Integer and Float; Boolean, Tuples, Sets</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="ch5.html"><a href="ch5.html#flow-control"><i class="fa fa-check"></i><b>5.7</b> Flow Control</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="ch5.html"><a href="ch5.html#for-loops-iteration-and-unpacking"><i class="fa fa-check"></i><b>5.7.1</b> For Loops: Iteration and Unpacking</a></li>
+<li class="chapter" data-level="5.7.2" data-path="ch5.html"><a href="ch5.html#if-you-want-to-evaluate-conditionals-add-if"><i class="fa fa-check"></i><b>5.7.2</b> If you Want to Evaluate Conditionals, Add If</a></li>
+<li class="chapter" data-level="5.7.3" data-path="ch5.html"><a href="ch5.html#make-things-last-for-a-while-with-while-and-remember-to-break-them"><i class="fa fa-check"></i><b>5.7.3</b> Make Things Last for a While with While (and Remember to Break them)</a></li>
+<li class="chapter" data-level="5.7.4" data-path="ch5.html"><a href="ch5.html#prevent-crashes-with-tryexcept"><i class="fa fa-check"></i><b>5.7.4</b> Prevent Crashes with Try/Except</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="ch5.html"><a href="ch5.html#classes-and-comprehensions-more-pythonic-things"><i class="fa fa-check"></i><b>5.8</b> Classes and Comprehensions: More Pythonic Things</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="ch5.html"><a href="ch5.html#classes-blueprints-for-more"><i class="fa fa-check"></i><b>5.8.1</b> Classes: BluePrints for More</a></li>
+<li class="chapter" data-level="5.8.2" data-path="ch5.html"><a href="ch5.html#comprehension"><i class="fa fa-check"></i><b>5.8.2</b> Comprehension</a></li>
+<li class="chapter" data-level="5.8.3" data-path="ch5.html"><a href="ch5.html#more-comprehensions"><i class="fa fa-check"></i><b>5.8.3</b> More Comprehensions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="ch5.html"><a href="ch5.html#functions-revisited-args-times"><i class="fa fa-check"></i><b>5.9</b> Functions Revisited: *Args Times!</a></li>
+<li class="chapter" data-level="5.10" data-path="ch5.html"><a href="ch5.html#whats-in-a-name-naming-conventions-and-styles"><i class="fa fa-check"></i><b>5.10</b> What’s In a Name: Naming Conventions and Styles</a></li>
+<li class="chapter" data-level="5.11" data-path="ch5.html"><a href="ch5.html#saving-and-running-a-python-program-.py-and-.pyw"><i class="fa fa-check"></i><b>5.11</b> Saving and Running a Python Program: .py and .pyw</a></li>
+<li class="chapter" data-level="5.12" data-path="ch5.html"><a href="ch5.html#working-with-files"><i class="fa fa-check"></i><b>5.12</b> Working with Files</a><ul>
+<li class="chapter" data-level="5.12.1" data-path="ch5.html"><a href="ch5.html#file-types-text-and-data"><i class="fa fa-check"></i><b>5.12.1</b> File Types: Text and Data</a></li>
+<li class="chapter" data-level="5.12.2" data-path="ch5.html"><a href="ch5.html#file-modes-what-do-you-want-to-do-with-files"><i class="fa fa-check"></i><b>5.12.2</b> File Modes: What Do you Want to Do with Files?</a></li>
+<li class="chapter" data-level="5.12.3" data-path="ch5.html"><a href="ch5.html#opening-and-writing-to-file"><i class="fa fa-check"></i><b>5.12.3</b> Opening and Writing to File</a></li>
+<li class="chapter" data-level="5.12.4" data-path="ch5.html"><a href="ch5.html#matching-files-with-a-certain-ending-system-paths-and-working-directory"><i class="fa fa-check"></i><b>5.12.4</b> Matching Files with a Certain Ending, System Paths, and Working Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="5.13" data-path="ch5.html"><a href="ch5.html#regular-expressions"><i class="fa fa-check"></i><b>5.13</b> Regular Expressions</a><ul>
+<li class="chapter" data-level="5.13.1" data-path="ch5.html"><a href="ch5.html#regex-notable-features"><i class="fa fa-check"></i><b>5.13.1</b> Regex Notable Features</a></li>
+<li class="chapter" data-level="5.13.2" data-path="ch5.html"><a href="ch5.html#matching-expressions"><i class="fa fa-check"></i><b>5.13.2</b> Matching Expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.14" data-path="ch5.html"><a href="ch5.html#learn-by-doing-for-the-humanities-matching-bibliographical-patterns"><i class="fa fa-check"></i><b>5.14</b> Learn by Doing for the Humanities: Matching Bibliographical Patterns</a><ul>
+<li class="chapter" data-level="5.14.1" data-path="ch5.html"><a href="ch5.html#capturing-groups"><i class="fa fa-check"></i><b>5.14.1</b> Capturing Groups</a></li>
+<li class="chapter" data-level="5.14.2" data-path="ch5.html"><a href="ch5.html#matching-author-date"><i class="fa fa-check"></i><b>5.14.2</b> Matching Author (date)</a></li>
+<li class="chapter" data-level="5.14.3" data-path="ch5.html"><a href="ch5.html#matching-author-date-and-author-date"><i class="fa fa-check"></i><b>5.14.3</b> Matching (Author date) and (Author, date)</a></li>
+<li class="chapter" data-level="5.14.4" data-path="ch5.html"><a href="ch5.html#fulldata"><i class="fa fa-check"></i><b>5.14.4</b> Fulldata</a></li>
+<li class="chapter" data-level="5.14.5" data-path="ch5.html"><a href="ch5.html#limitations-open-issues-and-regex-building-tips"><i class="fa fa-check"></i><b>5.14.5</b> Limitations, Open Issues and Regex Building Tips</a></li>
+</ul></li>
+<li class="chapter" data-level="5.15" data-path="ch5.html"><a href="ch5.html#summary-4"><i class="fa fa-check"></i><b>5.15</b> Summary</a><ul>
+<li class="chapter" data-level="5.15.1" data-path="ch5.html"><a href="ch5.html#programming-concepts-methods-and-functions-recap"><i class="fa fa-check"></i><b>5.15.1</b> Programming Concepts, Methods and Functions Recap</a></li>
+<li class="chapter" data-level="5.15.2" data-path="ch5.html"><a href="ch5.html#re-module-useful-regex-commands"><i class="fa fa-check"></i><b>5.15.2</b> Re module (useful regex Commands)</a></li>
+<li class="chapter" data-level="5.15.3" data-path="ch5.html"><a href="ch5.html#more-resources-4"><i class="fa fa-check"></i><b>5.15.3</b> More Resources</a></li>
+<li class="chapter" data-level="5.15.4" data-path="ch5.html"><a href="ch5.html#further-work-4"><i class="fa fa-check"></i><b>5.15.4</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Moving Forward: From Beginner to Pythonista</a><ul>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-five-sources-of-mystery"><i class="fa fa-check"></i><b>6.1</b> Introduction: Five Sources of Mystery</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="ch6.html"><a href="ch6.html#vocabulary"><i class="fa fa-check"></i><b>6.1.1</b> Vocabulary</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ch6.html"><a href="ch6.html#coding-for-others"><i class="fa fa-check"></i><b>6.1.2</b> Coding for Others</a></li>
+<li class="chapter" data-level="6.1.3" data-path="ch6.html"><a href="ch6.html#python-specifics-and-internals"><i class="fa fa-check"></i><b>6.1.3</b> Python Specifics and Internals</a></li>
+<li class="chapter" data-level="6.1.4" data-path="ch6.html"><a href="ch6.html#being-pythonic"><i class="fa fa-check"></i><b>6.1.4</b> Being Pythonic</a></li>
+<li class="chapter" data-level="6.1.5" data-path="ch6.html"><a href="ch6.html#black-boxes"><i class="fa fa-check"></i><b>6.1.5</b> Black boxes</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#approaching-the-tutorials-in-a-good-way"><i class="fa fa-check"></i><b>6.2</b> Approaching the Tutorials in a Good Way</a></li>
+<li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#reading-the-docs"><i class="fa fa-check"></i><b>6.3</b> Reading the Docs</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="ch6.html"><a href="ch6.html#why-read-the-docs-a-real-life-case-with-bookdown-and-ebooks"><i class="fa fa-check"></i><b>6.3.1</b> Why Read the Docs? (A Real-life Case with Bookdown and Ebooks)</a></li>
+<li class="chapter" data-level="6.3.2" data-path="ch6.html"><a href="ch6.html#what-to-look-for-in-the-docs"><i class="fa fa-check"></i><b>6.3.2</b> What to Look for in the Docs</a></li>
+<li class="chapter" data-level="6.3.3" data-path="ch6.html"><a href="ch6.html#know-your-error-messages-and-exceptions"><i class="fa fa-check"></i><b>6.3.3</b> Know your Error Messages and Exceptions</a></li>
+<li class="chapter" data-level="6.3.4" data-path="ch6.html"><a href="ch6.html#patterns-and-examples"><i class="fa fa-check"></i><b>6.3.4</b> Patterns and Examples</a></li>
+<li class="chapter" data-level="6.3.5" data-path="ch6.html"><a href="ch6.html#docs-creation-the-impact-of-automation"><i class="fa fa-check"></i><b>6.3.5</b> Docs Creation: The Impact of Automation</a></li>
+<li class="chapter" data-level="6.3.6" data-path="ch6.html"><a href="ch6.html#special-kinds-of-docs"><i class="fa fa-check"></i><b>6.3.6</b> Special Kinds of Docs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ch6.html"><a href="ch6.html#summary-5"><i class="fa fa-check"></i><b>6.4</b> Summary</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="ch6.html"><a href="ch6.html#more-resources-5"><i class="fa fa-check"></i><b>6.4.1</b> More Resources</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ch6.html"><a href="ch6.html#further-work-5"><i class="fa fa-check"></i><b>6.4.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Programming for Fun and the Academia</b></span></li>
+<li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> StartUp Optimization, Corpora Builder and Corpora Opener</a><ul>
+<li class="chapter" data-level="7.1" data-path="ch7.html"><a href="ch7.html#startup-optimization-the-challenge"><i class="fa fa-check"></i><b>7.1</b> Startup Optimization: The Challenge</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="ch7.html"><a href="ch7.html#automation-script-a-description"><i class="fa fa-check"></i><b>7.1.1</b> Automation Script: A Description</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch7.html"><a href="ch7.html#scheduling-the-task"><i class="fa fa-check"></i><b>7.1.2</b> Scheduling the Task</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ch7.html"><a href="ch7.html#extend-it"><i class="fa fa-check"></i><b>7.1.3</b> Extend It</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ch7.html"><a href="ch7.html#corpora-builder-program-overview"><i class="fa fa-check"></i><b>7.2</b> Corpora Builder: Program Overview</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="ch7.html"><a href="ch7.html#connecting-to-the-search-engine-and-performing-the-search"><i class="fa fa-check"></i><b>7.2.1</b> Connecting to the Search Engine and Performing the Search</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ch7.html"><a href="ch7.html#corpora-builder-adding-safe-tests-and-ensuring-our-connection-works"><i class="fa fa-check"></i><b>7.2.2</b> Corpora Builder: Adding Safe Tests and Ensuring our Connection Works</a></li>
+<li class="chapter" data-level="7.2.3" data-path="ch7.html"><a href="ch7.html#from-search-results-to-links"><i class="fa fa-check"></i><b>7.2.3</b> From Search Results to Links?</a></li>
+<li class="chapter" data-level="7.2.4" data-path="ch7.html"><a href="ch7.html#bad-outcomes"><i class="fa fa-check"></i><b>7.2.4</b> [] Bad Outcomes</a></li>
+<li class="chapter" data-level="7.2.5" data-path="ch7.html"><a href="ch7.html#extracting-more-specific-links"><i class="fa fa-check"></i><b>7.2.5</b> Extracting more Specific Links</a></li>
+<li class="chapter" data-level="7.2.6" data-path="ch7.html"><a href="ch7.html#filter-through-keywords"><i class="fa fa-check"></i><b>7.2.6</b> Filter Through Keywords</a></li>
+<li class="chapter" data-level="7.2.7" data-path="ch7.html"><a href="ch7.html#filter-removing-common-noise"><i class="fa fa-check"></i><b>7.2.7</b> Filter Removing Common Noise</a></li>
+<li class="chapter" data-level="7.2.8" data-path="ch7.html"><a href="ch7.html#saving-our-queries"><i class="fa fa-check"></i><b>7.2.8</b> Saving Our Queries</a></li>
+<li class="chapter" data-level="7.2.9" data-path="ch7.html"><a href="ch7.html#iteration-moving-to-the-next-page"><i class="fa fa-check"></i><b>7.2.9</b> Iteration: Moving to the Next Page</a></li>
+<li class="chapter" data-level="7.2.10" data-path="ch7.html"><a href="ch7.html#helper-functions"><i class="fa fa-check"></i><b>7.2.10</b> Helper Functions</a></li>
+<li class="chapter" data-level="7.2.11" data-path="ch7.html"><a href="ch7.html#adding-progress-bars-tqdm"><i class="fa fa-check"></i><b>7.2.11</b> Adding Progress Bars: Tqdm</a></li>
+<li class="chapter" data-level="7.2.12" data-path="ch7.html"><a href="ch7.html#corpora-builder-limitations"><i class="fa fa-check"></i><b>7.2.12</b> Corpora Builder Limitations</a></li>
+<li class="chapter" data-level="7.2.13" data-path="ch7.html"><a href="ch7.html#iterating-further"><i class="fa fa-check"></i><b>7.2.13</b> Iterating Further</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ch7.html"><a href="ch7.html#corpora-opener-program-overview"><i class="fa fa-check"></i><b>7.3</b> Corpora Opener: Program Overview</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="ch7.html"><a href="ch7.html#opening-only-a-specific-amount-of-files"><i class="fa fa-check"></i><b>7.3.1</b> Opening Only a Specific Amount of Files</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch7.html"><a href="ch7.html#issue-opening-links"><i class="fa fa-check"></i><b>7.3.2</b> Issue Opening Links</a></li>
+<li class="chapter" data-level="7.3.3" data-path="ch7.html"><a href="ch7.html#new-iteration"><i class="fa fa-check"></i><b>7.3.3</b> New Iteration</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="ch7.html"><a href="ch7.html#summary-6"><i class="fa fa-check"></i><b>7.4</b> Summary</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="ch7.html"><a href="ch7.html#more-resources-6"><i class="fa fa-check"></i><b>7.4.1</b> More Resources</a></li>
+<li class="chapter" data-level="7.4.2" data-path="ch7.html"><a href="ch7.html#further-work-6"><i class="fa fa-check"></i><b>7.4.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>8</b> Scraping Bibliographies with Bibliographer</a><ul>
+<li class="chapter" data-level="8.1" data-path="ch8.html"><a href="ch8.html#bibliographer-program-overview"><i class="fa fa-check"></i><b>8.1</b> Bibliographer: Program Overview</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="ch8.html"><a href="ch8.html#general-settings-and-imports"><i class="fa fa-check"></i><b>8.1.1</b> General Settings and Imports</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ch8.html"><a href="ch8.html#from-pdf-to-txt"><i class="fa fa-check"></i><b>8.1.2</b> From Pdf to Txt</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ch8.html"><a href="ch8.html#cleaning-the-txt"><i class="fa fa-check"></i><b>8.1.3</b> Cleaning the Txt</a></li>
+<li class="chapter" data-level="8.1.4" data-path="ch8.html"><a href="ch8.html#regex-processing"><i class="fa fa-check"></i><b>8.1.4</b> Regex Processing</a></li>
+<li class="chapter" data-level="8.1.5" data-path="ch8.html"><a href="ch8.html#getting-data-with-regexes"><i class="fa fa-check"></i><b>8.1.5</b> Getting Data with Regexes</a></li>
+<li class="chapter" data-level="8.1.6" data-path="ch8.html"><a href="ch8.html#exporting-to-csv"><i class="fa fa-check"></i><b>8.1.6</b> Exporting to CSV</a></li>
+<li class="chapter" data-level="8.1.7" data-path="ch8.html"><a href="ch8.html#helper-functions-1"><i class="fa fa-check"></i><b>8.1.7</b> Helper Functions</a></li>
+<li class="chapter" data-level="8.1.8" data-path="ch8.html"><a href="ch8.html#tips-for-graphing-a-debate"><i class="fa fa-check"></i><b>8.1.8</b> Tips for Graphing a Debate</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch8.html"><a href="ch8.html#summary-7"><i class="fa fa-check"></i><b>8.2</b> Summary</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="ch8.html"><a href="ch8.html#more-resources-7"><i class="fa fa-check"></i><b>8.2.1</b> More Resources</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ch8.html"><a href="ch8.html#further-work-7"><i class="fa fa-check"></i><b>8.2.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programming Digital Humanities. Python (and More) for Academia</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch7" class="section level1">
+<h1><span class="header-section-number">7</span> StartUp Optimization, Corpora Builder and Corpora Opener</h1>
+<p>It is time to start building something that has tangible results.</p>
+<p>We already had a taste of practicalities for Humanities exploring regexes and we know how to expand and improve our Python knowledge.</p>
+<p>As at <em>HumandDemia</em> (and, also, as researchers in general) we are still thinking in terms of time and efforts (we are into programming when we could be reading and thinking and wasting time pretending we are doing “research” while we are browsing social media or failing at properly replying emails) there are some fun facts about the programs we are going to make.</p>
+<p>A lot of these programs are less than 300 lines of code long. When printed, they are shorter than a 3 pages hand out.</p>
+<p>“Oh,” you think “at <em>HumanDemia</em> they went lightweight on marketing. They could have said something like <em>some super cool and useful scripts are shorter than 500 words, i.e. a (mostly useless) abstract of any paper we have to write</em>. It’s good they don’t have <em>me</em> as their marketing ops chief.”</p>
+<p>Here is what we are going to build. The list ranges from utility tools to entire programs:</p>
+<ul>
+<li>a startup optimization tool that will open your main programs;</li>
+<li>a tool to retrieve and open links from a search engine;</li>
+<li>a tool to extract bibliographic data from papers.</li>
+</ul>
+<p>Module-wise, we are going to use mainly the following tools from the standard library:</p>
+<ul>
+<li>the <strong>webbrowser</strong> module (to handle browser opening);</li>
+<li>the <strong>re</strong> module to perform regular expressions.</li>
+</ul>
+<p>We are also going to need some tools outside the standard library (i.e. that you’ll have to <strong>conda install</strong>, possibly in virtual environments):</p>
+<ul>
+<li>the <strong>requests</strong> module: to handle downloading and processing data from the web;</li>
+<li><strong>pandas</strong>: to manage data table (pandas is included with Anaconda distribution of Python)</li>
+<li><strong>tqdm</strong>: to add progress bars;</li>
+<li><strong>BeautifulSoup</strong> to do some parsing on the webpages.</li>
+</ul>
+<p>On the way to build all that you’ll be pointed out to other tools and resources that will help you to:</p>
+<ul>
+<li>build a timer;</li>
+<li>build games (pong, Tetris, snake);</li>
+</ul>
+<p>Well, enjoy your building.</p>
+<div id="startup-optimization-the-challenge" class="section level2">
+<h2><span class="header-section-number">7.1</span> Startup Optimization: The Challenge</h2>
+<p>The days start in similar ways. Chances are there’s a moment in time we flash our pc and we go through a kind of routine: emails, browsing, opening various software, etc. Why waste time opening the same stuff every day?</p>
+<p>Luckily a simple script can do that for us and save us some clicks. We only have two steps to cover:</p>
+<ol style="list-style-type: decimal">
+<li>write the automation script;</li>
+<li>schedule its daily execution.</li>
+</ol>
+<div id="automation-script-a-description" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> Automation Script: A Description</h3>
+<p>Each person is different and each day is different. Spend some time thinking about your main <em>HumanDemia</em> activities, identify a pattern, and code it.</p>
+<p>I assume that the tasks you have to do are the following:</p>
+<ul>
+<li>open specific programs;</li>
+<li>open specific webpages.</li>
+</ul>
+<p>After that, the real work starts.</p>
+<p>The script will work like that:</p>
+<ol style="list-style-type: decimal">
+<li>we import os module to manage paths and open files;</li>
+<li>we import webbrowser to handle browsing operations;</li>
+<li>we define a list of our websites;</li>
+<li>we define a list of the programs we need to open;</li>
+<li>we define a function that opens a webpage in a new tab;</li>
+<li>we define a function that opens the program;</li>
+<li>we define an automation functions that does the following:</li>
+</ol>
+<ul>
+<li>iterate through the list of webpages and open them;</li>
+<li>iterate through the list of programs and open them.</li>
+</ul>
+<p>Easy, right?</p>
+<p>An implementation of the script is below. Notice that we have to pass path variables for opening the programs. You will need to find where the .exe files are on your machine. Be sure to pass raw strings to that variable, so that you don’t run risks of escaping characters.</p>
+<p><strong>Be sure to enter your relevant websites and programs before running the file</strong></p>
+<p><em>Startup optimization code - ch. 7.1</em></p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb58-1" title="1"><span class="co"># Overcommented for extra explanation purposes</span></a>
+<a class="sourceLine" id="cb58-2" title="2"><span class="co"># Start with imports</span></a>
+<a class="sourceLine" id="cb58-3" title="3"><span class="im">import</span> os</a>
+<a class="sourceLine" id="cb58-4" title="4"><span class="im">import</span> webbrowser</a>
+<a class="sourceLine" id="cb58-5" title="5"></a>
+<a class="sourceLine" id="cb58-6" title="6"><span class="co"># Construct your daily routine</span></a>
+<a class="sourceLine" id="cb58-7" title="7">WEBSITES <span class="op">=</span> [<span class="st">&#39;mail&#39;</span>,</a>
+<a class="sourceLine" id="cb58-8" title="8">            <span class="st">&#39;some other website&#39;</span>,</a>
+<a class="sourceLine" id="cb58-9" title="9">            <span class="st">&#39;telegram&#39;</span>,</a>
+<a class="sourceLine" id="cb58-10" title="10">            ]</a>
+<a class="sourceLine" id="cb58-11" title="11"></a>
+<a class="sourceLine" id="cb58-12" title="12">PROGRAMS <span class="op">=</span> [<span class="st">&#39;Rstudio&#39;</span>,</a>
+<a class="sourceLine" id="cb58-13" title="13">            <span class="st">&#39;word.exe&#39;</span>,</a>
+<a class="sourceLine" id="cb58-14" title="14">            <span class="st">&#39;somethingelse&#39;</span>,</a>
+<a class="sourceLine" id="cb58-15" title="15">            ]</a>
+<a class="sourceLine" id="cb58-16" title="16">            </a>
+<a class="sourceLine" id="cb58-17" title="17"><span class="co"># Functions</span></a>
+<a class="sourceLine" id="cb58-18" title="18"></a>
+<a class="sourceLine" id="cb58-19" title="19"><span class="kw">def</span> openwebpage(url):</a>
+<a class="sourceLine" id="cb58-20" title="20">    <span class="co">&quot;&quot;&quot;Return a browser tab for a given url&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb58-21" title="21">    webbrowser.open_new_tab(url)</a>
+<a class="sourceLine" id="cb58-22" title="22"></a>
+<a class="sourceLine" id="cb58-23" title="23"><span class="co">#openprograms</span></a>
+<a class="sourceLine" id="cb58-24" title="24"><span class="kw">def</span> startprogram(path):</a>
+<a class="sourceLine" id="cb58-25" title="25">    <span class="co">&quot;&quot;&quot;Open the path with a .exe program&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb58-26" title="26">    <span class="co"># We use raw strings (r&#39;) to avoid escaping</span></a>
+<a class="sourceLine" id="cb58-27" title="27">    <span class="co"># path characters</span></a>
+<a class="sourceLine" id="cb58-28" title="28">    pathlocation <span class="op">=</span> <span class="vs">r&#39;path</span></a>
+<a class="sourceLine" id="cb58-29" title="29"><span class="vs">    # os has a method to start a file ready for us</span></a>
+<a class="sourceLine" id="cb58-30" title="30"><span class="vs">    os.startfile(pathlocation)</span></a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb59-1" title="1"><span class="co"># Main automation function</span></a>
+<a class="sourceLine" id="cb59-2" title="2"></a>
+<a class="sourceLine" id="cb59-3" title="3"><span class="kw">def</span> automationfunction():</a>
+<a class="sourceLine" id="cb59-4" title="4">    <span class="co">&quot;&quot;&quot;Open all websites and programs in the routine&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb59-5" title="5">    <span class="cf">for</span> site <span class="kw">in</span> WEBSITES:</a>
+<a class="sourceLine" id="cb59-6" title="6">        openwebpage(site)</a>
+<a class="sourceLine" id="cb59-7" title="7">    <span class="cf">for</span> program <span class="kw">in</span> PROGRAMS:</a>
+<a class="sourceLine" id="cb59-8" title="8">        startprogram(program)</a>
+<a class="sourceLine" id="cb59-9" title="9"></a>
+<a class="sourceLine" id="cb59-10" title="10"><span class="co"># Run the main function</span></a>
+<a class="sourceLine" id="cb59-11" title="11">automationfunction()</a></code></pre></div>
+<p>The program starts out importing the relevant modules (os and webbrowser). They are part of the standard library, so there’s no need to worry about them.</p>
+<p>We then define the pieces of our daily routine: websites we need to open and program we need to run. <strong>Feel your list instead of the placeholders</strong>. Websites are pretty easy to be opened, we’ll pass them to webbrowser and use the webbrowser.open_new_tab() function. (I assume you want your sites opened in different tab rather than in N different windows. Feel free to look at the docs to learn how to open them to multiple windows.)</p>
+<p>Yes, this is the first time we see it and it sounds mysterious. So we check out the docs: <a href="https://docs.python.org/3.8/library/webbrowser.html" class="uri">https://docs.python.org/3.8/library/webbrowser.html</a>.</p>
+<p>Programs are slightly more complex. Our pc doesn’t know how to click on an icon. So we need to feed python the <strong>.exe</strong> file of the program we need to run. Basically we need to:</p>
+<ol style="list-style-type: decimal">
+<li>know the name of the file that runs the program;</li>
+<li>figure out the path of the file.</li>
+</ol>
+<p>(The first seems obvious but it can be tricky, e.g. if you want to run the SQL database SQlite, which is included into Python).</p>
+<p>Once you find the program open the folder in a new window. You can right-click on the path and click the copy path option. Now this is the path you have to paste in the PROGRAMS list (be sure to include the .exe file: you need a path and a file).</p>
+<p>We then define a function that opens the webpages (using webbrowser) and one opening the programs. For this function we convert the path inserted in the PROGRAMS list to a raw string (<strong>r’</strong>) to avoid escaping all the slashes in the path.</p>
+<p>All we need is to define an automation function that iterates through the two lists of tasks.</p>
+</div>
+<div id="scheduling-the-task" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> Scheduling the Task</h3>
+<p>Ok, we have the program. Test it and be sure everything goes as intended.
+Our program actually opens all we need, still, it is not able to run every time we fire our workstation. (Bonus points for writing tests for that. The testing goat book has a routine to check that the page opened is the right one.)</p>
+<p>To schedule this automation - at least in Windows - we need to call the Task Scheduler. (Look here if you have troubles finding it: <a href="https://www.isunshare.com/windows-10/4-ways-to-open-task-scheduler-on-windows-10.html" class="uri">https://www.isunshare.com/windows-10/4-ways-to-open-task-scheduler-on-windows-10.html</a>). Then we need to create your activity that runs our program. Suppose we save it as <strong>automationscript.py</strong>.</p>
+<p>Creating the task is intuitive except for the action part. In fact, you have to set <em>three</em> different parameters, two of which are optional.</p>
+<ol style="list-style-type: decimal">
+<li>when asked about which program or script to run type in the path to your python.exe;</li>
+<li>the first optional field (argument) is the name of the program you want python to run, i.e. how you named the script;</li>
+<li>the last parameter (second optional field - called start or something similar) is the path to the folder you stored the program into.</li>
+</ol>
+<p>To recap, here’s what these parameters are for our script:</p>
+<ol style="list-style-type: decimal">
+<li>the python.exe path, something like “C:\Users\AppData\Local\Programs\Python\Python37”;</li>
+<li>.py script (here automationscript.py);</li>
+<li>path for the .py script (i.e. where you saved it), something like “C:\Users\Desktop\PythonDigitalHumanities\”.</li>
+</ol>
+<p>Nice, isn’t it?</p>
+</div>
+<div id="extend-it" class="section level3">
+<h3><span class="header-section-number">7.1.3</span> Extend It</h3>
+<p>We said tutorials are only a first step and should prompt you to do more. So here are a few extra ideas.</p>
+<p>First general consideration. As it is now, you get the same setup every time the program runs, that is every time you fire your pc. Weekends included. Wouldn’t it be nice to set the script to work only on workdays?</p>
+<p>There should be some condition checking, maybe an if statement. You check what’s the day in the week and then you fire your setup 5 days out of 7. So, the flow control is easy. Now you need to interact with time objects. That’s more tricky, you’ll need to find a way to deal with it and then read the docs. A first way to go through time objects in Python is the <strong>datetime</strong> module, which will keep you inside the standard library.</p>
+<ul>
+<li>What if you are reading or studying something that requires your pc to access the material? Think about extending the program to open a pdf at a specific page.</li>
+<li>To make it really hard, think about ways to track your progress of the day: either add a while loop that asks you the page you reached at the end of the session and updates the page or write an extra program.</li>
+<li>What if we change the data structure and use a dictionary? (Hint: use to keys to store the different activities). How do we have to change the automation function? Is there any change in the performances? (Hint: you’ll need to run specific tests adding many inputs to see if something is changing. Read the <strong>unittest</strong> library docs.)</li>
+</ul>
+</div>
+</div>
+<div id="corpora-builder-program-overview" class="section level2">
+<h2><span class="header-section-number">7.2</span> Corpora Builder: Program Overview</h2>
+<p>Our task for Corpora Builder is more ambitious.</p>
+<p>People from <em>HumanDemia</em> want you to create a text corpus for collaborative research (you’re right, you’ll be in charge of publishing the results on GitHub).
+The issue you have to track is the different methods and debates on the adoption of Digital Humanities tools both in secondary school and university.</p>
+<p>From the human point of view, this requires something like:</p>
+<ul>
+<li>perform a variety of searches on different search engines;</li>
+<li>open all the links;</li>
+<li>check them and see if they fit or not.</li>
+</ul>
+<p>While we can narrow down items that are not going to match our criteria with a decent query, we can’t but open the resulting links to see if they match our criteria or not. (Unless probably we turn full time into programming and do some super cool machine learning trick… but that failure is good for us: researcher are still needed and not all research is carried out in a way that can be easily automated.)</p>
+<p>Once we go through all the results of the search, we probably store elsewhere the links to the articles we are interested in.
+This whole process is time-consuming and complex.</p>
+<p>Further, with the ever changing news you may end up with significant methodological issues such as the fact that the data selected are nonrepresentative because the order of the search results changes: (i) over time, (ii) over browser, (iii) over cookies, (iv) etc.</p>
+<p>To solve the previous point you end up freezing time at a certain point. It is then really hard to justify why time was frozen on a certain date. Even if you have a decent justification for that, the research may benefit if you can track what goes on after you froze the time. Maybe you’ll get extra data for your research, maybe you can further prove your point, develop a new hypothesis, squeeze in another paper.</p>
+<p>Alternatively, you may defuse the above objection ending up selecting your corpus and sources in a kind of arbitrary way that is highly peculiar such that it gets close to being a personal preference (hardly justifiable, no matter how reasonable) and then say “according to the literature”.</p>
+<p>With a bit of code we mitigate these issues by way of tracking down data and what has been used. Our first implementation of our Corpus Builder will do the following:</p>
+<ol style="list-style-type: decimal">
+<li>take as an input the string we want to search;</li>
+<li>perform the search on a certain search engine;</li>
+<li>save the results of the search across all the pages;</li>
+<li>extract the links from the above pages;</li>
+<li>saving them to a file, together with the date in which the whole operation was performed;</li>
+<li>(opt.) sending all to reviewers.</li>
+</ol>
+<p>We’ve already seen that these operations can take quite long, if there are a lot of results (i.e. if the search is poorly defined).
+We then may be in need of considering some safety device such as:</p>
+<ul>
+<li>interrupt the whole process after some time;</li>
+<li>skip items in case there are issues connecting to the page.</li>
+</ul>
+<p>To build this more complex program we are going to divide and conquer the different operations and implement them one after the other. We’ll try to always have a program that is working: the first goal is that of having some that works. Then we are going to iterate and add functions.</p>
+<div id="connecting-to-the-search-engine-and-performing-the-search" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Connecting to the Search Engine and Performing the Search</h3>
+<p>The first operation we want to do is that of connecting to a search engine and perform the search.</p>
+<p>This is going to be quite simple. We use the <strong>requests</strong> module to access the web. From there, we access a search engine and do our query. We need to accept an input from the user for the search she wants to perform.</p>
+<p>Let’s write our first bit of code. Comments are included to start explaining what we are doing, a full discussion follows.</p>
+<p><em>Searching a term - ch. 7.2</em></p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb60-1" title="1"><span class="co"># Overcommented for explanatory reasons</span></a>
+<a class="sourceLine" id="cb60-2" title="2"><span class="co"># Load the library that handles connecting to the internet</span></a>
+<a class="sourceLine" id="cb60-3" title="3"><span class="im">import</span> requests</a>
+<a class="sourceLine" id="cb60-4" title="4"></a>
+<a class="sourceLine" id="cb60-5" title="5"><span class="co"># Ask the user for a search term </span></a>
+<a class="sourceLine" id="cb60-6" title="6">query <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;What do you want to search?&#39;</span>)</a>
+<a class="sourceLine" id="cb60-7" title="7"></a>
+<a class="sourceLine" id="cb60-8" title="8"><span class="co"># Performing the search </span></a>
+<a class="sourceLine" id="cb60-9" title="9">searchres <span class="op">=</span> requests.get(<span class="st">&#39;https://www.google.com/search?q=&#39;</span><span class="op">+</span> query)</a></code></pre></div>
+<p>We import the requests module that, as it says in its documentation (<a href="https://2.python-requests.org/en/master/" class="uri">https://2.python-requests.org/en/master/</a>), is meant to make HTTP handling easy for humans.
+We then define a variable that stores the term we want to search, called <strong>query</strong> which is filled through an input.</p>
+<p>The next step is initializing the search, which basically simulates what goes on when we access our search engine and perform the search.
+Here we are using Google for convenience. Basically we want to access Google and type in the search term.</p>
+<p>In order to do that we need to find out what’s the form of Google results. After a little messing around with the https bar, we find out that if you type this in the browser:</p>
+<p><strong><a href="https://www.google.com/search?q=" class="uri">https://www.google.com/search?q=</a></strong></p>
+<p>then whatever we add after the ‘=’ will perform the search for us.</p>
+<p>Once we discovered this, we can name another variable to store the results of our search - I chose <strong>searchres</strong>, but you are encouraged to change this.</p>
+<p>We use the <strong>requests.get()</strong> method to store a copy of the page of the results we want. The page with the result is found at ‘<a href="https://www.google.com/search?q=" class="uri">https://www.google.com/search?q=</a>’, which tells our machine to search on Google, and adds the text we wanted to search for (which we stored in the <strong>query</strong> variable).</p>
+</div>
+<div id="corpora-builder-adding-safe-tests-and-ensuring-our-connection-works" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Corpora Builder: Adding Safe Tests and Ensuring our Connection Works</h3>
+<p>So far so good.
+But what if the request to the server doesn’t work? Suppose the connection gets down or something goes wrong and the page does not exist? (Ok, probably that’s not gonna happen with a search).</p>
+<p>We want to handle this event for us to avoid the program breaks down. Luckily, requests have this feature built-in. All we need is to add the following instruction:</p>
+<p><strong>raise_for_status()</strong></p>
+<p>to the object that contains our request (<strong>searchres</strong> for me). Thanks request library for making it that simple to check that.<a href="#fn47" class="footnote-ref" id="fnref47"><sup>47</sup></a></p>
+<p>Code-wise, we get this:</p>
+<p><em>Check with raise_for_status() - ch. 7.3</em></p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb61-1" title="1"><span class="co"># Overcommented for explanatory reasons</span></a>
+<a class="sourceLine" id="cb61-2" title="2"><span class="co"># Load the library that handles connecting to the internet</span></a>
+<a class="sourceLine" id="cb61-3" title="3"><span class="im">import</span> requests</a>
+<a class="sourceLine" id="cb61-4" title="4"></a>
+<a class="sourceLine" id="cb61-5" title="5"><span class="co"># Ask the user for the search term </span></a>
+<a class="sourceLine" id="cb61-6" title="6">query <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;What do you want to search?&#39;</span>)</a>
+<a class="sourceLine" id="cb61-7" title="7"></a>
+<a class="sourceLine" id="cb61-8" title="8"><span class="co"># Performing the search </span></a>
+<a class="sourceLine" id="cb61-9" title="9">searchres <span class="op">=</span> requests.get(<span class="st">&#39;https://www.google.com/search?q=&#39;</span><span class="op">+</span> query)</a>
+<a class="sourceLine" id="cb61-10" title="10"><span class="co"># Make sure the request works (check it)</span></a>
+<a class="sourceLine" id="cb61-11" title="11">searchres.raise_for_status() </a></code></pre></div>
+<p>Remember when we said it’s good to know the exceptions and functions of the modules we are using? By looking at the documentation for this function (<a href="https://2.python-requests.org/en/master/_modules/requests/models/#Response.raise_for_status" class="uri">https://2.python-requests.org/en/master/_modules/requests/models/#Response.raise_for_status</a>) we find out that it has a try/except statement and we are checking a variety of error codes.</p>
+<p>Test your code now: access a legit website and see what output you get. Then test a non-existing website. It is also good to figure out what the various error code means, i.e. beyond 404 Not Found. (Bonus points for writing tests with unittest or similar instead of manually inputting them while running our program.)</p>
+</div>
+<div id="from-search-results-to-links" class="section level3">
+<h3><span class="header-section-number">7.2.3</span> From Search Results to Links?</h3>
+<p>Ok, our searchres is already storing an object with all the content of the first page of results. We are going to process this so that, once this works, all is left is to extend these operations to the following pages.</p>
+<p>We can now attempt scraping the links.
+This is the other big and complex operation of our program. Thankfully the BeautifulSoup library is there to help us extract all the links.</p>
+<p>Our template of web scraping goes as follows:</p>
+<ol style="list-style-type: decimal">
+<li>we need to inspect the page with the information we want to extract (search results, in our case);</li>
+<li>we open the inspect view on our browser and start looking at the HTML in a quest for what we need;</li>
+<li>we need to isolate the relevant element and tag;</li>
+<li>we then use <strong>BeautifulSoup</strong> to extract what we need from the tags.</li>
+</ol>
+<p>BeautifulSoup helps us creating an object that stores all the structured markup language and allows us to browse the tree structure, extracting content from the various HTML tags.</p>
+<p>The resulting template is something like that:</p>
+<p><em>Making the soup - ch. 7.4</em></p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb62-1" title="1"><span class="im">import</span> requests</a>
+<a class="sourceLine" id="cb62-2" title="2"><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup <span class="im">as</span> bs</a>
+<a class="sourceLine" id="cb62-3" title="3"></a>
+<a class="sourceLine" id="cb62-4" title="4"><span class="co"># [Build a request as before, called request]</span></a>
+<a class="sourceLine" id="cb62-5" title="5"></a>
+<a class="sourceLine" id="cb62-6" title="6"><span class="co"># Create a beautifulsoup object (soup, by convention)</span></a>
+<a class="sourceLine" id="cb62-7" title="7">soup <span class="op">=</span> bs(searchres.text, <span class="st">&#39;html.parser&#39;</span>)</a>
+<a class="sourceLine" id="cb62-8" title="8"></a>
+<a class="sourceLine" id="cb62-9" title="9"><span class="co"># Extract what we need</span></a>
+<a class="sourceLine" id="cb62-10" title="10">extraction <span class="op">=</span> soup.select(<span class="st">&#39;[insert relevant tag]&#39;</span>)</a></code></pre></div>
+<p>If you struggle enough you find out that, after searching quite a lot in the HTML through inspection mode (if you have problems accessing this, it’s CTRL + SHIFT + I on Brave or right-click and then ‘Inspect’), <strong>.r a</strong> should match the urls of the links.</p>
+<p>Let’s include everything into a single code snippet and run it.</p>
+<p><em>Adding bs to extract links - ch. 7.5</em></p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb63-1" title="1"><span class="im">import</span> requests</a>
+<a class="sourceLine" id="cb63-2" title="2"><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup <span class="im">as</span> bs</a>
+<a class="sourceLine" id="cb63-3" title="3"></a>
+<a class="sourceLine" id="cb63-4" title="4"><span class="co"># Ask the user for the search</span></a>
+<a class="sourceLine" id="cb63-5" title="5">query <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;What do you want to search?&#39;</span>)</a>
+<a class="sourceLine" id="cb63-6" title="6"></a>
+<a class="sourceLine" id="cb63-7" title="7"><span class="co"># Search for our term with requests</span></a>
+<a class="sourceLine" id="cb63-8" title="8">searchreq <span class="op">=</span> requests.get(<span class="st">&#39;https://www.google.com/search?q=&#39;</span><span class="op">+</span>query)</a>
+<a class="sourceLine" id="cb63-9" title="9"></a>
+<a class="sourceLine" id="cb63-10" title="10"><span class="co"># Ensure it works</span></a>
+<a class="sourceLine" id="cb63-11" title="11">searchreq.raise_for_status()</a>
+<a class="sourceLine" id="cb63-12" title="12"></a>
+<a class="sourceLine" id="cb63-13" title="13"><span class="co"># Creating the Beautiful Soup object</span></a>
+<a class="sourceLine" id="cb63-14" title="14">soup <span class="op">=</span> bs(searchreq.text, <span class="st">&#39;html.parser&#39;</span>)</a>
+<a class="sourceLine" id="cb63-15" title="15"></a>
+<a class="sourceLine" id="cb63-16" title="16"><span class="co"># Getting and printing results</span></a>
+<a class="sourceLine" id="cb63-17" title="17">results <span class="op">=</span> soup.select(<span class="st">&#39;.r a&#39;</span>) </a>
+<a class="sourceLine" id="cb63-18" title="18"><span class="co"># Hopefully</span></a>
+<a class="sourceLine" id="cb63-19" title="19"><span class="bu">print</span>(results)</a></code></pre></div>
+<p>Are you ready to get the results?</p>
+</div>
+<div id="bad-outcomes" class="section level3">
+<h3><span class="header-section-number">7.2.4</span> [] Bad Outcomes</h3>
+<p>The outcome of our printing the results is <strong>[]</strong>, i.e. an empty list.
+This is unexpected. We inspected the HTML and the element we are looking for was there. We struggled to find it. So, what happened?</p>
+<p>A first good idea is to print the object that stores the information of our BeautifulSoup object, i.e. what we called <strong>soup</strong>. The idea is to figure out what’s going on in the object we are using to retrieve the information.</p>
+<p>Given you’ve been toying around with <em>HumanDemia</em>’s tech training for quite long, you already did a print(soup) and are looking for the .r tag. The issue is that… the .r tag is no longer there!</p>
+<p>That’s why the list is empty. Something happens when you watch the results on your browser and when you automate the extraction of links. Obfuscation comes in!</p>
+<p>You can start thinking about data ethics and human/machine interactions: they are your search results, you typed them in, why can’t you retrieve them?</p>
+<p>You can think about different options (change the search engine, download the page and see what happens, etc). Nonetheless, the first thing we can try to do is to retrieve all the pages with some href (i.e. a link).</p>
+<p>We can use BeutifulSoup to isolate all the elements with an href element. We are going to look for all the ‘a’ HTML tag, select those with ‘href’ and make a list out of them.</p>
+<p>To do this we are going to run the function find_all() on our soup object.
+We then make a list of all the links.</p>
+<p>That’s a first implementation of the code (note we fixed the query term to ‘Goofy’, here we are testing retrieving the links and do not want to waste much time keep typing in what we want to search).</p>
+<p><em>Working our way around: getting all the href links in the page we requested</em></p>
+<p><em>Goofy goofy search - ch. 7.6</em></p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb64-1" title="1"><span class="co"># Imports</span></a>
+<a class="sourceLine" id="cb64-2" title="2"><span class="im">import</span> requests</a>
+<a class="sourceLine" id="cb64-3" title="3"><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup <span class="im">as</span> bs</a>
+<a class="sourceLine" id="cb64-4" title="4"></a>
+<a class="sourceLine" id="cb64-5" title="5"><span class="co"># Searchrequest and soup</span></a>
+<a class="sourceLine" id="cb64-6" title="6">searchreq <span class="op">=</span> requests.get(<span class="st">&#39;https://www.google.com/search?q=Goofy&#39;</span>)</a>
+<a class="sourceLine" id="cb64-7" title="7">searchreq.raise_for_status()</a>
+<a class="sourceLine" id="cb64-8" title="8">soup <span class="op">=</span> bs(searchreq.text, <span class="st">&#39;html.parser&#39;</span>)</a>
+<a class="sourceLine" id="cb64-9" title="9"></a>
+<a class="sourceLine" id="cb64-10" title="10"><span class="co"># Getting links as a href</span></a>
+<a class="sourceLine" id="cb64-11" title="11">links <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb64-12" title="12"><span class="cf">for</span> a <span class="kw">in</span> soup.find_all(<span class="st">&#39;a&#39;</span>, href<span class="op">=</span><span class="va">True</span>):</a>
+<a class="sourceLine" id="cb64-13" title="13">    <span class="bu">print</span>(a[<span class="st">&#39;href&#39;</span>])</a>
+<a class="sourceLine" id="cb64-14" title="14">    links.append(a[<span class="st">&#39;href&#39;</span>])</a></code></pre></div>
+<p>If you type ‘print(links)’, your list is going to get printed.</p>
+<p>That’s perfect! We are getting results. Links are still there! The issue is that now we are getting <em>way too many of them</em>.</p>
+<p>Remember, we requested the first page of the results from our search engine. Usually, it has a list of 10 results, plus some video o Wikipedia entry on the right.
+Now, evaluate how many items are there on our list of links.</p>
+<p>If you go for <strong>len(set(links))</strong> you’ll find out there are way more than 10 unique elements. Remember that <strong>len()</strong> returns the length of its item, here the set of our list of links. We are turning the list of links into a set to squeeze out possible repetition of elements.</p>
+<p>If we reflect on what we are doing, it is clear that we are catching more than our list: in fact, the ‘next’ button and the ‘image’ tab all have links we are extracting. If you use gmail and are logged in, these are all href true elements.</p>
+<p>TL;DR: we move from zero link to way too many. What can we do now?</p>
+</div>
+<div id="extracting-more-specific-links" class="section level3">
+<h3><span class="header-section-number">7.2.5</span> Extracting more Specific Links</h3>
+<p>Let’s recap what’s happening. We got a task, we map it out in pseudocode and start implementing it. We choose some tools (BeautifulSoup) and we were pretty confident that a single piece of code would solve that. (If you search around “how to retrieve links from a search engine” chances are you bump into the “.r a” solution.)
+But reality is quite different.</p>
+<p>The easy solution did not work. Obfuscation came in. Here we are really programming. We need to find our way around an obstacle.</p>
+<p>To create our corpus we have an available strategy: given our links are still there and we managed to extract them, we have to filter this excessive pool of links. There are different ways to do that:</p>
+<ol style="list-style-type: decimal">
+<li><em>noise filter</em>: we can compare the various search results across different pages for the same query as well as across different queries. We are looking for what stays constant across these searches. These are the alien elements we want to get rid of. After we have identified these ones, we get our results by subtracting these to the original (excessive) pool of results;</li>
+<li><em>query-based filter</em>: we filter our (excessive) list of results by keeping only the elements that were present in the keywords of the query. This requires us to elaborate more on the query we get and requires us to make further assumptions of what’s relevant in a query.</li>
+</ol>
+<p>Neither solution is super excellent and accurate. But at least it is principled and it allows us to keep adding features to our program (and to build a shareable corpus).</p>
+</div>
+<div id="filter-through-keywords" class="section level3">
+<h3><span class="header-section-number">7.2.6</span> Filter Through Keywords</h3>
+<p>We start filtering based on keywords. Our leading assumption is that <em>what we searched in the query, matters for the results</em>. We can turn this assumption into code specifying that the terms that we searched are featured in the url of the link.</p>
+<p>Of course there are issues: what if the term we are searching for is one of the terms that are part of the noise? (e.g. ‘video’, ‘next page’ or others).</p>
+<p>Still, before trying to improve on that we need to start processing the query. There are at least two things to isolate and care about:</p>
+<ol style="list-style-type: decimal">
+<li>the query has <em>one word</em>: we are only going to use that word;</li>
+<li>the query has <em>more than one word</em>: we split the case and make sure to have all the terms of the query to be available for filtering;</li>
+<li>(wasn’t it two things?) <em>standardization</em>: we need to ensure that the query is usable for the machine. Remember Python is case sensitive. Suppose we search for ‘Goofy’. We are going to use ‘Goofy’ to select only Goofy-links and ignore user-policy-links, etc. If the links are in lower-goofy-format we are going to miss them using our Capitalized Goofy.</li>
+</ol>
+<p>Code-wise we get this:</p>
+<p><em>Query processing - ch. 7.6</em></p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb65-1" title="1"><span class="co"># Previous imports etc omitted</span></a>
+<a class="sourceLine" id="cb65-2" title="2"></a>
+<a class="sourceLine" id="cb65-3" title="3">userquery <span class="op">=</span>  <span class="bu">input</span>(<span class="st">&#39;What do you want to search?&#39;</span>)</a>
+<a class="sourceLine" id="cb65-4" title="4">searchreq <span class="op">=</span> requests.get(<span class="st">&#39;https://www.google.com/search?q=&#39;</span> <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb65-5" title="5">    userquery)</a>
+<a class="sourceLine" id="cb65-6" title="6">searchreq.raise_for_status()</a>
+<a class="sourceLine" id="cb65-7" title="7"></a>
+<a class="sourceLine" id="cb65-8" title="8"><span class="co"># Query processing: lowercase</span></a>
+<a class="sourceLine" id="cb65-9" title="9">query <span class="op">=</span> userquery.lower()</a>
+<a class="sourceLine" id="cb65-10" title="10"></a>
+<a class="sourceLine" id="cb65-11" title="11"><span class="co"># Quey processing: splitting if it has more than 1 word</span></a>
+<a class="sourceLine" id="cb65-12" title="12"><span class="cf">if</span> <span class="bu">len</span>(query.split()) <span class="op">&gt;</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb65-13" title="13">    query <span class="op">=</span> query.split()</a></code></pre></div>
+<p>If you are hard testing this, feel free to remove the input part of the userquery and hard code a term. Then print the items in query and see what you get.</p>
+<p>As a quick exercise, make a function out of it that scrapes a page given a certain query, something like <strong>def scrapeterm(userquery)</strong> which returns the items in the query.</p>
+<p>Our next task is that of <em>building a filter based on our query</em>. The items we need are:</p>
+<ol style="list-style-type: decimal">
+<li>the request for a certain page;</li>
+<li>a soup object to parse it;</li>
+<li>a list of links obtained with BeautifulSoup;</li>
+<li>a processed query to activate the filter;</li>
+<li>a device to check that, for each item in the list of links, the terms isolated in the query are present.</li>
+</ol>
+<p>We already know that this tool in point 5 is, regular expression can be pretty handy for that. This time we are only going to <strong>re.search</strong> if the term in the query is there or not. Go back to chapter <a href="ch5.html#ch5">5</a> for a refresher on regular expression and check the docs for the re module (which is part of the standard library).<a href="#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a></p>
+<p>Assuming all the items from 1 to 4 are there, a filter is basically doing what follows:</p>
+<p><em>Basic query-based filtering mechanics - ch. 7.8</em></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb66-1" title="1"><span class="co"># Import to have regex</span></a>
+<a class="sourceLine" id="cb66-2" title="2"><span class="im">import</span> re</a>
+<a class="sourceLine" id="cb66-3" title="3"></a>
+<a class="sourceLine" id="cb66-4" title="4"><span class="co"># We have links list from bs4</span></a>
+<a class="sourceLine" id="cb66-5" title="5">links <span class="op">=</span> [<span class="st">&#39;items&#39;</span>, <span class="st">&#39;from&#39;</span>, <span class="st">&#39;soup&#39;</span>]</a>
+<a class="sourceLine" id="cb66-6" title="6"></a>
+<a class="sourceLine" id="cb66-7" title="7"><span class="co"># We processed and split the query</span></a>
+<a class="sourceLine" id="cb66-8" title="8">query <span class="op">=</span> [<span class="st">&#39;terms&#39;</span>, <span class="st">&#39;of&#39;</span>, <span class="st">&#39;query&#39;</span>]</a>
+<a class="sourceLine" id="cb66-9" title="9"></a>
+<a class="sourceLine" id="cb66-10" title="10"><span class="co"># Scrape links for relevant terms</span></a>
+<a class="sourceLine" id="cb66-11" title="11"><span class="co"># Initialize a list of filtered results</span></a>
+<a class="sourceLine" id="cb66-12" title="12"><span class="bu">filter</span> <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb66-13" title="13"><span class="cf">for</span> link <span class="kw">in</span> <span class="bu">set</span>(links):</a>
+<a class="sourceLine" id="cb66-14" title="14">    <span class="cf">for</span> q <span class="kw">in</span> query:</a>
+<a class="sourceLine" id="cb66-15" title="15">        <span class="cf">if</span> re.search(q, link) <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="kw">and</span> link <span class="kw">not</span> <span class="kw">in</span> <span class="bu">filter</span>:</a>
+<a class="sourceLine" id="cb66-16" title="16">            link <span class="op">=</span> link.replace(<span class="st">&#39;/url?q=&#39;</span>, <span class="st">&#39;&#39;</span>)</a>
+<a class="sourceLine" id="cb66-17" title="17">            <span class="bu">filter</span>.append(link)</a></code></pre></div>
+<p>Some comments are needed here:</p>
+<ul>
+<li>we try to process as few items as possible, so we remove the duplicates from the links, if any, with set;</li>
+<li>we check that we have a match with the “is not None” idiom, which is discussed in PEP 8 under “Programming Recommendations”;</li>
+<li>we make sure the link is not in the filter before adding it. We don’t want duplicates. This condition wasn’t there the first time we isolated the problem and thought about the filter;</li>
+<li>we need to clean the link we are appending to the list. We want a list of items that can be easily copied and pasted into the browser. Keeping the ‘/url?q=’, if it’s present, is not going to work.</li>
+</ul>
+<p>(The file in the repository comes with a slightly different list and an assertion statement to check it works.)</p>
+<p>Ok, we can now move on to the next strategy. There we start to consider moving to a different page. Once we are done with that, we’ll include saving the results to file and moving our search through different pages.</p>
+</div>
+<div id="filter-removing-common-noise" class="section level3">
+<h3><span class="header-section-number">7.2.7</span> Filter Removing Common Noise</h3>
+<p>For this implementation of the idea, we are going to code a function that will filter the links. The function will act on our list of links.</p>
+<p>Basically we want to define a sublist of links that are made of noise, i.e. reoccurring links. To build the noise list, we need a variety of noise detection expressions.</p>
+<p>Assuming we build our list of expressions for noise detection, all we need to do is to check each link in our list on the different expressions in the noise detection list. If the test is successful (i.e. if our regex gets a match), then we add the link to noise.</p>
+<p>The function then returns a list of the set difference between the set of all links and the set of noise. Here’s the code, we then explain how we the noise detectors were selected:</p>
+<p><em>Filtering noise - ch. 7.9</em></p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb67-1" title="1"><span class="co"># Initialize the noise list</span></a>
+<a class="sourceLine" id="cb67-2" title="2">noise <span class="op">=</span> []    </a>
+<a class="sourceLine" id="cb67-3" title="3"><span class="co"># Definition of the filter function</span></a>
+<a class="sourceLine" id="cb67-4" title="4"><span class="kw">def</span> filter_noise_from_links(links):</a>
+<a class="sourceLine" id="cb67-5" title="5">    <span class="co"># List of expressions to detect noise</span></a>
+<a class="sourceLine" id="cb67-6" title="6">    noise_detection <span class="op">=</span> [<span class="st">&#39;/search\?rlz&#39;</span>, <span class="st">&#39;/search\?ie=utf&#39;</span>,</a>
+<a class="sourceLine" id="cb67-7" title="7">    <span class="st">&#39;/search\?q=&#39;</span>, <span class="st">&#39;/policies\.google\.com/&#39;</span>,</a>
+<a class="sourceLine" id="cb67-8" title="8">    <span class="st">&#39;www\.google\.com/policies&#39;</span>]</a>
+<a class="sourceLine" id="cb67-9" title="9">    <span class="co"># Checking detectors on links</span></a>
+<a class="sourceLine" id="cb67-10" title="10">    <span class="cf">for</span> link <span class="kw">in</span> <span class="bu">set</span>(links):</a>
+<a class="sourceLine" id="cb67-11" title="11">        <span class="cf">for</span> noise_item <span class="kw">in</span> noise_detection:        </a>
+<a class="sourceLine" id="cb67-12" title="12">            test <span class="op">=</span> re.search(noise_item, link)</a>
+<a class="sourceLine" id="cb67-13" title="13">            <span class="cf">if</span> test <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb67-14" title="14">                <span class="bu">print</span>(test)</a>
+<a class="sourceLine" id="cb67-15" title="15">                noise.append(link)</a>
+<a class="sourceLine" id="cb67-16" title="16">    <span class="cf">return</span> <span class="bu">list</span>(<span class="bu">set</span>(links)<span class="op">-</span><span class="bu">set</span>(noise))</a>
+<a class="sourceLine" id="cb67-17" title="17"></a>
+<a class="sourceLine" id="cb67-18" title="18">filter_noise_from_links(links)</a></code></pre></div>
+<p>A few notes about the code:</p>
+<ul>
+<li>feel free to add type annotations: ‘links’ is a list. That’s not obvious!</li>
+<li>we need to escape the dots in the urls because they are going to be passed as elements of a regular expression. In regex the dot ‘.’ is a special character and this will compromise our search. There’s a way to fix this with raw strings. Fix that this way if you prefer;</li>
+<li>try moving the noise initialization <em>inside</em> the function and then access the list of the noise you detected from the outside. That’s one (harsh) way of learning about scope.</li>
+</ul>
+<p>(Yes, at <em>HumanDemia</em> they pass you some sub-optimal code and expect you to fix it. It is still academia, after all.)</p>
+<p>Ok, now we need to explain how we constructed the noise_detection list. In pseudo code the thought behind that is the following:</p>
+<ol style="list-style-type: decimal">
+<li>we have a function that gets all hrefs for a certain request;</li>
+<li>we run that function for the first page of search results;</li>
+<li>we run that function for the second page of search results;</li>
+<li>we compare what’s in (2) and (3): given that search results on different pages are going to be different (there are no duplicates) what stays constant is background search engine noise;</li>
+<li>we print common elements: they are going to be our noise_detectors.</li>
+</ol>
+<p>Implementation-wise, let’s start with what we already know.</p>
+<p>Getting 1 is easy. We already have all the code parts: request, query process, soup links extraction. All you need to do is to make a function out of it (the argument is going to be the url which includes the query, not the query).</p>
+<p>Also, 4 is easy. All we need is performing set intersection. This is nice and easy. Assuming A and B are set, we need to call <strong>A.intersection(B)</strong> and we have it. So, to accommodate also 5, we can say:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb68-1" title="1">intersection <span class="op">=</span> A.intersection(B)</a>
+<a class="sourceLine" id="cb68-2" title="2"><span class="bu">print</span>(intersection)</a></code></pre></div>
+<p>What’s still puzzling are 2 and 3, namely, how to move across the pages of results returned by a search engine.</p>
+<p>How do we get to the next page? You expect something like:</p>
+<p>google.com/search=?TERM/page=NUMBER</p>
+<p>But that’s not the case. Obfuscation strikes back.
+How do we get out of it?</p>
+<p>We need again to work with the url of the search. Start browsing the different page result and read what comes out. Consider this:</p>
+<p><a href="https://www.google.com/search?q=Goofy&amp;sxsrf=ACYBGNTZSgTK_0-vONXFac4v_" class="uri">https://www.google.com/search?q=Goofy&amp;sxsrf=ACYBGNTZSgTK_0-vONXFac4v_</a>
+jWb0EiyeQ:1579169835573&amp;ei=KzggXpDTIpK3kwXLvJPADA&amp;start=120&amp;sa=N&amp;ved=
+2ahUKEwjQlNuI8ofnAhWS26QKHUveBMg4WhDw0wN6BAgMEEM&amp;biw=1280&amp;bih=
+578&amp;dpr=1.5</p>
+<p>Noticed something? It says it’s page 13 of results.</p>
+<p>Now have another look at the url. See the ‘start=number’ line? That’s it:</p>
+<p><a href="https://www.google.com/search?q=Goofy&amp;sxsrf=ACYBGNTZSgTK_0-vONXFac4v_" class="uri">https://www.google.com/search?q=Goofy&amp;sxsrf=ACYBGNTZSgTK_0-vONXFac4v_</a>
+jWb0EiyeQ:1579169835573&amp;ei=KzggXpDTIpK3kwXLvJPADA&amp;<strong>start=120</strong>&amp;sa=N&amp;ved=
+2ahUKEwjQlNuI8ofnAhWS26QKHUveBMg4WhDw0wN6BAgMEEM&amp;biw=1280&amp;bih=
+578&amp;dpr=1.5</p>
+<p>Ok, you know on what you have to act to have two (or more) searches for the same term. Have fun!</p>
+<p>Beware that this automated part is not the one-catch-all-solution. If you find that there’s more that keeps popping out that you don’t want in your results, feel free to add them to the noise detection list. Further, as we have already seen, there can be implementation issues (with the ‘.’). So, beware!</p>
+</div>
+<div id="saving-our-queries" class="section level3">
+<h3><span class="header-section-number">7.2.8</span> Saving Our Queries</h3>
+<p>Ok, we can retrieve some links. Can we save them? Saving is a rather easy file operation.</p>
+<p>Let’s take the same approach we’ve been using so far. We start with our consolidated program. First, test the new feature, then we include it in our main script. Saving to a file is nothing but:</p>
+<ul>
+<li>create a file object;</li>
+<li>writing content in it;</li>
+<li>close the file.</li>
+</ul>
+<p>We can do all that using a ‘with’ statement. It ensures the file is closed and allows us to rename the opened file, if needed. Tackling the saving issue from our latest implementation, we are likely to use the data we filtered.</p>
+<p><em>A simple saving with-statement</em></p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb69-1" title="1">filteredlist <span class="op">=</span> [<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>, <span class="st">&#39;end&#39;</span>]</a>
+<a class="sourceLine" id="cb69-2" title="2"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;Data.txt&#39;</span>, <span class="st">&#39;a&#39;</span>) <span class="im">as</span> <span class="bu">file</span>:</a>
+<a class="sourceLine" id="cb69-3" title="3">    <span class="cf">for</span> item <span class="kw">in</span> filteredlist:</a>
+<a class="sourceLine" id="cb69-4" title="4">        <span class="bu">file</span>.write(item <span class="op">+</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</a></code></pre></div>
+<p>There’s not much to say, except that we are adding a newline (\n) after the item.</p>
+<p>Now we have to move this saving feature into the main program. Before adding it, let’s think about our use of this saving feature.</p>
+<p>We want to build corpora out of it. This requires us to put some efforts into how we organize our folder of saved results:</p>
+<ol style="list-style-type: decimal">
+<li>The name of the file should reflect what we’ve searched. We don’t want a data.txt file cluttered with different queries;</li>
+<li>It would be a nice feature to include a time reference telling us the date the search was performed (we are going to import datetime for this).</li>
+</ol>
+<p>The code below accomplishes all this:</p>
+<ol style="list-style-type: decimal">
+<li>we rename the data file using the query. Beware to use a string element, not our split query (that is a list). Now you see why it’s good to be aware of our program structure;</li>
+<li>we organize our data document with a general line saying we searched the term X on a specific date (we are using a today variable which calls a <strong>datetime object</strong> - remember to convert it to a string or you’ll have a hard time writing it to a file). Such a line helps us as humans. If we were to use this information for some machine-related tasks, these are better stored as a table like query performed, link, date or similar.</li>
+</ol>
+<p>In this way we get a human-friendly report about our data.</p>
+<p><em>Saving searches to file - ch. 7.10</em></p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb70-1" title="1"><span class="co"># Overcommented for explanatory reasons</span></a>
+<a class="sourceLine" id="cb70-2" title="2"></a>
+<a class="sourceLine" id="cb70-3" title="3"><span class="co"># Imports - standard library first</span></a>
+<a class="sourceLine" id="cb70-4" title="4"><span class="im">import</span> datetime <span class="co"># Needed to deal with time</span></a>
+<a class="sourceLine" id="cb70-5" title="5"><span class="im">import</span> re  </a>
+<a class="sourceLine" id="cb70-6" title="6"><span class="im">import</span> requests</a>
+<a class="sourceLine" id="cb70-7" title="7"><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup <span class="im">as</span> bs</a>
+<a class="sourceLine" id="cb70-8" title="8"></a>
+<a class="sourceLine" id="cb70-9" title="9"><span class="co"># Ask the user for the search and process the query</span></a>
+<a class="sourceLine" id="cb70-10" title="10">userquery <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;Enter your query&#39;</span>)</a>
+<a class="sourceLine" id="cb70-11" title="11">searchreq <span class="op">=</span> requests.get(<span class="st">&#39;https://www.google.com/search?q=&#39;</span>\</a>
+<a class="sourceLine" id="cb70-12" title="12">    <span class="op">+</span> userquery)</a>
+<a class="sourceLine" id="cb70-13" title="13">searchreq.raise_for_status()</a>
+<a class="sourceLine" id="cb70-14" title="14"></a>
+<a class="sourceLine" id="cb70-15" title="15"><span class="co"># Query  process</span></a>
+<a class="sourceLine" id="cb70-16" title="16">query <span class="op">=</span> userquery.lower()</a>
+<a class="sourceLine" id="cb70-17" title="17"><span class="cf">if</span> <span class="bu">len</span>(query.split()) <span class="op">&gt;</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb70-18" title="18">    query <span class="op">=</span> query.split()</a>
+<a class="sourceLine" id="cb70-19" title="19">    </a>
+<a class="sourceLine" id="cb70-20" title="20"><span class="co"># Soup objects and all links</span></a>
+<a class="sourceLine" id="cb70-21" title="21">soup <span class="op">=</span> bs(searchreq.text, <span class="st">&#39;html.parser&#39;</span>)</a>
+<a class="sourceLine" id="cb70-22" title="22">links <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb70-23" title="23"><span class="cf">for</span> a <span class="kw">in</span> soup.find_all(<span class="st">&#39;a&#39;</span>, href<span class="op">=</span><span class="va">True</span>):</a>
+<a class="sourceLine" id="cb70-24" title="24">    links.append(a[<span class="st">&#39;href&#39;</span>])</a>
+<a class="sourceLine" id="cb70-25" title="25">       </a>
+<a class="sourceLine" id="cb70-26" title="26"><span class="co"># Initialize results</span></a>
+<a class="sourceLine" id="cb70-27" title="27">results<span class="op">=</span>[]</a>
+<a class="sourceLine" id="cb70-28" title="28"></a>
+<a class="sourceLine" id="cb70-29" title="29"><span class="co"># Date processing - get today&#39;s date</span></a>
+<a class="sourceLine" id="cb70-30" title="30">today <span class="op">=</span> <span class="bu">str</span>(datetime.datetime.now())</a>
+<a class="sourceLine" id="cb70-31" title="31"></a>
+<a class="sourceLine" id="cb70-32" title="32"><span class="co"># Creating the file to save links</span></a>
+<a class="sourceLine" id="cb70-33" title="33"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;Data_for_&#39;</span> <span class="op">+</span> userquery <span class="op">+</span><span class="st">&#39;.txt&#39;</span>, <span class="st">&#39;a&#39;</span>) <span class="im">as</span> <span class="bu">file</span>:</a>
+<a class="sourceLine" id="cb70-34" title="34">    <span class="bu">file</span>.write(<span class="st">&#39;Results for </span><span class="ch">\&#39;</span><span class="st">&#39;</span> <span class="op">+</span> userquery <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb70-35" title="35">    <span class="st">&#39;</span><span class="ch">\&#39;</span><span class="st"> performed on &#39;</span><span class="op">+</span> today <span class="op">+</span> <span class="st">&#39;:</span><span class="ch">\n</span><span class="st">&#39;</span>)</a>
+<a class="sourceLine" id="cb70-36" title="36">    </a>
+<a class="sourceLine" id="cb70-37" title="37">    <span class="co"># Processing links</span></a>
+<a class="sourceLine" id="cb70-38" title="38">    <span class="cf">for</span> link <span class="kw">in</span> <span class="bu">set</span>(links):</a>
+<a class="sourceLine" id="cb70-39" title="39">        <span class="co"># Loop on queries</span></a>
+<a class="sourceLine" id="cb70-40" title="40">        <span class="co"># q is what we want to search on every item in the links</span></a>
+<a class="sourceLine" id="cb70-41" title="41">        <span class="cf">for</span> q <span class="kw">in</span> query:    </a>
+<a class="sourceLine" id="cb70-42" title="42">            <span class="cf">if</span> re.search(q, link) <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="kw">and</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb70-43" title="43">            re.search(<span class="st">&#39;google&#39;</span>, link) <span class="kw">is</span> <span class="va">None</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb70-44" title="44">            <span class="kw">and</span> re.search(<span class="st">&#39;search&#39;</span>, link) <span class="kw">is</span> <span class="va">None</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb70-45" title="45">            <span class="kw">and</span> link <span class="kw">not</span> <span class="kw">in</span> results</a>
+<a class="sourceLine" id="cb70-46" title="46">                link <span class="op">=</span> link.replace(<span class="st">&#39;/url?q=&#39;</span>, <span class="st">&#39;&#39;</span>)</a>
+<a class="sourceLine" id="cb70-47" title="47">                results.append(link)</a>
+<a class="sourceLine" id="cb70-48" title="48">                <span class="bu">file</span>.write(link <span class="op">+</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</a>
+<a class="sourceLine" id="cb70-49" title="49">    <span class="bu">file</span>.write(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</a></code></pre></div>
+<p>In this code we are doing some rough filtering hard coding something to be excluded from our lists of results (i.e., removing ‘search’ and ‘google’ from the list of links).</p>
+<p>You can improve the code by way of using the previous function. Also, the readability of the heading of the text can be improved using formatted strings instead of concatenation. Look PEP 498 to find out how to do it (<a href="https://www.python.org/dev/peps/pep-0498/" class="uri">https://www.python.org/dev/peps/pep-0498/</a>), trading a ‘+’ sign for some parenthesis can be a good choice.</p>
+<p>Ok, now we have to deal with multiple pages of results.</p>
+</div>
+<div id="iteration-moving-to-the-next-page" class="section level3">
+<h3><span class="header-section-number">7.2.9</span> Iteration: Moving to the Next Page</h3>
+<p>We are almost there. We fought obfuscation and came up with two different strategies to retrieve links. We can save them and keep track of the time of the search.</p>
+<p>Now we need to iterate through different pages. We already know something about the format of page results, we went through that pain while exploring what was beef and what was noise across different pages of search results.</p>
+<p>If we include the number of pages we want to scrape, these are some of our new challenges:</p>
+<ul>
+<li>we can ask the user how many pages we need to scrape;</li>
+<li>we need to figure out where we are among the different pages of results;</li>
+<li>we have to consider the case of one-pager search results (most often with errors or super-specific searches).</li>
+</ul>
+<p>These are some of the changes we can implement:</p>
+<ul>
+<li>our scrape function now takes two arguments: query and number of pages;</li>
+<li>our scrape function needs another loop to go through the different pages.</li>
+</ul>
+<p>From our previous experiments we know that search results pages have this format with a ‘start’ field. So we need to look for the start.</p>
+<p><em>Introducing a page tracker loop</em></p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb71-1" title="1"><span class="co"># Add usual import</span></a>
+<a class="sourceLine" id="cb71-2" title="2"><span class="co"># Add usual data structure</span></a>
+<a class="sourceLine" id="cb71-3" title="3"></a>
+<a class="sourceLine" id="cb71-4" title="4"><span class="co"># Initalize counter to track the current page visited</span></a>
+<a class="sourceLine" id="cb71-5" title="5">pageloop <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb71-6" title="6"><span class="co"># Specify how many pages to scrape</span></a>
+<a class="sourceLine" id="cb71-7" title="7">NUMPAGES <span class="op">=</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb71-8" title="8"></a>
+<a class="sourceLine" id="cb71-9" title="9"><span class="co"># Make the first request</span></a>
+<a class="sourceLine" id="cb71-10" title="10"></a>
+<a class="sourceLine" id="cb71-11" title="11"><span class="co"># Find the start element of the url</span></a>
+<a class="sourceLine" id="cb71-12" title="12">start <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb71-13" title="13"><span class="cf">for</span> link <span class="kw">in</span> <span class="bu">set</span>(links):</a>
+<a class="sourceLine" id="cb71-14" title="14">    <span class="co"># The url we need has &#39;start&#39; in it</span></a>
+<a class="sourceLine" id="cb71-15" title="15">    <span class="cf">if</span> re.search(<span class="st">&#39;start&#39;</span>, link):</a>
+<a class="sourceLine" id="cb71-16" title="16">    <span class="co"># We find it and we add it</span></a>
+<a class="sourceLine" id="cb71-17" title="17">        start.append(link)</a>
+<a class="sourceLine" id="cb71-18" title="18">        <span class="co"># We turn the list into a string and process it</span></a>
+<a class="sourceLine" id="cb71-19" title="19">        start <span class="op">=</span> <span class="bu">str</span>(start)</a>
+<a class="sourceLine" id="cb71-20" title="20">        start <span class="op">=</span> re.sub(<span class="st">&#39;\[</span><span class="ch">\&#39;</span><span class="st">&#39;</span>,<span class="st">&#39;&#39;</span>, start)</a>
+<a class="sourceLine" id="cb71-21" title="21">        start <span class="op">=</span> re.split(<span class="st">&#39;start=&#39;</span>, start)</a>
+<a class="sourceLine" id="cb71-22" title="22">        </a>
+<a class="sourceLine" id="cb71-23" title="23"><span class="co"># Check if we have more than one page of results</span></a>
+<a class="sourceLine" id="cb71-24" title="24"><span class="co"># Single page case</span></a>
+<a class="sourceLine" id="cb71-25" title="25"><span class="cf">if</span> start <span class="op">==</span> []:</a>
+<a class="sourceLine" id="cb71-26" title="26"><span class="co"># Run the scrape function. No iteration.</span></a>
+<a class="sourceLine" id="cb71-27" title="27"></a>
+<a class="sourceLine" id="cb71-28" title="28"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb71-29" title="29"></a>
+<a class="sourceLine" id="cb71-30" title="30"><span class="co"># Loop on all pages</span></a>
+<a class="sourceLine" id="cb71-31" title="31"><span class="cf">for</span> pageloop <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">int</span>(NUMPAGES)<span class="op">*</span><span class="dv">10</span>,<span class="dv">10</span>):</a>
+<a class="sourceLine" id="cb71-32" title="32">    nextpage <span class="op">=</span> <span class="st">&#39;https://www.google.com&#39;</span><span class="op">+</span> start[<span class="dv">0</span>] <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb71-33" title="33">    <span class="co">&#39;start=&#39;</span><span class="op">+</span> <span class="bu">str</span>(pageloop)</a>
+<a class="sourceLine" id="cb71-34" title="34">    searchpage <span class="op">=</span> requests.get(nextpage)</a>
+<a class="sourceLine" id="cb71-35" title="35">    searchpage.raise_for_status()</a>
+<a class="sourceLine" id="cb71-36" title="36">    </a>
+<a class="sourceLine" id="cb71-37" title="37">    <span class="co"># Run our extractor function on the searchpage </span></a></code></pre></div>
+<p>There’s quite a lot happening there.</p>
+<p>The basic idea is to keep track of the page we are at with a pageloop variable. The issue is that we need to introduce a variable counter to update the ‘start part’ of the search engine string.</p>
+<p>We basically need to extract the string of search results and then be able to insert different numbers so that we can access the different pages of results.
+Assuming we are able to do that, we can then split the case in which there are more pages of results and the one in which results are just on a single page.</p>
+<p>If we have more results we need to obtain all of them (with a range function) and construct a request for each new page. On this new page we can run a function to extract the results.</p>
+<p>You now have all the pieces of the puzzle. Feel free to experiment and assemble them to get a full working program. Consider what might happen at corner cases like when you ask to retrieve more pages of results than those available or what happens if one of the requests returns a ‘not found’ error.</p>
+</div>
+<div id="helper-functions" class="section level3">
+<h3><span class="header-section-number">7.2.10</span> Helper Functions</h3>
+<p>Helper functions do what they say. Assume you start using your program and figure out there are some combinations of the basic operations you do quite often. For example, what if you want to run more than a query? Do we really have to say “get_links(arg1)”, “get_links(arg2)”, etc?</p>
+<p>Here optional arguments come handy.</p>
+<p>This is all you need to do to have a function with multiple arguments that, then, runs your main search function for each term.</p>
+<p><em>A multi query search helper function</em></p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb72-1" title="1"><span class="kw">def</span> searchterm(query):</a>
+<a class="sourceLine" id="cb72-2" title="2">    <span class="co"># Insert the specifics for your search</span></a>
+<a class="sourceLine" id="cb72-3" title="3"></a>
+<a class="sourceLine" id="cb72-4" title="4">    <span class="cf">pass</span> </a>
+<a class="sourceLine" id="cb72-5" title="5">    </a>
+<a class="sourceLine" id="cb72-6" title="6"><span class="kw">def</span> multiscrapecheck(<span class="op">*</span>queries):</a>
+<a class="sourceLine" id="cb72-7" title="7">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb72-8" title="8"><span class="co">    Retrive links for multiple queries. </span></a>
+<a class="sourceLine" id="cb72-9" title="9"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb72-10" title="10">    <span class="cf">for</span> q <span class="kw">in</span> queries:</a>
+<a class="sourceLine" id="cb72-11" title="11">        searchterm(q)</a></code></pre></div>
+<p>You can now see the advantages of working in this way. Different functions take care of different aspects. What to search, saving, extracting. Etc. (Remember that *args is a parameter that returns a tuple.)</p>
+<p>You can build your program as you prefer. What if we ask the user to specify arguments as tuples (term, number of pages to scrape) and pass them to a function? What if we want to add more inputs, like which function to take? What if we want to repeat our search every Monday?</p>
+</div>
+<div id="adding-progress-bars-tqdm" class="section level3">
+<h3><span class="header-section-number">7.2.11</span> Adding Progress Bars: Tqdm</h3>
+<p>Our program has a very small interface. If we run a search across 10 or more pages chances are this is going to take long. Our user may start wondering what’s going on.</p>
+<p>All our programming is super low in terms of interfaces and design. We are running the program from the command line, IDE, IPython or similar. Nonetheless, we have an opportunity to add some feedback.</p>
+<p>What if we add progress bars to have some sort of feedback? The Tqdm module (read the docs to find out more about the name - <a href="https://tqdm.github.io/" class="uri">https://tqdm.github.io/</a>) is there to help us. What the module does is that it allows us to add progress bars when we run iteration.</p>
+<p>All we need to do is importing tqdm and change the range function of the page loop to <strong>trange()</strong>. We are now using a tqdm shortcut that calls tqdm on the range function, giving us our progress bar (see more on <a href="https://tqdm.github.io/docs/shortcuts/#trange" class="uri">https://tqdm.github.io/docs/shortcuts/#trange</a>).</p>
+</div>
+<div id="corpora-builder-limitations" class="section level3">
+<h3><span class="header-section-number">7.2.12</span> Corpora Builder Limitations</h3>
+<p>Assembling Corpora Builder is a useful exercise to go show how we can create useful programs for our daily academic life. Beware that limitations abound for how we realized the pieces of the program. Here is a list of limits and things to improve:</p>
+<ul>
+<li>Every term we add in the noise_detector is something we cannot retrieve in our links.</li>
+<li>We are not checking the spelling of user inputs and queries.</li>
+<li>If we have multiple word queries, we are using all the outcomes of the split. This includes one letter word like ‘a’ (say in ‘a taste of collapse’) or two-letter words like ‘an’, ‘or’, ‘of’, etc. These can have terribly bad consequences of matching random links we do not want to get.</li>
+</ul>
+<p>Some of these can easily be fixed (go try!), some are more complex. Again, awareness is the key.</p>
+</div>
+<div id="iterating-further" class="section level3">
+<h3><span class="header-section-number">7.2.13</span> Iterating Further</h3>
+<p>A second iteration can actually help us address better our methodological needs. What about:</p>
+<ul>
+<li>performing the search from multiple browsers?</li>
+<li>performing the search on multiple search engines?</li>
+<li>taking track of where a certain item was returned from the search engine (i.e. your amazing paper was the third item on the first page or was it buried in the 11th page of results?)</li>
+<li>what about adding a feature that, after opening the link, asks us if it fits or not in our research plan (and, in case, delete the bad link from the list of results)? We’ll need to work on our corpora opener program, which follows.</li>
+</ul>
+</div>
+</div>
+<div id="corpora-opener-program-overview" class="section level2">
+<h2><span class="header-section-number">7.3</span> Corpora Opener: Program Overview</h2>
+<p>We finished Corpora Builder having a list of files in .txt format. Our human eyes can read it and that’s great. Still, we have a problem <em>using</em> the data.</p>
+<p>Are we going to copy and paste all the documents retrieved in the corpus to see if a link meets our needs? Not at all. <em>HumanDemia</em> is not hiring those with a Ph.D. to do that.</p>
+<p>Let’s see if we can come up with a better solution. For this corpora builder tool to open we also need a function that opens all the retrieved links.
+Here is where our <em>needs as humans clashes with those of the machine</em>.</p>
+<p>Things we value as the date and the queried term are only a distraction for the machine. For a machine the easier way to do what we need is something like that:</p>
+<ul>
+<li>open a file;</li>
+<li>read the first line;</li>
+<li>open a browser with the first line as the url;</li>
+<li>read the second line;</li>
+<li>open a browser with the second line as the url;</li>
+<li>… .</li>
+</ul>
+<p>This looks quite easy, programming-wise.</p>
+<p>It something like the following:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb73-1" title="1"><span class="im">import</span> webbrowser</a>
+<a class="sourceLine" id="cb73-2" title="2"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;urllist.txt&quot;</span>) <span class="im">as</span> f:</a>
+<a class="sourceLine" id="cb73-3" title="3">    <span class="cf">for</span> line <span class="kw">in</span> f.readlines():</a>
+<a class="sourceLine" id="cb73-4" title="4">        webbrowser.<span class="bu">open</span>(line)</a></code></pre></div>
+<p>(Go read the docs for readlines(): <a href="https://docs.python.org/3/library/io.html?highlight=readlines" class="uri">https://docs.python.org/3/library/io.html?highlight=readlines</a>.)</p>
+<p>If you prefer, you can open a new tab instead of a new browser.</p>
+<p>We already have our data stored as a list of urls on different lines, don’t we? Query and date were isolated in the file name, so we almost have a list of urls only, except for the first line.</p>
+<p>We can either ignore it (the browser will probably return an error), but there are some issues. In fact, we can’t open 20 or more tabs/windows.</p>
+<p>We should think about a way to ask the user at least: <em>how many items to open each time</em> and <em>whether to continue with another set of items or stop</em>.</p>
+<div id="opening-only-a-specific-amount-of-files" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Opening Only a Specific Amount of Files</h3>
+<p>We now have to modify our program so that:</p>
+<ol style="list-style-type: decimal">
+<li>it asks for the number of tab views it has to open;</li>
+<li>it iterates through the file with the links using the determined parameter.</li>
+</ol>
+<p>This requires us to add a few complexities.</p>
+<p>The most tricky items on our desiderata are:</p>
+<ul>
+<li>be sure that exactly n links are opened on each cycle;</li>
+<li>avoid an out of list error when we display the links.</li>
+</ul>
+<p>Here’s how to do that. Comments follow.</p>
+<p><em>Corpora Opener mechanics - ch. 7.11</em></p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb74-1" title="1"><span class="im">import</span> webbrowser</a>
+<a class="sourceLine" id="cb74-2" title="2"></a>
+<a class="sourceLine" id="cb74-3" title="3"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;urllist.txt&quot;</span>) <span class="im">as</span> file_with_urls:</a>
+<a class="sourceLine" id="cb74-4" title="4">    <span class="co"># Build a list of all the links and find length</span></a>
+<a class="sourceLine" id="cb74-5" title="5">    links <span class="op">=</span> file_with_urls.readlines() </a>
+<a class="sourceLine" id="cb74-6" title="6">    length <span class="op">=</span> <span class="bu">len</span>(links) </a>
+<a class="sourceLine" id="cb74-7" title="7">    </a>
+<a class="sourceLine" id="cb74-8" title="8">    <span class="co"># Ask how many pages to open </span></a>
+<a class="sourceLine" id="cb74-9" title="9">    <span class="co"># remember int conversion</span></a>
+<a class="sourceLine" id="cb74-10" title="10">    views <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&#39;How many links do you want \</span></a>
+<a class="sourceLine" id="cb74-11" title="11"><span class="st">    to open per batch?&#39;</span>))</a>
+<a class="sourceLine" id="cb74-12" title="12">    <span class="co"># Initialize counter to retrive links</span></a>
+<a class="sourceLine" id="cb74-13" title="13">    link_count <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb74-14" title="14">    <span class="co"># Open the first link</span></a>
+<a class="sourceLine" id="cb74-15" title="15">    webbrowser.<span class="bu">open</span>(links[link_count])</a>
+<a class="sourceLine" id="cb74-16" title="16">    <span class="co"># Start iterate on the length of all the links</span></a>
+<a class="sourceLine" id="cb74-17" title="17">    <span class="cf">while</span> link_count <span class="kw">in</span> <span class="bu">range</span>(length):</a>
+<a class="sourceLine" id="cb74-18" title="18">    <span class="co"># Move to the next item</span></a>
+<a class="sourceLine" id="cb74-19" title="19">        link_count <span class="op">=</span> link_count<span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb74-20" title="20">        <span class="co"># Check if we reached the end of the file</span></a>
+<a class="sourceLine" id="cb74-21" title="21">        <span class="cf">if</span> link_count <span class="op">==</span> length:</a>
+<a class="sourceLine" id="cb74-22" title="22">            <span class="bu">print</span>(<span class="st">&#39;You opened all the links&#39;</span>)</a>
+<a class="sourceLine" id="cb74-23" title="23">            <span class="cf">break</span></a>
+<a class="sourceLine" id="cb74-24" title="24">        webbrowser.<span class="bu">open</span>(links[link_count])       </a>
+<a class="sourceLine" id="cb74-25" title="25">        <span class="co"># Check if we have displaued all the items</span></a>
+<a class="sourceLine" id="cb74-26" title="26">        <span class="co"># in the view</span></a>
+<a class="sourceLine" id="cb74-27" title="27">        <span class="cf">if</span> (link_count<span class="op">+</span><span class="dv">1</span>)<span class="op">%</span>(views) <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb74-28" title="28">            question <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;Do you want to see \</span></a>
+<a class="sourceLine" id="cb74-29" title="29"><span class="st">            the next &#39;</span> <span class="op">+</span> <span class="bu">str</span>(views) <span class="op">+</span> <span class="st">&#39; results? \</span></a>
+<a class="sourceLine" id="cb74-30" title="30"><span class="st">            (y to get them, n to close)&#39;</span>)</a>
+<a class="sourceLine" id="cb74-31" title="31">            <span class="cf">if</span> question <span class="op">==</span> <span class="st">&#39;y&#39;</span>:</a>
+<a class="sourceLine" id="cb74-32" title="32">                link_countlink_count <span class="op">=</span> link_count <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb74-33" title="33">                webbrowser.<span class="bu">open</span>(links[link_count])</a>
+<a class="sourceLine" id="cb74-34" title="34">            <span class="cf">if</span> question <span class="op">==</span> <span class="st">&#39;n&#39;</span>:</a>
+<a class="sourceLine" id="cb74-35" title="35">                <span class="cf">break</span></a></code></pre></div>
+<p>There’s nothing too complex. We have to note that:</p>
+<ul>
+<li>we are prompting the user to answer ‘y’ or ‘n’. (We are not checking for different inputs…)</li>
+<li>to check if we have opened the required number of windows (suppose: 4) we check that the remain (that’s the % division) between our current link, plus 1 equals zero. In this case: 4%4 = 0. We need to increase link_count by 1 because lists in Python are zero-indexed.</li>
+<li>beware of the types: you can’t print int in strings and can’t do math with numbers-as-strings.</li>
+</ul>
+</div>
+<div id="issue-opening-links" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Issue Opening Links</h3>
+<p>If you try opening your search results list, chances are you’ll get quite a lot of ‘file not found’ or similar. If you see the links we retrieved in the txt file for Goofy you’ll see they do not look very nice on the eye.</p>
+<p>For example: <a href="https://it.wikipedia.org/wiki/Pippo&amp;sa=U&amp;ved=2ahUKEwivrPvAi8LpAhVRu54KHbn2BIwQmhMwDHoECAwQDg&amp;usg=AOvVaw3iTam18fbOrKonOQf3UPJB" class="uri">https://it.wikipedia.org/wiki/Pippo&amp;sa=U&amp;ved=2ahUKEwivrPvAi8LpAhVRu54KHbn2BIwQmhMwDHoECAwQDg&amp;usg=AOvVaw3iTam18fbOrKonOQf3UPJB</a>
+or even
+<a href="https://www.pinterest.it/lesleygc49/pippo-disney/&amp;sa=U&amp;ved=2ahUKEwivrPvAi8LpAhVRu54KHbn2BIwQFjAeegQICBAB&amp;usg=AOvVaw1PWlSxqSE0mb3ExFfQEvWZ" class="uri">https://www.pinterest.it/lesleygc49/pippo-disney/&amp;sa=U&amp;ved=2ahUKEwivrPvAi8LpAhVRu54KHbn2BIwQFjAeegQICBAB&amp;usg=AOvVaw1PWlSxqSE0mb3ExFfQEvWZ</a>.</p>
+<p>In my case, the first link doesn’t produce any result, but the second does. Why is that? The second link succeeds because of a redirect to <a href="https://www.pinterest.it/lesleygc49/pippo-disney/" class="uri">https://www.pinterest.it/lesleygc49/pippo-disney/</a>. If you inspect this more, we are getting quite a lot of extra stuff after the ‘&amp;’. What is we cut the first link after the ‘&amp;’? Ohh, it works.</p>
+<p>Now there’s a choice to make. It seems we need to clean our urls to fix this ‘&amp;’ issue. We can split the link on ‘&amp;’, then link[0] has the good part of the url. The choice is: do you prefer to do this in the opening function (here) or back in the corpora builder program?</p>
+</div>
+<div id="new-iteration" class="section level3">
+<h3><span class="header-section-number">7.3.3</span> New Iteration</h3>
+<ul>
+<li><em>Implement user feedback</em>: after a link of the corpus is opened, ask the user whether it fits for our research goals or not (and, in case, delete the bad link from the list of results). This will force you to explore message boxes.</li>
+</ul>
+</div>
+</div>
+<div id="summary-6" class="section level2">
+<h2><span class="header-section-number">7.4</span> Summary</h2>
+<p>In this chapter we started to build programs based on our needs and diving into the unknown. We optimize our pc startup, create a corpus accessing a search engine and we have found our way into proficiently using our data.</p>
+<p>While building some things we learnt about common operations and put them in practice:</p>
+<ul>
+<li>opening webpages and programs using Python;</li>
+<li>keyword-based filtering;</li>
+<li>reading files line by line;</li>
+<li>saving to file;</li>
+<li>performing requests to the web;</li>
+<li>scraping and parsing webpages.</li>
+</ul>
+<div id="more-resources-6" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> More Resources</h3>
+<p>If you are interested in building cool things, a lot is going on. This tutorial on writing timer is pretty cool: <a href="https://medium.com/@fidel.esquivelestay/build-a-pomodoro-timer-using-python-d52509730f60" class="uri">https://medium.com/@fidel.esquivelestay/build-a-pomodoro-timer-using-python-d52509730f60</a>.</p>
+<p>Also, remember the “try to write something in a certain language and then rework it on a different language”? Here’s a list of 100 projects for beginners… in JavaScript. Nonetheless the list and descriptions of the projects are pretty good: have a look <a href="https://jsbeginners.com/javascript-projects-for-beginners/" class="uri">https://jsbeginners.com/javascript-projects-for-beginners/</a>.</p>
+<p>If you prefer to build games, that’s a nice video tutorial: <a href="https://www.youtube.com/watch?time_continue=7&amp;v=XGf2GcyHPhc&amp;feature=emb_logo" class="uri">https://www.youtube.com/watch?time_continue=7&amp;v=XGf2GcyHPhc&amp;feature=emb_logo</a>.</p>
+<p>I have mixed feelings about video tutorials. On the one hand you can’t follow them at your pace, you have to wait for the instructor to type in the code. On the other hand, there’s a lot you can learn while following someone that’s coding: how are they testing the code? What strategy are they using? Further, you can receive bonus explanations about Python internals.</p>
+</div>
+<div id="further-work-6" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> Further Work</h3>
+<ul>
+<li>try to run SQlite. It’s the database manager bundled in Python (it may be a bit complex to locate it, though). Add it to your automation start. Build a simple database (e.g. your books or cd collection, you papers).</li>
+<li>Does using the following BeautifulSoup code change something in our scraping programs?</li>
+</ul>
+<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb75-1" title="1"><span class="cf">for</span> link <span class="kw">in</span> soup.find_all(<span class="st">&#39;a&#39;</span>):</a>
+<a class="sourceLine" id="cb75-2" title="2">    <span class="bu">print</span>(link.get(<span class="st">&#39;href&#39;</span>))</a></code></pre></div>
+<ul>
+<li>Implement a spell checker for Corpora Builder in case the query is miss spelt. Norvig has a good one: <a href="https://norvig.com/spell-correct.html" class="uri">https://norvig.com/spell-correct.html</a>.</li>
+</ul>
+<p>If you like to develop other productivity tools, here’s a list of interesting things:</p>
+<ul>
+<li>build a timer;</li>
+<li>build tools to help you formatting in Markdown (e.g. adding or removing ##, adding or removing list items);</li>
+<li>build tools to merge and cut PDF (Hint: search for Automate the boring stuff with Python);</li>
+<li>build customized search engines for your needs. For example, a program that runs your searches for papers and references on your specific databases. Have a look at the <strong>HowDoI</strong> program to see an amazing example. You can think about this exercise as a form of Corpora Builder that runs the query on a more specific search engine (for example, jstor or your university proxy to the online library).</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="47">
+<li id="fn47"><p>You are encouraged to look in the models.py file (yes, on GitHub) for the code actual code of raise_for_status(), here: <a href="https://github.com/psf/requests/blob/9ed5db8ed28e816b597dafd328b342ec95466afa/requests/models.py" class="uri">https://github.com/psf/requests/blob/9ed5db8ed28e816b597dafd328b342ec95466afa/requests/models.py</a> <a href="ch7.html#fnref47" class="footnote-back">↩</a></p></li>
+<li id="fn48"><p>Here we go: <a href="https://docs.python.org/3/library/re.html" class="uri">https://docs.python.org/3/library/re.html</a> <a href="ch7.html#fnref48" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch6.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch8.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

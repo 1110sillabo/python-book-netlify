@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Command Line Interface and Git(Hub): Get Ready for Machine Talk and Cooperating with the World | Programming Digital Humanities. Python (and More) for Academia</title>
+  <meta name="description" content="This book introduces the ABC theory, and …" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Command Line Interface and Git(Hub): Get Ready for Machine Talk and Cooperating with the World | Programming Digital Humanities. Python (and More) for Academia" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/john/awesome/" />
+  
+  <meta property="og:description" content="This book introduces the ABC theory, and …" />
+  <meta name="github-repo" content="john/awesome" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Command Line Interface and Git(Hub): Get Ready for Machine Talk and Cooperating with the World | Programming Digital Humanities. Python (and More) for Academia" />
+  
+  <meta name="twitter:description" content="This book introduces the ABC theory, and …" />
+  
+
+<meta name="author" content="Guglielmo Feis v. 0.1" />
+
+
+<meta name="date" content="2021-03-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch2.html"/>
+<link rel="next" href="ch4.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="prologue.html"><a href="prologue.html"><i class="fa fa-check"></i><b>1</b> Prologue</a><ul>
+<li class="chapter" data-level="1.1" data-path="prologue.html"><a href="prologue.html#the-journey-welcome-to-humandemia"><i class="fa fa-check"></i><b>1.1</b> The Journey: Welcome to <em>HumanDemia</em></a></li>
+<li class="chapter" data-level="1.2" data-path="prologue.html"><a href="prologue.html#a-difficult-trade-off-including-book-summary"><i class="fa fa-check"></i><b>1.2</b> A Difficult Trade-Off (including Book Summary)</a></li>
+<li class="chapter" data-level="1.3" data-path="prologue.html"><a href="prologue.html#whos-this-book-for"><i class="fa fa-check"></i><b>1.3</b> Who’s this Book for</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="prologue.html"><a href="prologue.html#how-coding-helps-in-the-humanities"><i class="fa fa-check"></i><b>1.3.1</b> How Coding Helps in the Humanities</a></li>
+<li class="chapter" data-level="1.3.2" data-path="prologue.html"><a href="prologue.html#what-coding-cant-do-for-you"><i class="fa fa-check"></i><b>1.3.2</b> What Coding Can’t Do for You</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="prologue.html"><a href="prologue.html#getting-the-most-out-of-this-book"><i class="fa fa-check"></i><b>1.4</b> Getting the Most Out of this Book</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="prologue.html"><a href="prologue.html#assumptions"><i class="fa fa-check"></i><b>1.4.1</b> Assumptions</a></li>
+<li class="chapter" data-level="1.4.2" data-path="prologue.html"><a href="prologue.html#type-these-commands-in-and-use-ipython"><i class="fa fa-check"></i><b>1.4.2</b> Type these Commands In (and Use IPython)</a></li>
+<li class="chapter" data-level="1.4.3" data-path="prologue.html"><a href="prologue.html#make-it-your-own-and-grow-it"><i class="fa fa-check"></i><b>1.4.3</b> Make it Your Own (and Grow it)</a></li>
+<li class="chapter" data-level="1.4.4" data-path="prologue.html"><a href="prologue.html#make-deliberate-mistakes"><i class="fa fa-check"></i><b>1.4.4</b> Make (Deliberate) Mistakes</a></li>
+<li class="chapter" data-level="1.4.5" data-path="prologue.html"><a href="prologue.html#read-the-docs"><i class="fa fa-check"></i><b>1.4.5</b> Read the Docs</a></li>
+<li class="chapter" data-level="1.4.6" data-path="prologue.html"><a href="prologue.html#learn-from-the-computer-feedback"><i class="fa fa-check"></i><b>1.4.6</b> Learn From the Computer Feedback</a></li>
+<li class="chapter" data-level="1.4.7" data-path="prologue.html"><a href="prologue.html#ask-for-help"><i class="fa fa-check"></i><b>1.4.7</b> Ask for Help</a></li>
+<li class="chapter" data-level="1.4.8" data-path="prologue.html"><a href="prologue.html#the-importance-of-keyboard-shortcuts"><i class="fa fa-check"></i><b>1.4.8</b> The Importance of (Keyboard) Shortcuts</a></li>
+<li class="chapter" data-level="1.4.9" data-path="prologue.html"><a href="prologue.html#book-organization-and-extra-resources"><i class="fa fa-check"></i><b>1.4.9</b> Book Organization and Extra Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="prologue.html"><a href="prologue.html#summary"><i class="fa fa-check"></i><b>1.5</b> Summary</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="prologue.html"><a href="prologue.html#more-resources"><i class="fa fa-check"></i><b>1.5.1</b> More Resources</a></li>
+<li class="chapter" data-level="1.5.2" data-path="prologue.html"><a href="prologue.html#further-work"><i class="fa fa-check"></i><b>1.5.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Setting up the Environment</b></span></li>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> The Universal Typing Machine: Markdown and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#the-boring-side-of-academia"><i class="fa fa-check"></i><b>2.1</b> The Boring Side of Academia</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="ch2.html"><a href="ch2.html#sidenote-survey-on-academically-boring-things"><i class="fa fa-check"></i><b>2.1.1</b> Sidenote: Survey on Academically Boring Things</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#installing-rstudio"><i class="fa fa-check"></i><b>2.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#rstudio-settings-darkmode-and-packages"><i class="fa fa-check"></i><b>2.3</b> RStudio Settings: Darkmode and Packages</a></li>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#rstudio-automation-for-humanities-tocs-and-bibliographies"><i class="fa fa-check"></i><b>2.4</b> RStudio Automation for Humanities: TOCs and Bibliographies</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="ch2.html"><a href="ch2.html#managing-bibliography"><i class="fa fa-check"></i><b>2.4.1</b> Managing Bibliography</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch2.html"><a href="ch2.html#bibliography-template-example"><i class="fa fa-check"></i><b>2.4.2</b> Bibliography Template Example</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="ch2.html"><a href="ch2.html#markdown-basics"><i class="fa fa-check"></i><b>2.5</b> Markdown Basics</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="ch2.html"><a href="ch2.html#newlines-pagebreaks-cross-references-and-further-text-divisions"><i class="fa fa-check"></i><b>2.5.1</b> Newlines, Pagebreaks, Cross-references, and further Text Divisions</a></li>
+<li class="chapter" data-level="2.5.2" data-path="ch2.html"><a href="ch2.html#creation-of-tables"><i class="fa fa-check"></i><b>2.5.2</b> Creation of Tables</a></li>
+<li class="chapter" data-level="2.5.3" data-path="ch2.html"><a href="ch2.html#adding-images"><i class="fa fa-check"></i><b>2.5.3</b> Adding Images</a></li>
+<li class="chapter" data-level="2.5.4" data-path="ch2.html"><a href="ch2.html#cross-referencing"><i class="fa fa-check"></i><b>2.5.4</b> Cross Referencing</a></li>
+<li class="chapter" data-level="2.5.5" data-path="ch2.html"><a href="ch2.html#adding-codes"><i class="fa fa-check"></i><b>2.5.5</b> Adding Code(s)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="ch2.html"><a href="ch2.html#comparing-this-setup-with-more-traditional-ones-the-benefits-for-academics"><i class="fa fa-check"></i><b>2.6</b> Comparing this Setup with more Traditional Ones: The Benefits for Academics</a></li>
+<li class="chapter" data-level="2.7" data-path="ch2.html"><a href="ch2.html#whats-more-in-rstudio"><i class="fa fa-check"></i><b>2.7</b> What’s More in RStudio</a></li>
+<li class="chapter" data-level="2.8" data-path="ch2.html"><a href="ch2.html#rstudio-workflow-learn-write-get-it"><i class="fa fa-check"></i><b>2.8</b> RStudio Workflow: Learn, Write, Get It!</a></li>
+<li class="chapter" data-level="2.9" data-path="ch2.html"><a href="ch2.html#books-with-markdown-the-bookdown-package"><i class="fa fa-check"></i><b>2.9</b> Books with Markdown: the Bookdown Package</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="ch2.html"><a href="ch2.html#installing-bookdown"><i class="fa fa-check"></i><b>2.9.1</b> Installing Bookdown</a></li>
+<li class="chapter" data-level="2.9.2" data-path="ch2.html"><a href="ch2.html#setting-up-a-bookdown-book"><i class="fa fa-check"></i><b>2.9.2</b> Setting Up a Bookdown-book</a></li>
+<li class="chapter" data-level="2.9.3" data-path="ch2.html"><a href="ch2.html#bookdown-mechanics"><i class="fa fa-check"></i><b>2.9.3</b> Bookdown Mechanics</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="ch2.html"><a href="ch2.html#summary-1"><i class="fa fa-check"></i><b>2.10</b> Summary</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="ch2.html"><a href="ch2.html#list-of-rstudio-shortcuts"><i class="fa fa-check"></i><b>2.10.1</b> List of RStudio Shortcuts</a></li>
+<li class="chapter" data-level="2.10.2" data-path="ch2.html"><a href="ch2.html#more-resources-1"><i class="fa fa-check"></i><b>2.10.2</b> More Resources</a></li>
+<li class="chapter" data-level="2.10.3" data-path="ch2.html"><a href="ch2.html#further-work-1"><i class="fa fa-check"></i><b>2.10.3</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Command Line Interface and Git(Hub): Get Ready for Machine Talk and Cooperating with the World</a><ul>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#command-line-essentials"><i class="fa fa-check"></i><b>3.1</b> Command Line Essentials</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ch3.html"><a href="ch3.html#navigating-file-system-with-the-command-line"><i class="fa fa-check"></i><b>3.1.1</b> Navigating File System with the Command-Line</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#version-control-with-git"><i class="fa fa-check"></i><b>3.2</b> Version Control with Git</a></li>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#installing-git-on-windows"><i class="fa fa-check"></i><b>3.3</b> Installing Git (on Windows)</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#git-and-github"><i class="fa fa-check"></i><b>3.3.1</b> Git and GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#git-operations-and-mechanics"><i class="fa fa-check"></i><b>3.4</b> Git Operations and Mechanics</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="ch3.html"><a href="ch3.html#creating-a-new-repository-and-add-contents"><i class="fa fa-check"></i><b>3.4.1</b> Creating a New Repository and Add Contents</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch3.html"><a href="ch3.html#copies-on-git-the-git-clone-command"><i class="fa fa-check"></i><b>3.4.2</b> Copies on Git: the ‘<em>git clone</em>’ Command</a></li>
+<li class="chapter" data-level="3.4.3" data-path="ch3.html"><a href="ch3.html#a-practical-cloning-example"><i class="fa fa-check"></i><b>3.4.3</b> A Practical Cloning Example</a></li>
+<li class="chapter" data-level="3.4.4" data-path="ch3.html"><a href="ch3.html#git-pushing-new-contents-into-your-projects-with-git-push"><i class="fa fa-check"></i><b>3.4.4</b> Git: Pushing New Contents into your Projects with ‘<em>git push</em>’</a></li>
+<li class="chapter" data-level="3.4.5" data-path="ch3.html"><a href="ch3.html#adding-files-matching-certain-conditions"><i class="fa fa-check"></i><b>3.4.5</b> Adding Files Matching Certain Conditions</a></li>
+<li class="chapter" data-level="3.4.6" data-path="ch3.html"><a href="ch3.html#git-ignore"><i class="fa fa-check"></i><b>3.4.6</b> Git Ignore</a></li>
+<li class="chapter" data-level="3.4.7" data-path="ch3.html"><a href="ch3.html#git-readme"><i class="fa fa-check"></i><b>3.4.7</b> Git Readme</a></li>
+<li class="chapter" data-level="3.4.8" data-path="ch3.html"><a href="ch3.html#forking-and-contributing-to-a-project-pull-requests"><i class="fa fa-check"></i><b>3.4.8</b> Forking and Contributing to a Project: Pull Requests</a></li>
+<li class="chapter" data-level="3.4.9" data-path="ch3.html"><a href="ch3.html#merging-and-conflict-resolution"><i class="fa fa-check"></i><b>3.4.9</b> Merging and Conflict Resolution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ch3.html"><a href="ch3.html#github-for-the-humanities"><i class="fa fa-check"></i><b>3.5</b> GitHub for the Humanities</a></li>
+<li class="chapter" data-level="3.6" data-path="ch3.html"><a href="ch3.html#summary-2"><i class="fa fa-check"></i><b>3.6</b> Summary</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="ch3.html"><a href="ch3.html#list-of-git-commands-and-cli-commands"><i class="fa fa-check"></i><b>3.6.1</b> List of Git Commands and CLI Commands</a></li>
+<li class="chapter" data-level="3.6.2" data-path="ch3.html"><a href="ch3.html#shortcuts"><i class="fa fa-check"></i><b>3.6.2</b> Shortcuts</a></li>
+<li class="chapter" data-level="3.6.3" data-path="ch3.html"><a href="ch3.html#more-resources-2"><i class="fa fa-check"></i><b>3.6.3</b> More Resources</a></li>
+<li class="chapter" data-level="3.6.4" data-path="ch3.html"><a href="ch3.html#further-work-2"><i class="fa fa-check"></i><b>3.6.4</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Getting Started with Python: Anaconda, Jupyter Notebooks, Google CoLabs and Virtual Environments</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#installing-python-by-installing-anaconda-a-game-of-snakes"><i class="fa fa-check"></i><b>4.1</b> Installing Python by Installing Anaconda: A Game of Snakes</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#using-and-integrated-development-editor-ide-the-benefits-of-spyder"><i class="fa fa-check"></i><b>4.2</b> Using and Integrated Development Editor (IDE): The Benefits of Spyder</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="ch4.html"><a href="ch4.html#running-your-code-in-spyder"><i class="fa fa-check"></i><b>4.2.1</b> Running your Code in Spyder</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ch4.html"><a href="ch4.html#other-popular-python-ides"><i class="fa fa-check"></i><b>4.2.2</b> Other Popular (Python) IDEs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ipython"><i class="fa fa-check"></i><b>4.3</b> IPython</a></li>
+<li class="chapter" data-level="4.4" data-path="ch4.html"><a href="ch4.html#jupyter-notebooks"><i class="fa fa-check"></i><b>4.4</b> Jupyter Notebooks</a></li>
+<li class="chapter" data-level="4.5" data-path="ch4.html"><a href="ch4.html#command-line-in-action-the-anaconda-prompt"><i class="fa fa-check"></i><b>4.5</b> Command Line in Action: the Anaconda Prompt</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="ch4.html"><a href="ch4.html#basic-anaconda-prompt-commands"><i class="fa fa-check"></i><b>4.5.1</b> Basic Anaconda Prompt Commands</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="ch4.html"><a href="ch4.html#google-colab-or-python-on-the-web"><i class="fa fa-check"></i><b>4.6</b> Google CoLab or Python on the web</a></li>
+<li class="chapter" data-level="4.7" data-path="ch4.html"><a href="ch4.html#virtual-environments-preview-into-coding-best-practices"><i class="fa fa-check"></i><b>4.7</b> Virtual Environments: Preview into Coding Best Practices</a></li>
+<li class="chapter" data-level="4.8" data-path="ch4.html"><a href="ch4.html#summary-3"><i class="fa fa-check"></i><b>4.8</b> Summary</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="ch4.html"><a href="ch4.html#conda-prompt-commands"><i class="fa fa-check"></i><b>4.8.1</b> Conda Prompt Commands</a></li>
+<li class="chapter" data-level="4.8.2" data-path="ch4.html"><a href="ch4.html#more-resources-3"><i class="fa fa-check"></i><b>4.8.2</b> More Resources</a></li>
+<li class="chapter" data-level="4.8.3" data-path="ch4.html"><a href="ch4.html#further-work-3"><i class="fa fa-check"></i><b>4.8.3</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Conquering Python</b></span></li>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Python Crash Courses</a><ul>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#look-how-easy-it-is-to-write-python"><i class="fa fa-check"></i><b>5.1</b> Look How Easy it Is to Write Python</a></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#python-in-general-a-readable-design"><i class="fa fa-check"></i><b>5.2</b> Python in General: A Readable Design</a></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#general-structure-of-a-python-program"><i class="fa fa-check"></i><b>5.3</b> General Structure of a Python Program</a></li>
+<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#import-load-all-the-tools-you-need"><i class="fa fa-check"></i><b>5.4</b> Import: Load all the Tools you Need</a></li>
+<li class="chapter" data-level="5.5" data-path="ch5.html"><a href="ch5.html#functions-let-your-program-do-something-for-you"><i class="fa fa-check"></i><b>5.5</b> Functions: Let your Program Do Something for You</a></li>
+<li class="chapter" data-level="5.6" data-path="ch5.html"><a href="ch5.html#data-structure-everything-has-its-natural-place"><i class="fa fa-check"></i><b>5.6</b> Data Structure: Everything Has its Natural Place</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="ch5.html"><a href="ch5.html#string-literals"><i class="fa fa-check"></i><b>5.6.1</b> String Literals</a></li>
+<li class="chapter" data-level="5.6.2" data-path="ch5.html"><a href="ch5.html#lists"><i class="fa fa-check"></i><b>5.6.2</b> Lists</a></li>
+<li class="chapter" data-level="5.6.3" data-path="ch5.html"><a href="ch5.html#dictionaries"><i class="fa fa-check"></i><b>5.6.3</b> Dictionaries</a></li>
+<li class="chapter" data-level="5.6.4" data-path="ch5.html"><a href="ch5.html#other-data-types-and-data-structures-integer-and-float-boolean-tuples-sets"><i class="fa fa-check"></i><b>5.6.4</b> Other Data Types and Data Structures: Integer and Float; Boolean, Tuples, Sets</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="ch5.html"><a href="ch5.html#flow-control"><i class="fa fa-check"></i><b>5.7</b> Flow Control</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="ch5.html"><a href="ch5.html#for-loops-iteration-and-unpacking"><i class="fa fa-check"></i><b>5.7.1</b> For Loops: Iteration and Unpacking</a></li>
+<li class="chapter" data-level="5.7.2" data-path="ch5.html"><a href="ch5.html#if-you-want-to-evaluate-conditionals-add-if"><i class="fa fa-check"></i><b>5.7.2</b> If you Want to Evaluate Conditionals, Add If</a></li>
+<li class="chapter" data-level="5.7.3" data-path="ch5.html"><a href="ch5.html#make-things-last-for-a-while-with-while-and-remember-to-break-them"><i class="fa fa-check"></i><b>5.7.3</b> Make Things Last for a While with While (and Remember to Break them)</a></li>
+<li class="chapter" data-level="5.7.4" data-path="ch5.html"><a href="ch5.html#prevent-crashes-with-tryexcept"><i class="fa fa-check"></i><b>5.7.4</b> Prevent Crashes with Try/Except</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="ch5.html"><a href="ch5.html#classes-and-comprehensions-more-pythonic-things"><i class="fa fa-check"></i><b>5.8</b> Classes and Comprehensions: More Pythonic Things</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="ch5.html"><a href="ch5.html#classes-blueprints-for-more"><i class="fa fa-check"></i><b>5.8.1</b> Classes: BluePrints for More</a></li>
+<li class="chapter" data-level="5.8.2" data-path="ch5.html"><a href="ch5.html#comprehension"><i class="fa fa-check"></i><b>5.8.2</b> Comprehension</a></li>
+<li class="chapter" data-level="5.8.3" data-path="ch5.html"><a href="ch5.html#more-comprehensions"><i class="fa fa-check"></i><b>5.8.3</b> More Comprehensions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="ch5.html"><a href="ch5.html#functions-revisited-args-times"><i class="fa fa-check"></i><b>5.9</b> Functions Revisited: *Args Times!</a></li>
+<li class="chapter" data-level="5.10" data-path="ch5.html"><a href="ch5.html#whats-in-a-name-naming-conventions-and-styles"><i class="fa fa-check"></i><b>5.10</b> What’s In a Name: Naming Conventions and Styles</a></li>
+<li class="chapter" data-level="5.11" data-path="ch5.html"><a href="ch5.html#saving-and-running-a-python-program-.py-and-.pyw"><i class="fa fa-check"></i><b>5.11</b> Saving and Running a Python Program: .py and .pyw</a></li>
+<li class="chapter" data-level="5.12" data-path="ch5.html"><a href="ch5.html#working-with-files"><i class="fa fa-check"></i><b>5.12</b> Working with Files</a><ul>
+<li class="chapter" data-level="5.12.1" data-path="ch5.html"><a href="ch5.html#file-types-text-and-data"><i class="fa fa-check"></i><b>5.12.1</b> File Types: Text and Data</a></li>
+<li class="chapter" data-level="5.12.2" data-path="ch5.html"><a href="ch5.html#file-modes-what-do-you-want-to-do-with-files"><i class="fa fa-check"></i><b>5.12.2</b> File Modes: What Do you Want to Do with Files?</a></li>
+<li class="chapter" data-level="5.12.3" data-path="ch5.html"><a href="ch5.html#opening-and-writing-to-file"><i class="fa fa-check"></i><b>5.12.3</b> Opening and Writing to File</a></li>
+<li class="chapter" data-level="5.12.4" data-path="ch5.html"><a href="ch5.html#matching-files-with-a-certain-ending-system-paths-and-working-directory"><i class="fa fa-check"></i><b>5.12.4</b> Matching Files with a Certain Ending, System Paths, and Working Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="5.13" data-path="ch5.html"><a href="ch5.html#regular-expressions"><i class="fa fa-check"></i><b>5.13</b> Regular Expressions</a><ul>
+<li class="chapter" data-level="5.13.1" data-path="ch5.html"><a href="ch5.html#regex-notable-features"><i class="fa fa-check"></i><b>5.13.1</b> Regex Notable Features</a></li>
+<li class="chapter" data-level="5.13.2" data-path="ch5.html"><a href="ch5.html#matching-expressions"><i class="fa fa-check"></i><b>5.13.2</b> Matching Expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.14" data-path="ch5.html"><a href="ch5.html#learn-by-doing-for-the-humanities-matching-bibliographical-patterns"><i class="fa fa-check"></i><b>5.14</b> Learn by Doing for the Humanities: Matching Bibliographical Patterns</a><ul>
+<li class="chapter" data-level="5.14.1" data-path="ch5.html"><a href="ch5.html#capturing-groups"><i class="fa fa-check"></i><b>5.14.1</b> Capturing Groups</a></li>
+<li class="chapter" data-level="5.14.2" data-path="ch5.html"><a href="ch5.html#matching-author-date"><i class="fa fa-check"></i><b>5.14.2</b> Matching Author (date)</a></li>
+<li class="chapter" data-level="5.14.3" data-path="ch5.html"><a href="ch5.html#matching-author-date-and-author-date"><i class="fa fa-check"></i><b>5.14.3</b> Matching (Author date) and (Author, date)</a></li>
+<li class="chapter" data-level="5.14.4" data-path="ch5.html"><a href="ch5.html#fulldata"><i class="fa fa-check"></i><b>5.14.4</b> Fulldata</a></li>
+<li class="chapter" data-level="5.14.5" data-path="ch5.html"><a href="ch5.html#limitations-open-issues-and-regex-building-tips"><i class="fa fa-check"></i><b>5.14.5</b> Limitations, Open Issues and Regex Building Tips</a></li>
+</ul></li>
+<li class="chapter" data-level="5.15" data-path="ch5.html"><a href="ch5.html#summary-4"><i class="fa fa-check"></i><b>5.15</b> Summary</a><ul>
+<li class="chapter" data-level="5.15.1" data-path="ch5.html"><a href="ch5.html#programming-concepts-methods-and-functions-recap"><i class="fa fa-check"></i><b>5.15.1</b> Programming Concepts, Methods and Functions Recap</a></li>
+<li class="chapter" data-level="5.15.2" data-path="ch5.html"><a href="ch5.html#re-module-useful-regex-commands"><i class="fa fa-check"></i><b>5.15.2</b> Re module (useful regex Commands)</a></li>
+<li class="chapter" data-level="5.15.3" data-path="ch5.html"><a href="ch5.html#more-resources-4"><i class="fa fa-check"></i><b>5.15.3</b> More Resources</a></li>
+<li class="chapter" data-level="5.15.4" data-path="ch5.html"><a href="ch5.html#further-work-4"><i class="fa fa-check"></i><b>5.15.4</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Moving Forward: From Beginner to Pythonista</a><ul>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-five-sources-of-mystery"><i class="fa fa-check"></i><b>6.1</b> Introduction: Five Sources of Mystery</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="ch6.html"><a href="ch6.html#vocabulary"><i class="fa fa-check"></i><b>6.1.1</b> Vocabulary</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ch6.html"><a href="ch6.html#coding-for-others"><i class="fa fa-check"></i><b>6.1.2</b> Coding for Others</a></li>
+<li class="chapter" data-level="6.1.3" data-path="ch6.html"><a href="ch6.html#python-specifics-and-internals"><i class="fa fa-check"></i><b>6.1.3</b> Python Specifics and Internals</a></li>
+<li class="chapter" data-level="6.1.4" data-path="ch6.html"><a href="ch6.html#being-pythonic"><i class="fa fa-check"></i><b>6.1.4</b> Being Pythonic</a></li>
+<li class="chapter" data-level="6.1.5" data-path="ch6.html"><a href="ch6.html#black-boxes"><i class="fa fa-check"></i><b>6.1.5</b> Black boxes</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#approaching-the-tutorials-in-a-good-way"><i class="fa fa-check"></i><b>6.2</b> Approaching the Tutorials in a Good Way</a></li>
+<li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#reading-the-docs"><i class="fa fa-check"></i><b>6.3</b> Reading the Docs</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="ch6.html"><a href="ch6.html#why-read-the-docs-a-real-life-case-with-bookdown-and-ebooks"><i class="fa fa-check"></i><b>6.3.1</b> Why Read the Docs? (A Real-life Case with Bookdown and Ebooks)</a></li>
+<li class="chapter" data-level="6.3.2" data-path="ch6.html"><a href="ch6.html#what-to-look-for-in-the-docs"><i class="fa fa-check"></i><b>6.3.2</b> What to Look for in the Docs</a></li>
+<li class="chapter" data-level="6.3.3" data-path="ch6.html"><a href="ch6.html#know-your-error-messages-and-exceptions"><i class="fa fa-check"></i><b>6.3.3</b> Know your Error Messages and Exceptions</a></li>
+<li class="chapter" data-level="6.3.4" data-path="ch6.html"><a href="ch6.html#patterns-and-examples"><i class="fa fa-check"></i><b>6.3.4</b> Patterns and Examples</a></li>
+<li class="chapter" data-level="6.3.5" data-path="ch6.html"><a href="ch6.html#docs-creation-the-impact-of-automation"><i class="fa fa-check"></i><b>6.3.5</b> Docs Creation: The Impact of Automation</a></li>
+<li class="chapter" data-level="6.3.6" data-path="ch6.html"><a href="ch6.html#special-kinds-of-docs"><i class="fa fa-check"></i><b>6.3.6</b> Special Kinds of Docs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ch6.html"><a href="ch6.html#summary-5"><i class="fa fa-check"></i><b>6.4</b> Summary</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="ch6.html"><a href="ch6.html#more-resources-5"><i class="fa fa-check"></i><b>6.4.1</b> More Resources</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ch6.html"><a href="ch6.html#further-work-5"><i class="fa fa-check"></i><b>6.4.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Programming for Fun and the Academia</b></span></li>
+<li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> StartUp Optimization, Corpora Builder and Corpora Opener</a><ul>
+<li class="chapter" data-level="7.1" data-path="ch7.html"><a href="ch7.html#startup-optimization-the-challenge"><i class="fa fa-check"></i><b>7.1</b> Startup Optimization: The Challenge</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="ch7.html"><a href="ch7.html#automation-script-a-description"><i class="fa fa-check"></i><b>7.1.1</b> Automation Script: A Description</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch7.html"><a href="ch7.html#scheduling-the-task"><i class="fa fa-check"></i><b>7.1.2</b> Scheduling the Task</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ch7.html"><a href="ch7.html#extend-it"><i class="fa fa-check"></i><b>7.1.3</b> Extend It</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ch7.html"><a href="ch7.html#corpora-builder-program-overview"><i class="fa fa-check"></i><b>7.2</b> Corpora Builder: Program Overview</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="ch7.html"><a href="ch7.html#connecting-to-the-search-engine-and-performing-the-search"><i class="fa fa-check"></i><b>7.2.1</b> Connecting to the Search Engine and Performing the Search</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ch7.html"><a href="ch7.html#corpora-builder-adding-safe-tests-and-ensuring-our-connection-works"><i class="fa fa-check"></i><b>7.2.2</b> Corpora Builder: Adding Safe Tests and Ensuring our Connection Works</a></li>
+<li class="chapter" data-level="7.2.3" data-path="ch7.html"><a href="ch7.html#from-search-results-to-links"><i class="fa fa-check"></i><b>7.2.3</b> From Search Results to Links?</a></li>
+<li class="chapter" data-level="7.2.4" data-path="ch7.html"><a href="ch7.html#bad-outcomes"><i class="fa fa-check"></i><b>7.2.4</b> [] Bad Outcomes</a></li>
+<li class="chapter" data-level="7.2.5" data-path="ch7.html"><a href="ch7.html#extracting-more-specific-links"><i class="fa fa-check"></i><b>7.2.5</b> Extracting more Specific Links</a></li>
+<li class="chapter" data-level="7.2.6" data-path="ch7.html"><a href="ch7.html#filter-through-keywords"><i class="fa fa-check"></i><b>7.2.6</b> Filter Through Keywords</a></li>
+<li class="chapter" data-level="7.2.7" data-path="ch7.html"><a href="ch7.html#filter-removing-common-noise"><i class="fa fa-check"></i><b>7.2.7</b> Filter Removing Common Noise</a></li>
+<li class="chapter" data-level="7.2.8" data-path="ch7.html"><a href="ch7.html#saving-our-queries"><i class="fa fa-check"></i><b>7.2.8</b> Saving Our Queries</a></li>
+<li class="chapter" data-level="7.2.9" data-path="ch7.html"><a href="ch7.html#iteration-moving-to-the-next-page"><i class="fa fa-check"></i><b>7.2.9</b> Iteration: Moving to the Next Page</a></li>
+<li class="chapter" data-level="7.2.10" data-path="ch7.html"><a href="ch7.html#helper-functions"><i class="fa fa-check"></i><b>7.2.10</b> Helper Functions</a></li>
+<li class="chapter" data-level="7.2.11" data-path="ch7.html"><a href="ch7.html#adding-progress-bars-tqdm"><i class="fa fa-check"></i><b>7.2.11</b> Adding Progress Bars: Tqdm</a></li>
+<li class="chapter" data-level="7.2.12" data-path="ch7.html"><a href="ch7.html#corpora-builder-limitations"><i class="fa fa-check"></i><b>7.2.12</b> Corpora Builder Limitations</a></li>
+<li class="chapter" data-level="7.2.13" data-path="ch7.html"><a href="ch7.html#iterating-further"><i class="fa fa-check"></i><b>7.2.13</b> Iterating Further</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ch7.html"><a href="ch7.html#corpora-opener-program-overview"><i class="fa fa-check"></i><b>7.3</b> Corpora Opener: Program Overview</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="ch7.html"><a href="ch7.html#opening-only-a-specific-amount-of-files"><i class="fa fa-check"></i><b>7.3.1</b> Opening Only a Specific Amount of Files</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch7.html"><a href="ch7.html#issue-opening-links"><i class="fa fa-check"></i><b>7.3.2</b> Issue Opening Links</a></li>
+<li class="chapter" data-level="7.3.3" data-path="ch7.html"><a href="ch7.html#new-iteration"><i class="fa fa-check"></i><b>7.3.3</b> New Iteration</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="ch7.html"><a href="ch7.html#summary-6"><i class="fa fa-check"></i><b>7.4</b> Summary</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="ch7.html"><a href="ch7.html#more-resources-6"><i class="fa fa-check"></i><b>7.4.1</b> More Resources</a></li>
+<li class="chapter" data-level="7.4.2" data-path="ch7.html"><a href="ch7.html#further-work-6"><i class="fa fa-check"></i><b>7.4.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>8</b> Scraping Bibliographies with Bibliographer</a><ul>
+<li class="chapter" data-level="8.1" data-path="ch8.html"><a href="ch8.html#bibliographer-program-overview"><i class="fa fa-check"></i><b>8.1</b> Bibliographer: Program Overview</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="ch8.html"><a href="ch8.html#general-settings-and-imports"><i class="fa fa-check"></i><b>8.1.1</b> General Settings and Imports</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ch8.html"><a href="ch8.html#from-pdf-to-txt"><i class="fa fa-check"></i><b>8.1.2</b> From Pdf to Txt</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ch8.html"><a href="ch8.html#cleaning-the-txt"><i class="fa fa-check"></i><b>8.1.3</b> Cleaning the Txt</a></li>
+<li class="chapter" data-level="8.1.4" data-path="ch8.html"><a href="ch8.html#regex-processing"><i class="fa fa-check"></i><b>8.1.4</b> Regex Processing</a></li>
+<li class="chapter" data-level="8.1.5" data-path="ch8.html"><a href="ch8.html#getting-data-with-regexes"><i class="fa fa-check"></i><b>8.1.5</b> Getting Data with Regexes</a></li>
+<li class="chapter" data-level="8.1.6" data-path="ch8.html"><a href="ch8.html#exporting-to-csv"><i class="fa fa-check"></i><b>8.1.6</b> Exporting to CSV</a></li>
+<li class="chapter" data-level="8.1.7" data-path="ch8.html"><a href="ch8.html#helper-functions-1"><i class="fa fa-check"></i><b>8.1.7</b> Helper Functions</a></li>
+<li class="chapter" data-level="8.1.8" data-path="ch8.html"><a href="ch8.html#tips-for-graphing-a-debate"><i class="fa fa-check"></i><b>8.1.8</b> Tips for Graphing a Debate</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch8.html"><a href="ch8.html#summary-7"><i class="fa fa-check"></i><b>8.2</b> Summary</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="ch8.html"><a href="ch8.html#more-resources-7"><i class="fa fa-check"></i><b>8.2.1</b> More Resources</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ch8.html"><a href="ch8.html#further-work-7"><i class="fa fa-check"></i><b>8.2.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programming Digital Humanities. Python (and More) for Academia</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch3" class="section level1">
+<h1><span class="header-section-number">3</span> Command Line Interface and Git(Hub): Get Ready for Machine Talk and Cooperating with the World</h1>
+<p>Your second installment in the <em>HumanDemia</em> onboard is designed to bring you back to the roots of human-machine interactions. Command-Line Interfaces (CLI) are a primary tool to communicate with machines. Instead of pointing, clicking or touching (graphics stuff of a GUI) you simply write down what do you want your machine to do.</p>
+<p>Of course you need to agree on some language, which forces you to know what the machine can recognize as a proper command. “This sounds so much like the beginning of <em>The Matrix</em>”, you think.</p>
+<p>Now, <em>The Matrix</em> is cool - but it is already dated. Still, CLI is even more old school, retro or date (your choice). <em>Neil Stephenson</em> has a terribly good book called <em>In the Begining was the Command Line</em> - the book is on the Cyberpunk library for free: <a href="http://project.cyberpunk.ru/lib/in_the_beginning_was_the_command_line/" class="uri">http://project.cyberpunk.ru/lib/in_the_beginning_was_the_command_line/</a> (you <em>have</em> to read it and, by the end of this book, you should be able to have it in the format you prefer to read it).</p>
+<p>Stephenson’s title proves the point: this CLI thing is old.
+This is how (quite a lot of) it started.</p>
+<p>“<em>Why do the folks of</em> HumanDemia <em>bother me with that old stuff? Isn’t there something more techy and in demand to learn</em>?,” you wonder, despite appreciating being philologically right and going back to where things started.</p>
+<p>As we’re going to find out, there are CLIs in most of the hyped in demand words you may have thought about. From <strong>GitHub</strong>, where you’ll share your marvelous applications with the world, to <em>Python</em> programming, <em>R</em> programming or <em>SQL</em> querying. You simply need this and, well, you have already saw some command-line machinery in the previous chapter when packages were installed in <em>R</em>.</p>
+<p><strong>TL;DR</strong>: file operations require some command of command-line navigation (no pun). Updating and installing packages or modules to programming language are command-line based. Further, especially in non-Windows systems, a lot of file and system operations happen in the terminal, the shell or bash… which are command-line interfaces.</p>
+<p>Ok, let’s dive in this Stephensonian thing:</p>
+<ol style="list-style-type: decimal">
+<li><em>first</em>, we are going to refresh some command-line essentials;</li>
+<li><em>then</em> we’ll dive into some GitHub operations.</li>
+</ol>
+<div id="command-line-essentials" class="section level2">
+<h2><span class="header-section-number">3.1</span> Command Line Essentials</h2>
+<p>Do you remember the old days of <strong>MS-DOS</strong> or <strong>Windows 3.1</strong>? If you don’t, that’s a short summary of what these days were like.<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a></p>
+<p>Imagine a Matrix-like scenario. There’s a blinking prompt in the up left corner of the screen. But it’s black and white. It says <strong>C:\</strong>.</p>
+<p>Mum and dad told you have to type ‘<strong>win</strong>’ to start Windows 3.1. There a magic graphic interface appeared. There was a ‘File Manager’ icon looking like an Ikea drawer which did what you now do under ‘This PC’, and there were accessories, games and applications.
+Mum and dad also told you not to run ‘<em>format C:</em>’, as it canceled all the stuff on the hard drive. And they were right.</p>
+<div id="navigating-file-system-with-the-command-line" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Navigating File System with the Command-Line</h3>
+<p>To appreciate what is it like to use a command-line interface think about operating with your computer <em>without using the mouse</em>. This is something you have already experienced in the exercises about practicing the shortcuts.</p>
+<p>Now, think about this: suppose you want to run a program <em>without the mouse</em>. Of course you can easily navigate on an icon, press enter and run it. But what if there’s no icon or if the path to the exe is far far away?</p>
+<p>Part of the workflow in command-line system is this:</p>
+<ol style="list-style-type: decimal">
+<li><em>reach the proper folder/directory</em> on your hard drive;</li>
+<li><em>run the commands</em> you need in that folder (e.g. run notepad).</li>
+</ol>
+<p>The first part is all about managing paths and is most of the command line jobs you are going to perform. The second is often where the command line blends into programming or something else. In fact, you are going to use program-specific commands.</p>
+<p>On Windows 10 there’s a specific CLI called Power Shell - you can search for it with the (WinCmd + S shortcut). While you think that’s gonna be easy you find yourself whispering “curved balls”.</p>
+<p>The next paragraph of the <em>HumanDemia</em> docs looks like the following.</p>
+<p>Summon the shell and try to solve the following tasks:</p>
+<ul>
+<li>navigate to the download folder;</li>
+<li>list all the files in the download folder;</li>
+<li>go into your main working directory (i.e. where you have papers and programs) and open one of your recent works.</li>
+</ul>
+<p>No mouse and no graphics feedback. You are only going to read and type in the prompt.</p>
+<p>Ok, to complete the tasks above there are some backups for you.</p>
+<p>The most common operations on various CLI are the following:</p>
+<ul>
+<li><em>change a directory</em>: this is done with <strong>cd [where to go]</strong>. Back in the days maybe you have something like ‘cd windows’. You got to ‘C:\Windows\’. And from there if you type ‘SimCity’ you had a game to be played.</li>
+<li><em>list files in a directory</em>: you just landed into a new folder and have no idea about its content. Type ‘<strong>dir</strong>’ to find out.</li>
+<li><em>get back one step in the path hierarchy</em>: suppose you are down into a very long path like <strong>‘Your Drive\A folder\Another folder\A program\A program subfolder\Something Else\It should be here\But it’s not in this folder\’</strong>.
+Suppose you want to go back higher in the ‘it should be here’ folder. You can either type the same cd path and cut the last part. But you can use ‘<strong>cd ..</strong>’. The two dots will put you up in the hierarchy.</li>
+<li><em>create (make) a new directory</em>: you are now a command-line wizard. You navigate do the path you want, know how to run the different relevant commands, but realize you need a new folder before opening a Jupyter Notebook? <strong>mk dir</strong> is the command for you.</li>
+</ul>
+<p>Cool, you can now move around directories, list them and create new directories. That’s enough to be dangerous and, from there, you can explore for more (have a look online at <strong>shell scripts</strong> to learn further tricks).</p>
+<p>There are a few things worth knowing if you are moving towards the command line:</p>
+<ul>
+<li>the kind of machine you operate on matters. Windows has paths with this slash \. Unix, Mac and Linux go with this ather slash /. This will matter if you install a Git client that works as if it was Unix. (I.e.: something we are going to make in a while.)</li>
+<li>different command lines tools may use different shortcuts for useful operations like copy and pasting. If you want to copy a git command into <a href="https://git-scm.com/download/win" class="uri">https://git-scm.com/download/win</a> you may have to use <strong>SHIFT + INS</strong> instead of <strong>CTRL + C</strong>.</li>
+<li>in the command line the star character <em>* will match everything (see later on when we are going to talk about </em>regular expressions*). This feature will be useful in a while when you are going to commit only your Python and Markdown files, i.e. those ending with .Rmd and .py.</li>
+</ul>
+</div>
+</div>
+<div id="version-control-with-git" class="section level2">
+<h2><span class="header-section-number">3.2</span> Version Control with Git</h2>
+<p>Git is a <em>version control system</em>. Think about it as a form of Dropbox on steroids or some enhanced Google Drive. Forget shared spreadsheets, common folders or databases with modifications. Git will do it for you: it will save every change you make and it will allow all your team-mates to see what you did. If something gets screwed on the way, you can rollback.</p>
+<p>You can freeze instances of your files and their state. If you and your colleagues work on something and then discover your Department webpages is horrible in its version 7.41 and need to go back to the 1.23 one you go back there and restore it.</p>
+<p>It’s like rolling back your holiday photo album, with perfect annotations. Can we get the picture of me wearing the black coat on the sea after we went for a pint? Yes, <em>that</em> level of details.</p>
+<p>Git is also where you <em>cooperate</em> with people and make your files accessible to others. Random strangers (if you want to) can see your files and then contribute changes to them. You can review them and, if you like what you see, accept the change.</p>
+<p>Think about people reading your papers, checking the data (if any) and being able to fix typos without the need to download the paper, send you an email, you opening the mail, fixing the typo, re-uploading the paper, etc.
+Not to mention that, well, if your paper is somewhere onto a journal chances are you are not able to fix the typo.</p>
+<p>If this sounds too complex or too good to be true, Git is nothing but a command-line interface tool. You are going to open a terminal (by now you know terminal or bash or shell are kinda equal) and type your commands there.</p>
+<p>Fun facts:</p>
+<ul>
+<li>git shell is extremely user friendly (in terms of how friendly a CLI can be);</li>
+<li>git-related commands in the git shell start with ‘git’.</li>
+</ul>
+<p>In an organization collaborating and developing things git can’t be avoided. If it is, either there’s something similar in use or nightmares are gonna be there.</p>
+</div>
+<div id="installing-git-on-windows" class="section level2">
+<h2><span class="header-section-number">3.3</span> Installing Git (on Windows)</h2>
+<p>To access this magic-git world we have to install it. You’ve been warned: “First weeks at <em>HumanDemia</em> are going to involve quite some installing tools”.</p>
+<p>To download git, head over there and pick you the version you like the most (a download should start automatically): <a href="https://git-scm.com/download/win" class="uri">https://git-scm.com/download/win</a>.</p>
+<p>As you finish installing in, as soon as you right-click into a folder, you are given to extra options:</p>
+<ol style="list-style-type: decimal">
+<li>git GUI here;</li>
+<li>git BASH here.</li>
+</ol>
+<p>You know which one to choose. The ‘here’ means ‘in the path you are right-clicking into’.</p>
+<div id="git-and-github" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Git and GitHub</h3>
+<p>Before moving on we need to clear this: what’s the relationship between Git and GitHub?<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a></p>
+<p>This time we are quite lucky. Git is the version control system technology. This is how you manage your files and projects. Once you have the Git client installed - what we installed in the previous section - you are ready to unleash the git powers.</p>
+<p><strong>GitHub</strong> is the social version of Git in the form of a web-based platform where you host your repositories using Git commands. Hosting your repository on an extra platform allows you to back up your files, access them from any machine, etc. On GitHub you can have both private and public repositories and, if you work as a big team, institution or organization, you may use an ad-hoc account with further tools to manage more people.</p>
+<p>GitHub is also a <em>kind of social network for developers</em> and a library of code. Git powers your interaction with the repositories: updating files, modifying them, etc. The kind of code on GitHub varies: you can use git commands to <strong>push</strong> into your <strong>repository</strong> (hard git jargon here) all kinds of files, from Python to Java, to SQL, Ruby and also .doc files if you want. Also, most of the instructions and textual files there are written in markdown, so your previous week building <em>HumanDemia</em> Universal Typing Machine was well spent.</p>
+<p>If you have already head over GitHub you know that there you find repositories. <strong>Repositories</strong> are the main containers on GitHub. You put your files there and organize them. They are your folders and allows you too have version control.</p>
+<p>Besides creating your own folder, you can browse other people’s folders, look into them and do stuff with their files. You can copy these files (<em>clone</em> in Git jargon) and you can contribute the projects (which requires you to <em>fork</em> the repository).</p>
+</div>
+</div>
+<div id="git-operations-and-mechanics" class="section level2">
+<h2><span class="header-section-number">3.4</span> Git Operations and Mechanics</h2>
+<p>Ok, now we have a git terminal installed.
+We know:</p>
+<ul>
+<li>that we can call it by ‘git BASH here’;</li>
+<li>that git commands start with git.</li>
+</ul>
+<p>The next step is to figure out what we need to type after the git key, to have something git-related happen.</p>
+<p>Before moving on, setting up a GitHub account to experiment with would be cool.</p>
+<div id="creating-a-new-repository-and-add-contents" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Creating a New Repository and Add Contents</h3>
+<p>It is time to start using GitHub. Here’s a condensed summary. Remember that if you need further help the documents on GitHub are great, check them out (<a href="https://help.github.com/en/github" class="uri">https://help.github.com/en/github</a>).<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a></p>
+<p>The basic operations we are interested in are the following:</p>
+<ol style="list-style-type: decimal">
+<li>creating a repository;</li>
+<li>importing a project on GitHub with the command line;</li>
+<li>cloning a repository;</li>
+<li>sending content to a repository;</li>
+<li>forking a repository and contributing with pull requests.</li>
+</ol>
+<p>The easiest procedure to create a repository looks like that:</p>
+<ul>
+<li>go on your GitHub page, up on the right there’s your profile menu. Clik on <strong>repository</strong>.</li>
+<li>create a new repository: there’s a green ‘<strong>New</strong>’ button that wants you to click on it.</li>
+<li>open it: that’s self-explaining.</li>
+<li><strong>clone it</strong>: Git-jargon to say copy (no Blade Runner here), this requires further steps;</li>
+<li>add files to the repository (see in a while).</li>
+</ul>
+</div>
+<div id="copies-on-git-the-git-clone-command" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Copies on Git: the ‘<em>git clone</em>’ Command</h3>
+<p>‘<strong>Clone</strong>’ and ‘cloning’ are git essentials. When you (git) clone something you are making a copy of something that is on git onto your hard disk.</p>
+<p>The command is pretty straight forward. The operations you want to do is <strong>clone</strong>. You are running a command in the git shell, so you know that the magic formula to obtain what you want has to be ‘git’ + what you want to do. So here we want:</p>
+<p><strong>git clone</strong>.</p>
+<p>This tells the shell to download a copy in the folder you opened git into. What’s missing is the url of the repository. So if you want to download the impressive list of free programming books by the EbookFoundation you need to type the following:</p>
+<p><strong>git clone</strong>
+<strong><a href="https://github.com/EbookFoundation/free-programming-books.git" class="uri">https://github.com/EbookFoundation/free-programming-books.git</a></strong>.</p>
+<p>This will create a folder called ‘free-programming-books’ with all the contents.</p>
+<p>Summing up, to clone the repository you need to:</p>
+<ol style="list-style-type: decimal">
+<li>copy the https of the repository you’ve just created;</li>
+<li>go into a directory you want the repository to appear (bonus points if you are doing this in command-line);</li>
+<li>git bash into it: this is where the command-line comes in. Now we are in the Git BASH shell;</li>
+<li>type “<strong>git clone [yourrepositorynamehttps you had in step 1]</strong>”. You are now invoking a specific command - git clone - and the shell knows what to do with it. Now bash can make you a sandwich.</li>
+</ol>
+<p><em>Congratulations, you’ve cloned your repository!</em></p>
+<p>(<strong>Spoiler time</strong>: cloning will also play a role when you want to send changes to someone else’s work. In fact, you’ll need to <strong>fork</strong> (Git jargon, again) the repository you want to contribute to and then clone it.
+Once you are done with that, you can commit your work to the repository. Once this is done you can compare and contrast what’s going on: if you added files, deleted some or modified something. All your history will be saved and you can go back to the picture you like the most.)</p>
+</div>
+<div id="a-practical-cloning-example" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> A Practical Cloning Example</h3>
+<p>Ok, let’s have a practical example. Suppose you bought Joel Grus’s <em>Data Science from Scratch</em> (which you should read).
+You create a folder on your desktop to work on the contents of the book.</p>
+<p>Bonus points if you used a ‘mkdir’. There you plan to copy some examples, develop some projects, etc.</p>
+<p>Then you realize Joel has all the code for the book in a GitHub repository and decide to get it. Here’s what you have to do:</p>
+<ul>
+<li>go into the folder you created for the book, e.g. “C:\DSscratch”</li>
+<li>right-click and select ‘git bash there’</li>
+<li>clone the repository, i.e. type ‘git clone’ <a href="https://github.com/joelgrus/data-science-from-scratch.git" class="uri">https://github.com/joelgrus/data-science-from-scratch.git</a> (that’s the link you get in Joel’s book repository - notice something going on with slashes…).</li>
+</ul>
+</div>
+<div id="git-pushing-new-contents-into-your-projects-with-git-push" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Git: Pushing New Contents into your Projects with ‘<em>git push</em>’</h3>
+<p><strong>Push</strong> is the Git jargon to say you are contributing content to a repository. To do that you first have to tell git that a certain file needs to be tracked by git.</p>
+<p>The relevant command is:</p>
+<p><strong>git add [filename]</strong>.</p>
+<p>Through git add you are going to include a file to tracking and version controlling. Git will take care of all the pictures in which the file appears, to keep using the photo book analogy.</p>
+<p>Once you have added the files you want to add to your repository, type</p>
+<p><strong>git status</strong>.</p>
+<p>You should see why the git shell is user friendly. The command shows the status of your folder: which files of those present in the folder are tracked (green) and which are not (red).</p>
+<p>The shell also tells you what to do to remove a file from tracking (‘<strong>git unstage</strong>’) and to add more files (‘<strong>git add</strong>’, again).</p>
+<p>Adding is not enough. Going back to our picture analogy, you have the picture that you want to store in the repository. But maybe that’s not the right one you may take another one and another one. To put the photo in place you need to do two more options.</p>
+<p>Once you are ready and sure you’ve added all the relevant stuff, you can commit your additions and changes. Go:</p>
+<p><strong>git commit -m “message”</strong>.</p>
+<p>The -m and message are there to simplify your future work. You want to clearly say what you did. Did you add a functionality? Clean the codebase? Add a picture? That’s your commit message.</p>
+<p>Only now you are ready to push it. So:</p>
+<p><strong>git push</strong>.</p>
+<p>You’ll see git sending your files to the repository. In case you are committing a file with the same name as something already in the repository, git will check for differences and merge them. Your latest committed file will rule over the one present before.</p>
+<p>In this way, git will check for merge conflicts and, if something calls for your attention, it will ask you to choose. Remember that git can be used in teamwork. Suppose you modify something and also someone else in the team committed changes to the main project. Alas, your change and that of your colleague are conflicting.</p>
+<p>What should you do?
+Summing up, <em>this is how you put content on your repository</em> (‘repo’ in git talk):</p>
+<ul>
+<li><em>git status</em>: check for differences;</li>
+<li><em>git add</em>: add all the files;</li>
+<li><em>git status</em>: check you’ve added the right stuff;</li>
+<li><em>git commit -m</em>“write the commit message”: this message will help you reconstruct your history of changes and development;</li>
+<li><em>git status</em>: check everything is right;</li>
+<li><em>git push</em>: actually pushing (and storing) the stuff you have committed.</li>
+</ul>
+</div>
+<div id="adding-files-matching-certain-conditions" class="section level3">
+<h3><span class="header-section-number">3.4.5</span> Adding Files Matching Certain Conditions</h3>
+<p>Adding files one by one can be boring. Imagine you have a book with 10 chapters. Do you really have to type ‘git add [filename]’ for 10 times? The git shell is CaSeSensitVE so there are changes you are going to make typos (<em>fit add</em> is my favourite).</p>
+<p>Luckily, when we installed git shell we get a whole command-line interface that is Unix-based. This gives us access to powerful commands.</p>
+<p>The first is the * star character which means ‘whatever’, ‘everything’ or other ways that helps you to conceive ‘all’. In our 10-chapters book scenario, it means that you can type:</p>
+<p><strong>git add * </strong></p>
+<p>and you will add all the files.</p>
+<p>This is a nice solution, but it can be problematic. What if you do not want to add all the stuff but only a part of it?</p>
+<p>Maybe your folder has both .Rmd files and .pdf, .html and .docs. You want to add only the markdown sources. How can you do that? The * comes useful. You want to add whatever ends come before the proper file extension, namely: *.Rmd.</p>
+<p>Once you’ve found this out, you can type it in your git add query:</p>
+<p><strong>git add *.Rmd</strong></p>
+<p>(adds all files ending in .Rmd).</p>
+<p>Check that it works with ‘<strong>git status</strong>’ and be happy about that.</p>
+<p>There are two further elements in a git repository worth knowing:</p>
+<ul>
+<li><strong>git ignore</strong> file(s);</li>
+<li><strong>readme</strong> file.</li>
+</ul>
+<p>The first can ease up the task we did right now, the second details the scope of the repo.</p>
+</div>
+<div id="git-ignore" class="section level3">
+<h3><span class="header-section-number">3.4.6</span> Git Ignore</h3>
+<p>If you are working on a project with many files that have a different extension and you only care about selecting a few of the files, there can be better ways than using small selecting bash commands with the * character.</p>
+<p>What if you could tell git to ignore certain files? (E.g. all the pdf and doc outputs of your book, all the files in the resources folder, etc.)</p>
+<p>Git comes to the rescue with a specific file, the <strong>gitignore</strong> file.</p>
+<p>A git ignore is a file that tells git not to consider certain files when you perform a git add operation. You may need this to avoid that some auxiliary files that are due to compiling or execution are added to version control, or you don’t want to commit some data that you keep local. Git ignore files have their own syntax and rules, see here <a href="https://git-scm.com/docs/gitignore" class="uri">https://git-scm.com/docs/gitignore</a>.</p>
+<p>Note that if you want GitHub to render your Markdown the files need to end in <strong>.md</strong> and not in <strong>.Rmd</strong>.<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a></p>
+</div>
+<div id="git-readme" class="section level3">
+<h3><span class="header-section-number">3.4.7</span> Git Readme</h3>
+<p>If you go on GitHub and create a repository there, it will tell you to initialize it with a Readme file. Readme files are written in markdown and GitHub renders them automatically.</p>
+<p>You can use the file as you first commit. When people visit your repository the readme is displayed and rendered.</p>
+<p>Use a readme file to tell people about your project. What is its development status, where to find the documentation to use it and how to contribute to your project.</p>
+</div>
+<div id="forking-and-contributing-to-a-project-pull-requests" class="section level3">
+<h3><span class="header-section-number">3.4.8</span> Forking and Contributing to a Project: Pull Requests</h3>
+<p>Forking combines all the operations we did up until now. When you fork you are creating a further copy on GitHub. You use your forked repository as you did with your previous ones. You can then select some of the work you did and push it from you forked branch to the main branch (i.e. the one you forked).
+This is called <strong>pull request</strong> in git jargon.</p>
+<p>Once you do that the owner of the forked repository will evaluate your changes and decide whether to accept your pull request or not. If this sounds all too technical and scary GitHub has more than one project to help you make your first forked contribution without fearing of messing around a complex database.</p>
+<p>Here’s the tutorial for first Git contribution via pull-request: <a href="https://github.com/firstcontributions/first-contributions#tutorials-using-other-tools" class="uri">https://github.com/firstcontributions/first-contributions#tutorials-using-other-tools</a>.</p>
+</div>
+<div id="merging-and-conflict-resolution" class="section level3">
+<h3><span class="header-section-number">3.4.9</span> Merging and Conflict Resolution</h3>
+<p>The same file may be modified in conflicting ways.</p>
+<p>You’ll notice the conflict when you type ‘<strong>git status</strong>’: you’ll be reported “unmerged paths”. Your task is:</p>
+<ul>
+<li>identify the file;</li>
+<li>fix the merge conflict;</li>
+<li>commit the chosen version of the file that removes the conflict.</li>
+</ul>
+<p>We already know how to make a commit. We can easily see what’s the file with a merge commit: ‘<strong>git status</strong>’ will tell us at the end.</p>
+<p>All we need is to figure out how to find the merge issue and fix it.</p>
+<p>All we need is a text editor and to open the relevant file.</p>
+<p>Conflicts are displayed with the following syntax:</p>
+<ol style="list-style-type: decimal">
+<li><strong>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</strong> - marks the beginning of a conflict;</li>
+<li><strong>=======</strong> - divides the options: the text above it is what is in your proposal, the one below it is in the other proposal;</li>
+<li><strong>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</strong> - signals the end of a conflict.</li>
+</ol>
+<p>All you have to do is to pick one of the two and then remove the crutches that signaled it. Then you are ready to commit your solution.</p>
+<p>(That’s the easiest case of conflict: things can get more complex if they involve removing files, like you updated the <strong>OLD</strong> draft paper and your co-authored worked on the newer draft and, being the efficient co-author she is, delete the old one.</p>
+<p>No panic, here’s how to fix that: <a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-using-the-command-line#removed-file-merge-conflicts" class="uri">https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-using-the-command-line#removed-file-merge-conflicts</a>, Git stores it all.)</p>
+</div>
+</div>
+<div id="github-for-the-humanities" class="section level2">
+<h2><span class="header-section-number">3.5</span> GitHub for the Humanities</h2>
+<p>“Wunderbar,” you think. You are leveling up your Git-fu, still, you are wondering why <em>HumanDemia</em> cares about Git and GitHub. Ok, it’s a cool skill to have; ok, you can remove shared calendars and other bad stuff from your academic routine. But aren’t there already social networks for academics? What are we leveling up, if any?</p>
+<p>Well, it looks like they are advocating quite a bigger change. These are their pleas for GitHub:</p>
+<ul>
+<li><p>everything you find on [Enter your favourite academic social network] is <em>behind a log wall</em>. People can’t see, people can’t read. On GitHub, you can read and browse repositories even if you are not registered on git. Logging in is required to edit and submit pull requests.</p></li>
+<li><p>Further, assume someone reads your stuff and sees a typo. Are they going to write you an email about that? Maybe not.
+What if people reading and spotting a typo could notify you and you have the opportunity to accept their suggestion without any boring reopening of the file, correcting it, etc.?
+<strong>GitHub</strong> makes this all possible and leightweight. Ok, forking a paper to notify a typo is arguably not GitHub standard usage. But notifying bugs and developing projects is the standard. Academia-wise, papers are projects and typos are little bugs.</p></li>
+<li><p>GitHub is changing and evolving. Humanities and academia are… maybe. Why can’t we think of GitHub as the place to host collaborative drafts?<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a></p></li>
+</ul>
+<p>Try this and use it in your next grant under the heading of cooperation and dissemination.</p>
+<p>It takes a little effort and opens new opportunities. At least it brings your dropbox and stuff to the next level.</p>
+</div>
+<div id="summary-2" class="section level2">
+<h2><span class="header-section-number">3.6</span> Summary</h2>
+<p>Chapter 3 was all about command-line interfaces and Git. You installed a git client and refreshed CLI operations.</p>
+<p>Cloning, forking, git push, and git pull are no longer a mystery for you.
+Then there are other git commands.</p>
+<div id="list-of-git-commands-and-cli-commands" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> List of Git Commands and CLI Commands</h3>
+<p>Here are the Git commands we should be familiar with:</p>
+<ul>
+<li>git add</li>
+<li>git status</li>
+<li>git push</li>
+<li>git pull</li>
+<li>git commit -m “message to commit”</li>
+</ul>
+<p>Besides these git-commands you have refreshed/learnt some of these command-line magic:</p>
+<ul>
+<li>dir</li>
+<li>cd</li>
+<li>‘..’</li>
+<li>‘.’</li>
+</ul>
+<p>And learnt to use the star character (*) to match all files having a certain ending.</p>
+</div>
+<div id="shortcuts" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> Shortcuts</h3>
+<p>As far as shortcuts are concerned:</p>
+<ul>
+<li><strong>WinCmd + S</strong>: open Windows search bar (e.g.: to run the Shell)</li>
+<li><strong>SHIFT + INS</strong>: past on Unix (i.e. CTRL + V)</li>
+</ul>
+<p>Command-line commands do not qualify as shortcuts, but you may imagine them as such as they shorten the word they refer to. It is never the case you refresh them enough:</p>
+<ul>
+<li>dir</li>
+<li>cd</li>
+<li>‘..’</li>
+<li>‘.’</li>
+</ul>
+</div>
+<div id="more-resources-2" class="section level3">
+<h3><span class="header-section-number">3.6.3</span> More Resources</h3>
+<ul>
+<li><p>If you feel already a bit confidente about your Git Fu and want to go practice right away <strong>with graphical feedback</strong> check this out: <a href="https://learngitbranching.js.org/" class="uri">https://learngitbranching.js.org/</a>.</p></li>
+<li><p>The <em>Learn enough</em> tutorials are close in spirit to what <em>HumanDemia</em> wants you t be able to do. The good news is that there’s a “Learn Enough Command Line to Be Dangerous” <a href="https://www.learnenough.com/command-line-tutorial/basics" class="uri">https://www.learnenough.com/command-line-tutorial/basics</a></p></li>
+<li><p>The <em>Pro Git</em> book (<a href="https://git-scm.com/book/en/v2" class="uri">https://git-scm.com/book/en/v2</a>) is free and will teach you everything Git related. Internals are revealed and blackboxes are cracked opened.</p></li>
+<li><p>Nice tutorial on using GitHub and sharing code in your organization. Show it to your team, faculty and Dean: <a href="https://towardsdatascience.com/towards-open-health-analytics-our-guide-to-sharing-code-safely-on-" class="uri">https://towardsdatascience.com/towards-open-health-analytics-our-guide-to-sharing-code-safely-on-</a>
+github-5d1e018897cb (At <em>HumanDemia</em> they are doing it already)</p></li>
+<li><p>The Git cheat sheet is something useful to read and bookmark: help yourself here: <a href="https://github.github.com/training-kit/downloads/github-git-cheat-sheet/" class="uri">https://github.github.com/training-kit/downloads/github-git-cheat-sheet/</a>.</p></li>
+<li><p>That’s the tutorial for first Git contribution via pull-request: <a href="https://github.com/firstcontributions/first-contributions#tutorials-using-other" class="uri">https://github.com/firstcontributions/first-contributions#tutorials-using-other</a>
+-tools</p></li>
+<li><p>The programming book for the Arcade library (yes, use Python to program videogames!) have a wonderful tutorial for some git setup and git cloning operations. Still, they use Bit Bucket instead of GitHub. <a href="https://arcade-book.readthedocs.io/en/latest/chapters/04_version_control/index.html" class="uri">https://arcade-book.readthedocs.io/en/latest/chapters/04_version_control/index.html</a></p></li>
+<li><p>Python migrated its code development process on GitHub with a specific Python Enhancement Proposal (PEP) 512: <a href="https://www.python.org/dev/peps/pep-0512/" class="uri">https://www.python.org/dev/peps/pep-0512/</a>.</p></li>
+</ul>
+</div>
+<div id="further-work-2" class="section level3">
+<h3><span class="header-section-number">3.6.4</span> Further Work</h3>
+<p>There is quite a lot you can do to practice Git-fu:</p>
+<ul>
+<li>Create a repository (maybe a private one). Add some content there.</li>
+<li>Try the first contribution tutorial.</li>
+<li>Clone the free programming resources repository (if you haven’t already): <a href="https://github.com/firstcontributions/first-contributions#tutorials-using-other-tools" class="uri">https://github.com/firstcontributions/first-contributions#tutorials-using-other-tools</a>).</li>
+<li>Create a conflict in one of your repositories and fix it. (To do that you’ll need to create to branches on your own. Yep, <em>curved ball</em>!)</li>
+<li>Persuade a colleague and/or friend to embark on this Git thing. Tell them to buy the book. Use git as a logger for your reading group and to develop further experiments. If something good comes out of that, fork the book repository file and contribute.</li>
+<li>Practice graphically on <a href="https://learngitbranching.js.org/" class="uri">https://learngitbranching.js.org/</a>.</li>
+<li>We discussed walking through a file path and listing contents with <strong>dir</strong>. It’s time to look ahead into Python and practice some reading the documentation. Have a look at the <strong>os module</strong> (i.e. the one about operative system) and check what <strong>os.listdir()</strong> and <strong>os.walk()</strong> do: <a href="https://docs.python.org/3/library/os.html" class="uri">https://docs.python.org/3/library/os.html</a> (feel free to read the rest of the documentation, but focus on the two mentioned functions).</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="21">
+<li id="fn21"><p>If you feel nostalgic you can bring these days back with Freedos: <a href="https://www.freedos.org/" class="uri">https://www.freedos.org/</a>. <a href="ch3.html#fnref21" class="footnote-back">↩</a></p></li>
+<li id="fn22"><p>IT and programming stuff are full of names looking close to each other, like Java and JavaScript, R and RStudio, etc. There’s also a wonderful meme explaining the difference and/or relationship between Git and GitHub. Feel free to look for it.<a href="ch3.html#fnref22" class="footnote-back">↩</a></p></li>
+<li id="fn23"><p>Good documentation is fundamental if you want an open project to have an impact. And that’s great for us to have great documentation to learn from. The issue is learning how to learn from the documentation.<a href="ch3.html#fnref23" class="footnote-back">↩</a></p></li>
+<li id="fn24"><p>At least as of the time of my writing and committing this.<a href="ch3.html#fnref24" class="footnote-back">↩</a></p></li>
+<li id="fn25"><p>ArXiV papers and papers storing databases link to GitHub. GitHub hosts Jupyter notebooks with conference presentations. It seems that we don’t need a new vision or a highly innovative insight. Looking what’s around and connecting the dots should be enough.<a href="ch3.html#fnref25" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

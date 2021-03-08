@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 The Universal Typing Machine: Markdown and RStudio | Programming Digital Humanities. Python (and More) for Academia</title>
+  <meta name="description" content="This book introduces the ABC theory, and …" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 The Universal Typing Machine: Markdown and RStudio | Programming Digital Humanities. Python (and More) for Academia" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/john/awesome/" />
+  
+  <meta property="og:description" content="This book introduces the ABC theory, and …" />
+  <meta name="github-repo" content="john/awesome" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 The Universal Typing Machine: Markdown and RStudio | Programming Digital Humanities. Python (and More) for Academia" />
+  
+  <meta name="twitter:description" content="This book introduces the ABC theory, and …" />
+  
+
+<meta name="author" content="Guglielmo Feis v. 0.1" />
+
+
+<meta name="date" content="2021-03-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="prologue.html"/>
+<link rel="next" href="ch3.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="prologue.html"><a href="prologue.html"><i class="fa fa-check"></i><b>1</b> Prologue</a><ul>
+<li class="chapter" data-level="1.1" data-path="prologue.html"><a href="prologue.html#the-journey-welcome-to-humandemia"><i class="fa fa-check"></i><b>1.1</b> The Journey: Welcome to <em>HumanDemia</em></a></li>
+<li class="chapter" data-level="1.2" data-path="prologue.html"><a href="prologue.html#a-difficult-trade-off-including-book-summary"><i class="fa fa-check"></i><b>1.2</b> A Difficult Trade-Off (including Book Summary)</a></li>
+<li class="chapter" data-level="1.3" data-path="prologue.html"><a href="prologue.html#whos-this-book-for"><i class="fa fa-check"></i><b>1.3</b> Who’s this Book for</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="prologue.html"><a href="prologue.html#how-coding-helps-in-the-humanities"><i class="fa fa-check"></i><b>1.3.1</b> How Coding Helps in the Humanities</a></li>
+<li class="chapter" data-level="1.3.2" data-path="prologue.html"><a href="prologue.html#what-coding-cant-do-for-you"><i class="fa fa-check"></i><b>1.3.2</b> What Coding Can’t Do for You</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="prologue.html"><a href="prologue.html#getting-the-most-out-of-this-book"><i class="fa fa-check"></i><b>1.4</b> Getting the Most Out of this Book</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="prologue.html"><a href="prologue.html#assumptions"><i class="fa fa-check"></i><b>1.4.1</b> Assumptions</a></li>
+<li class="chapter" data-level="1.4.2" data-path="prologue.html"><a href="prologue.html#type-these-commands-in-and-use-ipython"><i class="fa fa-check"></i><b>1.4.2</b> Type these Commands In (and Use IPython)</a></li>
+<li class="chapter" data-level="1.4.3" data-path="prologue.html"><a href="prologue.html#make-it-your-own-and-grow-it"><i class="fa fa-check"></i><b>1.4.3</b> Make it Your Own (and Grow it)</a></li>
+<li class="chapter" data-level="1.4.4" data-path="prologue.html"><a href="prologue.html#make-deliberate-mistakes"><i class="fa fa-check"></i><b>1.4.4</b> Make (Deliberate) Mistakes</a></li>
+<li class="chapter" data-level="1.4.5" data-path="prologue.html"><a href="prologue.html#read-the-docs"><i class="fa fa-check"></i><b>1.4.5</b> Read the Docs</a></li>
+<li class="chapter" data-level="1.4.6" data-path="prologue.html"><a href="prologue.html#learn-from-the-computer-feedback"><i class="fa fa-check"></i><b>1.4.6</b> Learn From the Computer Feedback</a></li>
+<li class="chapter" data-level="1.4.7" data-path="prologue.html"><a href="prologue.html#ask-for-help"><i class="fa fa-check"></i><b>1.4.7</b> Ask for Help</a></li>
+<li class="chapter" data-level="1.4.8" data-path="prologue.html"><a href="prologue.html#the-importance-of-keyboard-shortcuts"><i class="fa fa-check"></i><b>1.4.8</b> The Importance of (Keyboard) Shortcuts</a></li>
+<li class="chapter" data-level="1.4.9" data-path="prologue.html"><a href="prologue.html#book-organization-and-extra-resources"><i class="fa fa-check"></i><b>1.4.9</b> Book Organization and Extra Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="prologue.html"><a href="prologue.html#summary"><i class="fa fa-check"></i><b>1.5</b> Summary</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="prologue.html"><a href="prologue.html#more-resources"><i class="fa fa-check"></i><b>1.5.1</b> More Resources</a></li>
+<li class="chapter" data-level="1.5.2" data-path="prologue.html"><a href="prologue.html#further-work"><i class="fa fa-check"></i><b>1.5.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Setting up the Environment</b></span></li>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> The Universal Typing Machine: Markdown and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#the-boring-side-of-academia"><i class="fa fa-check"></i><b>2.1</b> The Boring Side of Academia</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="ch2.html"><a href="ch2.html#sidenote-survey-on-academically-boring-things"><i class="fa fa-check"></i><b>2.1.1</b> Sidenote: Survey on Academically Boring Things</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#installing-rstudio"><i class="fa fa-check"></i><b>2.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#rstudio-settings-darkmode-and-packages"><i class="fa fa-check"></i><b>2.3</b> RStudio Settings: Darkmode and Packages</a></li>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#rstudio-automation-for-humanities-tocs-and-bibliographies"><i class="fa fa-check"></i><b>2.4</b> RStudio Automation for Humanities: TOCs and Bibliographies</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="ch2.html"><a href="ch2.html#managing-bibliography"><i class="fa fa-check"></i><b>2.4.1</b> Managing Bibliography</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch2.html"><a href="ch2.html#bibliography-template-example"><i class="fa fa-check"></i><b>2.4.2</b> Bibliography Template Example</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="ch2.html"><a href="ch2.html#markdown-basics"><i class="fa fa-check"></i><b>2.5</b> Markdown Basics</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="ch2.html"><a href="ch2.html#newlines-pagebreaks-cross-references-and-further-text-divisions"><i class="fa fa-check"></i><b>2.5.1</b> Newlines, Pagebreaks, Cross-references, and further Text Divisions</a></li>
+<li class="chapter" data-level="2.5.2" data-path="ch2.html"><a href="ch2.html#creation-of-tables"><i class="fa fa-check"></i><b>2.5.2</b> Creation of Tables</a></li>
+<li class="chapter" data-level="2.5.3" data-path="ch2.html"><a href="ch2.html#adding-images"><i class="fa fa-check"></i><b>2.5.3</b> Adding Images</a></li>
+<li class="chapter" data-level="2.5.4" data-path="ch2.html"><a href="ch2.html#cross-referencing"><i class="fa fa-check"></i><b>2.5.4</b> Cross Referencing</a></li>
+<li class="chapter" data-level="2.5.5" data-path="ch2.html"><a href="ch2.html#adding-codes"><i class="fa fa-check"></i><b>2.5.5</b> Adding Code(s)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="ch2.html"><a href="ch2.html#comparing-this-setup-with-more-traditional-ones-the-benefits-for-academics"><i class="fa fa-check"></i><b>2.6</b> Comparing this Setup with more Traditional Ones: The Benefits for Academics</a></li>
+<li class="chapter" data-level="2.7" data-path="ch2.html"><a href="ch2.html#whats-more-in-rstudio"><i class="fa fa-check"></i><b>2.7</b> What’s More in RStudio</a></li>
+<li class="chapter" data-level="2.8" data-path="ch2.html"><a href="ch2.html#rstudio-workflow-learn-write-get-it"><i class="fa fa-check"></i><b>2.8</b> RStudio Workflow: Learn, Write, Get It!</a></li>
+<li class="chapter" data-level="2.9" data-path="ch2.html"><a href="ch2.html#books-with-markdown-the-bookdown-package"><i class="fa fa-check"></i><b>2.9</b> Books with Markdown: the Bookdown Package</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="ch2.html"><a href="ch2.html#installing-bookdown"><i class="fa fa-check"></i><b>2.9.1</b> Installing Bookdown</a></li>
+<li class="chapter" data-level="2.9.2" data-path="ch2.html"><a href="ch2.html#setting-up-a-bookdown-book"><i class="fa fa-check"></i><b>2.9.2</b> Setting Up a Bookdown-book</a></li>
+<li class="chapter" data-level="2.9.3" data-path="ch2.html"><a href="ch2.html#bookdown-mechanics"><i class="fa fa-check"></i><b>2.9.3</b> Bookdown Mechanics</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="ch2.html"><a href="ch2.html#summary-1"><i class="fa fa-check"></i><b>2.10</b> Summary</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="ch2.html"><a href="ch2.html#list-of-rstudio-shortcuts"><i class="fa fa-check"></i><b>2.10.1</b> List of RStudio Shortcuts</a></li>
+<li class="chapter" data-level="2.10.2" data-path="ch2.html"><a href="ch2.html#more-resources-1"><i class="fa fa-check"></i><b>2.10.2</b> More Resources</a></li>
+<li class="chapter" data-level="2.10.3" data-path="ch2.html"><a href="ch2.html#further-work-1"><i class="fa fa-check"></i><b>2.10.3</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Command Line Interface and Git(Hub): Get Ready for Machine Talk and Cooperating with the World</a><ul>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#command-line-essentials"><i class="fa fa-check"></i><b>3.1</b> Command Line Essentials</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ch3.html"><a href="ch3.html#navigating-file-system-with-the-command-line"><i class="fa fa-check"></i><b>3.1.1</b> Navigating File System with the Command-Line</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#version-control-with-git"><i class="fa fa-check"></i><b>3.2</b> Version Control with Git</a></li>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#installing-git-on-windows"><i class="fa fa-check"></i><b>3.3</b> Installing Git (on Windows)</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#git-and-github"><i class="fa fa-check"></i><b>3.3.1</b> Git and GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#git-operations-and-mechanics"><i class="fa fa-check"></i><b>3.4</b> Git Operations and Mechanics</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="ch3.html"><a href="ch3.html#creating-a-new-repository-and-add-contents"><i class="fa fa-check"></i><b>3.4.1</b> Creating a New Repository and Add Contents</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch3.html"><a href="ch3.html#copies-on-git-the-git-clone-command"><i class="fa fa-check"></i><b>3.4.2</b> Copies on Git: the ‘<em>git clone</em>’ Command</a></li>
+<li class="chapter" data-level="3.4.3" data-path="ch3.html"><a href="ch3.html#a-practical-cloning-example"><i class="fa fa-check"></i><b>3.4.3</b> A Practical Cloning Example</a></li>
+<li class="chapter" data-level="3.4.4" data-path="ch3.html"><a href="ch3.html#git-pushing-new-contents-into-your-projects-with-git-push"><i class="fa fa-check"></i><b>3.4.4</b> Git: Pushing New Contents into your Projects with ‘<em>git push</em>’</a></li>
+<li class="chapter" data-level="3.4.5" data-path="ch3.html"><a href="ch3.html#adding-files-matching-certain-conditions"><i class="fa fa-check"></i><b>3.4.5</b> Adding Files Matching Certain Conditions</a></li>
+<li class="chapter" data-level="3.4.6" data-path="ch3.html"><a href="ch3.html#git-ignore"><i class="fa fa-check"></i><b>3.4.6</b> Git Ignore</a></li>
+<li class="chapter" data-level="3.4.7" data-path="ch3.html"><a href="ch3.html#git-readme"><i class="fa fa-check"></i><b>3.4.7</b> Git Readme</a></li>
+<li class="chapter" data-level="3.4.8" data-path="ch3.html"><a href="ch3.html#forking-and-contributing-to-a-project-pull-requests"><i class="fa fa-check"></i><b>3.4.8</b> Forking and Contributing to a Project: Pull Requests</a></li>
+<li class="chapter" data-level="3.4.9" data-path="ch3.html"><a href="ch3.html#merging-and-conflict-resolution"><i class="fa fa-check"></i><b>3.4.9</b> Merging and Conflict Resolution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ch3.html"><a href="ch3.html#github-for-the-humanities"><i class="fa fa-check"></i><b>3.5</b> GitHub for the Humanities</a></li>
+<li class="chapter" data-level="3.6" data-path="ch3.html"><a href="ch3.html#summary-2"><i class="fa fa-check"></i><b>3.6</b> Summary</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="ch3.html"><a href="ch3.html#list-of-git-commands-and-cli-commands"><i class="fa fa-check"></i><b>3.6.1</b> List of Git Commands and CLI Commands</a></li>
+<li class="chapter" data-level="3.6.2" data-path="ch3.html"><a href="ch3.html#shortcuts"><i class="fa fa-check"></i><b>3.6.2</b> Shortcuts</a></li>
+<li class="chapter" data-level="3.6.3" data-path="ch3.html"><a href="ch3.html#more-resources-2"><i class="fa fa-check"></i><b>3.6.3</b> More Resources</a></li>
+<li class="chapter" data-level="3.6.4" data-path="ch3.html"><a href="ch3.html#further-work-2"><i class="fa fa-check"></i><b>3.6.4</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Getting Started with Python: Anaconda, Jupyter Notebooks, Google CoLabs and Virtual Environments</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#installing-python-by-installing-anaconda-a-game-of-snakes"><i class="fa fa-check"></i><b>4.1</b> Installing Python by Installing Anaconda: A Game of Snakes</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#using-and-integrated-development-editor-ide-the-benefits-of-spyder"><i class="fa fa-check"></i><b>4.2</b> Using and Integrated Development Editor (IDE): The Benefits of Spyder</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="ch4.html"><a href="ch4.html#running-your-code-in-spyder"><i class="fa fa-check"></i><b>4.2.1</b> Running your Code in Spyder</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ch4.html"><a href="ch4.html#other-popular-python-ides"><i class="fa fa-check"></i><b>4.2.2</b> Other Popular (Python) IDEs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ipython"><i class="fa fa-check"></i><b>4.3</b> IPython</a></li>
+<li class="chapter" data-level="4.4" data-path="ch4.html"><a href="ch4.html#jupyter-notebooks"><i class="fa fa-check"></i><b>4.4</b> Jupyter Notebooks</a></li>
+<li class="chapter" data-level="4.5" data-path="ch4.html"><a href="ch4.html#command-line-in-action-the-anaconda-prompt"><i class="fa fa-check"></i><b>4.5</b> Command Line in Action: the Anaconda Prompt</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="ch4.html"><a href="ch4.html#basic-anaconda-prompt-commands"><i class="fa fa-check"></i><b>4.5.1</b> Basic Anaconda Prompt Commands</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="ch4.html"><a href="ch4.html#google-colab-or-python-on-the-web"><i class="fa fa-check"></i><b>4.6</b> Google CoLab or Python on the web</a></li>
+<li class="chapter" data-level="4.7" data-path="ch4.html"><a href="ch4.html#virtual-environments-preview-into-coding-best-practices"><i class="fa fa-check"></i><b>4.7</b> Virtual Environments: Preview into Coding Best Practices</a></li>
+<li class="chapter" data-level="4.8" data-path="ch4.html"><a href="ch4.html#summary-3"><i class="fa fa-check"></i><b>4.8</b> Summary</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="ch4.html"><a href="ch4.html#conda-prompt-commands"><i class="fa fa-check"></i><b>4.8.1</b> Conda Prompt Commands</a></li>
+<li class="chapter" data-level="4.8.2" data-path="ch4.html"><a href="ch4.html#more-resources-3"><i class="fa fa-check"></i><b>4.8.2</b> More Resources</a></li>
+<li class="chapter" data-level="4.8.3" data-path="ch4.html"><a href="ch4.html#further-work-3"><i class="fa fa-check"></i><b>4.8.3</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Conquering Python</b></span></li>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Python Crash Courses</a><ul>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#look-how-easy-it-is-to-write-python"><i class="fa fa-check"></i><b>5.1</b> Look How Easy it Is to Write Python</a></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#python-in-general-a-readable-design"><i class="fa fa-check"></i><b>5.2</b> Python in General: A Readable Design</a></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#general-structure-of-a-python-program"><i class="fa fa-check"></i><b>5.3</b> General Structure of a Python Program</a></li>
+<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#import-load-all-the-tools-you-need"><i class="fa fa-check"></i><b>5.4</b> Import: Load all the Tools you Need</a></li>
+<li class="chapter" data-level="5.5" data-path="ch5.html"><a href="ch5.html#functions-let-your-program-do-something-for-you"><i class="fa fa-check"></i><b>5.5</b> Functions: Let your Program Do Something for You</a></li>
+<li class="chapter" data-level="5.6" data-path="ch5.html"><a href="ch5.html#data-structure-everything-has-its-natural-place"><i class="fa fa-check"></i><b>5.6</b> Data Structure: Everything Has its Natural Place</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="ch5.html"><a href="ch5.html#string-literals"><i class="fa fa-check"></i><b>5.6.1</b> String Literals</a></li>
+<li class="chapter" data-level="5.6.2" data-path="ch5.html"><a href="ch5.html#lists"><i class="fa fa-check"></i><b>5.6.2</b> Lists</a></li>
+<li class="chapter" data-level="5.6.3" data-path="ch5.html"><a href="ch5.html#dictionaries"><i class="fa fa-check"></i><b>5.6.3</b> Dictionaries</a></li>
+<li class="chapter" data-level="5.6.4" data-path="ch5.html"><a href="ch5.html#other-data-types-and-data-structures-integer-and-float-boolean-tuples-sets"><i class="fa fa-check"></i><b>5.6.4</b> Other Data Types and Data Structures: Integer and Float; Boolean, Tuples, Sets</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="ch5.html"><a href="ch5.html#flow-control"><i class="fa fa-check"></i><b>5.7</b> Flow Control</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="ch5.html"><a href="ch5.html#for-loops-iteration-and-unpacking"><i class="fa fa-check"></i><b>5.7.1</b> For Loops: Iteration and Unpacking</a></li>
+<li class="chapter" data-level="5.7.2" data-path="ch5.html"><a href="ch5.html#if-you-want-to-evaluate-conditionals-add-if"><i class="fa fa-check"></i><b>5.7.2</b> If you Want to Evaluate Conditionals, Add If</a></li>
+<li class="chapter" data-level="5.7.3" data-path="ch5.html"><a href="ch5.html#make-things-last-for-a-while-with-while-and-remember-to-break-them"><i class="fa fa-check"></i><b>5.7.3</b> Make Things Last for a While with While (and Remember to Break them)</a></li>
+<li class="chapter" data-level="5.7.4" data-path="ch5.html"><a href="ch5.html#prevent-crashes-with-tryexcept"><i class="fa fa-check"></i><b>5.7.4</b> Prevent Crashes with Try/Except</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="ch5.html"><a href="ch5.html#classes-and-comprehensions-more-pythonic-things"><i class="fa fa-check"></i><b>5.8</b> Classes and Comprehensions: More Pythonic Things</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="ch5.html"><a href="ch5.html#classes-blueprints-for-more"><i class="fa fa-check"></i><b>5.8.1</b> Classes: BluePrints for More</a></li>
+<li class="chapter" data-level="5.8.2" data-path="ch5.html"><a href="ch5.html#comprehension"><i class="fa fa-check"></i><b>5.8.2</b> Comprehension</a></li>
+<li class="chapter" data-level="5.8.3" data-path="ch5.html"><a href="ch5.html#more-comprehensions"><i class="fa fa-check"></i><b>5.8.3</b> More Comprehensions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="ch5.html"><a href="ch5.html#functions-revisited-args-times"><i class="fa fa-check"></i><b>5.9</b> Functions Revisited: *Args Times!</a></li>
+<li class="chapter" data-level="5.10" data-path="ch5.html"><a href="ch5.html#whats-in-a-name-naming-conventions-and-styles"><i class="fa fa-check"></i><b>5.10</b> What’s In a Name: Naming Conventions and Styles</a></li>
+<li class="chapter" data-level="5.11" data-path="ch5.html"><a href="ch5.html#saving-and-running-a-python-program-.py-and-.pyw"><i class="fa fa-check"></i><b>5.11</b> Saving and Running a Python Program: .py and .pyw</a></li>
+<li class="chapter" data-level="5.12" data-path="ch5.html"><a href="ch5.html#working-with-files"><i class="fa fa-check"></i><b>5.12</b> Working with Files</a><ul>
+<li class="chapter" data-level="5.12.1" data-path="ch5.html"><a href="ch5.html#file-types-text-and-data"><i class="fa fa-check"></i><b>5.12.1</b> File Types: Text and Data</a></li>
+<li class="chapter" data-level="5.12.2" data-path="ch5.html"><a href="ch5.html#file-modes-what-do-you-want-to-do-with-files"><i class="fa fa-check"></i><b>5.12.2</b> File Modes: What Do you Want to Do with Files?</a></li>
+<li class="chapter" data-level="5.12.3" data-path="ch5.html"><a href="ch5.html#opening-and-writing-to-file"><i class="fa fa-check"></i><b>5.12.3</b> Opening and Writing to File</a></li>
+<li class="chapter" data-level="5.12.4" data-path="ch5.html"><a href="ch5.html#matching-files-with-a-certain-ending-system-paths-and-working-directory"><i class="fa fa-check"></i><b>5.12.4</b> Matching Files with a Certain Ending, System Paths, and Working Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="5.13" data-path="ch5.html"><a href="ch5.html#regular-expressions"><i class="fa fa-check"></i><b>5.13</b> Regular Expressions</a><ul>
+<li class="chapter" data-level="5.13.1" data-path="ch5.html"><a href="ch5.html#regex-notable-features"><i class="fa fa-check"></i><b>5.13.1</b> Regex Notable Features</a></li>
+<li class="chapter" data-level="5.13.2" data-path="ch5.html"><a href="ch5.html#matching-expressions"><i class="fa fa-check"></i><b>5.13.2</b> Matching Expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.14" data-path="ch5.html"><a href="ch5.html#learn-by-doing-for-the-humanities-matching-bibliographical-patterns"><i class="fa fa-check"></i><b>5.14</b> Learn by Doing for the Humanities: Matching Bibliographical Patterns</a><ul>
+<li class="chapter" data-level="5.14.1" data-path="ch5.html"><a href="ch5.html#capturing-groups"><i class="fa fa-check"></i><b>5.14.1</b> Capturing Groups</a></li>
+<li class="chapter" data-level="5.14.2" data-path="ch5.html"><a href="ch5.html#matching-author-date"><i class="fa fa-check"></i><b>5.14.2</b> Matching Author (date)</a></li>
+<li class="chapter" data-level="5.14.3" data-path="ch5.html"><a href="ch5.html#matching-author-date-and-author-date"><i class="fa fa-check"></i><b>5.14.3</b> Matching (Author date) and (Author, date)</a></li>
+<li class="chapter" data-level="5.14.4" data-path="ch5.html"><a href="ch5.html#fulldata"><i class="fa fa-check"></i><b>5.14.4</b> Fulldata</a></li>
+<li class="chapter" data-level="5.14.5" data-path="ch5.html"><a href="ch5.html#limitations-open-issues-and-regex-building-tips"><i class="fa fa-check"></i><b>5.14.5</b> Limitations, Open Issues and Regex Building Tips</a></li>
+</ul></li>
+<li class="chapter" data-level="5.15" data-path="ch5.html"><a href="ch5.html#summary-4"><i class="fa fa-check"></i><b>5.15</b> Summary</a><ul>
+<li class="chapter" data-level="5.15.1" data-path="ch5.html"><a href="ch5.html#programming-concepts-methods-and-functions-recap"><i class="fa fa-check"></i><b>5.15.1</b> Programming Concepts, Methods and Functions Recap</a></li>
+<li class="chapter" data-level="5.15.2" data-path="ch5.html"><a href="ch5.html#re-module-useful-regex-commands"><i class="fa fa-check"></i><b>5.15.2</b> Re module (useful regex Commands)</a></li>
+<li class="chapter" data-level="5.15.3" data-path="ch5.html"><a href="ch5.html#more-resources-4"><i class="fa fa-check"></i><b>5.15.3</b> More Resources</a></li>
+<li class="chapter" data-level="5.15.4" data-path="ch5.html"><a href="ch5.html#further-work-4"><i class="fa fa-check"></i><b>5.15.4</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Moving Forward: From Beginner to Pythonista</a><ul>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-five-sources-of-mystery"><i class="fa fa-check"></i><b>6.1</b> Introduction: Five Sources of Mystery</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="ch6.html"><a href="ch6.html#vocabulary"><i class="fa fa-check"></i><b>6.1.1</b> Vocabulary</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ch6.html"><a href="ch6.html#coding-for-others"><i class="fa fa-check"></i><b>6.1.2</b> Coding for Others</a></li>
+<li class="chapter" data-level="6.1.3" data-path="ch6.html"><a href="ch6.html#python-specifics-and-internals"><i class="fa fa-check"></i><b>6.1.3</b> Python Specifics and Internals</a></li>
+<li class="chapter" data-level="6.1.4" data-path="ch6.html"><a href="ch6.html#being-pythonic"><i class="fa fa-check"></i><b>6.1.4</b> Being Pythonic</a></li>
+<li class="chapter" data-level="6.1.5" data-path="ch6.html"><a href="ch6.html#black-boxes"><i class="fa fa-check"></i><b>6.1.5</b> Black boxes</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#approaching-the-tutorials-in-a-good-way"><i class="fa fa-check"></i><b>6.2</b> Approaching the Tutorials in a Good Way</a></li>
+<li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#reading-the-docs"><i class="fa fa-check"></i><b>6.3</b> Reading the Docs</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="ch6.html"><a href="ch6.html#why-read-the-docs-a-real-life-case-with-bookdown-and-ebooks"><i class="fa fa-check"></i><b>6.3.1</b> Why Read the Docs? (A Real-life Case with Bookdown and Ebooks)</a></li>
+<li class="chapter" data-level="6.3.2" data-path="ch6.html"><a href="ch6.html#what-to-look-for-in-the-docs"><i class="fa fa-check"></i><b>6.3.2</b> What to Look for in the Docs</a></li>
+<li class="chapter" data-level="6.3.3" data-path="ch6.html"><a href="ch6.html#know-your-error-messages-and-exceptions"><i class="fa fa-check"></i><b>6.3.3</b> Know your Error Messages and Exceptions</a></li>
+<li class="chapter" data-level="6.3.4" data-path="ch6.html"><a href="ch6.html#patterns-and-examples"><i class="fa fa-check"></i><b>6.3.4</b> Patterns and Examples</a></li>
+<li class="chapter" data-level="6.3.5" data-path="ch6.html"><a href="ch6.html#docs-creation-the-impact-of-automation"><i class="fa fa-check"></i><b>6.3.5</b> Docs Creation: The Impact of Automation</a></li>
+<li class="chapter" data-level="6.3.6" data-path="ch6.html"><a href="ch6.html#special-kinds-of-docs"><i class="fa fa-check"></i><b>6.3.6</b> Special Kinds of Docs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ch6.html"><a href="ch6.html#summary-5"><i class="fa fa-check"></i><b>6.4</b> Summary</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="ch6.html"><a href="ch6.html#more-resources-5"><i class="fa fa-check"></i><b>6.4.1</b> More Resources</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ch6.html"><a href="ch6.html#further-work-5"><i class="fa fa-check"></i><b>6.4.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Programming for Fun and the Academia</b></span></li>
+<li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> StartUp Optimization, Corpora Builder and Corpora Opener</a><ul>
+<li class="chapter" data-level="7.1" data-path="ch7.html"><a href="ch7.html#startup-optimization-the-challenge"><i class="fa fa-check"></i><b>7.1</b> Startup Optimization: The Challenge</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="ch7.html"><a href="ch7.html#automation-script-a-description"><i class="fa fa-check"></i><b>7.1.1</b> Automation Script: A Description</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch7.html"><a href="ch7.html#scheduling-the-task"><i class="fa fa-check"></i><b>7.1.2</b> Scheduling the Task</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ch7.html"><a href="ch7.html#extend-it"><i class="fa fa-check"></i><b>7.1.3</b> Extend It</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ch7.html"><a href="ch7.html#corpora-builder-program-overview"><i class="fa fa-check"></i><b>7.2</b> Corpora Builder: Program Overview</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="ch7.html"><a href="ch7.html#connecting-to-the-search-engine-and-performing-the-search"><i class="fa fa-check"></i><b>7.2.1</b> Connecting to the Search Engine and Performing the Search</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ch7.html"><a href="ch7.html#corpora-builder-adding-safe-tests-and-ensuring-our-connection-works"><i class="fa fa-check"></i><b>7.2.2</b> Corpora Builder: Adding Safe Tests and Ensuring our Connection Works</a></li>
+<li class="chapter" data-level="7.2.3" data-path="ch7.html"><a href="ch7.html#from-search-results-to-links"><i class="fa fa-check"></i><b>7.2.3</b> From Search Results to Links?</a></li>
+<li class="chapter" data-level="7.2.4" data-path="ch7.html"><a href="ch7.html#bad-outcomes"><i class="fa fa-check"></i><b>7.2.4</b> [] Bad Outcomes</a></li>
+<li class="chapter" data-level="7.2.5" data-path="ch7.html"><a href="ch7.html#extracting-more-specific-links"><i class="fa fa-check"></i><b>7.2.5</b> Extracting more Specific Links</a></li>
+<li class="chapter" data-level="7.2.6" data-path="ch7.html"><a href="ch7.html#filter-through-keywords"><i class="fa fa-check"></i><b>7.2.6</b> Filter Through Keywords</a></li>
+<li class="chapter" data-level="7.2.7" data-path="ch7.html"><a href="ch7.html#filter-removing-common-noise"><i class="fa fa-check"></i><b>7.2.7</b> Filter Removing Common Noise</a></li>
+<li class="chapter" data-level="7.2.8" data-path="ch7.html"><a href="ch7.html#saving-our-queries"><i class="fa fa-check"></i><b>7.2.8</b> Saving Our Queries</a></li>
+<li class="chapter" data-level="7.2.9" data-path="ch7.html"><a href="ch7.html#iteration-moving-to-the-next-page"><i class="fa fa-check"></i><b>7.2.9</b> Iteration: Moving to the Next Page</a></li>
+<li class="chapter" data-level="7.2.10" data-path="ch7.html"><a href="ch7.html#helper-functions"><i class="fa fa-check"></i><b>7.2.10</b> Helper Functions</a></li>
+<li class="chapter" data-level="7.2.11" data-path="ch7.html"><a href="ch7.html#adding-progress-bars-tqdm"><i class="fa fa-check"></i><b>7.2.11</b> Adding Progress Bars: Tqdm</a></li>
+<li class="chapter" data-level="7.2.12" data-path="ch7.html"><a href="ch7.html#corpora-builder-limitations"><i class="fa fa-check"></i><b>7.2.12</b> Corpora Builder Limitations</a></li>
+<li class="chapter" data-level="7.2.13" data-path="ch7.html"><a href="ch7.html#iterating-further"><i class="fa fa-check"></i><b>7.2.13</b> Iterating Further</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ch7.html"><a href="ch7.html#corpora-opener-program-overview"><i class="fa fa-check"></i><b>7.3</b> Corpora Opener: Program Overview</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="ch7.html"><a href="ch7.html#opening-only-a-specific-amount-of-files"><i class="fa fa-check"></i><b>7.3.1</b> Opening Only a Specific Amount of Files</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch7.html"><a href="ch7.html#issue-opening-links"><i class="fa fa-check"></i><b>7.3.2</b> Issue Opening Links</a></li>
+<li class="chapter" data-level="7.3.3" data-path="ch7.html"><a href="ch7.html#new-iteration"><i class="fa fa-check"></i><b>7.3.3</b> New Iteration</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="ch7.html"><a href="ch7.html#summary-6"><i class="fa fa-check"></i><b>7.4</b> Summary</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="ch7.html"><a href="ch7.html#more-resources-6"><i class="fa fa-check"></i><b>7.4.1</b> More Resources</a></li>
+<li class="chapter" data-level="7.4.2" data-path="ch7.html"><a href="ch7.html#further-work-6"><i class="fa fa-check"></i><b>7.4.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>8</b> Scraping Bibliographies with Bibliographer</a><ul>
+<li class="chapter" data-level="8.1" data-path="ch8.html"><a href="ch8.html#bibliographer-program-overview"><i class="fa fa-check"></i><b>8.1</b> Bibliographer: Program Overview</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="ch8.html"><a href="ch8.html#general-settings-and-imports"><i class="fa fa-check"></i><b>8.1.1</b> General Settings and Imports</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ch8.html"><a href="ch8.html#from-pdf-to-txt"><i class="fa fa-check"></i><b>8.1.2</b> From Pdf to Txt</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ch8.html"><a href="ch8.html#cleaning-the-txt"><i class="fa fa-check"></i><b>8.1.3</b> Cleaning the Txt</a></li>
+<li class="chapter" data-level="8.1.4" data-path="ch8.html"><a href="ch8.html#regex-processing"><i class="fa fa-check"></i><b>8.1.4</b> Regex Processing</a></li>
+<li class="chapter" data-level="8.1.5" data-path="ch8.html"><a href="ch8.html#getting-data-with-regexes"><i class="fa fa-check"></i><b>8.1.5</b> Getting Data with Regexes</a></li>
+<li class="chapter" data-level="8.1.6" data-path="ch8.html"><a href="ch8.html#exporting-to-csv"><i class="fa fa-check"></i><b>8.1.6</b> Exporting to CSV</a></li>
+<li class="chapter" data-level="8.1.7" data-path="ch8.html"><a href="ch8.html#helper-functions-1"><i class="fa fa-check"></i><b>8.1.7</b> Helper Functions</a></li>
+<li class="chapter" data-level="8.1.8" data-path="ch8.html"><a href="ch8.html#tips-for-graphing-a-debate"><i class="fa fa-check"></i><b>8.1.8</b> Tips for Graphing a Debate</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch8.html"><a href="ch8.html#summary-7"><i class="fa fa-check"></i><b>8.2</b> Summary</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="ch8.html"><a href="ch8.html#more-resources-7"><i class="fa fa-check"></i><b>8.2.1</b> More Resources</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ch8.html"><a href="ch8.html#further-work-7"><i class="fa fa-check"></i><b>8.2.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programming Digital Humanities. Python (and More) for Academia</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch2" class="section level1">
+<h1><span class="header-section-number">2</span> The Universal Typing Machine: Markdown and RStudio</h1>
+<p>Your journey at <em>HumanDemia</em> starts in an unexpected way. They want to you to leave behind your wordprocessor. That’s not simply leaving BrandedTextEditor for OpenTextEditor.</p>
+<p>You are going to write through “a word processor on steroids”. You’ll have your main windows where you write, plus something else, like line control. “If you aim for precision, you’ll love that”. (You may buy into that one.)</p>
+<p>Further, you are going to write down the specifics of your document. There. At the beginning of your document, not through some window hidden somewhere you’ll forget about it. That’s your first step to learn <em>being procedural</em>.</p>
+<p>Also, your new typing machine won’t do things you are not telling it to do, like resizing things, switching footnotes or other amenities.</p>
+<p>On your way down, you are going to learn a markup language you already know (and it’s not HTML). Little by little they’ll get you acquainted with an Integrated Development Environment (IDE), a shell and also the opportunity to execute code.
+Oh, even if you stop there, you are going to compile to .doc, .pdf, .html, .epub <strong>from the same file</strong>.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
+<div id="the-boring-side-of-academia" class="section level2">
+<h2><span class="header-section-number">2.1</span> The Boring Side of Academia</h2>
+<p>“Formatting and submitting articles, thesis, reviews, etc. should not be how we spend most of our time in academia”. That was on the <em>HumanDemia</em> job ad, and that’s one of the reasons you’ve applied.</p>
+<p>Unfortunately, in the humanities we struggle to implement peer review, not to mention having clear stylesheets and guidelines to format a paper.
+Have you ever submitted the <em>same</em> article to <em>different</em> journals all in .doc format, each time dealing with crazy useless specs hard to automate?
+Been there. Done that.</p>
+<p>How many files did you have to for that <em>one</em> document sent to four different journals? Maybe you did your share of rebellion. Got into Latex and various .bib plugins.</p>
+<p>Luckily, there’s a way out to keep the best out of our favourite Mendeley and Latex experience. Further, it extends to Python, Git and other things on the <em>HumanDemia</em> onboarding.</p>
+<p>Markdown and RStudio come to the rescue.
+The best of all news is that: we <em>basically know Markdown already</em>.</p>
+<p><strong>Markdown</strong> is a markup (notice the pun) language you need to know. It looks like the internet of the ’90s and early forums. It is also the language of the new web you are about to discover: in fact, most of the readme files on <strong>GitHub</strong> presenting the instructions of your code are written in Markdown.
+Also, on Jupyter Notebooks or Google Colab <em>text fields</em> are written in Markdown.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a></p>
+<div id="sidenote-survey-on-academically-boring-things" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Sidenote: Survey on Academically Boring Things</h3>
+<p>I’ve conducted a small survey on things in academia that worry us/slow us down and that do not align with our idea of “working in the academia” (<em>Thanks everyone replying to my survey in order to find out more about that</em>, feel free to message me with more suggestions):</p>
+<ul>
+<li>getting tenured (<em>well, that was not included</em>);</li>
+<li>waiting for reviewer 2;</li>
+<li>waiting for someone recovering from missing a deadline;</li>
+<li>emails;</li>
+<li>do exams/marking papers for courses you are not teaching;</li>
+<li>various ways you can be mocked off exceeding those listed here;</li>
+<li>figuring out a list of n journals to submit our paper;</li>
+<li>reformatting a paper because reviewer 2 of journal n-1 in the list rejected our paper;</li>
+<li>getting more data (e.g. papers) from our research;</li>
+<li>perform a literature review;</li>
+<li>attending seminars because your boss knows you are going to ask questions (because they make you feel like you’re not wasting time) when you are at seminars you consider a waste of time;</li>
+<li>meetings;</li>
+<li>explaining tech stuff to those having double your age.</li>
+</ul>
+<p>A little bit of coding can account for some of these (as well for other, way bigger issue, like facing impostor syndrome or dealing with perfectionism plus self-underestimation issues, i.e. something will never let you submit your work because it’s either not perfect or, if of decent quality, trivial or not worth publishing.)</p>
+<p>The Key Idea: “Do Not Sit and Wait, Automate” looks good enough on the on-boarding documents.</p>
+</div>
+</div>
+<div id="installing-rstudio" class="section level2">
+<h2><span class="header-section-number">2.2</span> Installing RStudio</h2>
+<p><em>RStudio</em> is Integrated Development Environment (IDE for short) for R. <strong>R</strong> is a programming language on its own, used mainly for statistics. Maybe inter-departmental projects led you to bump into R-people.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> Using R you can plot data and analyze them, but we are not interested in that here. Of course, you are encouraged to explore the strengths of R.</p>
+<p>We are using RStudio as an <em>enhanced text editor</em>. With RStudio we can easily type our Markdown text, and use all the instructions to format a document and manage the bibliography. If you have any experience with LaTeX, the visual impact of RStudio won’t surprise you that much.</p>
+<p>Plus, through RMarkdown (RStudio version of Markdown) we can access some great tools like <strong>rvitae</strong> (to write academic resume), <strong>blogdown</strong> (websites) and <strong>bookdown</strong>. They target academic needs and the last two packages are documents with books instead of tutorials: super academic friendly!</p>
+<p>First things first, head over to RStudio download section: <a href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a>. Then pick the relevant version for your system. It’s free (there are also paid versions offering more features).</p>
+<p>Once you open your first RStudio session go to ‘File’ &gt; ‘New File’ &gt; ‘R Markdown’. Enter ‘title’ and ‘author’ and move forward. You can now see your environment. Most of it is the file you are writing.</p>
+<p>Let’s briefly go through the main areas.</p>
+<p><strong>1. RStudio Open Docs Tab</strong></p>
+<p>This is where you navigate through your files. You may have more than one file opened at the same time, as you do in the browser.</p>
+<p>Everything is close by and visually organized. Think about working on different chapters in different tabs, then assemble the whole thing. Now think about doing this in Word. And cry.</p>
+<p><strong>2. RStudio Main Working Window</strong></p>
+<p>That’s right below the list of files. That’s your text editor.</p>
+<p>This is where you write your stuff. You have line numbers, which is nice if there should be some issue in typesetting your figures, but mainly it’s your Word main page. If you look up in your document you see there is a preamble like LaTeX.</p>
+<p>The preamble starts after three single lines (like this ‘-’) and finishes again with three lines again ‘—’. That’s the preamble of an empty document:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb1-2" title="2">title: <span class="st">&quot;Untitled&quot;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">author: <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">date: <span class="st">&quot;13/3/2020&quot;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">output: html_document</a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="op">---</span></a></code></pre></div>
+<p>HTML output is great to make ebooks and compiles faster. If you need a pdf, just replace the output with ‘pdf_document’. Use ‘word_document’ to stick to the boring habits or ‘epub_document’ to get ready to reach ereaders, Kindles, etc.
+Feel free to add more than one in a raw, but beware of spacing and other issues. The preamble is delicate. You are talking to your machine and everything you type there is sensitive. Feel free to research what you are doing there and what are more commands available.</p>
+<p>(In the next section we’ll cover adding a little bit more of control to our file, like <em>adding a table of content</em> and <em>adding a bibliography</em>.)</p>
+<p><strong>RStudio Console</strong></p>
+<p>Right below the main window, there’s the console.</p>
+<p>You have a console, a terminal and a panel that shows the status of your R computations (you won’t need that much, unless you are using R for real, doing statistics.)</p>
+<p>We are going to use the console to install a few packages (like <em>bookdown</em>). You don’t know this yet - see next chapter - but there you have a Command Line Interface (CLI).</p>
+<p><strong>4. Managing and Controlling Tools: Right Panel</strong></p>
+<p>On the right you have two further windows to monitor both the overall installation of R software and packages <em>and</em> the resources of in your folder.</p>
+<p>The Up-Right table starts with ‘environment’, but you are likely more interested in the ‘History’ tab (showing you the commands you’ve typed) and the Build tab - you can use it to create a book.</p>
+<p>Down-right you have files, which acts as a file manager. This comes in handy if you are typesetting a book and need to open or delete a preview. With this, RStudio can be your (friendly) panopticon.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a></p>
+<p>Honorable mentions for the ‘Plots’ tab (though you won’t need it) and the ‘Packages’ tab that lets you know what’s going on with all your packages.</p>
+</div>
+<div id="rstudio-settings-darkmode-and-packages" class="section level2">
+<h2><span class="header-section-number">2.3</span> RStudio Settings: Darkmode and Packages</h2>
+<p>Your eyes are important. If you prefer a dark theme (environmental reasons may play a role as well), you may want to pause for a bit and maybe consider choosing a different theme or background (there’s a dark background). Go to <strong>‘Tools’ &gt; ‘Global Options’ &gt; ‘Apparences’</strong>.</p>
+<p>We are ready to go and start writing some Markdown. Nonetheless, to unleash the full potential of the tools there you may need to boost RStudio with additional resources.</p>
+<p>I’ve already mentioned packages more than once. Packages are collctions of optional code that allow you to extend the functionality of RStudio. Think browser extensions like and AdBlock (unless you are already using Brave Browser).</p>
+<p>Here we briefly touch how to install packages, so that you are free to go and add as much as you need to make your best possible work.</p>
+<p>The console of RStudio is important. This is where you go if you want to edit your package and improve it (something similar to Python PIP install).</p>
+<p>If you want to figure out what packages are installed you can:</p>
+<ol style="list-style-type: decimal">
+<li>go in the Right-down window under the ‘Packages’ tab and inspect it;</li>
+<li>go in the R Console and type:</li>
+</ol>
+<p>‘<strong>installed.package(“NAME OF THE PACKAGE”)</strong>’</p>
+<p>to check if the package is there.</p>
+<p>To check all installed packages go for:</p>
+<p>‘<strong>installed.package()</strong>’.</p>
+<p>Finally, to install a package you haven’t installed, type:</p>
+<p>‘<strong>install.package(“NAME OF THE PACKAGE”)</strong>’.</p>
+<p>(R will access a repository and download it from there. Most of the packages are hosted on something called <em>CRAN</em>.)</p>
+<p>RConsole is friendly. It is a command-line interface (CLI) tool, we’ll look closer in the next chapter, but it is friendly in telling what went wrong and sometimes it even suggests you your next move (for example: ‘You want me to do X, but in order to that I need Y. Please install Y by doing Z’. - If your colleagues are all as helpful as RStudio console then you’re lucky.)</p>
+<p>Here are some further resources on R Packages and their installation: <a href="https://www.datacamp.com/community/tutorials/r-packages-guide" class="uri">https://www.datacamp.com/community/tutorials/r-packages-guide</a>.</p>
+</div>
+<div id="rstudio-automation-for-humanities-tocs-and-bibliographies" class="section level2">
+<h2><span class="header-section-number">2.4</span> RStudio Automation for Humanities: TOCs and Bibliographies</h2>
+<p>The preamble is where you define all the settings of your document. Things like whether to print a table of contents and how to deal with section headings and numbering, which style of bibliography do you prefer as well as general layout, etc.</p>
+<p>Here’s a list of some powerful options you have to add below you output choice:</p>
+<ol style="list-style-type: decimal">
+<li><strong>toc: TRUE (or yes)</strong> – shows toc;</li>
+<li><strong>toc_depth: value</strong> – decide how deep the toc will be;</li>
+<li><strong>numbered_sections: TRUE</strong> – sections are numbered.</li>
+</ol>
+<p>(Again, ‘TRUE’ being caps-TRUE is important. There are some possible odd things we have to learn to deal with when talking with machines.)</p>
+<p>Guess what you need to do to avoid showing the table of content or the numbers.</p>
+<p>As an exercise, write the preamble to that produces a document called ‘RStudio is amazing and I know why’ where you are the author and the day is the current day. You want to print the table of contents without numbers and you want to show sections, subsections and sub-subsections.</p>
+<p>Ok, below is the code.</p>
+<p>Ready?</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb2-2" title="2">title: <span class="st">&quot;RStudio is amazing and I know why&quot;</span></a>
+<a class="sourceLine" id="cb2-3" title="3">author: <span class="st">&quot;Enter your name&quot;</span></a>
+<a class="sourceLine" id="cb2-4" title="4">date: <span class="st">&quot;enter today&#39;s date&quot;</span></a>
+<a class="sourceLine" id="cb2-5" title="5">output:</a>
+<a class="sourceLine" id="cb2-6" title="6">  html_document:</a>
+<a class="sourceLine" id="cb2-7" title="7">    toc: TRUE </a>
+<a class="sourceLine" id="cb2-8" title="8">    toc_depth: <span class="dv">3</span></a>
+<a class="sourceLine" id="cb2-9" title="9">    numbered_sections: FALSE</a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="op">---</span></a></code></pre></div>
+<p>(Yes, if you do not want something you use either FALSE or no.)</p>
+<p>Beware about the formatting. You’re better off nesting all the options and parameters.</p>
+<div id="managing-bibliography" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Managing Bibliography</h3>
+<p>In the Humanities a huge amount of time is spent (wasted?) in the <strong>submit-wait-blame reviewer 2-change the formatting-submit elsewhere</strong> cycle. I think the waiting part is probably the worst.</p>
+<p>RStudio can’t grant you faster responses or better reviews, but it can save you typing time, changing and checking commas and parentheses management when a journal wants you to check that “<em>The article follows author guidance for bibliographies</em>” tick. (Assuming the journal is able to translate its preferences in some sort of standard or known bibliographic style).</p>
+<p>To add a bibliography all we need to do is to add a ‘<strong>bibliography</strong>’ parameter in the preamble. That sounds logical.</p>
+<p>Then we need to specify the formatting style: the information across the different APA, author-date, full cite, Chicago style, etc., references are always the same. What changes is the cosmetics.</p>
+<p>The concept is super easy.
+A style file has the needed information to take the raw basic information and apply the relevant cosmetics. Editors are happy they don’t have to check it, we are happy because we gain more time to think and less to dressup our double commas for the next submission.</p>
+<p>The file containing bibliographic data in a way that can be automatically is the ‘.bib’ file (<em>HumanDemia</em> thinks you are fond enough on file extensions, if not search for it). You can easily write .bib files in a text editor like the Notepad (the one that produces .txt, then you save the file as .bib) but it takes time.</p>
+<p>It is worth knowing how .bib files are written and what they look like, so that you can tweak them efficiently if you need it. <a href="https://www.dickimaw-books.com/latex/thesis/html/bibformat.html">Here’s</a> an explanation of .bib files - <a href="https://www.dickimaw-books.com/latex/thesis/html/bibformat.html" class="uri">https://www.dickimaw-books.com/latex/thesis/html/bibformat.html</a> - they have a lot of horrible {.</p>
+<p>To produce the .bib file we can make our life easier and use a tool like Mendeley (<a href="https://www.mendeley.com/?interaction_required=true" class="uri">https://www.mendeley.com/?interaction_required=true</a>) or JabRef (<a href="https://www.jabref.org/" class="uri">https://www.jabref.org/</a>) or something else. Feel free to do your research and find out what you prefer. If you are lucky some databases (e.g. philpapers.org) allow you to export bibliographies in .bib mode.</p>
+<p>Both software mentioned above have browser plugins to allow you to retrive biliographical data from the pages you visit.
+You can work out a comparison on your own.<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a></p>
+<p>Anyway, no matter what tools you are using you’ll find your way to produce your .bib file. Now we have a basic understanding of .bib files. Our goal is to have a .bib file to feed to our preamble. Then, through the preamble, we will manage our bibliographic details and we are going to quote the references through our main document.</p>
+</div>
+<div id="bibliography-template-example" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Bibliography Template Example</h3>
+<p>Ok, let’s write a working preamble. We add the bibliography field and define a style with ‘csl’ (short for Citation Style Language).</p>
+<p>Here’s an example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb3-2" title="2">title: <span class="st">&quot;RStudio Bib Demo Cas&quot;</span></a>
+<a class="sourceLine" id="cb3-3" title="3">author: <span class="st">&quot;Guglielmo Feis&quot;</span></a>
+<a class="sourceLine" id="cb3-4" title="4">date: <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">output:</a>
+<a class="sourceLine" id="cb3-6" title="6">  pdf_document: default</a>
+<a class="sourceLine" id="cb3-7" title="7">bibliography: demobib.bib</a>
+<a class="sourceLine" id="cb3-8" title="8">csl: europeanjournal.csl</a>
+<a class="sourceLine" id="cb3-9" title="9">abstract: Demo showing RStudio bib management</a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="op">---</span></a></code></pre></div>
+<p>In addition to our ordinary parameters we add the ‘bibliography’ field. What follows is the name of the file containing the bibliography (guess what? You’d better put that file in the same folder of your main Markdown file).</p>
+<p>You can also specify a certain <strong>csl</strong>, i.e. the citation style language, feel free to read more here about how that works here: <a href="https://citationstyles.org/" class="uri">https://citationstyles.org/</a>. Just google the csl you need. Different csl means a different look of the references through the document. You just need to find it and type in the right csl. Your bibliography will change accordingly. Say hello to extra time for writing a better paper!</p>
+<p>To cite the entries in the bibliography you need to use the <span class="citation">@syntax</span> (like LaTeX, or mentions in social networks).</p>
+<p>Suppose there’s a file called ‘myamazing2020paper’ in your .bib file. To quote it, just type @myamazing2020paper and the reference will show up as required. It could be a footnote displaying (Yourname, 2020) or a ‘Yourname (2020)’ or ‘(Yourname 2020)’. It all depends on the csl.</p>
+<p>At the end you’ll have a list of the files in the bibliography (be sure to add some sort of ‘# References’ section at the end).</p>
+<p>Beware that @syntax is case sensitive. No typos are allowed and not even confusing ‘Trump2020’ with ‘trump2020’.</p>
+</div>
+</div>
+<div id="markdown-basics" class="section level2">
+<h2><span class="header-section-number">2.5</span> Markdown Basics</h2>
+<p>Time has come to learn some Markdown, i.e. to realize you know it already.</p>
+Markdown is an easy markup language (think <em>HTML</em>). We type something to get special formatting. Contrary to HTML we don’t have explicit tags like ’
+<body>
+’ and ’
+</body>
+<p>’ or ‘<a href>’. We are doing most of the marking with signs that are easier to reach like stars * and the (now) over too popular hashtag #.</p>
+<p>Pipes (|) and hyphens (-) can be used as well, for tables.</p>
+<p>Ok, time to go into Markdown, the basics are supersimple.</p>
+<ol style="list-style-type: decimal">
+<li>If you want to <strong>add sections</strong>, you number them with a ‘#’.
+The more you add, the deeper you are going into the sections. So ‘###’ is header3 in HTML or 1.1.1 if you want numbered sections. (There are further options to set this).</li>
+<li>enclose a word or phrase between one star ‘*’ to get <em>Italics</em>;</li>
+<li>enclose a word or phrase between two stars ‘**’ to get <strong>Bold</strong>;</li>
+<li>Lists are created <strong>adding a new line</strong> to initialize the list and then listing items either with ‘-’ or numbers followed by a point.</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1">Markdown lists:</a>
+<a class="sourceLine" id="cb4-2" title="2">  </a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="op">-</span> you need the empty line</a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">-</span> above</a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="op">-</span> [ ] this will give you checkboxes</a></code></pre></div>
+<p>And that’s it, basically. You’ll find a full cheatsheet for Markdown at the end of the chapter.<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a></p>
+<p>(Oh, yes, HTML links automatically takes the reference. If you want to add clickable text to the link the syntax is ‘[Text you want to show on the highlighted clickable link] (url of the site you want to link to)’.)</p>
+<p>Try to type something into Markdown. Maybe a table of contents and a few lines. To have the magic happen you need to <em>build</em> your document. In the preamble you specified the output you want your text to be rendered into.</p>
+<p>To have such a file it is not enough to save it. Try saving it: the extension is <strong>.Rmd</strong> which stands for ‘R Markdown’.</p>
+<p>To go from .Rmd to your .pdf or .html or .epub you need to ‘build’ the document (or compile it, if you come from LaTeX world.) The easiest way to do this know is by pressing the <strong>Knit</strong> button. (Or <strong>ctrl + shift + k</strong>, if you are getting used to shortcuts.)</p>
+<p>RStudio will take some time and produce what you need. If you are outputting to .pdf you’ll realize that RStudio is working with Latex under the hood. Should you miss some packages, you’ll have to install them using R console.</p>
+<p>(It is likely you’ll need to <strong>install.package(‘tinytex’)</strong>, i.e. RStudio minimal functioning LaTeX. Oh, I wish getting LateX to work was as easy as getting RStudio working and installing an extra package.)</p>
+<div id="newlines-pagebreaks-cross-references-and-further-text-divisions" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Newlines, Pagebreaks, Cross-references, and further Text Divisions</h3>
+<p>Your text setup may need more operations. Here’s something more. You can search for further options:</p>
+<ol style="list-style-type: decimal">
+<li>You can add <em>horizontal lines</em> in your document using six consecutive - or six consecutive ’*’;</li>
+<li>If you want to <em>insert a page break</em> you have to consider the output you are using. If you are knitting into a pdf (using a tex), you can use the latex command <strong>\newpage</strong> or <strong>\pagebreak</strong>;</li>
+<li>If you need to add section references or similar you need to boost your markdown. The easiest option is to install the <em>bookdown package</em>.
+Once you do so, you can easily refer to sections of your work putting the name of the section between square brackets. Bookdown is also useful to have parts and chapters;<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a></li>
+<li>If you want more layouts you can either choose from a variety of templates (expect LaTeX quality) or go customizing your own templates (see there if you have that need <a href="https://bookdown.org/yihui/rmarkdown/template-structure.html" class="uri">https://bookdown.org/yihui/rmarkdown/template-structure.html</a>).</li>
+</ol>
+</div>
+<div id="creation-of-tables" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> Creation of Tables</h3>
+<p>Markdown tables are easy to write and cool to watch. You just build the table out of | and -.
+To define cells are divided by ‘|’. To define a table structure you need to have a set of — under the main table call.</p>
+<p>Like this</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="op">|</span> Column heading<span class="op">|</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="op">|</span> <span class="op">-------------</span> <span class="op">|</span> <span class="co"># :---: for centered text, ----: for right align</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="op">|</span> col value     <span class="op">|</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="op">|</span> another value <span class="op">|</span> </a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="op">|</span> etc           <span class="op">|</span></a></code></pre></div>
+<p>Note that you need at least 3 dashes separating each header cell.
+The outer pipes (|) are optional but looks good. Also, the table will be made even if the pipes are not all vertically aligned.
+raw Markdown line up prettily. You can also use inline Markdown.</p>
+<p>If you wrote a big table and want to modify it, that can be harder, especially if you have an empty table you fill little by little. If you have issues, knit the document to help yourself visualize where the modification is going to happen.</p>
+</div>
+<div id="adding-images" class="section level3">
+<h3><span class="header-section-number">2.5.3</span> Adding Images</h3>
+<p>If you need to add images, the Markdown syntax is close to the one for links:</p>
+<p>‘<strong>![text of the image if you hover over it with the mouse, aka ’alt text’] (where to find the image)</strong>’</p>
+<p>Note that the <em>where to find the image</em> can be a url site or a file on your pc. In the latter case, be sure that you are inputting pathnames correctly. Practically: should you get an error, try to change ‘\’ with ‘/’.<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a></p>
+<p>However, if you are using RStudio to knit your document (and not, say, displaying some text on the internet), RStudio requires you to put the images in the same folder as your main Markdown document.</p>
+</div>
+<div id="cross-referencing" class="section level3">
+<h3><span class="header-section-number">2.5.4</span> Cross Referencing</h3>
+<p>If you need to add section references or similar you need to boost your markdown. The easiest option is to install the bookdown package.</p>
+<p>Once you do so, you can easily refer to sections of your work putting the name of the section between square brackets. See <a href="https://bookdown.org/yihui/bookdown/cross-references.html" class="uri">https://bookdown.org/yihui/bookdown/cross-references.html</a> for more.</p>
+</div>
+<div id="adding-codes" class="section level3">
+<h3><span class="header-section-number">2.5.5</span> Adding Code(s)</h3>
+<p>Another benefit or RStudio is that you can <em>insert</em> (and run) code blocks. The code can be Python code, R code (it’s RStudio we are using, after all) and much more.</p>
+<p>RStudio supports SQL, Java, C++. What’s even better is that you can decide what to do with that code. You can display it and even <em>run it</em>.</p>
+<p>In that way, if you want to include some fancy graphics that are code-based into your report, you can do that. Further, suppose you are writing a paper with some data. You change the data and all you have to do is refresh your code to have an updated plot. Forget the days of open Word, open Excel, update the chart, export it, remove the old one add the new one.</p>
+<p>To create a code block all you have to do is typing three backticks (```) - or use the <strong>ctrl + alt + i</strong> shortcut.</p>
+<p>The default option is R, but you can change it to your engine (e.g. Python). Given a piece of code (<strong>chunk</strong> in RStudio jargon), you can select two properties for it:</p>
+<ol style="list-style-type: decimal">
+<li><strong>eval</strong>: choose if you want the code to be run or not;</li>
+<li><strong>include</strong>: choose if you want to display the code in your document or not.</li>
+</ol>
+<p>(If you write a tutorial you want to include but not to evaluate the code, but if the code is producing some fancy graphics you just want the updated graph but not code.)</p>
+<p>Here’s a tutorial like example:</p>
+<p><strong>```{python eval=FALSE, include=TRUE}</strong>.</p>
+<p>Be aware that a lot of the extra formatting assistance we are going to have from a dedicated Python editor won’t be there when you type Python code in RStudio. This is particularly important for Python as, in that language, space matters.</p>
+<p>Should you write some Python in RStudio <em>with the intention to share your code</em> keep that in mind (or learn it the hard way, as it happened to me while proofreading some of the code that follows from chapter 4.)</p>
+</div>
+</div>
+<div id="comparing-this-setup-with-more-traditional-ones-the-benefits-for-academics" class="section level2">
+<h2><span class="header-section-number">2.6</span> Comparing this Setup with more Traditional Ones: The Benefits for Academics</h2>
+<p>Writing Markdown through RStudio offers academics and people working with texts and data a super advantage: <strong>the work can be exported as .pdf, .html and .doc</strong>.
+Further, we control the form of the output, whether its a regular text or a slideshow.</p>
+<p>Besides that, RStudio offers you further tools like control on the bibliography that you can print in different styles by changing a parameter (think <strong>LaTeX</strong>). Plus you get themes and layouts.</p>
+<p>After this dense exploration you may wonder why you have to switch to that setup rather than the standard Word-powered one. There’s a lot going on, I’ll limit it to a few bullets.</p>
+<ul>
+<li>You can speed up the resubmit process. Change the csl and you’re done. No more years spent with fixing details in Word (been there, done that).
+You can do a bit of that with bib managing tools in Word but my experience with them over a 10 pages project becomes a nightmare. And it gets worst if your work is shared.</li>
+<li>(The above leads to a better planning for your journal trajectories. You’ll appreciate editors that know their preferences and can point you to the right bib style or csl. If they don’t know that they are probably an Island and not worth your time.)</li>
+<li>You can export to all outputs. You’ll want HTML if you want to use Amazon Kindlegen and get a smooth transition to mobi format. You’d like to go from a pdf to a doc if you are unlucky and your nice latex-based Ph.D. dissertation falls prey of strange academic publishing standards (been here, hated that). Latex to Word is hard, here you have the Markdown layer that has all the features you need and is able to output in different ways.</li>
+<li>Given the success of GitHub and the issues with peer review and academic publishing (enter your favourite) we may envisage a day in which GitHub enters Humanities. Guess what is the language of text documents on GitHub.</li>
+<li>The whole thing is free. Ask your head of Department (if she knows it) how much your University spends on licenses. Translate this into semi-decent research fellows or imagine how a share of that may impact your university’s output. Then please take action and let me know about it.</li>
+<li>Bonus point: Markdown looks more user-friendly than LaTeX if you’ve been a forum early adopter. It goes easy on \ and {}.</li>
+</ul>
+</div>
+<div id="whats-more-in-rstudio" class="section level2">
+<h2><span class="header-section-number">2.7</span> What’s More in RStudio</h2>
+<p>We are using RStudio as a Universal Typing Machine, but it offers much more.
+As we know already RStudio is way more than a cool markdown text editor. Besides its markdown capabilities and its R-based features RStudio also offers the following features you may want to check:</p>
+<ul>
+<li><strong>shiny app</strong>: a nice tool to develop apps that show data on the web. To quote from their website “Shiny is an R package that makes it easy to build interactive web apps straight from R. You can host standalone apps on a webpage or embed them in R Markdown documents or build dashboards. You can also extend your Shiny apps with CSS themes, html widgets, and JavaScript actions”.</li>
+<li><strong>learn R and develop in R</strong>: R is a whole programming language on it own that was (and maybe is) very powerful and suited for statistics. (R also has a whole document documenting some of its issues as a programming language, see the <a href="https://www.burns-stat.com/pages/Tutor/R_inferno.pdf">‘The R Inferno’ document</a> at <a href="https://www.burns-stat.com/pages/Tutor/R_inferno.pdf" class="uri">https://www.burns-stat.com/pages/Tutor/R_inferno.pdf</a>.)</li>
+<li><strong>use RStudio as a text editor for other programming languages</strong>: RStudio allows you to include code boxes from other languages (Python, SQL, JS, C++). This is great if you want to show your code and discuss it. You can also run your code in other languages, but you have to consider whether to use different tools for different programming languages.</li>
+</ul>
+</div>
+<div id="rstudio-workflow-learn-write-get-it" class="section level2">
+<h2><span class="header-section-number">2.8</span> RStudio Workflow: Learn, Write, Get It!</h2>
+<p>RStudio prompts a nice workflow in which you can write your notes and then move them into different documents. You can have code inside them, so it works perfectly to learn to code.</p>
+<p>Feel free to take notes of this book on that system. You can even use RStudio to type in and run some Python code.</p>
+</div>
+<div id="books-with-markdown-the-bookdown-package" class="section level2">
+<h2><span class="header-section-number">2.9</span> Books with Markdown: the Bookdown Package</h2>
+<p>The Bookdown package is there to boost your abilities in writing and delivering research products. If you feel restricted by documents, the package has everything you need to make your book come true. Further, getting the bookdown package to work is a useful exercise to review what we know about RStudio.</p>
+<div id="installing-bookdown" class="section level3">
+<h3><span class="header-section-number">2.9.1</span> Installing Bookdown</h3>
+<p>The first step is to get the package. That’s easy. You know both the name of the package and the command to install a new package. See you in the next step!</p>
+</div>
+<div id="setting-up-a-bookdown-book" class="section level3">
+<h3><span class="header-section-number">2.9.2</span> Setting Up a Bookdown-book</h3>
+<p>Working in bookdown will change our setup a little bit. The bookdown packages allows you to write dedicated .Rmd chapters and then compile them.</p>
+<p>This requires us to set up properly:</p>
+<ol style="list-style-type: decimal">
+<li>instead of single files, create an Rproject: ‘File -&gt; New Project’;</li>
+<li>bookdown starts compiling the book from a file called ‘index.Rmd’. All the other files ending with .Rmd in the folder of the index are then rendered and included;</li>
+<li>organize the folder and the naming accordingly;</li>
+<li>if you need extra .Rmd files, like a list of checks, a bin of leftovers be sure to include in a dedicated folder. Otherwise they’ll get into your main file.</li>
+</ol>
+<p>For the bookdown file to work, you need other little twists.</p>
+<p>Instead of knitting you can try Right-Up building options. Still, that works best is to compile your book from the console with the following command:</p>
+<p><strong>bookdown::render_book(“index.Rmd”, “bookdown::pdf_book”)</strong>.</p>
+<p>The other big change is that <em>only the index file will have the preamble</em>.</p>
+<p>All the other documents, i.e. the chapters, are going to start directly with ‘# chapter’s title’. And, in a chapter, you are allowed only one level one ‘#’.</p>
+<p>If you need to insert parts, the syntax is the following:</p>
+<p>‘<strong># (PART) Part’s name {-}</strong>’.</p>
+<p>The part name has to be inserted at the end of the chapter that comes <em>before</em> the part.</p>
+</div>
+<div id="bookdown-mechanics" class="section level3">
+<h3><span class="header-section-number">2.9.3</span> Bookdown Mechanics</h3>
+<p>When you run the command to render the book you specify the index file and the format you want. <em>Bookdown will merge and render your dedicated output</em>.</p>
+<p>Should something go wrong, you’ll get either instructions in the console or a specific log file as a .txt file. What RStudio does is creating a ’_main.Rmd’ file and try to compile it. If there are issues and line references, they refer to the main.Rmd. That’s why there’s an error at line 2023 despite your chapter being 456 lines long.</p>
+<p>Before recompiling you have to delete the temporary ’_main.Rmd’. That’s where the Right-Down ‘Files’ view comes in handy.</p>
+<p>Bookdown is well documented (see more resources).</p>
+</div>
+</div>
+<div id="summary-1" class="section level2">
+<h2><span class="header-section-number">2.10</span> Summary</h2>
+<p>The preamble is where most of our magic typewriting happens.</p>
+<p>We need to feed it a .bib file and a .csl style file.
+The .bib can be built with Mendeley or JabRef (or by hand).</p>
+<p>Markdown is easy. If you need to build a whole book, you can use Bookdown. If you need a website, try blogdown.</p>
+<p>Now you should orientate yourself in an RStudio session, write in Markdown and create simple preambles.</p>
+<div id="list-of-rstudio-shortcuts" class="section level3">
+<h3><span class="header-section-number">2.10.1</span> List of RStudio Shortcuts</h3>
+<p>Shortcuts can save a lot of time. With RStudio you are likely to be doing some operations quite a lot, so here are the relevant shortcuts:</p>
+<ul>
+<li>open a new file: ‘ALT + F’ (then navigate on new file and choose what you need);</li>
+<li>navigate across markdown files: ‘CTRL + ALT + left/right arrow’;</li>
+<li>knit the document: ‘CTRL + ALT + K’.</li>
+<li>next RStudio tab ctrl + tab;</li>
+<li>previous RStudio tab crtl + shift + tab;</li>
+<li>knit: ctrl + shift + k;</li>
+<li>insert code block: ctrl + alt + i</li>
+<li>zoom in: CTRL + + (sometimes you may accidentally hit + instead of * when you try to add italics);</li>
+<li>zoome out: CTRL + - (when the above happens, this will bring you back to ordinary conditions).</li>
+</ul>
+</div>
+<div id="more-resources-1" class="section level3">
+<h3><span class="header-section-number">2.10.2</span> More Resources</h3>
+<p>Here a few links for more bib-related stuff:</p>
+<ul>
+<li>More Info on Bib Styles: <a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html" class="uri">https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html</a></li>
+<li>More Info on Citations Styles: <a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html#citation_syntax" class="uri">https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html#citation_syntax</a></li>
+</ul>
+<p>Moving to Markdown:</p>
+<ul>
+<li>Here’s the promised MarkDown cheatsheet: <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" class="uri">https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet</a>)</li>
+<li>Yihui book’s on Bookdown is probably your best introduction to Markdown and bookdown: <a href="https://bookdown.org/yihui/bookdown/cross-references.html" class="uri">https://bookdown.org/yihui/bookdown/cross-references.html</a>. You can even check the Github version of the boo and contribute to it.</li>
+<li><a href="https://monashbioinformaticsplatform.github.io/2017-11-16-open-science-training/topics/rmarkdown.html" class="uri">https://monashbioinformaticsplatform.github.io/2017-11-16-open-science-training/topics/rmarkdown.html</a></li>
+<li><a href="https://rmarkdown.rstudio.com/lesson-1.html" class="uri">https://rmarkdown.rstudio.com/lesson-1.html</a></li>
+</ul>
+</div>
+<div id="further-work-1" class="section level3">
+<h3><span class="header-section-number">2.10.3</span> Further Work</h3>
+<p>Here are some idea to practice the things we mentioned here:</p>
+<ul>
+<li>set up a book template;</li>
+<li>look into the bookdown documentation;</li>
+<li>go into RVitae Package;</li>
+<li>RStudio exports to epub. Still, Amazon Kindle uses a different format, .mobi. If you want to produce a mobi file you can use both .html or .epub outputs and feed them to Amazon Kindlegen software. It just takes a command-line command to do that (compare this to a Calibre workflow). Do some research on Kindlegen. Produce one or more RStudio-based .epub or HTML and get ready for launching the Kindlegen-based command line interface from the next chapter;</li>
+<li>move to the next step and explore making Blogs and Websites with Blogdown.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="13">
+<li id="fn13"><p>So, next time you have to write a book nobody wanted to read (and you didn’t want to write) because of the new rules of academic recruitment, you know how to write it.<a href="ch2.html#fnref13" class="footnote-back">↩</a></p></li>
+<li id="fn14"><p>
+If you have some data science ambitions, it would be cool to test the following hypothesis: <em>there are more freely available books out there in Markdown format than in .doc</em>.<a href="ch2.html#fnref14" class="footnote-back">↩</a></p></li>
+<li id="fn15"><p>Joel Grus has some code-humor on R and Python for data science.<a href="ch2.html#fnref15" class="footnote-back">↩</a></p></li>
+<li id="fn16"><p>Shame moment: before I discovered that, I spent a lot of time getting out of RStudio, searching folders in the resource manager and then back to RStudio.<a href="ch2.html#fnref16" class="footnote-back">↩</a></p></li>
+<li id="fn17"><p>Mendeley has Springer involved with it. JabRef is an open source, you can see the code and solve issues on GitHub (it’s Java-based).
+I sorted out an issue with a huge .bib file using JabRef. I then build a new bib base with Mendeley relying on the plug-in mainly, which worked decently enough. The Mendeley-Word integration worked but not that smoothly.<a href="ch2.html#fnref17" class="footnote-back">↩</a></p></li>
+<li id="fn18"><p>Remember the Learn X in Y Minutes? That’s the markdown part: <a href="https://learnxinyminutes.com/docs/markdown/" class="uri">https://learnxinyminutes.com/docs/markdown/</a>.<a href="ch2.html#fnref18" class="footnote-back">↩</a></p></li>
+<li id="fn19"><p>And footnotes using this caret (‘^’) and square brackets format, which may appear strange on GitHub.<a href="ch2.html#fnref19" class="footnote-back">↩</a></p></li>
+<li id="fn20"><p>Unix, Mac and Windows follows different conventions to manage paths on the file systems. So if you think the biggest irrationality was that of different pins, sockets and voltage maybe you have to review some beliefs. <em>Maybe</em>.<a href="ch2.html#fnref20" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="prologue.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
