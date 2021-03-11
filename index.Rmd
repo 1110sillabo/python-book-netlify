@@ -2,12 +2,14 @@
 title: "Programming Digital Humanities. Python (and More) for Academia"
 author: "Guglielmo Feis v. 0.1"
 date: "`r Sys.Date()`"
-description: "This book introduces the ABC theory, and ..."
-url: 'https\://bookdown.org/john/awesome/'
-github-repo: "john/awesome"
+description: "An introduction to programming for the Humanities, using Python, Git and RStudio."
+url: 'https\://thegui.eu/digitalhumanities/book/'
+github-repo: "1110sillabo/ProgrammingDigitalHumanitiesBook"
 site: "bookdown::bookdown_site"
 output:
   bookdown::gitbook:
+    includes:
+      in_header: GA_script.html
   config:
     toc:
       collapse: subsection
@@ -40,7 +42,15 @@ output:
 documentclass: book
 ---
 
+
 # Prologue
+
+**A Few Words on this Web-Based Edition**
+
+*I wrote the book quite sometime ago, when I was still in uni. You can [buy and download it in fancier formats on LeanPub](https://leanpub.com/programming-digital-humanities-python-for-academia).*
+
+*As time passed, I realized it is good to have also the book as a browserable website. [Al](https://automatetheboringstuff.com/) does that, so does [Harry](https://www.obeythetestinggoat.com/pages/book.html).*
+
 
 ## The Journey: Welcome to *HumanDemia*
 
