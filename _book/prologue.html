@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Programming Digital Humanities. Python (and More) for Academia</title>
+  <meta name="description" content="An introduction to programming for the Humanities, using Python, Git and RStudio." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Programming Digital Humanities. Python (and More) for Academia" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://thegui.eu/digitalhumanities/book/" />
+  
+  <meta property="og:description" content="An introduction to programming for the Humanities, using Python, Git and RStudio." />
+  <meta name="github-repo" content="1110sillabo/ProgrammingDigitalHumanitiesBook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Programming Digital Humanities. Python (and More) for Academia" />
+  
+  <meta name="twitter:description" content="An introduction to programming for the Humanities, using Python, Git and RStudio." />
+  
+
+<meta name="author" content="Guglielmo Feis v. 0.1" />
+
+
+<meta name="date" content="2021-03-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="ch2.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RVDMP2P51P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RVDMP2P51P');
+</script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="prologue.html"><a href="prologue.html"><i class="fa fa-check"></i><b>1</b> Prologue</a><ul>
+<li class="chapter" data-level="1.1" data-path="prologue.html"><a href="prologue.html#the-journey-welcome-to-humandemia"><i class="fa fa-check"></i><b>1.1</b> The Journey: Welcome to <em>HumanDemia</em></a></li>
+<li class="chapter" data-level="1.2" data-path="prologue.html"><a href="prologue.html#a-difficult-trade-off-including-book-summary"><i class="fa fa-check"></i><b>1.2</b> A Difficult Trade-Off (including Book Summary)</a></li>
+<li class="chapter" data-level="1.3" data-path="prologue.html"><a href="prologue.html#whos-this-book-for"><i class="fa fa-check"></i><b>1.3</b> Who’s this Book for</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="prologue.html"><a href="prologue.html#how-coding-helps-in-the-humanities"><i class="fa fa-check"></i><b>1.3.1</b> How Coding Helps in the Humanities</a></li>
+<li class="chapter" data-level="1.3.2" data-path="prologue.html"><a href="prologue.html#what-coding-cant-do-for-you"><i class="fa fa-check"></i><b>1.3.2</b> What Coding Can’t Do for You</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="prologue.html"><a href="prologue.html#getting-the-most-out-of-this-book"><i class="fa fa-check"></i><b>1.4</b> Getting the Most Out of this Book</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="prologue.html"><a href="prologue.html#assumptions"><i class="fa fa-check"></i><b>1.4.1</b> Assumptions</a></li>
+<li class="chapter" data-level="1.4.2" data-path="prologue.html"><a href="prologue.html#type-these-commands-in-and-use-ipython"><i class="fa fa-check"></i><b>1.4.2</b> Type these Commands In (and Use IPython)</a></li>
+<li class="chapter" data-level="1.4.3" data-path="prologue.html"><a href="prologue.html#make-it-your-own-and-grow-it"><i class="fa fa-check"></i><b>1.4.3</b> Make it Your Own (and Grow it)</a></li>
+<li class="chapter" data-level="1.4.4" data-path="prologue.html"><a href="prologue.html#make-deliberate-mistakes"><i class="fa fa-check"></i><b>1.4.4</b> Make (Deliberate) Mistakes</a></li>
+<li class="chapter" data-level="1.4.5" data-path="prologue.html"><a href="prologue.html#read-the-docs"><i class="fa fa-check"></i><b>1.4.5</b> Read the Docs</a></li>
+<li class="chapter" data-level="1.4.6" data-path="prologue.html"><a href="prologue.html#learn-from-the-computer-feedback"><i class="fa fa-check"></i><b>1.4.6</b> Learn From the Computer Feedback</a></li>
+<li class="chapter" data-level="1.4.7" data-path="prologue.html"><a href="prologue.html#ask-for-help"><i class="fa fa-check"></i><b>1.4.7</b> Ask for Help</a></li>
+<li class="chapter" data-level="1.4.8" data-path="prologue.html"><a href="prologue.html#the-importance-of-keyboard-shortcuts"><i class="fa fa-check"></i><b>1.4.8</b> The Importance of (Keyboard) Shortcuts</a></li>
+<li class="chapter" data-level="1.4.9" data-path="prologue.html"><a href="prologue.html#book-organization-and-extra-resources"><i class="fa fa-check"></i><b>1.4.9</b> Book Organization and Extra Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="prologue.html"><a href="prologue.html#summary"><i class="fa fa-check"></i><b>1.5</b> Summary</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="prologue.html"><a href="prologue.html#more-resources"><i class="fa fa-check"></i><b>1.5.1</b> More Resources</a></li>
+<li class="chapter" data-level="1.5.2" data-path="prologue.html"><a href="prologue.html#further-work"><i class="fa fa-check"></i><b>1.5.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Setting up the Environment</b></span></li>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> The Universal Typing Machine: Markdown and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#the-boring-side-of-academia"><i class="fa fa-check"></i><b>2.1</b> The Boring Side of Academia</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="ch2.html"><a href="ch2.html#sidenote-survey-on-academically-boring-things"><i class="fa fa-check"></i><b>2.1.1</b> Sidenote: Survey on Academically Boring Things</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#installing-rstudio"><i class="fa fa-check"></i><b>2.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#rstudio-settings-darkmode-and-packages"><i class="fa fa-check"></i><b>2.3</b> RStudio Settings: Darkmode and Packages</a></li>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#rstudio-automation-for-humanities-tocs-and-bibliographies"><i class="fa fa-check"></i><b>2.4</b> RStudio Automation for Humanities: TOCs and Bibliographies</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="ch2.html"><a href="ch2.html#managing-bibliography"><i class="fa fa-check"></i><b>2.4.1</b> Managing Bibliography</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch2.html"><a href="ch2.html#bibliography-template-example"><i class="fa fa-check"></i><b>2.4.2</b> Bibliography Template Example</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="ch2.html"><a href="ch2.html#markdown-basics"><i class="fa fa-check"></i><b>2.5</b> Markdown Basics</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="ch2.html"><a href="ch2.html#newlines-pagebreaks-cross-references-and-further-text-divisions"><i class="fa fa-check"></i><b>2.5.1</b> Newlines, Pagebreaks, Cross-references, and further Text Divisions</a></li>
+<li class="chapter" data-level="2.5.2" data-path="ch2.html"><a href="ch2.html#creation-of-tables"><i class="fa fa-check"></i><b>2.5.2</b> Creation of Tables</a></li>
+<li class="chapter" data-level="2.5.3" data-path="ch2.html"><a href="ch2.html#adding-images"><i class="fa fa-check"></i><b>2.5.3</b> Adding Images</a></li>
+<li class="chapter" data-level="2.5.4" data-path="ch2.html"><a href="ch2.html#cross-referencing"><i class="fa fa-check"></i><b>2.5.4</b> Cross Referencing</a></li>
+<li class="chapter" data-level="2.5.5" data-path="ch2.html"><a href="ch2.html#adding-codes"><i class="fa fa-check"></i><b>2.5.5</b> Adding Code(s)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="ch2.html"><a href="ch2.html#comparing-this-setup-with-more-traditional-ones-the-benefits-for-academics"><i class="fa fa-check"></i><b>2.6</b> Comparing this Setup with more Traditional Ones: The Benefits for Academics</a></li>
+<li class="chapter" data-level="2.7" data-path="ch2.html"><a href="ch2.html#whats-more-in-rstudio"><i class="fa fa-check"></i><b>2.7</b> What’s More in RStudio</a></li>
+<li class="chapter" data-level="2.8" data-path="ch2.html"><a href="ch2.html#rstudio-workflow-learn-write-get-it"><i class="fa fa-check"></i><b>2.8</b> RStudio Workflow: Learn, Write, Get It!</a></li>
+<li class="chapter" data-level="2.9" data-path="ch2.html"><a href="ch2.html#books-with-markdown-the-bookdown-package"><i class="fa fa-check"></i><b>2.9</b> Books with Markdown: the Bookdown Package</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="ch2.html"><a href="ch2.html#installing-bookdown"><i class="fa fa-check"></i><b>2.9.1</b> Installing Bookdown</a></li>
+<li class="chapter" data-level="2.9.2" data-path="ch2.html"><a href="ch2.html#setting-up-a-bookdown-book"><i class="fa fa-check"></i><b>2.9.2</b> Setting Up a Bookdown-book</a></li>
+<li class="chapter" data-level="2.9.3" data-path="ch2.html"><a href="ch2.html#bookdown-mechanics"><i class="fa fa-check"></i><b>2.9.3</b> Bookdown Mechanics</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="ch2.html"><a href="ch2.html#summary-1"><i class="fa fa-check"></i><b>2.10</b> Summary</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="ch2.html"><a href="ch2.html#list-of-rstudio-shortcuts"><i class="fa fa-check"></i><b>2.10.1</b> List of RStudio Shortcuts</a></li>
+<li class="chapter" data-level="2.10.2" data-path="ch2.html"><a href="ch2.html#more-resources-1"><i class="fa fa-check"></i><b>2.10.2</b> More Resources</a></li>
+<li class="chapter" data-level="2.10.3" data-path="ch2.html"><a href="ch2.html#further-work-1"><i class="fa fa-check"></i><b>2.10.3</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Command Line Interface and Git(Hub): Get Ready for Machine Talk and Cooperating with the World</a><ul>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#command-line-essentials"><i class="fa fa-check"></i><b>3.1</b> Command Line Essentials</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ch3.html"><a href="ch3.html#navigating-file-system-with-the-command-line"><i class="fa fa-check"></i><b>3.1.1</b> Navigating File System with the Command-Line</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#version-control-with-git"><i class="fa fa-check"></i><b>3.2</b> Version Control with Git</a></li>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#installing-git-on-windows"><i class="fa fa-check"></i><b>3.3</b> Installing Git (on Windows)</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#git-and-github"><i class="fa fa-check"></i><b>3.3.1</b> Git and GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#git-operations-and-mechanics"><i class="fa fa-check"></i><b>3.4</b> Git Operations and Mechanics</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="ch3.html"><a href="ch3.html#creating-a-new-repository-and-add-contents"><i class="fa fa-check"></i><b>3.4.1</b> Creating a New Repository and Add Contents</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch3.html"><a href="ch3.html#copies-on-git-the-git-clone-command"><i class="fa fa-check"></i><b>3.4.2</b> Copies on Git: the ‘<em>git clone</em>’ Command</a></li>
+<li class="chapter" data-level="3.4.3" data-path="ch3.html"><a href="ch3.html#a-practical-cloning-example"><i class="fa fa-check"></i><b>3.4.3</b> A Practical Cloning Example</a></li>
+<li class="chapter" data-level="3.4.4" data-path="ch3.html"><a href="ch3.html#git-pushing-new-contents-into-your-projects-with-git-push"><i class="fa fa-check"></i><b>3.4.4</b> Git: Pushing New Contents into your Projects with ‘<em>git push</em>’</a></li>
+<li class="chapter" data-level="3.4.5" data-path="ch3.html"><a href="ch3.html#adding-files-matching-certain-conditions"><i class="fa fa-check"></i><b>3.4.5</b> Adding Files Matching Certain Conditions</a></li>
+<li class="chapter" data-level="3.4.6" data-path="ch3.html"><a href="ch3.html#git-ignore"><i class="fa fa-check"></i><b>3.4.6</b> Git Ignore</a></li>
+<li class="chapter" data-level="3.4.7" data-path="ch3.html"><a href="ch3.html#git-readme"><i class="fa fa-check"></i><b>3.4.7</b> Git Readme</a></li>
+<li class="chapter" data-level="3.4.8" data-path="ch3.html"><a href="ch3.html#forking-and-contributing-to-a-project-pull-requests"><i class="fa fa-check"></i><b>3.4.8</b> Forking and Contributing to a Project: Pull Requests</a></li>
+<li class="chapter" data-level="3.4.9" data-path="ch3.html"><a href="ch3.html#merging-and-conflict-resolution"><i class="fa fa-check"></i><b>3.4.9</b> Merging and Conflict Resolution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ch3.html"><a href="ch3.html#github-for-the-humanities"><i class="fa fa-check"></i><b>3.5</b> GitHub for the Humanities</a></li>
+<li class="chapter" data-level="3.6" data-path="ch3.html"><a href="ch3.html#summary-2"><i class="fa fa-check"></i><b>3.6</b> Summary</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="ch3.html"><a href="ch3.html#list-of-git-commands-and-cli-commands"><i class="fa fa-check"></i><b>3.6.1</b> List of Git Commands and CLI Commands</a></li>
+<li class="chapter" data-level="3.6.2" data-path="ch3.html"><a href="ch3.html#shortcuts"><i class="fa fa-check"></i><b>3.6.2</b> Shortcuts</a></li>
+<li class="chapter" data-level="3.6.3" data-path="ch3.html"><a href="ch3.html#more-resources-2"><i class="fa fa-check"></i><b>3.6.3</b> More Resources</a></li>
+<li class="chapter" data-level="3.6.4" data-path="ch3.html"><a href="ch3.html#further-work-2"><i class="fa fa-check"></i><b>3.6.4</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Getting Started with Python: Anaconda, Jupyter Notebooks, Google CoLabs and Virtual Environments</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#installing-python-by-installing-anaconda-a-game-of-snakes"><i class="fa fa-check"></i><b>4.1</b> Installing Python by Installing Anaconda: A Game of Snakes</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#using-and-integrated-development-editor-ide-the-benefits-of-spyder"><i class="fa fa-check"></i><b>4.2</b> Using and Integrated Development Editor (IDE): The Benefits of Spyder</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="ch4.html"><a href="ch4.html#running-your-code-in-spyder"><i class="fa fa-check"></i><b>4.2.1</b> Running your Code in Spyder</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ch4.html"><a href="ch4.html#other-popular-python-ides"><i class="fa fa-check"></i><b>4.2.2</b> Other Popular (Python) IDEs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ipython"><i class="fa fa-check"></i><b>4.3</b> IPython</a></li>
+<li class="chapter" data-level="4.4" data-path="ch4.html"><a href="ch4.html#jupyter-notebooks"><i class="fa fa-check"></i><b>4.4</b> Jupyter Notebooks</a></li>
+<li class="chapter" data-level="4.5" data-path="ch4.html"><a href="ch4.html#command-line-in-action-the-anaconda-prompt"><i class="fa fa-check"></i><b>4.5</b> Command Line in Action: the Anaconda Prompt</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="ch4.html"><a href="ch4.html#basic-anaconda-prompt-commands"><i class="fa fa-check"></i><b>4.5.1</b> Basic Anaconda Prompt Commands</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="ch4.html"><a href="ch4.html#google-colab-or-python-on-the-web"><i class="fa fa-check"></i><b>4.6</b> Google CoLab or Python on the web</a></li>
+<li class="chapter" data-level="4.7" data-path="ch4.html"><a href="ch4.html#virtual-environments-preview-into-coding-best-practices"><i class="fa fa-check"></i><b>4.7</b> Virtual Environments: Preview into Coding Best Practices</a></li>
+<li class="chapter" data-level="4.8" data-path="ch4.html"><a href="ch4.html#summary-3"><i class="fa fa-check"></i><b>4.8</b> Summary</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="ch4.html"><a href="ch4.html#conda-prompt-commands"><i class="fa fa-check"></i><b>4.8.1</b> Conda Prompt Commands</a></li>
+<li class="chapter" data-level="4.8.2" data-path="ch4.html"><a href="ch4.html#more-resources-3"><i class="fa fa-check"></i><b>4.8.2</b> More Resources</a></li>
+<li class="chapter" data-level="4.8.3" data-path="ch4.html"><a href="ch4.html#further-work-3"><i class="fa fa-check"></i><b>4.8.3</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Conquering Python</b></span></li>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Python Crash Courses</a><ul>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#look-how-easy-it-is-to-write-python"><i class="fa fa-check"></i><b>5.1</b> Look How Easy it Is to Write Python</a></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#python-in-general-a-readable-design"><i class="fa fa-check"></i><b>5.2</b> Python in General: A Readable Design</a></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#general-structure-of-a-python-program"><i class="fa fa-check"></i><b>5.3</b> General Structure of a Python Program</a></li>
+<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#import-load-all-the-tools-you-need"><i class="fa fa-check"></i><b>5.4</b> Import: Load all the Tools you Need</a></li>
+<li class="chapter" data-level="5.5" data-path="ch5.html"><a href="ch5.html#functions-let-your-program-do-something-for-you"><i class="fa fa-check"></i><b>5.5</b> Functions: Let your Program Do Something for You</a></li>
+<li class="chapter" data-level="5.6" data-path="ch5.html"><a href="ch5.html#data-structure-everything-has-its-natural-place"><i class="fa fa-check"></i><b>5.6</b> Data Structure: Everything Has its Natural Place</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="ch5.html"><a href="ch5.html#string-literals"><i class="fa fa-check"></i><b>5.6.1</b> String Literals</a></li>
+<li class="chapter" data-level="5.6.2" data-path="ch5.html"><a href="ch5.html#lists"><i class="fa fa-check"></i><b>5.6.2</b> Lists</a></li>
+<li class="chapter" data-level="5.6.3" data-path="ch5.html"><a href="ch5.html#dictionaries"><i class="fa fa-check"></i><b>5.6.3</b> Dictionaries</a></li>
+<li class="chapter" data-level="5.6.4" data-path="ch5.html"><a href="ch5.html#other-data-types-and-data-structures-integer-and-float-boolean-tuples-sets"><i class="fa fa-check"></i><b>5.6.4</b> Other Data Types and Data Structures: Integer and Float; Boolean, Tuples, Sets</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="ch5.html"><a href="ch5.html#flow-control"><i class="fa fa-check"></i><b>5.7</b> Flow Control</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="ch5.html"><a href="ch5.html#for-loops-iteration-and-unpacking"><i class="fa fa-check"></i><b>5.7.1</b> For Loops: Iteration and Unpacking</a></li>
+<li class="chapter" data-level="5.7.2" data-path="ch5.html"><a href="ch5.html#if-you-want-to-evaluate-conditionals-add-if"><i class="fa fa-check"></i><b>5.7.2</b> If you Want to Evaluate Conditionals, Add If</a></li>
+<li class="chapter" data-level="5.7.3" data-path="ch5.html"><a href="ch5.html#make-things-last-for-a-while-with-while-and-remember-to-break-them"><i class="fa fa-check"></i><b>5.7.3</b> Make Things Last for a While with While (and Remember to Break them)</a></li>
+<li class="chapter" data-level="5.7.4" data-path="ch5.html"><a href="ch5.html#prevent-crashes-with-tryexcept"><i class="fa fa-check"></i><b>5.7.4</b> Prevent Crashes with Try/Except</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="ch5.html"><a href="ch5.html#classes-and-comprehensions-more-pythonic-things"><i class="fa fa-check"></i><b>5.8</b> Classes and Comprehensions: More Pythonic Things</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="ch5.html"><a href="ch5.html#classes-blueprints-for-more"><i class="fa fa-check"></i><b>5.8.1</b> Classes: BluePrints for More</a></li>
+<li class="chapter" data-level="5.8.2" data-path="ch5.html"><a href="ch5.html#comprehension"><i class="fa fa-check"></i><b>5.8.2</b> Comprehension</a></li>
+<li class="chapter" data-level="5.8.3" data-path="ch5.html"><a href="ch5.html#more-comprehensions"><i class="fa fa-check"></i><b>5.8.3</b> More Comprehensions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="ch5.html"><a href="ch5.html#functions-revisited-args-times"><i class="fa fa-check"></i><b>5.9</b> Functions Revisited: *Args Times!</a></li>
+<li class="chapter" data-level="5.10" data-path="ch5.html"><a href="ch5.html#whats-in-a-name-naming-conventions-and-styles"><i class="fa fa-check"></i><b>5.10</b> What’s In a Name: Naming Conventions and Styles</a></li>
+<li class="chapter" data-level="5.11" data-path="ch5.html"><a href="ch5.html#saving-and-running-a-python-program-.py-and-.pyw"><i class="fa fa-check"></i><b>5.11</b> Saving and Running a Python Program: .py and .pyw</a></li>
+<li class="chapter" data-level="5.12" data-path="ch5.html"><a href="ch5.html#working-with-files"><i class="fa fa-check"></i><b>5.12</b> Working with Files</a><ul>
+<li class="chapter" data-level="5.12.1" data-path="ch5.html"><a href="ch5.html#file-types-text-and-data"><i class="fa fa-check"></i><b>5.12.1</b> File Types: Text and Data</a></li>
+<li class="chapter" data-level="5.12.2" data-path="ch5.html"><a href="ch5.html#file-modes-what-do-you-want-to-do-with-files"><i class="fa fa-check"></i><b>5.12.2</b> File Modes: What Do you Want to Do with Files?</a></li>
+<li class="chapter" data-level="5.12.3" data-path="ch5.html"><a href="ch5.html#opening-and-writing-to-file"><i class="fa fa-check"></i><b>5.12.3</b> Opening and Writing to File</a></li>
+<li class="chapter" data-level="5.12.4" data-path="ch5.html"><a href="ch5.html#matching-files-with-a-certain-ending-system-paths-and-working-directory"><i class="fa fa-check"></i><b>5.12.4</b> Matching Files with a Certain Ending, System Paths, and Working Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="5.13" data-path="ch5.html"><a href="ch5.html#regular-expressions"><i class="fa fa-check"></i><b>5.13</b> Regular Expressions</a><ul>
+<li class="chapter" data-level="5.13.1" data-path="ch5.html"><a href="ch5.html#regex-notable-features"><i class="fa fa-check"></i><b>5.13.1</b> Regex Notable Features</a></li>
+<li class="chapter" data-level="5.13.2" data-path="ch5.html"><a href="ch5.html#matching-expressions"><i class="fa fa-check"></i><b>5.13.2</b> Matching Expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.14" data-path="ch5.html"><a href="ch5.html#learn-by-doing-for-the-humanities-matching-bibliographical-patterns"><i class="fa fa-check"></i><b>5.14</b> Learn by Doing for the Humanities: Matching Bibliographical Patterns</a><ul>
+<li class="chapter" data-level="5.14.1" data-path="ch5.html"><a href="ch5.html#capturing-groups"><i class="fa fa-check"></i><b>5.14.1</b> Capturing Groups</a></li>
+<li class="chapter" data-level="5.14.2" data-path="ch5.html"><a href="ch5.html#matching-author-date"><i class="fa fa-check"></i><b>5.14.2</b> Matching Author (date)</a></li>
+<li class="chapter" data-level="5.14.3" data-path="ch5.html"><a href="ch5.html#matching-author-date-and-author-date"><i class="fa fa-check"></i><b>5.14.3</b> Matching (Author date) and (Author, date)</a></li>
+<li class="chapter" data-level="5.14.4" data-path="ch5.html"><a href="ch5.html#fulldata"><i class="fa fa-check"></i><b>5.14.4</b> Fulldata</a></li>
+<li class="chapter" data-level="5.14.5" data-path="ch5.html"><a href="ch5.html#limitations-open-issues-and-regex-building-tips"><i class="fa fa-check"></i><b>5.14.5</b> Limitations, Open Issues and Regex Building Tips</a></li>
+</ul></li>
+<li class="chapter" data-level="5.15" data-path="ch5.html"><a href="ch5.html#summary-4"><i class="fa fa-check"></i><b>5.15</b> Summary</a><ul>
+<li class="chapter" data-level="5.15.1" data-path="ch5.html"><a href="ch5.html#programming-concepts-methods-and-functions-recap"><i class="fa fa-check"></i><b>5.15.1</b> Programming Concepts, Methods and Functions Recap</a></li>
+<li class="chapter" data-level="5.15.2" data-path="ch5.html"><a href="ch5.html#re-module-useful-regex-commands"><i class="fa fa-check"></i><b>5.15.2</b> Re module (useful regex Commands)</a></li>
+<li class="chapter" data-level="5.15.3" data-path="ch5.html"><a href="ch5.html#more-resources-4"><i class="fa fa-check"></i><b>5.15.3</b> More Resources</a></li>
+<li class="chapter" data-level="5.15.4" data-path="ch5.html"><a href="ch5.html#further-work-4"><i class="fa fa-check"></i><b>5.15.4</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Moving Forward: From Beginner to Pythonista</a><ul>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-five-sources-of-mystery"><i class="fa fa-check"></i><b>6.1</b> Introduction: Five Sources of Mystery</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="ch6.html"><a href="ch6.html#vocabulary"><i class="fa fa-check"></i><b>6.1.1</b> Vocabulary</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ch6.html"><a href="ch6.html#coding-for-others"><i class="fa fa-check"></i><b>6.1.2</b> Coding for Others</a></li>
+<li class="chapter" data-level="6.1.3" data-path="ch6.html"><a href="ch6.html#python-specifics-and-internals"><i class="fa fa-check"></i><b>6.1.3</b> Python Specifics and Internals</a></li>
+<li class="chapter" data-level="6.1.4" data-path="ch6.html"><a href="ch6.html#being-pythonic"><i class="fa fa-check"></i><b>6.1.4</b> Being Pythonic</a></li>
+<li class="chapter" data-level="6.1.5" data-path="ch6.html"><a href="ch6.html#black-boxes"><i class="fa fa-check"></i><b>6.1.5</b> Black boxes</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#approaching-the-tutorials-in-a-good-way"><i class="fa fa-check"></i><b>6.2</b> Approaching the Tutorials in a Good Way</a></li>
+<li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#reading-the-docs"><i class="fa fa-check"></i><b>6.3</b> Reading the Docs</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="ch6.html"><a href="ch6.html#why-read-the-docs-a-real-life-case-with-bookdown-and-ebooks"><i class="fa fa-check"></i><b>6.3.1</b> Why Read the Docs? (A Real-life Case with Bookdown and Ebooks)</a></li>
+<li class="chapter" data-level="6.3.2" data-path="ch6.html"><a href="ch6.html#what-to-look-for-in-the-docs"><i class="fa fa-check"></i><b>6.3.2</b> What to Look for in the Docs</a></li>
+<li class="chapter" data-level="6.3.3" data-path="ch6.html"><a href="ch6.html#know-your-error-messages-and-exceptions"><i class="fa fa-check"></i><b>6.3.3</b> Know your Error Messages and Exceptions</a></li>
+<li class="chapter" data-level="6.3.4" data-path="ch6.html"><a href="ch6.html#patterns-and-examples"><i class="fa fa-check"></i><b>6.3.4</b> Patterns and Examples</a></li>
+<li class="chapter" data-level="6.3.5" data-path="ch6.html"><a href="ch6.html#docs-creation-the-impact-of-automation"><i class="fa fa-check"></i><b>6.3.5</b> Docs Creation: The Impact of Automation</a></li>
+<li class="chapter" data-level="6.3.6" data-path="ch6.html"><a href="ch6.html#special-kinds-of-docs"><i class="fa fa-check"></i><b>6.3.6</b> Special Kinds of Docs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ch6.html"><a href="ch6.html#summary-5"><i class="fa fa-check"></i><b>6.4</b> Summary</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="ch6.html"><a href="ch6.html#more-resources-5"><i class="fa fa-check"></i><b>6.4.1</b> More Resources</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ch6.html"><a href="ch6.html#further-work-5"><i class="fa fa-check"></i><b>6.4.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Programming for Fun and the Academia</b></span></li>
+<li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> StartUp Optimization, Corpora Builder and Corpora Opener</a><ul>
+<li class="chapter" data-level="7.1" data-path="ch7.html"><a href="ch7.html#startup-optimization-the-challenge"><i class="fa fa-check"></i><b>7.1</b> Startup Optimization: The Challenge</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="ch7.html"><a href="ch7.html#automation-script-a-description"><i class="fa fa-check"></i><b>7.1.1</b> Automation Script: A Description</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch7.html"><a href="ch7.html#scheduling-the-task"><i class="fa fa-check"></i><b>7.1.2</b> Scheduling the Task</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ch7.html"><a href="ch7.html#extend-it"><i class="fa fa-check"></i><b>7.1.3</b> Extend It</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ch7.html"><a href="ch7.html#corpora-builder-program-overview"><i class="fa fa-check"></i><b>7.2</b> Corpora Builder: Program Overview</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="ch7.html"><a href="ch7.html#connecting-to-the-search-engine-and-performing-the-search"><i class="fa fa-check"></i><b>7.2.1</b> Connecting to the Search Engine and Performing the Search</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ch7.html"><a href="ch7.html#corpora-builder-adding-safe-tests-and-ensuring-our-connection-works"><i class="fa fa-check"></i><b>7.2.2</b> Corpora Builder: Adding Safe Tests and Ensuring our Connection Works</a></li>
+<li class="chapter" data-level="7.2.3" data-path="ch7.html"><a href="ch7.html#from-search-results-to-links"><i class="fa fa-check"></i><b>7.2.3</b> From Search Results to Links?</a></li>
+<li class="chapter" data-level="7.2.4" data-path="ch7.html"><a href="ch7.html#bad-outcomes"><i class="fa fa-check"></i><b>7.2.4</b> [] Bad Outcomes</a></li>
+<li class="chapter" data-level="7.2.5" data-path="ch7.html"><a href="ch7.html#extracting-more-specific-links"><i class="fa fa-check"></i><b>7.2.5</b> Extracting more Specific Links</a></li>
+<li class="chapter" data-level="7.2.6" data-path="ch7.html"><a href="ch7.html#filter-through-keywords"><i class="fa fa-check"></i><b>7.2.6</b> Filter Through Keywords</a></li>
+<li class="chapter" data-level="7.2.7" data-path="ch7.html"><a href="ch7.html#filter-removing-common-noise"><i class="fa fa-check"></i><b>7.2.7</b> Filter Removing Common Noise</a></li>
+<li class="chapter" data-level="7.2.8" data-path="ch7.html"><a href="ch7.html#saving-our-queries"><i class="fa fa-check"></i><b>7.2.8</b> Saving Our Queries</a></li>
+<li class="chapter" data-level="7.2.9" data-path="ch7.html"><a href="ch7.html#iteration-moving-to-the-next-page"><i class="fa fa-check"></i><b>7.2.9</b> Iteration: Moving to the Next Page</a></li>
+<li class="chapter" data-level="7.2.10" data-path="ch7.html"><a href="ch7.html#helper-functions"><i class="fa fa-check"></i><b>7.2.10</b> Helper Functions</a></li>
+<li class="chapter" data-level="7.2.11" data-path="ch7.html"><a href="ch7.html#adding-progress-bars-tqdm"><i class="fa fa-check"></i><b>7.2.11</b> Adding Progress Bars: Tqdm</a></li>
+<li class="chapter" data-level="7.2.12" data-path="ch7.html"><a href="ch7.html#corpora-builder-limitations"><i class="fa fa-check"></i><b>7.2.12</b> Corpora Builder Limitations</a></li>
+<li class="chapter" data-level="7.2.13" data-path="ch7.html"><a href="ch7.html#iterating-further"><i class="fa fa-check"></i><b>7.2.13</b> Iterating Further</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ch7.html"><a href="ch7.html#corpora-opener-program-overview"><i class="fa fa-check"></i><b>7.3</b> Corpora Opener: Program Overview</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="ch7.html"><a href="ch7.html#opening-only-a-specific-amount-of-files"><i class="fa fa-check"></i><b>7.3.1</b> Opening Only a Specific Amount of Files</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch7.html"><a href="ch7.html#issue-opening-links"><i class="fa fa-check"></i><b>7.3.2</b> Issue Opening Links</a></li>
+<li class="chapter" data-level="7.3.3" data-path="ch7.html"><a href="ch7.html#new-iteration"><i class="fa fa-check"></i><b>7.3.3</b> New Iteration</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="ch7.html"><a href="ch7.html#summary-6"><i class="fa fa-check"></i><b>7.4</b> Summary</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="ch7.html"><a href="ch7.html#more-resources-6"><i class="fa fa-check"></i><b>7.4.1</b> More Resources</a></li>
+<li class="chapter" data-level="7.4.2" data-path="ch7.html"><a href="ch7.html#further-work-6"><i class="fa fa-check"></i><b>7.4.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>8</b> Scraping Bibliographies with Bibliographer</a><ul>
+<li class="chapter" data-level="8.1" data-path="ch8.html"><a href="ch8.html#bibliographer-program-overview"><i class="fa fa-check"></i><b>8.1</b> Bibliographer: Program Overview</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="ch8.html"><a href="ch8.html#general-settings-and-imports"><i class="fa fa-check"></i><b>8.1.1</b> General Settings and Imports</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ch8.html"><a href="ch8.html#from-pdf-to-txt"><i class="fa fa-check"></i><b>8.1.2</b> From Pdf to Txt</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ch8.html"><a href="ch8.html#cleaning-the-txt"><i class="fa fa-check"></i><b>8.1.3</b> Cleaning the Txt</a></li>
+<li class="chapter" data-level="8.1.4" data-path="ch8.html"><a href="ch8.html#regex-processing"><i class="fa fa-check"></i><b>8.1.4</b> Regex Processing</a></li>
+<li class="chapter" data-level="8.1.5" data-path="ch8.html"><a href="ch8.html#getting-data-with-regexes"><i class="fa fa-check"></i><b>8.1.5</b> Getting Data with Regexes</a></li>
+<li class="chapter" data-level="8.1.6" data-path="ch8.html"><a href="ch8.html#exporting-to-csv"><i class="fa fa-check"></i><b>8.1.6</b> Exporting to CSV</a></li>
+<li class="chapter" data-level="8.1.7" data-path="ch8.html"><a href="ch8.html#helper-functions-1"><i class="fa fa-check"></i><b>8.1.7</b> Helper Functions</a></li>
+<li class="chapter" data-level="8.1.8" data-path="ch8.html"><a href="ch8.html#tips-for-graphing-a-debate"><i class="fa fa-check"></i><b>8.1.8</b> Tips for Graphing a Debate</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch8.html"><a href="ch8.html#summary-7"><i class="fa fa-check"></i><b>8.2</b> Summary</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="ch8.html"><a href="ch8.html#more-resources-7"><i class="fa fa-check"></i><b>8.2.1</b> More Resources</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ch8.html"><a href="ch8.html#further-work-7"><i class="fa fa-check"></i><b>8.2.2</b> Further Work</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programming Digital Humanities. Python (and More) for Academia</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Programming Digital Humanities. Python (and More) for Academia</h1>
+<p class="author"><em>Guglielmo Feis v. 0.1</em></p>
+<p class="date"><em>2021-03-11</em></p>
+</div>
+<div id="prologue" class="section level1">
+<h1><span class="header-section-number">1</span> Prologue</h1>
+<p><strong>A Few Words on this Web-Based Edition</strong></p>
+<p><em>I wrote the book quite sometime ago, when I was still in uni. You can <a href="https://leanpub.com/programming-digital-humanities-python-for-academia">buy and download it in fancier formats on LeanPub</a>.</em></p>
+<p><em>As time passed, I realized it is good to have also the book as a browserable website. <a href="https://automatetheboringstuff.com/">Al</a> does that, so does <a href="https://www.obeythetestinggoat.com/pages/book.html">Harry</a>.</em></p>
+<div id="the-journey-welcome-to-humandemia" class="section level2">
+<h2><span class="header-section-number">1.1</span> The Journey: Welcome to <em>HumanDemia</em></h2>
+<p>You just joined <em>HumanDemia</em>, a new hi-tech campus focused on Humanities.
+It is actually nothing futuristic. Do not imagine the Los Angeles of the Tyrrel Corps nor Esthar city.</p>
+<p>It’s a small campus (by US standards) with libraries containing physical copies of books you can touch and borrow.
+The notable things are that <em>HumanDemia</em> members know the difference between reply, forward and answer all; they can also sort the candidate sheet by student id, alphabetically or by registration date. The strangest thing is that nobody complains about wasting time at the meeting. &gt;Probably they lie.</p>
+<p>As you meet the Dean over coffee, she tells you that personal projects are welcomed and that the Uni Council is thinking about integrating a little bit of extra technical competencies into both the staff’s competencies and the <em>curricula</em>.</p>
+<p>You review your classes, talks and academic obligations and you agree on a weekly plan. (In your heart you already know that you’ll carry out some of the work while travelling or between meetings students during office hours, but maybe this new place will surprise you. Be it as it may, no way you are going to overwork this tech-stuff during the weekends.)</p>
+<p>Your first weeks will be about getting used to the way they work at <em>HumanDemia</em>. <em>HumanDemia</em> claims to care about research, (open) access to research products and about the time of their researchers. So they stop spending a lot on locked-in solutions and licensing software with big corporations.</p>
+<p>(This increased the production of the critical studies by 30% and, most importantly, it doubled their happiness: knowing you can criticize capital and corporations <em>without</em> running corporate techs’ software you don’t know how to fully use is a real banger.)</p>
+<p>The Dean tells you that, in the training, you have to spend a week getting familiar with <em>Markdown</em> and <em>RStudio</em>. You also have two weeks to refresh a little bit of command-line interface (<em>CLI</em> in techy-jargon) - as she looks at you she rephrases the ‘refresh’ with ‘learning’, as she notices you don’t look like you were there stroking keys in front of a PC in the late ’80s and early ’90s. Then there are and <em>Git</em> and <em>GitHub</em>. She tells not to worry about Git: “you’ll appreciate its potential for cooperation and teamwork,” she says.</p>
+<p>As you find out GitHub is “<em>a version control system</em>”, you think that these tech-persons seem to know how to preserve the products of their intellectual work. You shrug away some memories of crushed HDs or stories about “I wrote a paper on an old machine, but it crashed” or your favourite “I may send you the file, but I have no means to open it.” (and the joy you caused providing a converted and accessible version of the file.)</p>
+<p>Then, she says, you’ll have a month or more to pick up some programming. <em>HumanDemia</em> faculties work mainly with Python because it is easy to use, but they’ll throw you some further hints about other languages as well as a few curved balls. This sounds a little intimidating. Then you remind yourself you are a <em>researcher</em>. After all, you think, you should be able to find your way out. Plus, you’ve read around that tech-persons like challenges.</p>
+<p>“Of course,” she tells you, “we know that as a research you would like to learn something and put into practice into your work. Based on your application we find out you like building things and getting data. That ‘LEGO’ item in your interests was highly appreciated… Hence we are presenting you some Python not only for the sake of it but with design goals and implementation in mind.”</p>
+<p>This sounds promising, but you are still confused. She says not to worry, that you’ll find out what to do. That’s the reason they hired you. “If you feel you are working as a researcher and wasting your time for some reason, that’s where Python may help”.</p>
+<p>Your mind immediately thinks emails, splitting and merging pdfs to produce a reader for your course or the struggle of getting the data for your always-in-the-making grant application on “Hate Speech on Social Networks in the Post-Trump Era” (you know it has a 200+ characters long subtitle, but you are trying to forget it).</p>
+<p>After the Python month(s), you can take some time off your <em>regular</em> job. Then you’ll spend two weeks on a variety of projects. Some will be suggested but, they say, in a couple of months you’ll start <em>working on your own projects</em>. Their job will be to prevent you from starting too many things all at once and to ensure you finish your projects.</p>
+<p>You say ‘yes’, doubtful and go away. Training starts next week.</p>
+</div>
+<div id="a-difficult-trade-off-including-book-summary" class="section level2">
+<h2><span class="header-section-number">1.2</span> A Difficult Trade-Off (including Book Summary)</h2>
+<p>Let’s make the Dean’s deal more explicit. I want to write a book that gets you started and allows you to write the best programs you have in your mind to fit your (academic and intellectual) needs. Ideally you should be more productive, but what matters is that you feel fine and rewarded with what you are doing.</p>
+<p>If you are into research, you are likely to appreciate exploring different paths, building things and trying out options, solve problems, inspire others and help others with the products of your intellectual efforts. If not, you are probably in the game for the wrong reasons (feel free to email me to start talking about it or if I’ve forgotten good instances of academia stuff).</p>
+<p>It’s fairly easy to provide some hints on technical literacy or to provide you with some ready-made code for you to copy. But that’s neither a good teaching method nor what a researcher deserves.</p>
+<p>In fact, the programs you write are something that you have to able to customize. The goal of the book is to get you started by having something that works and that you understand. Something you can extend to better fit your goals and needs.
+There’s no one-fits-all-solution. Especially when you are dealing with <em>coding for humanities</em> (humanities are vast).</p>
+<p>The best way to sum this up is probably with this longish quote by Eric Steven Raymond (discussing hacking):</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>"Learning to compose music has three stages. First, you have to learn the basic mechanical technique of an instrument — fingering and how to play scales. Then you have to train your ear to understand musical patterns. Finally, you must learn how to recombine musical patterns into original creations. Hacking is similar. [..]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>The equivalent of playing scales is writing small programs, alone. Unfortunately, playing scales (a) doesn’t teach you anything about music, and (b) is boring as hell. Similarly, writing toy programs doesn’t tend to teach you much about hacking, and (b) will tend to de-motivate you unless the program immediately solves a problem you care about.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>Most formal programming instruction gets to playing scales and stops. Thus, it tends to produce coders who are poor at collaborating with each other and have the equivalent of no ear for music — a poor feel for software design and architecture."<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Long story short, there are two conflicting needs in this book:</p>
+<ol style="list-style-type: decimal">
+<li>the <em>first</em> is to offer something that works and pays off as researchers. Time is limited and precious (unless you don’t write your “international papers” in something that’s not English and you are tenured) and you do not want a super comprehensive book of everything that’s available on Python or other programming languages;</li>
+<li>the <em>second</em> is to allow you to understand what you are doing (something you need to do as a researcher, you want to understand what goes on). I’m not there to provide “copy-paste this and get the result” recipes.</li>
+</ol>
+<p>Given that everybody will be different, with different backgrounds, stories and with different things that will be either hard or easy to learn, it’s difficult to strike a balance that is <em>balanced</em> for everybody.</p>
+<p>Luckily, a solution (well, a mitigation of the problem) comes from the fact that we got trained in the academia and research is our passion. This allows me to skip on some of the hyper basic step by step tutorial <em>with images</em> on installing the tools or <em>the whole</em> basic syntax.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> I trust you can use a search engine to find this stuff on your own.
+I’ll explain the concepts and the interesting stuff, and offer opportunities for you to give them your own spin. Still, given the talks and the experience of “talking tech in Humanities”, I’ll indulge on some basic steps if I’ve found out they can be tricky.</p>
+<p>Sometimes that’s going to be easy, others it will be more difficult (there are git commands you have to learn, data structures cannot be super-duper fun all the time, etc.). I mean, after all, you the <em>HumanDemia</em> training to undergo.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> It is still training. And, despite being “human”, it also has some academic reminiscence - so expect your fair share of nonsense…</p>
+<p>Also, the shared research background allows us to work on the “start with something kinda known and move into the unknown” approach. The first weeks (part I) include something a little bit more technical than using reply to all in emails that still is not programming. There we’ll set our working environment.</p>
+<p>After setting clearly the ground <em>here</em> and why we should care about coding in the humanities, the book gets practical in chapter <a href="ch2.html#ch2">2</a>.</p>
+<p>With <em>RStudio</em> and <em>Markdown</em> we build an environment with automated bibliography, control over the table of contents and spell-check.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<p>Further, GitHub integration is just around the corner, which means: cooperation with the world. That’s what we cover next (chapter <a href="ch3.html#ch3">3</a>), and that gives us a chance to (re)discover command-line interfaces (is there anybody from MS-DOS world? or Linux? or text adventures?).</p>
+<p>Markdown is also a cool tool to develop a nice logging system<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> and an easy starter for HTML if you are interested into it, and it fosters a “learn, write, master” approach to the kind of perpetual learning you know well as a researcher.</p>
+<p>The final step (chapter <a href="ch4.html#ch4">4</a>) will be to install <em>Python through the Anaconda distribution</em>. This makes our life easier and allows us to get started with Python programming.</p>
+<p>We are ready for Part II, the hardest trade-off for the book. There’s a crash course in Python and tools to allow you to transition from Python basics to gaining confidence.</p>
+<p>Chapter <a href="ch5.html#ch5">5</a> is where Python kicks in. Here we stop a little bit on some of the definitions, programming mechanics and data structures. It is generally quite easy to break down the pieces of a problem, like:</p>
+<ol style="list-style-type: decimal">
+<li>connect to a search engine;</li>
+<li>search the term you need for your research;</li>
+<li>open all the link;</li>
+<li>read them searching for some specific keywords and see if they meet the requirements to be part of your research.</li>
+</ol>
+<p>(This is often called ‘pseudocode’).<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
+<p>Still, creating a program that does this might not be so easy. We need to learn a language that instructs our dumb machine friend to do that.
+Again, the research-based background will help to keep the crash course contained in this chapter short(ish).</p>
+<p>Chapter <a href="ch6.html#ch6">6</a> has instructions, warnings and things I wish I had known. I present some of the areas that are mysterious for Python beginners. They vary from jargon and vocabulary issues (something easy to figure out) to more complex things such as understanding Python’s internal mechanics and coding for others. (Code has idioms, as well as real languages.)</p>
+<p>Given the wide avaiability of tutorials as well as ready-made code we can paste and - if we are lucky - use to get things done, we discuss a bit how to approach tutorials <em>as learning tools</em>.
+The last part is about the fine art of <em>reading the docs</em>. This is vital to get confidence with software and programming.</p>
+<p>This chapter ends part II, but you are likely to re-read it again once you are done with part III. In fact, in part III we are going through some programs. We are going to deal mainly with automation tools and search engine processing in chapter <a href="ch7.html#ch7">7</a>. Chapter <a href="ch8.html#ch8">8</a> is all on extracting references and visualizing citation graphs.</p>
+</div>
+<div id="whos-this-book-for" class="section level2">
+<h2><span class="header-section-number">1.3</span> Who’s this Book for</h2>
+<p>The book is intended to serve every curious reader. Basically every human being with sparse access to an internet connection and some time to focus qualifies as that, I guess.</p>
+<p>The narration focuses on people with some academic background or doing research. As for the academic background, the book targets people from humanities as they are most likely to be the ones that have had no exposure to code in their curricula.
+(Of course, there are exceptions, e.g. (computational) linguistics; media studies, etc.)</p>
+<p>I hope the book may help the stereotyped oldish tenured track professors who can’t upload the syllabus on the university’s website not to bother their Ph.Ds “because you are digital natives” and it will make those making research expand their ambitions (and their dataset) relying on a bigger and broader toolbox.</p>
+<p>Maybe as MAs or Ph.Ds you’ll start considering parallel careers or who knows. Also, I wish this book can be a resource to self-thought developers (with or without a background in academia) as well.</p>
+<div id="how-coding-helps-in-the-humanities" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> How Coding Helps in the Humanities</h3>
+<p>There are many ways coding helps in the humanities. Some are obvious and should not require a coding book. Suppose you say that “5 tech companies are screwing the world”. It’s probably a good idea to know who are these 5 (bad) guys and what they are doing. If one of them is into tech and may be operating on sensible data, chances are there’s some dirty work to be done.</p>
+<p>The same probably applies if you are into ‘Data Ethics’, ‘cryptocurrencies’ and other hype worlds ‘AI’ related (machine learning, deep learning, etc.). Code can help settling legal disputes. (By the way, GDPR and blockchain are pushing lawyers to be aware as developers and some universities have code for lawyers course. Kudos to them.) Suppose we pay taxes online and that there’s a norm that allows us to obtain a tax deduction up to X items.</p>
+<p>An academic dispute arises on “whether X is included or not”. That should be coded into the protocol that allows you to pay the taxes. If you can read the protocol -assuming code is available - you can set the dispute. (If the debate is whether the code correctly implemented the proposal’s intent then you still have legit papers to be written, code alone doesn’t always help.)</p>
+<p>Ok, so much for polemics and things we know already.</p>
+<p>Real-life and politics reminds us how our habit change and we (sometimes) can be more effective when a bit of technology kicks in. (Still, beware of what you do with your data. As researchers you should probably know that already.)</p>
+<p>Think about paying taxes online (if the site works), online banking, streaming videos vs. going to the Blockbuster, Coursera education and related stuff (Udemy, freecode.org). The Italian reader may even remember Berlusconi’s “Tre I” or more recent Movimento 5 Stelle “everything blockchain to achieve transparency”.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
+<p>Here’s a little list of the benefits of learning <em>enough</em> tech-stuff to be <em>dangerous</em>:</p>
+<ul>
+<li>better <em>workflow</em>: you’ll get control of your <strong>data</strong> and <strong>research output(s)</strong>. Your students will be free to access your course material without compatibility issues, you are going to store your material to minimize data loss, you’ll be able to produce open data, you are not going to be locked in into specific technologies or software (unless you chose it);</li>
+<li><em>cooperation</em>: you know how to exchange pieces of information properly and how to load them. You are going to pass source codes rather than .pdf if you want people to read them on their ebook reader. You’ll edit the stuff on GitHub and publish on ArXiv and stop having things behind a log wall of academia-inspired social networks. (Maybe you have all you pre-prints or papers floating around there, but in this way you save on signing agreements you are not going to respect);</li>
+<li><em>practicalities and technical literacy</em>: you will know the difference between reply and reply all, you are able to sort exams lists, automate multiple-choice test corrections (enough Ph.D mocking!), upload your course materials to your website or even start one (<strong>r blogdown</strong> is your friend);</li>
+<li><em>writing (coauthored) papers and editing</em>: save time performing various checks, managing bibliography, building to different formats. Learn version control to control your data;</li>
+<li>getting the <em>data</em>: depending on your field you’ll need to access data. Maybe it’s just papers and books. Even there you can stop guessing “the first time word X appeared” and do corpus-based analysis. Or citations graphs. If you need data and evidence to track hate speech online you may download all Trump’s tweets and refresh your analysis every hour.</li>
+</ul>
+<p>Enough of this. If programming is the opportunity to build our own (small-scale) panopticon, it’s all up to us to find ways to produce better research with these tools (gamification of statistics? an analysis of gender biases in Netflix top series?).</p>
+<p>A lot of the above characterizations are a parody. (It seems at <em>HumanDemia</em> someone told them the onboarding material is better to be fun. Still, as you know, research is based on experience - and in the case above personal experience is part of that.)</p>
+</div>
+<div id="what-coding-cant-do-for-you" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> What Coding Can’t Do for You</h3>
+<p>“It is important to be aware of what coding can’t do for us”. You nod while clicking over the next <em>HumanDemia</em> slide.</p>
+<p>You already had a similar belief. Coding is an enhancement to your research, it saves you time and allows you to gain access to data that could take ages to be checked by hand.
+Still, coding is no replacement for thought or having ideas.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> (Coding may be helpful thought-wise: it can be another engine or way to approach a problem).</p>
+<p>Although machines can generate text or summarize articles or categories pieces of information, it is still up to you to choose the topic, formulate the hypothesis, etc.
+You can write a program that checks every article of a legal code (say the GDPR) and prints a map of all the various references between the single articles. That’s super nice and helpful (it appears they have such a project in the <em>HumanDemia</em> ‘nerdy things’ list).
+It is still up to you to figure out what does it mean that a certain article is referred the most or whether such a reference is doing any work or rather is it some sort of honorable mention. This latter may be true more in papers than in legal codes: sometimes to add a reference does not amount to discuss a paper.
+(Feel free to enter your case.)</p>
+<p>You can download all of Trump’s tweets and rank the people he mentions the most. But then again it is up to you to figure out and verify if there’s any strategy or guidelines in what he is doing. If there’s sexism or if he is encouraging to bash some of the people that criticises him. You can measure some other things connected with that. In fact, you may find out that an average unknown professor that happens to be on Twitter is then flooded with insults after some Trump’s tweet.</p>
+<p>A bit of coding allows you to show that a certain bunch of users were created all together on a social network, that they started to follow some political actor, retweeting specific contents and then aggressively engaging with dissenting voices. That’s the way to go about these issues rather than “Enter a Scandalistic post-Cambridge Analytica Title”.</p>
+<p>If we want to do research (the first draft had ‘serious’ before research, but that was pleonastic) we need to show something more than what might be perceived as “<em>yet another big narration</em>”. Especially if the analysis gets political or engages in highly polarized issues.
+If we really talk about <em>critical</em> discourse, <em>analytic</em> thinking, or being <em>interdisciplinary</em> (not only in the attempt to get some grant) that’s the only way to do it. Embrace programming.</p>
+<p>As researchers, we need to offer a way into what we are doing to everybody, dissenting voices included. And everybody will be given a chance to go into the details and check herself.
+Aspiration-based and wishful-thinking research belongs all to the same bucket, whether they are Fox News-based, Freud-based or Bertrand Russell-based. That’s the bucket of pseudoscience (at best).</p>
+</div>
+</div>
+<div id="getting-the-most-out-of-this-book" class="section level2">
+<h2><span class="header-section-number">1.4</span> Getting the Most Out of this Book</h2>
+<p>Let’s provide some guidelines for the <em>HumanDemia</em> training. (Chapter 6 will iterate some of them and offer more coding-related discussion.)</p>
+<p>The training has three parts:</p>
+<ol style="list-style-type: decimal">
+<li>we set the working environment. We install <em>RStudio</em>, refresh the command line and install <em>Git</em> and <em>mingw</em> (a port of a Unix shell) and install the Anaconda distribution (which contains Python). In the meantime we get into a more programming-like framework. We start to control our documents and paper. We choose the setting and realize a design. Further, we learn Git cooperative workflow;</li>
+<li>we learn some Python essentials;</li>
+<li>we use Python to build something relevant academia-wise. We build our automation tools, scrape bibliography and collect search results. Start thinking how much time you invest in opening the same programs all over again… a text editor, a few websites, etc. Now, assume you boot your pc twice a day and that it takes one and a half minutes to set up and open all your tabs.
+If you did that, think about how many emails you can evade in 15 minutes.</li>
+</ol>
+<p>As far as Python programming is concerned (part. II), we already know most of the contents of this section as they deal with learning hard-skills. The best way to learn something is to put this into practice, sooner or later.</p>
+<p>How do you (learn to) write a paper? You talk with people, read, but in the end you will have to write your paper yourself. More than once actually.
+How do you learn how peer review works? By trials and errors (especially if you are not a native speaker) or if you are raised somehow outside the US/UK environment.</p>
+<p>I suggest you to try most of the code and methods yourself in a way that it helps you assimilate it. Personally, I like to read books on kindle to get the general picture of what I am doing. That’s happens at night or while travelling (people at <em>HumanDemia</em> seems to know that, I’d better check what I’m sharing on socials).</p>
+<p>When coding is concerned the more exercises I can make, the better. When you code for the first time you may do way more typos and syntax errors than you would by writing a paper in an “ordinary” language.</p>
+<p>All in all, there is a reason for them to say “talk is cheap, show me the code”. Try to start coding as soon as possible. Once the necessity is there, you’ll start diggin’ it more.
+I’ll try my best to propose something that can be useful, academic wise, or fun and interesting. But you should start expanding and flexing all the tools out there as soon as possible.</p>
+<p>So let’s try to have a list of some advice, but first set the ground with some (hopefully) shared assumptions.</p>
+<div id="assumptions" class="section level3">
+<h3><span class="header-section-number">1.4.1</span> Assumptions</h3>
+<p>You are either on Windows or on Mac (instructions here will be Windows-based). You’ve mainly used MS Word or other branded software to write your papers and do your research.</p>
+<p>You may have explored some tools to automate toc creation or managing references. Maybe you move further enough to write in Latex. And you even tried yourself some HTML.</p>
+<p>You use a search engine when there’s something you don’t know before scream <em>I can’t do that</em> and also specific databases for your work, use WhatsApp or other social media (remembering myspace is no pre-requisite). You have a daily pile of emails waiting for you. You use your uni-based website to display your research or interact with students.</p>
+<p>Bonus points if you can print the list of the students both alphabetically and by their registration number (no jokes here, it is not an obvious skill to have; trust me).</p>
+<p>Still, for one of many reasons, you never took a deep breath (because you thought you need one) and dive into programming. Or maybe you even tried once, but it did not work, there was no catch. I’ve been there. More than once (I’ve actually tried to learn programming 3 times before really starting).</p>
+<p>We start from the passion for research and intellectual curiosity. We will build things (mostly) step by step. Thankfully we have a journey into <em>HumanDemia</em> to go through.</p>
+</div>
+<div id="type-these-commands-in-and-use-ipython" class="section level3">
+<h3><span class="header-section-number">1.4.2</span> Type these Commands In (and Use IPython)</h3>
+<p>There’s a saying about theory and practice according to which theory <em>in theory</em>, should not be something different from practice. Nonetheless, <em>in practice</em>, that’s not the case. Again, talk is cheap, we have to show ’em the code.</p>
+<p>It is better to show the code you wrote and understand. There is some time needed to get around the commands and have them at your fingertips.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
+<p>The setup we are going to use offers us many ways to explore a problem or a feature by way of writing code.</p>
+<p>Here’s a little spoiler for you of IPython from chapter <a href="ch4.html#ch4">4</a>.</p>
+<p>IPython and its shell are great because <em>they prompt you to try things out</em>. Type and explore is a great method to learn and figure out what a command does.
+Programming languages are languages, and languages need to be practiced. This means that not only you have to understand a concept but also to use it quite a lot.</p>
+<p>Music is another language that comes in as a good comparison. It is pretty easy to learn what C major scale is: C, D, E, F, G, A, B. It is harder to play in sixteens notes at a tempo of 160bpm. You will need to play (i.e. type it, out of analogy) these notes quite a lot (and, if you play guitar or similar, you’ll have different fingerings and positions to learn).</p>
+<p>It is fairly simple to grasp the structure of a major scale (the intervallic structure is: tone, tone, semitone, tone, tone, tone, semitone). It takes some extra efforts to realize that G major is G, A, B, C, D, E, F#. It takes practice and experience to be able to find out on your instrument the major scale you need to best serve your needs on the different chords of a song.</p>
+<p>Sorry for the long digression.
+IPython offers you a lot of opportunities to start typing out. It further helps you because it offers you a tool to ask for help and know what a command is or what your object is going (just add a <strong>?</strong> - question mark - after the command).</p>
+<p>I spent a lot of time in the Python interpreter compiling programs that were too long just to test and learn something new. IPython allows you to move from a type-(compile)-save-run approach to a type and see one. As soon as you find out what you need that works, you can copy your snippet into the main code.</p>
+<p>(I know this sounds too good to be true but IPython is free. And in the Anaconda-based setup we are going to use you got it bundled in your main tool for writing code: Spyder.)</p>
+</div>
+<div id="make-it-your-own-and-grow-it" class="section level3">
+<h3><span class="header-section-number">1.4.3</span> Make it Your Own (and Grow it)</h3>
+<p>A useful tip I discovered too late - thanks to <em>Let’s Build Instagram from Scratch
+with Ruby on Rails</em><a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> - is that, while following a tutorial, it is a good idea to change the names of the program you are building and the variable and make it your own. You are not a monkey copying stuff. Ok, retyping is probably necessary to grasp the syntax of something, still, you need to put some of your input.</p>
+<p>So, if the code is for you only, name the parts in your own language if that’s not English. Write more comments. And, most important of all, once the code runs fine try to work on upgrades.</p>
+<p>Can you add a little embellishment? Can you export your analysis of Trump’s tweet to a website that updates with every Trump’s tweet? Can you make the visualization of the GDPR interactive?</p>
+<p>Ok, these are all big topics. Start small. Are you able to identify all the small steps that are there in a tutorial? Can you add a little bit, like “do something super similar to step 5, but different?”.</p>
+<p>Suppose you are programming a tic-tac-toe game (people at <em>HumanDemia</em> has strange practices for choosing who is going to give a keynote talk). Can you make the board larger? Can you save the current board game? (Suppose tic-tac-toe spreads to different departiments and you have to discuss each move at a faculty meeting. Ok, enough of this <em>PerverseDemia</em>. Still, this picture sounds way better than the standard faculty meeting, doesn’t it?)</p>
+<p>Again, let me provide an analogy with music and foreign languages.</p>
+<p>If you are into music and are starting out on improvisation, you know what I am talking about. Also, learning a foreign language is a similar example. (After all music, languages and programming languages are all languages).</p>
+<p>No matter how many licks or cliches “in the style of [your favourite player]” or how many pre-build phrases (“where is the toilet?”, “what’s your name?”) you’ve learnt, talking or improvising won’t just be repeating this. Knowing chords and notes will help you as it helps to know the grammar. But then performing a solo or chat with others is different. How do you deal with phrasing or your accent? Etc.</p>
+<p><em>Coding is not different</em>. There are programming styles and lots of things that, when put in practice, go in a different way than expected.
+(This book is the result of my learning experience. It is my first big RStudio project using the bookdown package and Markdown. Most of the projects were the things I needed for my academic journey.)</p>
+</div>
+<div id="make-deliberate-mistakes" class="section level3">
+<h3><span class="header-section-number">1.4.4</span> Make (Deliberate) Mistakes</h3>
+<p>Controlled mistakes are good. Well, we can even call them “experiments”.</p>
+<p><em>HumanDemia</em> kindly invites you to get used to the way a programming language works and what are the reactions you get from the machine when you got things wrong. You don’t want to be Trapattoni during that famous Bayern press conference.
+There’s a better way to learn German auxiliary verbs.
+How does that translate into programming?</p>
+<p>We experiment, we modify things. As you learn that to print something on the screen you need to write ‘print’ (how clever!) followed by a round parenthesis ‘(’ and then you need some quotation mark inside the commas.</p>
+<p>There’s a lot you can do to experiment here. What happens if you forget a quotation mark? What if you just insert the text between brackets? And what if you add more brackets?</p>
+<p>That’s the way to go.</p>
+</div>
+<div id="read-the-docs" class="section level3">
+<h3><span class="header-section-number">1.4.5</span> Read the Docs</h3>
+<p>(Note: there is another section in chapter <a href="ch6.html#ch6">6</a> on the art and skill of reading the docs. But we all like appetizers.)</p>
+<p>Here is some good news on learning to program: there are a lot of sources and resources out there (some are listed at the end of each chapter under the ‘More Resources’ heading). Further, each package, language or command is documented by its creator (or, at least, <em>it should be</em>).</p>
+<p>This documentation is a form of text we need to get used to read and interact with. We know how to read papers in our professional areas. Further, chances are that, as academics, we had to assemble a bookshelf. After all, these papers and books (and desktop pcs) have to go somewhere in the real physical space.</p>
+<p>The nerdier out there may have assembled a pc. And, when we were young, I hope we all were exposed to <em>LEGO</em>.
+Be it as it may, chances are we got exposed to both papers and instruction sets. Now we need to learn how to deal with software documentation.</p>
+<p>Papers often have more ideas (if they have it), than data or instructions. Some papers have lots of references and information (e.g. literature reviews) still it is hard to know exactly what “the majority view” or the “most recent consensus view” is. (Programming can help us track down this, as we are going to see later).</p>
+<p>On the other hand, the instructions tell us what to do step by step. When you read the documentation of software packages the situation is quite strange.
+Documentation is meant to be read by humans, but actually presents you with the commands and instructions that your machine will execute. It is like you are reading instructions about how to make someone else stick the yellow lego over the red one.</p>
+<p>So when reading documentation you are reading instructions for the computer and you have to understand why these instructions are valuable for you. Further, these instructions are related to some concepts or tools, but these concepts are kind of presupposed. To abuse the <em>LEGO</em> analogy, sometimes reading a documentation feels like buying the latest <em>“build the Death Star!” pack</em>, opening the pack and finding only a hundred thousands of small pieces. And nothing else.</p>
+<p>Of course you know what you want to achieve and how your program looks like (it is the Death Star, after all) and of course you have some general idea of the building blocks that you are likely to use and the main blocks that a respected Death Star should have.
+Still, you thought the package had an instruction book showing you step by step what happens and how to do it.</p>
+<p><em>Documentation most of the time documents what’s in the box</em>, but it is up to you to create a Death Star or Tower Bridge. After all, packages and modules are tools you can use as you prefer. They are not packages like “Build the Death Star” they are closer to “All nice permutations and tricks with 3 different colours 4 by 2 blocks”. Your read this, then it’s your turn to (try to) make something.</p>
+<p>Major packages will have a tutorial or a quick start (or both). These parts of a documentation will help you getting started and correctly installing your tools. A tutorial will also show you a rudimental implementation of the package’s potential. So if you go through the tutorial of Flask (a module that allows you to build web-based applications), you are going to set up a server.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
+<p>There are also third party tutorials and demos (i.e. Coursera or Udemy), but that’s another story.
+In general, the tutorial in the documentation will show you something you can do with the library. Also, GitHub can be searched for documentation, tutorials or code inspiration: it’s the world bank of code, after all. Also, the blogging platform Medium has some good articles and software dedicated publications.</p>
+</div>
+<div id="learn-from-the-computer-feedback" class="section level3">
+<h3><span class="header-section-number">1.4.6</span> Learn From the Computer Feedback</h3>
+<p>A program gives you a way different feedback from that of a Q&amp;A session after your first explorative talks.
+A computer program executes your code and it has a terminal (i.e. a window) in which it “communicates” with you. If you are lucky you are going to get the result you wanted.</p>
+<p>If something goes wrong, you receive error messages. The kind of messages you receive and the information they give you vary a lot across different programming languages and settings, still, it is useful to learn from that.</p>
+<p>During the <em>HumanDemia</em> training you’ll face some nice errors from Git, where the interface will provide you with tips or suggestions like ‘X is not a git command. Did you mean git X?’. IPython has some nice traceback errors. When compiling documents with a big RStudio project the log of the errors can be a bit terse.</p>
+<p>A major difference from conferences concerns obvious mistakes.
+When the shell gives you a precise error message there is no “yeah, I’ll have to think about it” or “you know, as they say, my modus ponens is your modus tollens” or even “let’s agree to disagree” (did you really ever say that?). You have to go there and fix this mistake.</p>
+<p>Also, conferences can be nice and encouraging to first timers or, if your intentions are good, nobody is going to correct you if you say “X criticizes Y” when everybody knows it goes the other way around (and you are actually reporting Y’s arguments against X).</p>
+<p>If you call your function that computes Trump’s followers ‘compute_Trump_followers()’ but you’ve called the function ‘compute_trump_followers()’ the machine won’t work. No matter how clear your intentions were. (Yes, Python is <strong>CaSe sEnSItiVe</strong>).</p>
+</div>
+<div id="ask-for-help" class="section level3">
+<h3><span class="header-section-number">1.4.7</span> Ask for Help</h3>
+<p>You are not alone programming. There are many resources and tutorials out there. And there are search engines to find them (enter: <strong>Stack Overflow</strong>).</p>
+<p>Besides your favourite seaching activities, be sure to add Stack Overflow to your searches. That’s the place to go for programming questions. If you want to post there, be aware that sometimes answers can be quite direct.</p>
+<p>Also, try to look for tutorials and resources on GitHub as well. GitHub hosts mostly code, but it features entire cooperative books out there (they can be updated better than printed version - check out the <em>Programming Bitcoin Book</em>, for example), repositories full of resources from programming languages or books in general (look for the EbookFoundation).</p>
+<p>Further, if you are stuck while coding you may look for similar programming and see if that brings any <em>Eureka!</em> moment to you.</p>
+</div>
+<div id="the-importance-of-keyboard-shortcuts" class="section level3">
+<h3><span class="header-section-number">1.4.8</span> The Importance of (Keyboard) Shortcuts</h3>
+<p>You are going to type quite a lot in different environments. If you look at the hand of proficient people, they know how to type. You can invest some quality time to be more efficient at typing.</p>
+<p>Also, you should know your shortcuts. You are likely to know ctrl+c and ctrl+v. But do you know how to access the navigation bar of a browser? Or how to split screens or go into fullscreen mode into Acrobat Reader?<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a></p>
+<p>(These will help you if you are in a country with a language intimidating enough to make you realize that you can’t go to full-screen presentation mode without IT assistance.)</p>
+<p>The best way to practice this is to do without the mouse for a while. Also, feel free to time your performances. It’s not that bad to stick to the keyboard only.</p>
+</div>
+<div id="book-organization-and-extra-resources" class="section level3">
+<h3><span class="header-section-number">1.4.9</span> Book Organization and Extra Resources</h3>
+<p>By now you know almost everything about your <em>HumanDemia</em> training. Their instructional department seems pretty good: every chapter has a summary at the end.</p>
+<p>There are also additional resources and links for the topics covered with book recommendations and tutorials. The further work section has exercises and other things you may consider doing.</p>
+<p>If there are (keyboard) shortcuts worth knowing, they will be listed as a recap.</p>
+</div>
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">1.5</span> Summary</h2>
+<p>You’ve finished the brochure of the <em>HumanDemia</em> training. You now know what to expect and are happy you have some tools to go through all the material. Some of these tips are not as easy as they seem to be applied practically. (Experimenting, making mistakes, reading the docs, looking for shortcuts.)</p>
+<p>You know why the kinds here are important for the academia and are welcome to start thinking about your applications. A final piece advice: <em>start smal</em>l. You’d like to have a machine spotting the 20 best papers out of the 200 last published and presented. But ‘AI’ and ‘machine learning’ are both hard to be programmed and computationally intense to be performed (hours or days, depending on the task and the software).</p>
+<div id="more-resources" class="section level3">
+<h3><span class="header-section-number">1.5.1</span> More Resources</h3>
+<p>Here’s a perspective on how to learn to code <a href="https://medium.com/@christianalexanderbonilla/learning-how-to-learn-how-to-program" class="uri">https://medium.com/@christianalexanderbonilla/learning-how-to-learn-how-to-program</a>
+-d3f8b9d37222 (Medium, on the whole, has quite many articles on the topic)</p>
+<p>In case you missed the search for free programming books on GitHub here’s a lot of stuff: <a href="https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md" class="uri">https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md</a>.</p>
+<p>There’s quite a lot going on on how to choose a programming language for teaching. Here are some interesting articles: <a href="https://blog.janestreet.com/how-to-choose-a-teaching-language/" class="uri">https://blog.janestreet.com/how-to-choose-a-teaching-language/</a> and <a href="https://www.freecodecamp.org/news/what-programming-language-should-i-learn-first-19a33b0a467d/" class="uri">https://www.freecodecamp.org/news/what-programming-language-should-i-learn-first-19a33b0a467d/</a> and also <a href="https://www.drdobbs.com/architecture-and-design/software-engineering-" class="uri">https://www.drdobbs.com/architecture-and-design/software-engineering-</a>
+computer-science/217701907.</p>
+<p>Eric Steven Raymond has another great piece about developing an hackinng mentality by way of using the <em>Incremental-Hacking Cycle</em>: here it is <a href="http://www.catb.org/~esr/faqs/hacking-howto.html" class="uri">http://www.catb.org/~esr/faqs/hacking-howto.html</a>.</p>
+</div>
+<div id="further-work" class="section level3">
+<h3><span class="header-section-number">1.5.2</span> Further Work</h3>
+<p>Research the various stuff that’s in the <em>HumanDemia</em> curricula. Try to imagine what the things are about if you don’t know already. Estimate how complex things are going to be.</p>
+<p>Make a list of the actions you perform most often in front of the screen and learn the shortcuts.</p>
+<p>Try some: “look, mum, no mouse!” working sessions.</p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>See Eric Steven Raymond, <em>How to Learn Hacking</em>, <a href="http://www.catb.org/~esr/faqs/hacking-howto.html" class="uri">http://www.catb.org/~esr/faqs/hacking-howto.html</a>.<a href="prologue.html#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>A useful tool to get a quick overview of the syntax of something programming related is the “Learn X in Y minutes” website: <a href="https://learnxinyminutes.com/" class="uri">https://learnxinyminutes.com/</a>.<a href="prologue.html#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>But it will be fun or pedagogically interested. There are resources to learn git in a gamified or at least visual supported way.<a href="prologue.html#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p>It’s F7 in RStudio. Yes, get ready for some shortcuts.<a href="prologue.html#fnref4" class="footnote-back">↩</a></p></li>
+<li id="fn5"><p>Feel free to elaborate a way to develop your logging system and bend the tools provided here to your needs. In a way when you start learning you are going to be your main dataset.<a href="prologue.html#fnref5" class="footnote-back">↩</a></p></li>
+<li id="fn6"><p>Sometime Python is referred to as “pseudocode that actually runs”. So it’s not going to be that complex.<a href="prologue.html#fnref6" class="footnote-back">↩</a></p></li>
+<li id="fn7"><p>According to a study, in Italy, ‘technology’ means “something you don’t understand, to achieve something that cannot be done, but that earns you a lot of votes”. Of course the study was never published because of [conspircy theory].<a href="prologue.html#fnref7" class="footnote-back">↩</a></p></li>
+<li id="fn8"><p>Previous drafts had “nor having ideas is a requirement for tenure” in the body of the text.<a href="prologue.html#fnref8" class="footnote-back">↩</a></p></li>
+<li id="fn9"><p>There’s a whole series of learning to program “the hard way” that focuses on writing a lot of code. Maybe you are that kind of learner. You were given a list of irregular verbs to learn. Reading it was pointless, repeating it didn’t help. But you wrote it in your mind by way of writing it 4 times.<a href="prologue.html#fnref9" class="footnote-back">↩</a></p></li>
+<li id="fn10"><p>If you want to jump on Ruby (or rebuild Instragram) there it is <a href="https://www.devwalks.com/lets-build-instagram-in-rails-part-1/" class="uri">https://www.devwalks.com/lets-build-instagram-in-rails-part-1/</a>.<a href="prologue.html#fnref10" class="footnote-back">↩</a></p></li>
+<li id="fn11"><p>Like, super early in the fourth line of the quickstart: <a href="https://flask.palletsprojects.com/en/1.1.x/quickstart/#quickstart" class="uri">https://flask.palletsprojects.com/en/1.1.x/quickstart/#quickstart</a>.<a href="prologue.html#fnref11" class="footnote-back">↩</a></p></li>
+<li id="fn12"><p>Have you ever tried working with two monitors? Programming and editing are different experiences with two screens.<a href="prologue.html#fnref12" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="ch2.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
